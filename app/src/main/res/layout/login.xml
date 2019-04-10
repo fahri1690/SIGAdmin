@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:padding="@dimen/default_padding"
               android:layout_width="match_parent"
@@ -46,18 +47,19 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/defaultTextSize"
                 android:textColor="@color/colorPrimary"
-                android:text="@string/buttonLpSandi" />
+                android:text="@string/buttonLpSandi"/>
 
-        <TextView android:id="@+id/registerText"
-                  android:layout_width="0dp"
-                  android:layout_marginEnd="50dp"
-                  android:layout_height="wrap_content"
-                  android:gravity="end"
-                  android:layout_weight="3"
-                  android:textColor="@color/colorAccent"
-                  android:textSize="@dimen/defaultTextSize"
-                  android:text="@string/buttonDaftar"
-                  android:layout_marginRight="@dimen/rightMargin"/>
+        <TextView
+                android:id="@+id/registerText"
+                android:layout_width="0dp"
+                android:layout_marginEnd="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_weight="3"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/defaultTextSize"
+                android:text="@string/buttonDaftar"
+                android:layout_marginRight="@dimen/rightMargin"/>
 
     </LinearLayout>
 
