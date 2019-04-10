@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SIG Admin</string>
+    <string name="phone_hint">Nomor Telepon</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="password_hint">Kata Sandi</string>
+    <string name="register">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="buttonDaftar">Daftar</string>
+    <string name="buttonLpSandi">Lupa Kata Sandi?</string>
+    <string name="forgot_password">Masukkan No. Telepon</string>
+    <string name="buttonVerivikasi">Kirim</string>
+    <string name="otp_hint">Masukkan kode verifikasi</string>
+    <string name="confirm_label">Konfirmasi</string>
+    <string name="updatePass">Ubah Kata Sandi</string>
+</resources>
