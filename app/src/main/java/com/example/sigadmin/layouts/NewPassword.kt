@@ -20,6 +20,5 @@ class NewPassword : AppCompatActivity() {
             startActivity(intent)
         }
 
-
     }
 }

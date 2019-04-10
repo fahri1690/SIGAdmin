@@ -11,10 +11,10 @@
             android:theme="@style/AppTheme">
         <activity android:name=".layouts.NewPassword">
         </activity>
-        <activity android:name=".layouts.LoginActivity">
+        <activity android:name=".layouts.LoginActivity"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
