@@ -12,4 +12,20 @@
     <string name="otp_hint">Masukkan kode verifikasi</string>
     <string name="confirm_label">Konfirmasi</string>
     <string name="updatePass">Ubah Kata Sandi</string>
+    <string name="newPassHint">Masukkan Kata Sandi Baru</string>
+    <string name="confNewPassHint">Konfirmasi Kata Sandi Baru</string>
+    <string name="namaLapanganHint">Nama Lapangan</string>
+    <string name="fasilitasHint">Fasilitas</string>
+    <string name="jamBukaHint">Jam Buka</string>
+    <string name="jamTutupHint">Jam Tutup</string>
+    <string name="notelpHint">No. Telepon</string>
+    <string name="alamatHint">Alamat</string>
+    <string name="latitudeHint">Latitude</string>
+    <string name="longitudeHint">Longitude</string>
+    <string name="btnSimpanLapBaru">Simpan</string>
+    <string name="namaSubLapanganHint">Nama Sub Lapangan</string>
+    <string name="jenisLapanganHint">Jenis Lapangan</string>
+    <string name="hargaSiangHint">Harga Siang</string>
+    <string name="hargaMalamHint">Harga Malam</string>
+    <string name="btnSimpanSubLapBaru">Simpan</string>
 </resources>
