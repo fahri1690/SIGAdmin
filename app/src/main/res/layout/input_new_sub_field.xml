@@ -4,7 +4,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
-        android:gravity="center_vertical"
         android:padding="@dimen/default_padding"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,14 +18,16 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/default_margin"/>
 
-    <EditText
+    <Spinner
             android:inputType="textPassword"
-            android:id="@+id/jenisLapangan"
+            android:id="@+id/spnrJenisLapangan"
             android:hint="@string/jenisLapanganHint"
             android:background="@drawable/outline_stroke"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_margin"/>
+            android:layout_height="45dp"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:spinnerMode="dropdown"/>
+
     <EditText
             android:inputType="textPassword"
             android:id="@+id/hargaSiang"
