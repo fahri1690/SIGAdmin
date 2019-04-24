@@ -23,6 +23,11 @@ data class FieldModelGetSubField(
     val image: Int
 )
 
+data class FieldGetByName(
+    val id: Int,
+    val name: String
+)
+
 object DataField {
 
     var fields = listOf(
@@ -49,4 +54,12 @@ object DataField {
             R.drawable.tifosi
         )
     )
+
+    var getFieldByName = listOf(
+        FieldGetByName(
+            0,
+            "Lapangan"
+        )
+    )
 }
+

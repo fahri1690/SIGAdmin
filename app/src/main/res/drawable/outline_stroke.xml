@@ -17,7 +17,7 @@
 
     </padding>
 
-    <solid android:color="@color/whiteTransparent">
+    <!--<solid android:color="@color/whiteTransparent">-->
 
-    </solid>
+    <!--</solid>-->
 </shape>

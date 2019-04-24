@@ -10,7 +10,7 @@
         tools:context=".layouts.InputNewSubField">
 
     <EditText
-            android:inputType="textPassword"
+            android:inputType="text"
             android:id="@+id/namaSubLapangan"
             android:hint="@string/namaSubLapanganHint"
             android:background="@drawable/outline_stroke"
@@ -19,17 +19,15 @@
             android:layout_marginBottom="@dimen/default_margin"/>
 
     <Spinner
-            android:inputType="textPassword"
             android:id="@+id/spnrJenisLapangan"
-            android:hint="@string/jenisLapanganHint"
-            android:background="@drawable/outline_stroke"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginBottom="@dimen/default_margin"
-            android:spinnerMode="dropdown"/>
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_bg"
+            android:popupBackground="#dfff"
+            android:layout_marginBottom="@dimen/default_margin"/>
 
     <EditText
-            android:inputType="textPassword"
+            android:inputType="number"
             android:id="@+id/hargaSiang"
             android:hint="@string/hargaSiangHint"
             android:background="@drawable/outline_stroke"
@@ -38,7 +36,7 @@
             android:layout_marginBottom="@dimen/default_margin"/>
 
     <EditText
-            android:inputType="textPassword"
+            android:inputType="number"
             android:id="@+id/hargaMalam"
             android:hint="@string/hargaMalamHint"
             android:background="@drawable/outline_stroke"

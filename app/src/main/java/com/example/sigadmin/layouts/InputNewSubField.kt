@@ -12,7 +12,7 @@ class InputNewSubField : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.input_new_sub_field)
+         setContentView(R.layout.input_new_sub_field)
 
         val saveNewSubFieldBtn = findViewById<Button>(R.id.saveNewSubFieldButton)
         val dropJenis = findViewById<Spinner>(R.id.spnrJenisLapangan)
@@ -23,7 +23,7 @@ class InputNewSubField : AppCompatActivity() {
         }
 
         val jenisLap = arrayOf("Vinyl", "Sintetis")
-        val arrayAdp = ArrayAdapter(this@InputNewSubField,R.layout.input_new_sub_field,jenisLap)
+        val arrayAdp = ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,jenisLap)
         dropJenis.adapter = arrayAdp
     }
 }
