@@ -3,6 +3,7 @@ package com.example.sigadmin.layouts
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import com.example.sigadmin.R
 
@@ -14,6 +15,7 @@ class LoginActivity : AppCompatActivity() {
 
         val tvRegister = findViewById<TextView>(R.id.registerText)
         val tvForgotPassword = findViewById<TextView>(R.id.forgotPasswordText)
+        val btnLogin = findViewById<Button>(R.id.btnMasuk)
 
         tvRegister.setOnClickListener{
             val regIntent = Intent(this, RegisterActivity::class.java)
@@ -22,6 +24,11 @@ class LoginActivity : AppCompatActivity() {
 
         tvForgotPassword.setOnClickListener {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnLogin.setOnClickListener {
+            val intent = Intent (this, HomeAdmin::class.java)
             startActivity(intent)
         }
     }

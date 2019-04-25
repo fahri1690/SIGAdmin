@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.sigadmin">
-
+    <permission android:name="INTERNET"/>
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -11,7 +11,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".layouts.FieldProfileActivity">
         </activity>
-        <activity android:name=".layouts.LoginActivity">
+        <activity android:name=".layouts.HomeAdmin">
         </activity>
         <activity android:name=".layouts.InputNewField">
         </activity>
@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".layouts.NewPassword">
         </activity>
-        <activity android:name=".layouts.HomeAdmin">
+        <activity android:name=".layouts.LoginActivity">
 
             <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar"> -->
             <intent-filter>

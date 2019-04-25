@@ -27,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    <Button android:layout_width="@dimen/button_width"
+    <Button android:id="@+id/btnMasuk"
+            android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:background="@drawable/button_layout"
             android:layout_gravity="end"
