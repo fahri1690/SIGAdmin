@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "179519716093",
-    "firebase_url": "https://sigadmin.firebaseio.com",
-    "project_id": "sigadmin",
-    "storage_bucket": "sigadmin.appspot.com"
+    "project_number": "586934497221",
+    "firebase_url": "https://sigfutsal.firebaseio.com",
+    "project_id": "sigfutsal",
+    "storage_bucket": "sigfutsal.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:179519716093:android:6262af98f74ac3fa",
+        "mobilesdk_app_id": "1:586934497221:android:6262af98f74ac3fa",
         "android_client_info": {
           "package_name": "com.example.sigadmin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "179519716093-ppj2tktkeldon5sva9aa8t406lkv2ssn.apps.googleusercontent.com",
+          "client_id": "586934497221-3a43iu64t9ai1l6ag8451j77f0el1bg1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.sigadmin",
-            "certificate_hash": "9cdb8bec883b90db0aa7396cad7c56fc493a4307"
+            "certificate_hash": "ac64cd0424e24ca32ce84fb054406f8c12c637ff"
           }
         },
         {
-          "client_id": "179519716093-q8s4dd984mo9gkl409cq6npcask9cegs.apps.googleusercontent.com",
+          "client_id": "586934497221-ksc8hpgcdkns9oup0235n4f27c4g02mg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC25-ZPH4FRy38w7yx8yc9pKHf1fHoMIH8"
+          "current_key": "AIzaSyCt295kBENNSz_e06T7dPGNjQQG0AF6Z2E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "179519716093-q8s4dd984mo9gkl409cq6npcask9cegs.apps.googleusercontent.com",
+              "client_id": "586934497221-ksc8hpgcdkns9oup0235n4f27c4g02mg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

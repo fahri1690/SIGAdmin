@@ -10,6 +10,7 @@
         tools:context=".layouts.RegisterActivity">
 
     <EditText
+            android:id="@+id/etName"
             android:textColorHint="@color/colorPrimary"
             android:background="@drawable/outline_stroke"
             android:layout_marginTop="@dimen/default_margin"
@@ -20,6 +21,7 @@
             android:layout_height="wrap_content"/>
 
     <EditText
+            android:id="@+id/etPassword"
             android:textColorHint="@color/colorPrimary"
             android:background="@drawable/outline_stroke"
             android:layout_marginBottom="@dimen/default_margin"
@@ -29,6 +31,7 @@
             android:layout_height="wrap_content"/>
 
     <EditText
+            android:id="@+id/etPhone"
             android:textColorHint="@color/colorPrimary"
             android:background="@drawable/outline_stroke"
             android:layout_marginBottom="@dimen/default_margin"

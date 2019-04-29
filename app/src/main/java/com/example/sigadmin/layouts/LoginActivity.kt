@@ -6,8 +6,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.example.sigadmin.R
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class LoginActivity : AppCompatActivity() {
+
+    lateinit var ref : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
         val tvRegister = findViewById<TextView>(R.id.registerText)
         val tvForgotPassword = findViewById<TextView>(R.id.forgotPasswordText)
         val btnLogin = findViewById<Button>(R.id.btnMasuk)
+        ref = FirebaseDatabase.getInstance().getReference("Admin")
 
         tvRegister.setOnClickListener{
             val regIntent = Intent(this, RegisterActivity::class.java)

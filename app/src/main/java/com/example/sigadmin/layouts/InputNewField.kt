@@ -15,7 +15,7 @@ class InputNewField : AppCompatActivity() {
         val saveButtonNewField = findViewById<Button>(R.id.saveNewFieldButton)
 
         saveButtonNewField.setOnClickListener {
-            val intent = Intent (this, LoginActivity::class.java)
+            val intent = Intent (this, HomeAdmin::class.java)
             startActivity(intent)
         }
     }
