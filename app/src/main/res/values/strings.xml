@@ -28,4 +28,5 @@
     <string name="hargaSiangHint">Harga Siang</string>
     <string name="hargaMalamHint">Harga Malam</string>
     <string name="btnSimpanSubLapBaru">Simpan</string>
+    <string name="jenisHint">Jenis Lapangan</string>
 </resources>

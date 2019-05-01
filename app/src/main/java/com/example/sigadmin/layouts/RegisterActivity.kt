@@ -30,9 +30,9 @@ class RegisterActivity : AppCompatActivity() {
         val phone = etPhone.text.toString()
         val password = etPassword.text.toString()
         val admin = Admin(name,phone, password)
-        val userId = ref.push()
+        val userId = ref.push().key.toString()
 
-        ref.child(userId.toString()).setValue(admin).addOnCompleteListener {
+        ref.child(userId).setValue(admin).addOnCompleteListener {
             Toast.makeText(this, "Successs",Toast.LENGTH_SHORT).show()
             etName.setText("")
             etPhone.setText("")

@@ -26,13 +26,13 @@ class InputNewField : AppCompatActivity() {
     private fun savedata() {
         val namaLapangan = etNamaLapangan.text.toString()
         val fasilitas = etFasilitas.text.toString()
-        val jambuka = etJamBuka.text.toString()
-        val jamtutup = etJamBuka.text.toString()
-        val notelp = etNotelp.text.toString()
+        val jamBuka = etJamBuka.text.toString()
+        val jamTutup = etJamBuka.text.toString()
+        val noTelp = etNotelp.text.toString()
         val alamat = etAlamat.text.toString()
         val latitude = etLatitude.text.toString()
         val longitude = etLongitude.text.toString()
-        val lapangan = Field(namaLapangan,fasilitas,jambuka,jamtutup,notelp,alamat,latitude,longitude)
+        val lapangan = Field(namaLapangan,fasilitas,jamBuka,jamTutup,noTelp,alamat,latitude,longitude)
         val lapanganId = ref.push().key.toString()
 
         ref.child(lapanganId).setValue(lapangan).addOnCompleteListener {

@@ -23,5 +23,12 @@
                 android:layout_gravity="end"
                 android:background="@drawable/button_layout"
         />
+        <Button android:id="@+id/btnAddNewSubField"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="tambah sub"
+                android:layout_gravity="end"
+                android:background="@drawable/button_layout"
+        />
     </LinearLayout>
 </ScrollView>

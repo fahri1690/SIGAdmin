@@ -1,14 +1,9 @@
 package com.example.sigadmin.layouts
 
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
+import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.sigadmin.R
-import com.example.sigadmin.models.Field
 import com.example.sigadmin.models.SubField
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -24,7 +19,7 @@ class InputNewSubField : AppCompatActivity() {
         setContentView(R.layout.input_new_sub_field)
 
         ref = FirebaseDatabase.getInstance().getReference("SubLapangan")
-        btnSaveNewField.setOnClickListener {
+        btnSaveNewSubField.setOnClickListener {
             savedata()
         }
     }
@@ -32,12 +27,12 @@ class InputNewSubField : AppCompatActivity() {
     private fun savedata() {
         val namaSubLapangan = etNamaSubLapangan.text.toString()
         val jenis = etJenisLapangan.text.toString()
-        val hargasiang = etHargaSiang.text.toString()
-        val hargamalam = etHargaMalam.text.toString()
-        val sublapangan = SubField(namaSubLapangan,jenis,hargasiang,hargamalam)
-        val sublapanganId = ref.push()
+        val hargaSiang = etHargaSiang.text.toString()
+        val hargaMalam = etHargaMalam.text.toString()
+        val sublapangan = SubField(namaSubLapangan,jenis,hargaSiang,hargaMalam)
+        val sublapanganId = ref.push().key.toString()
 
-        ref.child(sublapanganId.toString()).setValue(sublapangan).addOnCompleteListener {
+        ref.child(sublapanganId).setValue(sublapangan).addOnCompleteListener {
             Toast.makeText(this, "Successs", Toast.LENGTH_SHORT).show()
             etNamaSubLapangan.setText("")
             etJenisLapangan.setText("")

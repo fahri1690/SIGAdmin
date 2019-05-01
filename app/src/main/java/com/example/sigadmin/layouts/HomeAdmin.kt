@@ -16,11 +16,17 @@ class HomeAdmin : AppCompatActivity() {
 
         val fieldList = findViewById<ListView>(R.id.fieldList)
         val btnNewField = findViewById<Button>(R.id.btnAddNewField)
+        val btnNewSubField = findViewById<Button>(R.id.btnAddNewSubField)
 
         fieldList.adapter = FieldAdapter(this)
 
         btnNewField.setOnClickListener {
             val intent = Intent (this, InputNewField::class.java)
+            startActivity(intent)
+        }
+
+        btnNewSubField.setOnClickListener {
+            val intent = Intent (this, InputNewSubField::class.java)
             startActivity(intent)
         }
 

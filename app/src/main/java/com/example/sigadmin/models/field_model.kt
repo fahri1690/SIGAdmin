@@ -1,7 +1,5 @@
 package com.example.sigadmin.models
 
-import com.example.sigadmin.R
-
 data class Field(
     val namaLapangan: String,
     val alamat: String,
@@ -12,5 +10,3 @@ data class Field(
     val latitude: String,
     val longitude: String
 )
-
-
