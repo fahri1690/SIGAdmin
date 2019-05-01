@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:gravity="center_vertical"
         android:padding="@dimen/default_padding"
@@ -10,80 +9,89 @@
         android:layout_height="match_parent"
         tools:context=".layouts.InputNewField">
 
-    <EditText
-            android:inputType="textPassword"
-            android:id="@+id/namaLapangan"
-            android:hint="@string/namaLapanganHint"
-            android:background="@drawable/outline_stroke"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_margin"/>
-    <EditText
-            android:inputType="textPassword"
-            android:id="@+id/fasilitas"
-            android:hint="@string/fasilitasHint"
-            android:background="@drawable/outline_stroke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_margin"/>
-    <EditText
-            android:inputType="textPassword"
-            android:id="@+id/jamBuka"
-            android:hint="@string/jamBukaHint"
-            android:background="@drawable/outline_stroke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_margin"/>
-    <EditText
-            android:inputType="textPassword"
-            android:id="@+id/jamTutup"
-            android:hint="@string/jamTutupHint"
-            android:background="@drawable/outline_stroke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_margin"/>
-    <EditText
-            android:inputType="textPassword"
-            android:id="@+id/notelp"
-            android:hint="@string/notelpHint"
-            android:background="@drawable/outline_stroke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_margin"/>
-    <EditText
-            android:inputType="textPassword"
-            android:id="@+id/alamat"
-            android:hint="@string/alamatHint"
-            android:background="@drawable/outline_stroke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_margin"/>
-    <EditText
-            android:inputType="textPassword"
-            android:id="@+id/latitude"
-            android:hint="@string/latitudeHint"
-            android:background="@drawable/outline_stroke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_margin"/>
-    <EditText
-            android:inputType="textPassword"
-            android:id="@+id/longitude"
-            android:hint="@string/longitudeHint"
-            android:background="@drawable/outline_stroke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/default_margin"/>
+            android:layout_height="match_parent">
 
-    <Button
-            android:id="@+id/saveNewFieldButton"
-            android:textAllCaps="false"
-            android:background="@drawable/button_layout"
-            android:textColor="@color/buttonTextColor"
-            android:layout_gravity="end"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:text="@string/btnSimpanLapBaru"
-    />
 
-</LinearLayout>
+        <EditText
+                android:inputType="text"
+                android:id="@+id/etNamaLapangan"
+                android:hint="@string/namaLapanganHint"
+                android:background="@drawable/outline_stroke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"/>
+        <EditText
+                android:inputType="text"
+                android:id="@+id/etFasilitas"
+                android:hint="@string/fasilitasHint"
+                android:background="@drawable/outline_stroke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"/>
+        <EditText
+                android:inputType="text"
+                android:id="@+id/etJamBuka"
+                android:hint="@string/jamBukaHint"
+                android:background="@drawable/outline_stroke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"/>
+        <EditText
+                android:inputType="text"
+                android:id="@+id/etJamTutup"
+                android:hint="@string/jamTutupHint"
+                android:background="@drawable/outline_stroke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"/>
+        <EditText
+                android:inputType="text"
+                android:id="@+id/etNotelp"
+                android:hint="@string/notelpHint"
+                android:background="@drawable/outline_stroke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"/>
+        <EditText
+                android:inputType="text"
+                android:id="@+id/etAlamat"
+                android:hint="@string/alamatHint"
+                android:background="@drawable/outline_stroke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"/>
+        <EditText
+                android:inputType="text"
+                android:id="@+id/etLatitude"
+                android:hint="@string/latitudeHint"
+                android:background="@drawable/outline_stroke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"/>
+        <EditText
+                android:inputType="text"
+                android:id="@+id/etLongitude"
+                android:hint="@string/longitudeHint"
+                android:background="@drawable/outline_stroke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"/>
+
+        <Button
+                android:id="@+id/btnSaveNewField"
+                android:textAllCaps="false"
+                android:background="@drawable/button_layout"
+                android:textColor="@color/buttonTextColor"
+                android:layout_gravity="end"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:text="@string/btnSimpanLapBaru"
+        />
+
+
+    </LinearLayout>
+</ScrollView>
+

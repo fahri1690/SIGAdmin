@@ -11,24 +11,16 @@
 
     <EditText
             android:inputType="text"
-            android:id="@+id/namaSubLapangan"
+            android:id="@+id/etNamaSubLapangan"
             android:hint="@string/namaSubLapanganHint"
             android:background="@drawable/outline_stroke"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/default_margin"/>
 
-    <Spinner
-            android:id="@+id/spnrJenisLapangan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/spinner_bg"
-            android:popupBackground="#dfff"
-            android:layout_marginBottom="@dimen/default_margin"/>
-
     <EditText
             android:inputType="number"
-            android:id="@+id/hargaSiang"
+            android:id="@+id/etJenisLapangan"
             android:hint="@string/hargaSiangHint"
             android:background="@drawable/outline_stroke"
             android:layout_width="match_parent"
@@ -37,7 +29,16 @@
 
     <EditText
             android:inputType="number"
-            android:id="@+id/hargaMalam"
+            android:id="@+id/etHargaSiang"
+            android:hint="@string/hargaSiangHint"
+            android:background="@drawable/outline_stroke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_margin"/>
+
+    <EditText
+            android:inputType="number"
+            android:id="@+id/etHargaMalam"
             android:hint="@string/hargaMalamHint"
             android:background="@drawable/outline_stroke"
             android:layout_width="match_parent"
@@ -45,7 +46,7 @@
             android:layout_marginBottom="@dimen/default_margin"/>
 
     <Button
-            android:id="@+id/saveNewSubFieldButton"
+            android:id="@+id/btnSaveNewSubField"
             android:textAllCaps="false"
             android:background="@drawable/button_layout"
             android:textColor="@color/buttonTextColor"
