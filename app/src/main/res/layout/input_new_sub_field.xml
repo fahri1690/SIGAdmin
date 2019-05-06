@@ -13,10 +13,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <ImageView android:layout_width="match_parent"
-                   android:id="@+id/idImageSubField"
-                   android:layout_height="250dp"
-                   android:layout_marginBottom="@dimen/default_margin"/>
+        <ImageView
+                android:src="@drawable/ic_image_black_24dp"
+                android:background="@drawable/img_bg"
+                android:layout_width="match_parent"
+                android:id="@+id/idImageSubField"
+                android:layout_height="@dimen/image_view_height"
+                android:layout_marginBottom="@dimen/default_margin"/>
 
         <EditText
                 android:inputType="text"
@@ -27,14 +30,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
 
-        <EditText
-                android:inputType="text"
-                android:id="@+id/etJenisLapangan"
-                android:hint="@string/jenisHint"
-                android:background="@drawable/outline_stroke"
+        <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/default_margin"/>
+                android:background="@drawable/spinner_bg"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:layout_height="wrap_content">
+            <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spn_height"
+                    android:entries="@array/jenis_lapangan"
+                    android:spinnerMode="dropdown"/>
+        </FrameLayout>
 
         <EditText
                 android:inputType="number"

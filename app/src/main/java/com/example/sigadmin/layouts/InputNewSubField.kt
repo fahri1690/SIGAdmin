@@ -6,6 +6,9 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.sigadmin.R
 import com.example.sigadmin.models.SubField
@@ -13,12 +16,11 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.input_new_field.*
 import kotlinx.android.synthetic.main.input_new_sub_field.*
 import java.io.IOException
 import java.util.*
 
-class InputNewSubField : AppCompatActivity() {
+class InputNewSubField : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     lateinit var ref: DatabaseReference
     private val dbInstance = FirebaseDatabase.getInstance()
@@ -29,6 +31,14 @@ class InputNewSubField : AppCompatActivity() {
     private var imgRef: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
 
+    override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
+
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>) {
+        // Another interface callback
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.input_new_sub_field)
@@ -38,16 +48,25 @@ class InputNewSubField : AppCompatActivity() {
 
         ref = dbInstance.getReference("SubLapangan")
 
+        val adapter = ArrayAdapter.createFromResource(this,
+            R.array.jenis_lapangan, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        // Apply the adapter to the spinner
+        spinner2.adapter = adapter
+
+        spinner2.onItemSelectedListener = this
+
         idImageSubField.setOnClickListener {
             selectImage()
         }
+
+
         btnSaveNewSubField.setOnClickListener {
             uploadImage()
-            savedata()
+            saveData()
             rollBack()
         }
     }
-
     private fun rollBack() {
         val newIntent = Intent(this, HomeAdmin::class.java)
         startActivity(newIntent)
@@ -77,9 +96,10 @@ class InputNewSubField : AppCompatActivity() {
         startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), PICK_IMAGE_REQUEST)
     }
 
-    private fun savedata() {
+    private fun saveData() {
+        val pos = 0
         val namaSubLapangan = etNamaSubLapangan.text.toString()
-        val jenis = etJenisLapangan.text.toString()
+        val jenis = spinner2.selectedItem.toString()
         val hargaSiang = etHargaSiang.text.toString()
         val hargaMalam = etHargaMalam.text.toString()
         val sublapangan = SubField(namaSubLapangan = namaSubLapangan, jenis = jenis, hargaSiang = hargaSiang, hargaMalam = hargaMalam)
@@ -88,7 +108,6 @@ class InputNewSubField : AppCompatActivity() {
         ref.child(sublapanganId).setValue(sublapangan).addOnCompleteListener {
             Toast.makeText(this, "Successs", Toast.LENGTH_SHORT).show()
             etNamaSubLapangan.setText("")
-            etJenisLapangan.setText("")
             etHargaSiang.setText("")
             etHargaMalam.setText("")
         }

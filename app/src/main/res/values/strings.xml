@@ -29,4 +29,9 @@
     <string name="hargaMalamHint">Harga Malam</string>
     <string name="btnSimpanSubLapBaru">Simpan</string>
     <string name="jenisHint">Jenis Lapangan</string>
+
+    <string-array name="jenis_lapangan">
+        <item>Vinyl</item>
+        <item>Sintetis</item>
+    </string-array>
 </resources>

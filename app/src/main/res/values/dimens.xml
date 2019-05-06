@@ -12,4 +12,6 @@
     <dimen name="rightMargin">50dp</dimen>
     <dimen name="defaultTextSize">18sp</dimen>
     <dimen name="defaultMarginEnd">50dp</dimen>
+    <dimen name="spn_height">40dp</dimen>
+    <dimen name="image_view_height">200dp</dimen>
 </resources>
