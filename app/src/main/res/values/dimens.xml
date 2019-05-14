@@ -14,4 +14,7 @@
     <dimen name="defaultMarginEnd">50dp</dimen>
     <dimen name="spn_height">40dp</dimen>
     <dimen name="image_view_height">200dp</dimen>
+    <dimen name="margin_login">20dip</dimen>
+    <dimen name="text_size_infologin">20</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

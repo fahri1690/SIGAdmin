@@ -97,12 +97,11 @@ class InputNewSubField : AppCompatActivity(), AdapterView.OnItemSelectedListener
     }
 
     private fun saveData() {
-        val pos = 0
         val namaSubLapangan = etNamaSubLapangan.text.toString()
         val jenis = spinner2.selectedItem.toString()
-        val hargaSiang = etHargaSiang.text.toString()
+        val hargaSiang : Int = etHargaSiang.text.length
         val hargaMalam = etHargaMalam.text.toString()
-        val sublapangan = SubField(namaSubLapangan = namaSubLapangan, jenis = jenis, hargaSiang = hargaSiang, hargaMalam = hargaMalam)
+        val sublapangan = SubField(namaSubLapangan = namaSubLapangan, jenis = jenis, hargaSiang = hargaSiang.toString(), hargaMalam = hargaMalam)
         val sublapanganId = ref.push().key.toString()
 
         ref.child(sublapanganId).setValue(sublapangan).addOnCompleteListener {

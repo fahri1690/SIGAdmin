@@ -6,16 +6,16 @@ import android.os.Bundle
 import android.widget.Button
 import com.example.sigadmin.R
 
-class OtpActivity : AppCompatActivity() {
+class FieldInfo : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.otp)
+        setContentView(R.layout.field_info)
 
-        val otpConfirmButton= findViewById<Button>(R.id.otpConfirmButton)
+        val btnUpdateField = findViewById<Button>(R.id.updateField)
 
-        otpConfirmButton.setOnClickListener {
-            val intent= Intent(this, HomeAdmin::class.java)
+        btnUpdateField.setOnClickListener {
+            val intent = Intent (this, UpdateField::class.java)
             startActivity(intent)
         }
     }

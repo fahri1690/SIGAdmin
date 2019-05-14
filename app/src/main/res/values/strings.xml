@@ -7,11 +7,11 @@
     <string name="login">Masuk</string>
     <string name="buttonDaftar">Daftar</string>
     <string name="buttonLpSandi">Lupa Kata Sandi?</string>
-    <string name="forgot_password">Masukkan No. Telepon</string>
+    <string name="forgot_password">Masukkan Email</string>
     <string name="buttonVerivikasi">Kirim</string>
-    <string name="otp_hint">Masukkan kode verifikasi</string>
+    <string name="otp_hint">Masukkan Kode OTP</string>
     <string name="confirm_label">Konfirmasi</string>
-    <string name="updatePass">Ubah Kata Sandi</string>
+    <string name="updatePass">Simpan</string>
     <string name="newPassHint">Masukkan Kata Sandi Baru</string>
     <string name="confNewPassHint">Konfirmasi Kata Sandi Baru</string>
     <string name="namaLapanganHint">Nama Lapangan</string>
@@ -29,9 +29,21 @@
     <string name="hargaMalamHint">Harga Malam</string>
     <string name="btnSimpanSubLapBaru">Simpan</string>
     <string name="jenisHint">Jenis Lapangan</string>
+    <string name="etEmail">Email</string>
+    <string name="confirm_password_hint">Konfirmasi Kata Sandi</string>
+    <string name="etNamaAdmin">Nama Pengguna</string>
+    <string name="etNoTelepon">No Telepon</string>
+    <string name="daftar">Daftar</string>
+    <string name="login_info">Masukkan nomor telepon yang telah terdaftar untuk masuk</string>
+    <string name="akun_baru">Belum punya akun?</string>
+    <string name="update_field">Perbarui</string>
+    <string name="tambah_sub_field">Tambah Sub Lapangan</string>
+    <string name="tambah_lapangan">Tambah Lapangan</string>
 
     <string-array name="jenis_lapangan">
         <item>Vinyl</item>
         <item>Sintetis</item>
     </string-array>
+    <string name="title_activity_update_sub_field">UpdateSubField</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
 </resources>

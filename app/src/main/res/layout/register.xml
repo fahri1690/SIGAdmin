@@ -6,46 +6,59 @@
         android:padding="@dimen/default_padding"
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:gravity="center_vertical"
         android:layout_height="match_parent"
         tools:context=".layouts.RegisterActivity">
 
-    <EditText
-            android:id="@+id/etName"
-            android:textColorHint="@color/colorPrimary"
-            android:background="@drawable/outline_stroke"
-            android:layout_marginTop="@dimen/default_margin"
-            android:layout_marginBottom="@dimen/default_margin"
-            android:inputType="text"
-            android:hint="@string/username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    <EditText android:id="@+id/etNamaRegister"
+              android:textColorHint="@color/colorPrimary"
+              android:background="@drawable/outline_stroke"
+              android:layout_marginTop="@dimen/default_margin"
+              android:layout_marginBottom="@dimen/default_margin"
+              android:inputType="text"
+              android:hint="@string/etNamaAdmin"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
 
-    <EditText
-            android:id="@+id/etPassword"
-            android:textColorHint="@color/colorPrimary"
-            android:background="@drawable/outline_stroke"
-            android:layout_marginBottom="@dimen/default_margin"
-            android:inputType="textPassword"
-            android:hint="@string/password_hint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    <EditText android:id="@+id/etEmailRegister"
+              android:textColorHint="@color/colorPrimary"
+              android:background="@drawable/outline_stroke"
+              android:layout_marginBottom="@dimen/default_margin"
+              android:inputType="text"
+              android:hint="@string/etEmail"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
 
-    <EditText
-            android:id="@+id/etPhone"
-            android:textColorHint="@color/colorPrimary"
-            android:background="@drawable/outline_stroke"
-            android:layout_marginBottom="@dimen/default_margin"
-            android:hint="@string/phone_hint"
-            android:inputType="phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    <EditText android:id="@+id/etPhoneRegister"
+              android:textColorHint="@color/colorPrimary"
+              android:background="@drawable/outline_stroke"
+              android:layout_marginBottom="@dimen/default_margin"
+              android:inputType="text"
+              android:hint="@string/etNoTelepon"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
 
     <Button android:id="@+id/registerButton"
-            android:layout_width="@dimen/button_width"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/button_height"
             android:background="@drawable/button_layout"
             android:layout_gravity="end"
             android:text="@string/register"
+            android:textAllCaps="false"
+            android:textColor="@color/buttonTextColor"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:layout_margin="@dimen/default_margin"
+              android:text="@string/sudah_punya_akun"/>
+
+    <Button android:id="@+id/btnMasuk"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:background="@drawable/button_layout"
+            android:layout_gravity="end"
+            android:text="@string/login"
             android:textAllCaps="false"
             android:textColor="@color/buttonTextColor"/>
 

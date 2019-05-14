@@ -2,20 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-              android:gravity="top"
+              android:gravity="center_vertical"
               android:orientation="vertical"
               android:padding="@dimen/default_padding"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               tools:context=".layouts.LoginActivity">
-
-    <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/login_info"
-              android:textSize="@dimen/text_size_infologin"
-              android:textStyle="bold"
-              android:layout_marginTop="@dimen/margin_login"
-              android:layout_marginBottom="@dimen/margin_login"/>
 
     <EditText
             android:textColorHint="@color/colorPrimary"
@@ -32,6 +24,21 @@
             android:layout_marginBottom="@dimen/default_margin"
             android:background="@drawable/button_layout"
             android:text="@string/login"
+            android:textAllCaps="false"
+            android:textColor="@color/buttonTextColor"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:layout_margin="@dimen/default_margin"
+              android:text="@string/akun_baru"/>
+
+    <Button android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:background="@drawable/button_layout"
+            android:layout_gravity="end"
+            android:text="@string/daftar"
             android:textAllCaps="false"
             android:textColor="@color/buttonTextColor"/>
 
