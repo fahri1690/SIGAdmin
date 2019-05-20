@@ -19,10 +19,10 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register)
 
-        val btnMasuk = findViewById<Button>(R.id.btnMasuk)
+        val btnMasuk = findViewById<Button>(R.id.btn_login)
 
         ref = FirebaseDatabase.getInstance().getReference("Admin")
-        registerButton.setOnClickListener {
+        btn_register.setOnClickListener {
             val intent = Intent(this, OtpActivity::class.java)
             startActivity(intent)
             savedata()
@@ -36,17 +36,17 @@ class RegisterActivity : AppCompatActivity() {
 
 
     private fun savedata() {
-        val namaPengguna = etNamaRegister.text.toString()
-        val email = etEmailRegister.text.toString()
-        val noTelp = etPhoneRegister.text.toString()
+        val namaPengguna = et_name_register.text.toString()
+        val email = et_email_register.text.toString()
+        val noTelp = et_phone_register.text.toString()
         val admin = Admin(namaPengguna, email, noTelp)
         val userId = ref.push().key.toString()
 
         ref.child(userId).setValue(admin).addOnCompleteListener {
             Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show()
-            etNamaRegister.setText("")
-            etEmailRegister.setText("")
-            etPhoneRegister.setText("")
+            et_name_register.setText("")
+            et_email_register.setText("")
+            et_phone_register.setText("")
         }
     }
 }

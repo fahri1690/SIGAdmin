@@ -12,7 +12,7 @@ class OtpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.otp)
 
-        val otpConfirmButton= findViewById<Button>(R.id.otpConfirmButton)
+        val otpConfirmButton = findViewById<Button>(R.id.btn_verification_otp)
 
         otpConfirmButton.setOnClickListener {
             val intent= Intent(this, HomeAdmin::class.java)

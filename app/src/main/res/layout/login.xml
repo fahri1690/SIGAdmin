@@ -1,37 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-              android:gravity="top"
-              android:orientation="vertical"
-              android:padding="@dimen/default_padding"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              tools:context=".layouts.LoginActivity">
+              android:padding="@dimen/default_padding"
+              android:orientation="vertical">
 
-    <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/login_info"
-              android:textSize="@dimen/text_size_infologin"
-              android:textStyle="bold"
-              android:layout_marginTop="@dimen/margin_login"
-              android:layout_marginBottom="@dimen/margin_login"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/default_margin">
 
-    <EditText
-            android:textColorHint="@color/colorPrimary"
-            android:background="@drawable/outline_stroke"
-            android:layout_marginBottom="@dimen/margin_login"
-            android:inputType="text"
-            android:hint="@string/notelpHint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <ImageView
+                android:id="@+id/img_phone_icon"
+                android:layout_width="@dimen/phone_icon"
+                android:layout_gravity="start"
+                android:layout_height="@dimen/phone_icon"
+                android:contentDescription="@string/login_icon_desc"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:src="@drawable/ic_phone_number"/>
 
-    <Button android:id="@+id/btnMasuk"
-            android:layout_width="match_parent"
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingLeft="@dimen/default_padding"
+                  android:paddingRight="@dimen/default_padding"
+                  android:textSize="@dimen/text_size_infologin"
+                  android:textStyle="bold"
+                  android:textAlignment="viewStart"
+                  android:text="@string/login_info"/>
+
+    </LinearLayout>
+
+
+    <EditText android:id="@+id/et_phone_login"
+              android:textColorHint="@color/colorPrimary"
+              android:background="@drawable/outline_stroke"
+              android:layout_marginBottom="@dimen/default_margin"
+              android:inputType="phone"
+              android:hint="@string/et_no_telepon"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
+
+    <Button android:id="@+id/btn_otp_request"
+            android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
-            android:layout_marginBottom="@dimen/default_margin"
             android:background="@drawable/button_layout"
-            android:text="@string/login"
+            android:layout_gravity="end"
+            android:text="@string/kirim_otp"
             android:textAllCaps="false"
             android:textColor="@color/buttonTextColor"/>
 

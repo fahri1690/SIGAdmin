@@ -52,16 +52,16 @@ class InputNewSubField : AppCompatActivity(), AdapterView.OnItemSelectedListener
             R.array.jenis_lapangan, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         // Apply the adapter to the spinner
-        spinner2.adapter = adapter
+        spn_jenis_lapangan.adapter = adapter
 
-        spinner2.onItemSelectedListener = this
+        spn_jenis_lapangan.onItemSelectedListener = this
 
         idImageSubField.setOnClickListener {
             selectImage()
         }
 
 
-        btnSaveNewSubField.setOnClickListener {
+        btn_save_new_sub_field.setOnClickListener {
             uploadImage()
             saveData()
             rollBack()
@@ -97,18 +97,18 @@ class InputNewSubField : AppCompatActivity(), AdapterView.OnItemSelectedListener
     }
 
     private fun saveData() {
-        val namaSubLapangan = etNamaSubLapangan.text.toString()
-        val jenis = spinner2.selectedItem.toString()
-        val hargaSiang : Int = etHargaSiang.text.length
-        val hargaMalam = etHargaMalam.text.toString()
+        val namaSubLapangan = et_sub_field_name.text.toString()
+        val jenis = spn_jenis_lapangan.selectedItem.toString()
+        val hargaSiang : Int = et_harga_siang.text.length
+        val hargaMalam = et_harga_malam.text.toString()
         val sublapangan = SubField(namaSubLapangan = namaSubLapangan, jenis = jenis, hargaSiang = hargaSiang.toString(), hargaMalam = hargaMalam)
         val sublapanganId = ref.push().key.toString()
 
         ref.child(sublapanganId).setValue(sublapangan).addOnCompleteListener {
             Toast.makeText(this, "Successs", Toast.LENGTH_SHORT).show()
-            etNamaSubLapangan.setText("")
-            etHargaSiang.setText("")
-            etHargaMalam.setText("")
+            et_sub_field_name.setText("")
+            et_harga_siang.setText("")
+            et_harga_malam.setText("")
         }
     }
 

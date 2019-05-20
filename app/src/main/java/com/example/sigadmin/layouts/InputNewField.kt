@@ -38,11 +38,11 @@ class InputNewField : AppCompatActivity() {
 
         ref = dbInstance.getReference("Lapangan")
 
-        idImageField.setOnClickListener {
+        img_new_field.setOnClickListener {
             selectImage()
         }
 
-        btnSaveNewField.setOnClickListener {
+        btn_save_new_field.setOnClickListener {
             uploadImage()
             saveData()
             rollBack()
@@ -57,39 +57,39 @@ class InputNewField : AppCompatActivity() {
 
     private fun saveData() {
         val lapanganId = ref.push().key.toString()
-        val namaLapangan = etNamaLapangan.text.toString()
-        val fasilitas = etFasilitas.text.toString()
-        val jamBuka = etJamBuka.text.toString()
-        val jamTutup = etJamTutup.text.toString()
-        val noTelp = etNotelp.text.toString()
-        val alamat = etAlamat.text.toString()
-        val latitude = etLatitude.text.toString()
-        val longitude = etLongitude.text.toString()
+        val namaLapangan = et_name_field.text.toString()
+        val fasilitas = et_facility.text.toString()
+        val jamBuka = et_jam_buka.text.toString()
+        val jamTutup = et_jam_tutup.text.toString()
+        val noTelp = et_no_telp.text.toString()
+        val alamat = et_alamat.text.toString()
+        val latitude = et_latitude.text.toString()
+        val longitude = et_longitude.text.toString()
 
-        val lapangan = Field(namaLapangan,alamat,jamBuka,jamTutup,fasilitas,noTelp,latitude,longitude)
+        val lapangan = Field(namaLapangan, alamat, jamBuka, jamTutup, fasilitas, noTelp, latitude, longitude)
 
         ref.child(lapanganId).setValue(lapangan).addOnCompleteListener {
             Toast.makeText(this, "Successs", Toast.LENGTH_SHORT).show()
-            etNamaLapangan.setText("")
-            etFasilitas.setText("")
-            etJamBuka.setText("")
-            etJamTutup.setText("")
-            etNotelp.setText("")
-            etAlamat.setText("")
-            etLatitude.setText("")
-            etLongitude.setText("")
-            }
+            et_name_field.setText("")
+            et_facility.setText("")
+            et_jam_buka.setText("")
+            et_jam_tutup.setText("")
+            et_no_telp.setText("")
+            et_alamat.setText("")
+            et_latitude.setText("")
+            et_longitude.setText("")
+        }
     }
 
-    private fun selectImage(){
+    private fun selectImage() {
         intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), PICK_IMAGE_REQUEST)
     }
 
-    private fun uploadImage(){
-        if (filepath != null){
+    private fun uploadImage() {
+        if (filepath != null) {
             val imageRef = storageReference!!.child("images/fields/*" + UUID.randomUUID().toString())
             imageRef.putFile(filepath!!)
                 .addOnSuccessListener {
@@ -105,18 +105,17 @@ class InputNewField : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?){
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null){
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             filepath = data.data
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filepath)
-                idImageField!!.setImageBitmap(bitmap)
-            }catch (e:IOException){
+                img_new_field!!.setImageBitmap(bitmap)
+            } catch (e: IOException) {
                 e.printStackTrace()
             }
         }
     }
-
 }
 

@@ -14,7 +14,7 @@
             android:layout_height="wrap_content">
 
         <ImageView
-                android:src="@drawable/ic_image_black_24dp"
+                android:src="@drawable/ic_add_image"
                 android:background="@drawable/img_bg"
                 android:layout_width="match_parent"
                 android:id="@+id/idImageSubField"
@@ -22,9 +22,9 @@
                 android:layout_marginBottom="@dimen/default_margin"/>
 
         <EditText
+                android:id="@+id/et_sub_field_name"
                 android:inputType="text"
-                android:id="@+id/etNamaSubLapangan"
-                android:hint="@string/namaSubLapanganHint"
+                android:hint="@string/nama_sub_lapangan_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_marginBottom="@dimen/default_margin"
                 android:layout_height="wrap_content">
             <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spn_jenis_lapangan"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/spn_height"
                     android:entries="@array/jenis_lapangan"
@@ -44,32 +44,32 @@
         </FrameLayout>
 
         <EditText
+                android:id="@+id/et_harga_siang"
                 android:inputType="number"
-                android:id="@+id/etHargaSiang"
-                android:hint="@string/hargaSiangHint"
+                android:hint="@string/harga_siang_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
 
         <EditText
+                android:id="@+id/et_harga_malam"
                 android:inputType="number"
-                android:id="@+id/etHargaMalam"
-                android:hint="@string/hargaMalamHint"
+                android:hint="@string/harga_malam_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
 
         <Button
-                android:id="@+id/btnSaveNewSubField"
+                android:id="@+id/btn_save_new_sub_field"
                 android:textAllCaps="false"
                 android:background="@drawable/button_layout"
                 android:textColor="@color/buttonTextColor"
                 android:layout_gravity="end"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                android:text="@string/btnSimpanSubLapBaru"/>
+                android:text="@string/btn_simpan_sub_lap_baru"/>
     </LinearLayout>
 
 </ScrollView>

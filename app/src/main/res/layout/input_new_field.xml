@@ -15,88 +15,87 @@
             android:layout_height="wrap_content">
 
         <ImageView
-                android:src="@drawable/ic_image_black_24dp"
+                android:src="@drawable/ic_add_image"
                 android:background="@drawable/img_bg"
                 android:layout_width="match_parent"
-                android:id="@+id/idImageField"
+                android:id="@+id/img_new_field"
                 android:layout_height="@dimen/image_view_height"
                 android:layout_marginBottom="@dimen/default_margin"/>
 
-
         <EditText
+                android:id="@+id/et_name_field"
                 android:inputType="text"
-                android:id="@+id/etNamaLapangan"
-                android:hint="@string/namaLapanganHint"
+                android:hint="@string/nama_lapangan_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
         <EditText
+                android:id="@+id/et_facility"
                 android:inputType="text"
-                android:id="@+id/etFasilitas"
-                android:hint="@string/fasilitasHint"
+                android:hint="@string/fasilitas_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
         <EditText
-                android:inputType="text"
-                android:id="@+id/etJamBuka"
-                android:hint="@string/jamBukaHint"
+                android:id="@+id/et_jam_buka"
+                android:inputType="number"
+                android:hint="@string/jam_buka_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
         <EditText
-                android:inputType="text"
-                android:id="@+id/etJamTutup"
-                android:hint="@string/jamTutupHint"
+                android:id="@+id/et_jam_tutup"
+                android:inputType="number"
+                android:hint="@string/jam_tutup_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
         <EditText
-                android:inputType="text"
-                android:id="@+id/etNotelp"
-                android:hint="@string/notelpHint"
+                android:id="@+id/et_no_telp"
+                android:inputType="phone"
+                android:hint="@string/notelp_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
         <EditText
+                android:id="@+id/et_alamat"
                 android:inputType="text"
-                android:id="@+id/etAlamat"
-                android:hint="@string/alamatHint"
+                android:hint="@string/alamat_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
         <EditText
-                android:inputType="text"
-                android:id="@+id/etLatitude"
-                android:hint="@string/latitudeHint"
+                android:id="@+id/et_latitude"
+                android:inputType="number"
+                android:hint="@string/latitude_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
         <EditText
-                android:inputType="text"
-                android:id="@+id/etLongitude"
-                android:hint="@string/longitudeHint"
+                android:id="@+id/et_longitude"
+                android:inputType="number"
+                android:hint="@string/longitude_hint"
                 android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin"/>
 
         <Button
-                android:id="@+id/btnSaveNewField"
+                android:id="@+id/btn_save_new_field"
                 android:textAllCaps="false"
                 android:background="@drawable/button_layout"
                 android:textColor="@color/buttonTextColor"
                 android:layout_gravity="end"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                android:text="@string/btnSimpanLapBaru"
+                android:text="@string/btn_simpan_lap_baru"
         />
 
 

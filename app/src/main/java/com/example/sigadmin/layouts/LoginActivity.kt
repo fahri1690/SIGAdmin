@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        val btnLogin = findViewById<Button>(R.id.btnMasuk)
+        val btnLogin = findViewById<Button>(R.id.btn_otp_request)
 
         ref = FirebaseDatabase.getInstance().getReference("Admin")
 
@@ -24,5 +24,6 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, OtpActivity::class.java)
             startActivity(intent)
         }
+
     }
 }
