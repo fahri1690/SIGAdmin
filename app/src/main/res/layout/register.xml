@@ -6,13 +6,13 @@
         android:padding="@dimen/default_padding"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:gravity="center_vertical"
         android:layout_height="match_parent"
         tools:context=".layouts.RegisterActivity">
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:orientation="vertical">
+                  android:orientation="vertical"
+                  android:layout_gravity="center_vertical">
 
         <ImageView
                 android:id="@+id/img_login_icon"
@@ -59,20 +59,34 @@
                 android:textAllCaps="false"
                 android:textColor="@color/buttonTextColor"/>
 
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center"
-                  android:layout_margin="@dimen/default_margin"
-                  android:text="@string/sudah_punya_akun"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:gravity="center_horizontal">
 
-        <Button android:id="@+id/btn_login"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/button_height"
-                android:background="@drawable/button_layout"
-                android:layout_gravity="end"
-                android:text="@string/login"
-                android:textAllCaps="false"
-                android:textColor="@color/buttonTextColor"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:layout_margin="@dimen/default_margin"
+                      android:text="@string/sudah_punya_akun"/>
+
+            <TextView android:id="@+id/tv_login"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:layout_margin="@dimen/default_margin"
+                      android:textColor="@color/buttonColor"
+                      android:text="@string/login"/>
+
+        </LinearLayout>
+
+        <!--<Button android:id="@+id/btn_login"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/button_height"-->
+                <!--android:background="@drawable/button_layout"-->
+                <!--android:layout_gravity="end"-->
+                <!--android:text="@string/login"-->
+                <!--android:textAllCaps="false"-->
+                <!--android:textColor="@color/buttonTextColor"/>-->
 
     </LinearLayout>
 

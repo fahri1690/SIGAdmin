@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import com.example.sigadmin.R
 import com.example.sigadmin.models.Admin
@@ -19,7 +20,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register)
 
-        val btnMasuk = findViewById<Button>(R.id.btn_login)
+        val tvMasuk = findViewById<TextView>(R.id.tv_login)
 
         ref = FirebaseDatabase.getInstance().getReference("Admin")
         btn_register.setOnClickListener {
@@ -28,7 +29,7 @@ class RegisterActivity : AppCompatActivity() {
             savedata()
         }
 
-        btnMasuk.setOnClickListener {
+        tvMasuk.setOnClickListener {
             val intent = Intent (this, LoginActivity::class.java)
             startActivity(intent)
         }
