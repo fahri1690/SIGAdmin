@@ -44,6 +44,7 @@
         <item>Vinyl</item>
         <item>Sintetis</item>
     </string-array>
+
     <string name="title_activity_update_sub_field">UpdateSubField</string>
     <string name="sudah_punya_akun">Sudah punya akun?</string>
     <string name="login_icon_desc">Register Icon</string>

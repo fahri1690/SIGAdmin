@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import com.example.sigadmin.models.Users
 
 public class FieldAdapter(context: Context):BaseAdapter(){
     private val mCtx : Context
@@ -14,7 +15,8 @@ public class FieldAdapter(context: Context):BaseAdapter(){
     }
 
     override fun getCount(): Int {
-        return 10
+        val count = 20
+        return count
     }
 
     override fun getItemId(position: Int): Long {
@@ -22,12 +24,12 @@ public class FieldAdapter(context: Context):BaseAdapter(){
     }
 
     override fun getItem(position: Int): Any {
-        return "Test"
+        return Users(String()).name
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val fieldName = TextView(mCtx)
-        fieldName.text = "Lapangan"
+        fieldName.text = getItem(position).toString() + " " + getItemId(position)
         return fieldName
     }
 }

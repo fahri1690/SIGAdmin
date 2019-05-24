@@ -7,8 +7,11 @@ import android.widget.Button
 import android.widget.ListView
 import com.example.sigadmin.R
 import com.example.sigadmin.adapter.FieldAdapter
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeAdmin : AppCompatActivity() {
+
+    lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,5 +33,14 @@ class HomeAdmin : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (mAuth.currentUser == null){
+            startActivity(Intent(this, LoginActivity::class.java))
+        }else{
+
+        }
     }
 }
