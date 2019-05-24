@@ -8,7 +8,7 @@ import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.sigadmin.R
-import com.example.sigadmin.models.Field
+import com.example.sigadmin.models.DataField
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -66,7 +66,7 @@ class InputNewField : AppCompatActivity() {
         val latitude = et_latitude.text.toString()
         val longitude = et_longitude.text.toString()
 
-        val lapangan = Field(namaLapangan, alamat, jamBuka, jamTutup, fasilitas, noTelp, latitude, longitude)
+        val lapangan = DataField(namaLapangan, alamat, jamBuka, jamTutup, fasilitas, noTelp, latitude, longitude)
 
         ref.child(lapanganId).setValue(lapangan).addOnCompleteListener {
             Toast.makeText(this, "Successs", Toast.LENGTH_SHORT).show()
