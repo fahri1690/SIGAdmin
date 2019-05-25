@@ -14,13 +14,12 @@
                   android:orientation="vertical"
                   android:layout_gravity="center_vertical">
 
-        <ImageView
-                android:id="@+id/img_login_icon"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/account_icon"
-                android:contentDescription="@string/login_icon_desc"
-                android:layout_marginBottom="@dimen/default_margin"
-                android:src="@drawable/ic_account_icon"/>
+        <ImageView android:id="@+id/img_login_icon"
+                   android:layout_width="match_parent"
+                   android:layout_height="@dimen/account_icon"
+                   android:contentDescription="@string/login_icon_desc"
+                   android:layout_marginBottom="@dimen/default_margin"
+                   android:src="@drawable/ic_account_icon"/>
 
         <EditText android:id="@+id/et_name_register"
                   android:textColorHint="@color/colorPrimary"
@@ -80,13 +79,13 @@
         </LinearLayout>
 
         <!--<Button android:id="@+id/btn_login"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="@dimen/button_height"-->
-                <!--android:background="@drawable/button_layout"-->
-                <!--android:layout_gravity="end"-->
-                <!--android:text="@string/login"-->
-                <!--android:textAllCaps="false"-->
-                <!--android:textColor="@color/buttonTextColor"/>-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/button_height"-->
+        <!--android:background="@drawable/button_layout"-->
+        <!--android:layout_gravity="end"-->
+        <!--android:text="@string/login"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:textColor="@color/buttonTextColor"/>-->
 
     </LinearLayout>
 
