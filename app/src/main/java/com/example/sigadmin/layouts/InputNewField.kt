@@ -3,25 +3,26 @@ package com.example.sigadmin.layouts
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
-import com.example.sigadmin.models.Field
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.input_new_field.*
-import java.io.IOException
 import java.util.*
+import kotlin.collections.HashMap
+import java.io.IOException as IOException1
 
 class InputNewField : AppCompatActivity() {
 
+    private val db = FirebaseFirestore.getInstance()
 
-    lateinit var ref: DatabaseReference
-    private val dbInstance = FirebaseDatabase.getInstance()
+    internal var id: String = ""
 
     private var filepath: Uri? = null
     private var PICK_IMAGE_REQUEST = 111
@@ -29,14 +30,14 @@ class InputNewField : AppCompatActivity() {
     private var imgRef: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
 
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.input_new_field)
 
         imgRef = FirebaseStorage.getInstance()
         storageReference = imgRef!!.reference
-
-        ref = dbInstance.getReference("Lapangan")
 
         img_new_field.setOnClickListener {
             selectImage()
@@ -48,37 +49,6 @@ class InputNewField : AppCompatActivity() {
             rollBack()
         }
 
-    }
-
-    private fun rollBack() {
-        val newIntent = Intent(this, HomeAdmin::class.java)
-        startActivity(newIntent)
-    }
-
-    private fun saveData() {
-        val lapanganId = ref.push().key.toString()
-        val namaLapangan = et_name_field.text.toString()
-        val fasilitas = et_facility.text.toString()
-        val jamBuka = et_jam_buka.text.toString()
-        val jamTutup = et_jam_tutup.text.toString()
-        val noTelp = et_no_telp.text.toString()
-        val alamat = et_alamat.text.toString()
-        val latitude = et_latitude.text.toString()
-        val longitude = et_longitude.text.toString()
-
-        val lapangan = Field(namaLapangan, alamat, jamBuka, jamTutup, fasilitas, noTelp, latitude, longitude)
-
-        ref.child(lapanganId).setValue(lapangan).addOnCompleteListener {
-            Toast.makeText(this, "Successs", Toast.LENGTH_SHORT).show()
-            et_name_field.setText("")
-            et_facility.setText("")
-            et_jam_buka.setText("")
-            et_jam_tutup.setText("")
-            et_no_telp.setText("")
-            et_alamat.setText("")
-            et_latitude.setText("")
-            et_longitude.setText("")
-        }
     }
 
     private fun selectImage() {
@@ -112,10 +82,87 @@ class InputNewField : AppCompatActivity() {
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filepath)
                 img_new_field!!.setImageBitmap(bitmap)
-            } catch (e: IOException) {
+            } catch (e: IOException1) {
                 e.printStackTrace()
             }
         }
     }
+
+    private fun rollBack() {
+        val newIntent = Intent(this, HomeAdmin::class.java)
+        startActivity(newIntent)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun saveData() {
+        val name = et_field_name.text.toString()
+        val facility = et_facility.text.toString()
+        val jamBuka = et_jam_buka.text.toString()
+        val jamTutup = et_jam_tutup.text.toString()
+        val noTelp = et_no_telp.text.toString()
+        val alamat = et_alamat.text.toString()
+        val lat = et_latitude.text.toString()
+        val long = et_longitude.text.toString()
+
+        if (name.isEmpty()) {
+            Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
+            et_field_name.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_field_name.setHintTextColor(getColor(R.color.errColor))
+        } else if (facility.isEmpty()) {
+            Toast.makeText(this, "Fasilitas wajib diisi", Toast.LENGTH_SHORT).show()
+            et_facility.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_facility.setHintTextColor(getColor(R.color.errColor))
+        } else if (jamBuka.isEmpty()) {
+            Toast.makeText(this, "Jam Buka wajib diisi", Toast.LENGTH_SHORT).show()
+            et_jam_buka.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_jam_buka.setHintTextColor(getColor(R.color.errColor))
+        } else if (jamTutup.isEmpty()) {
+            Toast.makeText(this, "Jam Tutup wajib diisi", Toast.LENGTH_SHORT).show()
+            et_jam_tutup.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_jam_tutup.setHintTextColor(getColor(R.color.errColor))
+        } else if (noTelp.isEmpty()) {
+            Toast.makeText(this, "Nomor Telepon wajib diisi", Toast.LENGTH_SHORT).show()
+            et_no_telp.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_no_telp.setHintTextColor(getColor(R.color.errColor))
+        } else if (alamat.isEmpty()) {
+            Toast.makeText(this, "Alamat wajib diisi", Toast.LENGTH_SHORT).show()
+            et_alamat.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_alamat.setHintTextColor(getColor(R.color.errColor))
+        } else if (lat.isEmpty()) {
+            Toast.makeText(this, "Latitude wajib diisi", Toast.LENGTH_SHORT).show()
+            et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_latitude.setHintTextColor(getColor(R.color.errColor))
+        } else if (long.isEmpty()) {
+            Toast.makeText(this, "Longitude wajib diisi", Toast.LENGTH_SHORT).show()
+            et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_longitude.setHintTextColor(getColor(R.color.errColor))
+        } else {
+
+            val result = HashMap<String, Any>()
+            result["name"] = name
+            result["facility"] = facility
+            result["jamBuka"] = jamBuka
+            result["jamTutup"] = jamTutup
+            result["noTelp"] = noTelp
+            result["alamat"] = alamat
+            result["lat"] = lat
+            result["long"] = long
+
+            db.collection("Lapangan")
+                .add(result)
+                .addOnSuccessListener {
+                    val intent = Intent(this, HomeAdmin::class.java)
+                    startActivity(intent)
+                }
+                .addOnFailureListener {
+
+                }
+        }
+    }
 }
+
+
+
+
+
 

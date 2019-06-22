@@ -8,68 +8,69 @@
         android:layout_height="match_parent"
         tools:context=".layouts.InputNewSubField">
 
-    <LinearLayout
-            android:orientation="vertical"
+    <androidx.constraintlayout.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <ImageView
-                android:src="@drawable/ic_add_image"
-                android:background="@drawable/img_bg"
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:id="@+id/idImageSubField"
-                android:layout_height="@dimen/image_view_height"
-                android:layout_marginBottom="@dimen/default_margin"/>
-
-        <EditText
-                android:id="@+id/et_sub_field_name"
-                android:inputType="text"
-                android:hint="@string/nama_sub_lapangan_hint"
-                android:background="@drawable/outline_stroke"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/default_margin"/>
-
-        <FrameLayout
-                android:layout_width="match_parent"
-                android:background="@drawable/spinner_bg"
-                android:layout_marginBottom="@dimen/default_margin"
                 android:layout_height="wrap_content">
-            <Spinner
-                    android:id="@+id/spn_jenis_lapangan"
+
+            <ImageView
+                    android:src="@drawable/ic_add_image"
+                    android:background="@drawable/img_bg"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/spn_height"
-                    android:entries="@array/jenis_lapangan"
-                    android:spinnerMode="dropdown"/>
-        </FrameLayout>
+                    android:id="@+id/img_new_sub_field"
+                    android:layout_height="@dimen/image_view_height"
+                    android:layout_marginBottom="@dimen/default_margin"/>
 
-        <EditText
-                android:id="@+id/et_harga_siang"
-                android:inputType="number"
-                android:hint="@string/harga_siang_hint"
-                android:background="@drawable/outline_stroke"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/default_margin"/>
+            <EditText android:layout_marginTop="@dimen/default_margin"
+                      android:id="@+id/et_sub_field_name"
+                      android:inputType="text"
+                      android:hint="@string/nama_sub_lapangan_hint"
+                      android:background="@drawable/outline_stroke"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/default_margin"/>
 
-        <EditText
-                android:id="@+id/et_harga_malam"
-                android:inputType="number"
-                android:hint="@string/harga_malam_hint"
-                android:background="@drawable/outline_stroke"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/default_margin"/>
+            <FrameLayout android:layout_width="match_parent"
+                         android:background="@drawable/spinner_bg"
+                         android:layout_marginBottom="@dimen/default_margin"
+                         android:layout_height="wrap_content">
+                <Spinner android:id="@+id/spn_jenis_lapangan"
+                         android:layout_width="match_parent"
+                         android:layout_height="@dimen/spn_height"
+                         android:entries="@array/jenis_lapangan"
+                         android:spinnerMode="dropdown"/>
+            </FrameLayout>
 
-        <Button
-                android:id="@+id/btn_save_new_sub_field"
-                android:textAllCaps="false"
-                android:background="@drawable/button_layout"
-                android:textColor="@color/buttonTextColor"
-                android:layout_gravity="end"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="@dimen/button_height"
-                android:text="@string/btn_simpan_sub_lap_baru"/>
-    </LinearLayout>
+            <EditText android:id="@+id/et_harga_siang"
+                      android:inputType="number"
+                      android:hint="@string/harga_siang_hint"
+                      android:background="@drawable/outline_stroke"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/default_margin"/>
+
+            <EditText android:id="@+id/et_harga_malam"
+                      android:inputType="number"
+                      android:hint="@string/harga_malam_hint"
+                      android:background="@drawable/outline_stroke"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/default_margin"/>
+
+            <Button android:id="@+id/btn_save_new_sub_field"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_layout"
+                    android:textColor="@color/buttonTextColor"
+                    android:layout_gravity="end"
+                    android:layout_width="@dimen/button_width"
+                    android:layout_height="@dimen/button_height"
+                    android:text="@string/btn_simpan_sub_lap_baru"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.ConstraintLayout>
 
 </ScrollView>
