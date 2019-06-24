@@ -21,9 +21,28 @@ class FieldDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.field_detail)
 
+        val id = intent.extras.getString("id")
+        val name = intent.extras.getString("name")
+        val facility = intent.extras.getString("facility")
+        val alamat = intent.extras.getString("alamat")
+        val jamBuka = intent.extras.getString("jamBuka")
+        val jamTutup = intent.extras.getString("jamTutup")
+        val lat = intent.extras.getString("lat")
+        val long = intent.extras.getString("long")
+        val noTelp = intent.extras.getString("noTelp")
+
         getData()
         btn_perbarui.setOnClickListener {
             val intent =  Intent(this, UpdateField::class.java)
+            intent.putExtra("id", id)
+            intent.putExtra("name", name)
+            intent.putExtra("facility", facility)
+            intent.putExtra("alamat", alamat)
+            intent.putExtra("jamBuka", jamBuka)
+            intent.putExtra("jamTutup", jamTutup)
+            intent.putExtra("lat", lat)
+            intent.putExtra("long", long)
+            intent.putExtra("noTelp", noTelp)
             startActivity(intent)
         }
 
