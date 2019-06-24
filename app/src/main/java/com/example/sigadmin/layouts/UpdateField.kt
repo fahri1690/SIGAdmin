@@ -69,6 +69,7 @@ class UpdateField : AppCompatActivity() {
         query.update(result)
             .addOnSuccessListener {
                 val intent = Intent(this, FieldDetail::class.java)
+                intent.putExtra("id", ids)
                 intent.putExtra("name", name)
                 intent.putExtra("facility", facility)
                 intent.putExtra("alamat", alamat)
