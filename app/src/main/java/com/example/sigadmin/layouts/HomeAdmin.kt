@@ -37,6 +37,7 @@ class HomeAdmin : AppCompatActivity() {
             fieldViewHolder.setFieldName(fieldModel.name)
 
             fieldViewHolder.itemView.setOnClickListener {
+                vsl snapshot: DataSnapshots = snapshots.getSnapshot().get
                 val intent = Intent(this@HomeAdmin, FieldDetail::class.java)
                 intent.putExtra("name", fieldModel.name)
                 intent.putExtra("facility", fieldModel.facility)
