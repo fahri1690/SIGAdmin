@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -69,12 +70,12 @@ class HomeAdmin : AppCompatActivity() {
 
                 builder.setMessage("Apakah kamu yakin?")
 
-                builder.setPositiveButton("Ya") { dialog, which ->
+                builder.setPositiveButton("Ya") { _, which ->
                     db.collection("Lapangan").document(ids).delete()
                     Toast.makeText(applicationContext, "Lapangan berhasil dihapus.", Toast.LENGTH_SHORT).show()
                 }
 
-                builder.setNegativeButton("Tidak") { dialog, which ->
+                builder.setNegativeButton("Tidak") { _, which ->
 
                 }
 

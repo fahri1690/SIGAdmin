@@ -8,10 +8,6 @@
         android:padding="@dimen/default_padding"
         tools:context=".layouts.FieldDetail">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
@@ -181,7 +177,5 @@
             </LinearLayout>
 
         </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

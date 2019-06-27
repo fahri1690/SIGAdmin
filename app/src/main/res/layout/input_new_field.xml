@@ -9,10 +9,6 @@
         android:layout_height="match_parent"
         tools:context=".layouts.InputNewField">
 
-    <androidx.constraintlayout.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
         <LinearLayout android:orientation="vertical"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content">
@@ -100,7 +96,6 @@
                     android:text="@string/btn_simpan_lap_baru"/>
         </LinearLayout>
 
-    </androidx.constraintlayout.ConstraintLayout>
 
 </ScrollView>
 
