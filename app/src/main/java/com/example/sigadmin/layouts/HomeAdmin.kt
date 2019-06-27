@@ -1,27 +1,31 @@
 package com.example.sigadmin.layouts
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sigadmin.R
 import com.example.sigadmin.models.DataField
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.home_admin.*
+import kotlinx.android.synthetic.main.item_field.view.*
 
 
 class HomeAdmin : AppCompatActivity() {
 
     inner class FieldViewHolder internal constructor(private val view: View) : RecyclerView.ViewHolder(view) {
         internal fun setFieldName(fieldName: String) {
-            val textView = view.findViewById<TextView>(com.example.sigadmin.R.id.txtFieldName)
+            val textView = view.findViewById<TextView>(R.id.txtFieldName)
             textView.text = fieldName
         }
     }
@@ -34,6 +38,8 @@ class HomeAdmin : AppCompatActivity() {
             fieldModel: DataField
         ) {
             fieldViewHolder.setFieldName(fieldModel.name)
+
+            val db = FirebaseFirestore.getInstance()
 
             fieldViewHolder.itemView.setOnClickListener {
                 val snapshot = snapshots.getSnapshot(position)
@@ -51,10 +57,37 @@ class HomeAdmin : AppCompatActivity() {
                 startActivity(intent)
             }
 
+            fieldViewHolder.itemView.del_btn.setOnClickListener {
+
+                val builder = AlertDialog.Builder(this@HomeAdmin)
+                val snapshot = snapshots.getSnapshot(position)
+                snapshot.id
+
+                val ids = snapshot.id
+
+                builder.setTitle("Hapus Lapangan")
+
+                builder.setMessage("Apakah kamu yakin?")
+
+                builder.setPositiveButton("Ya") { dialog, which ->
+                    db.collection("Lapangan").document(ids).delete()
+                    Toast.makeText(applicationContext, "Lapangan berhasil dihapus.", Toast.LENGTH_SHORT).show()
+                }
+
+                builder.setNegativeButton("Tidak") { dialog, which ->
+
+                }
+
+                val dialog: AlertDialog = builder.create()
+
+                dialog.show()
+
+            }
+
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FieldViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(com.example.sigadmin.R.layout.item_field, parent,false)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_field, parent, false)
             return FieldViewHolder(view)
         }
     }
@@ -63,7 +96,7 @@ class HomeAdmin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.example.sigadmin.R.layout.home_admin)
+        setContentView(R.layout.home_admin)
 
         rvMain.layoutManager = LinearLayoutManager(this)
 
