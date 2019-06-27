@@ -17,56 +17,171 @@
                       android:orientation="vertical"
                       tools:ignore="MissingConstraints">
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tv_nama_lapangan"
-                      android:layout_margin="@dimen/default_margin"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tv_fasilitas"
-                      android:layout_margin="@dimen/default_margin"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/tv_field_name"
+                          android:textStyle="bold"
+                          android:layout_margin="@dimen/default_margin"/>
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tv_jam_buka"
-                      android:layout_margin="@dimen/default_margin"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/tv_nama_lapangan"
+                          android:layout_margin="@dimen/default_margin"/>
+            </LinearLayout>
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tv_jam_tutup"
-                      android:layout_margin="@dimen/default_margin"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tv_no_telepon"
-                      android:layout_margin="@dimen/default_margin"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/tv_fasilitas"
+                          android:textStyle="bold"
+                          android:layout_margin="@dimen/default_margin"/>
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tv_alamat"
-                      android:layout_margin="@dimen/default_margin"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/tv_fasilitas"
+                          android:layout_margin="@dimen/default_margin"/>
+            </LinearLayout>
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tv_latitude"
-                      android:layout_margin="@dimen/default_margin"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tv_longitude"
-                      android:layout_margin="@dimen/default_margin"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/tv_jamBuka"
+                          android:textStyle="bold"
+                          android:layout_margin="@dimen/default_margin"/>
 
-            <Button android:id="@+id/btn_perbarui"
-                    android:textAllCaps="false"
-                    android:background="@drawable/button_layout"
-                    android:textColor="@color/buttonTextColor"
-                    android:layout_gravity="end|bottom"
-                    android:layout_width="@dimen/button_width"
-                    android:layout_height="@dimen/button_height"
-                    android:text="@string/btn_perbarui"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/tv_jam_buka"
+                          android:layout_margin="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/tv_jamTutup"
+                          android:textStyle="bold"
+                          android:layout_margin="@dimen/default_margin"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/tv_jam_tutup"
+                          android:layout_margin="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/tv_noTelp"
+                          android:textStyle="bold"
+                          android:layout_margin="@dimen/default_margin"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/tv_no_telepon"
+                          android:layout_margin="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/tv_alamat"
+                          android:textStyle="bold"
+                          android:layout_margin="@dimen/default_margin"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/tv_alamat"
+                          android:layout_margin="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/tv_latitude"
+                          android:textStyle="bold"
+                          android:layout_margin="@dimen/default_margin"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/tv_latitude"
+                          android:layout_margin="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/tv_longitude"
+                          android:textStyle="bold"
+                          android:layout_margin="@dimen/default_margin"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/tv_longitude"
+                          android:layout_margin="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical">
+
+                <Button android:id="@+id/btn_perbarui"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_layout"
+                        android:textColor="@color/buttonTextColor"
+                        android:layout_gravity="end"
+                        android:layout_width="@dimen/button_width"
+                        android:layout_height="@dimen/button_height"
+                        android:text="@string/btn_perbarui"/>
+
+                <Button android:id="@+id/btn_addSubField"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_layout"
+                        android:textColor="@color/buttonTextColor"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:layout_gravity="end"
+                        android:layout_width="@dimen/button_width"
+                        android:layout_height="@dimen/button_height"
+                        android:text="@string/btn_addSubField"/>
+
+                <Button android:id="@+id/btn_backHome"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_layout"
+                        android:textColor="@color/buttonTextColor"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:layout_gravity="end"
+                        android:layout_width="@dimen/button_width"
+                        android:layout_height="@dimen/button_height"
+                        android:text="@string/btn_backHome"/>
+
+            </LinearLayout>
 
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

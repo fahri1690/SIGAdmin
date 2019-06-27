@@ -5,14 +5,8 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
-import com.example.sigadmin.models.DataField
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.field_detail.*
-import kotlinx.android.synthetic.main.update_field.*
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class FieldDetail : AppCompatActivity() {
@@ -21,12 +15,44 @@ class FieldDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.field_detail)
 
+        val id = intent.extras.getString("id")
+        val name = intent.extras.getString("name")
+        val facility = intent.extras.getString("facility")
+        val alamat = intent.extras.getString("alamat")
+        val jamBuka = intent.extras.getString("jamBuka")
+        val jamTutup = intent.extras.getString("jamTutup")
+        val lat = intent.extras.getString("lat")
+        val long = intent.extras.getString("long")
+        val noTelp = intent.extras.getString("noTelp")
+
+        val db = FirebaseFirestore.getInstance()
+        val query = db.collection("Lapangan").document(id)
+        val docId = query.id
+
         getData()
         btn_perbarui.setOnClickListener {
             val intent =  Intent(this, UpdateField::class.java)
+            intent.putExtra("id", docId)
+            intent.putExtra("name", name)
+            intent.putExtra("facility", facility)
+            intent.putExtra("alamat", alamat)
+            intent.putExtra("jamBuka", jamBuka)
+            intent.putExtra("jamTutup", jamTutup)
+            intent.putExtra("lat", lat)
+            intent.putExtra("long", long)
+            intent.putExtra("noTelp", noTelp)
             startActivity(intent)
         }
 
+        btn_backHome.setOnClickListener {
+            val intent = Intent (this, HomeAdmin::class.java)
+            startActivity(intent)
+        }
+
+        btn_addSubField.setOnClickListener {
+            val intent = Intent (this, HomeAdmin::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getData() {
@@ -40,14 +66,14 @@ class FieldDetail : AppCompatActivity() {
         val long = findViewById<TextView>(R.id.tv_longitude)
         val noTelp = findViewById<TextView>(R.id.tv_no_telepon)
 
-        name.text = intent.extras.getString("name")
-        facility.text = intent.extras.getString("facility")
-        alamat.text = intent.extras.getString("alamat")
-        jamBuka.text = intent.extras.getString("jamBuka")
-        jamTutup.text = intent.extras.getString("jamTutup")
-        lat.text = intent.extras.getString("lat")
-        long.text = intent.extras.getString("long")
-        noTelp.text = intent.extras.getString("noTelp")
+        name.text = intent.getStringExtra("name")
+        facility.text = intent.getStringExtra("facility")
+        alamat.text = intent.getStringExtra("alamat")
+        jamBuka.text = intent.getStringExtra("jamBuka")
+        jamTutup.text = intent.getStringExtra("jamTutup")
+        lat.text = intent.getStringExtra("lat")
+        long.text = intent.getStringExtra("long")
+        noTelp.text = intent.getStringExtra("noTelp")
 
     }
 }
