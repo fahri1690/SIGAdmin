@@ -8,174 +8,398 @@
         android:padding="@dimen/default_padding"
         tools:context=".layouts.FieldDetail">
 
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  tools:ignore="MissingConstraints">
+
+        <!--Nama Lapangan-->
+
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:orientation="vertical"
-                      tools:ignore="MissingConstraints">
+                      android:orientation="horizontal">
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:orientation="horizontal">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
 
-                <TextView android:layout_width="wrap_content"
+                <TextView android:layout_width="@dimen/widthsize_fielddetail"
                           android:layout_height="wrap_content"
                           android:text="@string/tv_field_name"
                           android:textStyle="bold"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/titik2"
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:textStyle="bold"
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:id="@+id/tv_nama_lapangan"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:layout_marginLeft="@dimen/default_margin"
+                          android:layout_marginBottom="@dimen/default_margin"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--Fasilitas-->
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="@dimen/widthsize_fielddetail"
+                          android:layout_height="wrap_content"
+                          android:text="@string/tv_fasilitas"
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:textStyle="bold"
+                          android:layout_marginBottom="@dimen/default_margin"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
+            <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:orientation="horizontal">
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:text="@string/tv_fasilitas"
+                          android:text="@string/titik2"
+                          android:textSize="@dimen/textsize_fielddetail"
                           android:textStyle="bold"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:id="@+id/tv_fasilitas"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:layout_marginLeft="@dimen/default_margin"
+                          android:layout_marginBottom="@dimen/default_margin"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
+        </LinearLayout>
+
+        <!--Jam Buka-->
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="@dimen/widthsize_fielddetail"
                           android:layout_height="wrap_content"
-                          android:orientation="horizontal">
+                          android:text="@string/tv_jamBuka"
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:textStyle="bold"
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:text="@string/tv_jamBuka"
+                          android:text="@string/titik2"
+                          android:textSize="@dimen/textsize_fielddetail"
                           android:textStyle="bold"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:id="@+id/tv_jam_buka"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:layout_marginLeft="@dimen/default_margin"
+                          android:layout_marginBottom="@dimen/default_margin"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
+        </LinearLayout>
+
+        <!--Jam Tutup-->
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="@dimen/widthsize_fielddetail"
                           android:layout_height="wrap_content"
-                          android:orientation="horizontal">
+                          android:text="@string/tv_jamTutup"
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:textStyle="bold"
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:text="@string/tv_jamTutup"
+                          android:text="@string/titik2"
+                          android:textSize="@dimen/textsize_fielddetail"
                           android:textStyle="bold"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:id="@+id/tv_jam_tutup"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:layout_marginLeft="@dimen/default_margin"
+                          android:layout_marginBottom="@dimen/default_margin"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
+        </LinearLayout>
+
+        <!--No Telepon-->
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="@dimen/widthsize_fielddetail"
                           android:layout_height="wrap_content"
-                          android:orientation="horizontal">
+                          android:text="@string/tv_noTelp"
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:textStyle="bold"
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:text="@string/tv_noTelp"
+                          android:text="@string/titik2"
+                          android:textSize="@dimen/textsize_fielddetail"
                           android:textStyle="bold"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:id="@+id/tv_no_telepon"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:layout_marginLeft="@dimen/default_margin"
+                          android:layout_marginBottom="@dimen/default_margin"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
+        </LinearLayout>
+
+        <!--Alamat-->
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="@dimen/widthsize_fielddetail"
                           android:layout_height="wrap_content"
-                          android:orientation="horizontal">
+                          android:text="@string/tv_alamat"
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:textStyle="bold"
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:text="@string/tv_alamat"
+                          android:text="@string/titik2"
+                          android:textSize="@dimen/textsize_fielddetail"
                           android:textStyle="bold"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:id="@+id/tv_alamat"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:layout_marginLeft="@dimen/default_margin"
+                          android:layout_marginBottom="@dimen/default_margin"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
+        </LinearLayout>
+
+        <!--Latitude-->
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="@dimen/widthsize_fielddetail"
                           android:layout_height="wrap_content"
-                          android:orientation="horizontal">
+                          android:text="@string/tv_latitude"
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:textStyle="bold"
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:text="@string/tv_latitude"
+                          android:text="@string/titik2"
+                          android:textSize="@dimen/textsize_fielddetail"
                           android:textStyle="bold"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:id="@+id/tv_latitude"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:layout_marginLeft="@dimen/default_margin"
+                          android:layout_marginBottom="@dimen/default_margin"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
+        </LinearLayout>
+
+        <!--Longitude-->
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="@dimen/widthsize_fielddetail"
                           android:layout_height="wrap_content"
-                          android:orientation="horizontal">
+                          android:text="@string/tv_longitude"
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:textStyle="bold"
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:text="@string/tv_longitude"
+                          android:text="@string/titik2"
+                          android:textSize="@dimen/textsize_fielddetail"
                           android:textStyle="bold"
-                          android:layout_margin="@dimen/default_margin"/>
+                          android:layout_marginBottom="@dimen/default_margin"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:id="@+id/tv_longitude"
-                          android:layout_margin="@dimen/default_margin"/>
-            </LinearLayout>
-
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:orientation="vertical">
-
-                <Button android:id="@+id/btn_perbarui"
-                        android:textAllCaps="false"
-                        android:background="@drawable/button_layout"
-                        android:textColor="@color/buttonTextColor"
-                        android:layout_gravity="end"
-                        android:layout_width="@dimen/button_width"
-                        android:layout_height="@dimen/button_height"
-                        android:text="@string/btn_perbarui"/>
-
-                <Button android:id="@+id/btn_addSubField"
-                        android:textAllCaps="false"
-                        android:background="@drawable/button_layout"
-                        android:textColor="@color/buttonTextColor"
-                        android:layout_marginTop="@dimen/default_margin"
-                        android:layout_gravity="end"
-                        android:layout_width="@dimen/button_width"
-                        android:layout_height="@dimen/button_height"
-                        android:text="@string/btn_addSubField"/>
-
-                <Button android:id="@+id/btn_backHome"
-                        android:textAllCaps="false"
-                        android:background="@drawable/button_layout"
-                        android:textColor="@color/buttonTextColor"
-                        android:layout_marginTop="@dimen/default_margin"
-                        android:layout_gravity="end"
-                        android:layout_width="@dimen/button_width"
-                        android:layout_height="@dimen/button_height"
-                        android:text="@string/btn_backHome"/>
-
+                          android:textSize="@dimen/textsize_fielddetail"
+                          android:layout_marginLeft="@dimen/default_margin"
+                          android:layout_marginBottom="@dimen/default_margin"/>
             </LinearLayout>
 
         </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/default_margin"
+                      android:orientation="vertical">
+
+            <Button android:id="@+id/btn_perbarui"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_layout"
+                    android:textColor="@color/buttonTextColor"
+                    android:layout_gravity="end"
+                    android:layout_width="@dimen/button_width"
+                    android:layout_height="@dimen/button_height"
+                    android:text="@string/btn_perbarui"/>
+
+            <Button android:id="@+id/btn_addSubField"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_layout"
+                    android:textColor="@color/buttonTextColor"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_gravity="end"
+                    android:layout_width="@dimen/button_width"
+                    android:layout_height="@dimen/button_height"
+                    android:text="@string/btn_addSubField"/>
+
+            <Button android:id="@+id/btn_addField"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_layout"
+                    android:textColor="@color/buttonTextColor"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_gravity="end"
+                    android:layout_width="@dimen/button_width"
+                    android:layout_height="@dimen/button_height"
+                    android:text="@string/btn_addField"/>
+
+            <Button android:id="@+id/btn_backHome"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_layout"
+                    android:textColor="@color/buttonTextColor"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_gravity="end"
+                    android:layout_width="@dimen/button_width"
+                    android:layout_height="@dimen/button_height"
+                    android:text="@string/btn_backHome"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </ScrollView>

@@ -18,6 +18,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import kotlinx.android.synthetic.main.field_detail.*
 import kotlinx.android.synthetic.main.home_admin.*
 import kotlinx.android.synthetic.main.item_field.view.*
 
@@ -109,6 +110,11 @@ class HomeAdmin : AppCompatActivity() {
         adapter = FieldFireStoreRecyclerAdapter(options)
 
         rvMain.adapter = adapter
+
+        ib_add_new_place.setOnClickListener {
+            val intent = Intent (this, InputNewField::class.java)
+            startActivity(intent)
+        }
 
     }
 

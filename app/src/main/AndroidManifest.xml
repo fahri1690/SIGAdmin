@@ -18,12 +18,14 @@
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".layouts.ListSubField">
         </activity>
+        <activity android:name=".layouts.OtpActivity"/>
+        <activity android:name=".layouts.LoginActivity"/>
         <activity android:name=".layouts.UpdateField"/>
         <activity android:name=".layouts.FieldDetail"/>
         <activity android:name=".layouts.InputNewSubField"/>
-        <activity android:name=".layouts.HomeAdmin"/>
+        <activity android:name=".layouts.RegisterActivity"/>
         <activity android:name=".layouts.InputNewField"/>
-        <activity android:name=".layouts.RegisterActivity">
+        <activity android:name=".layouts.HomeAdmin">
 
             <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar"> -->
             <intent-filter>
@@ -32,8 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".layouts.OtpActivity"/>
-        <activity android:name=".layouts.LoginActivity"/>
     </application>
 
 </manifest>

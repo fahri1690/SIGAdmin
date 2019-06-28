@@ -50,7 +50,12 @@ class FieldDetail : AppCompatActivity() {
         }
 
         btn_addSubField.setOnClickListener {
-            val intent = Intent (this, HomeAdmin::class.java)
+            val intent = Intent (this, InputNewSubField::class.java)
+            startActivity(intent)
+        }
+
+        btn_addField.setOnClickListener {
+            val intent = Intent (this, InputNewField::class.java)
             startActivity(intent)
         }
     }

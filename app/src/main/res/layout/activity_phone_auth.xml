@@ -60,7 +60,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
-                    android:text="Kirim OTP"/>
+                    android:text="@string/kirim_otp"/>
 
                 <Button
                     android:theme="@style/AppTheme"
@@ -69,7 +69,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
-                    android:text="Verifikasi"/>
+                    android:text="@string/verifikasi"/>
 
                 <Button
                     android:theme="@style/AppTheme"
@@ -78,7 +78,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
-                    android:text="Kirim Ulang Kode"/>
+                    android:text="@string/resend_otp"/>
             </LinearLayout>
 
         </LinearLayout>

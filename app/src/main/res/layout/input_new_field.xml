@@ -39,7 +39,7 @@
                       android:layout_marginBottom="@dimen/default_margin"/>
 
             <EditText android:id="@+id/et_jam_buka"
-                      android:inputType="text"
+                      android:inputType="time"
                       android:hint="@string/jam_buka_hint"
                       android:background="@drawable/outline_stroke"
                       android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                       android:layout_marginBottom="@dimen/default_margin"/>
 
             <EditText android:id="@+id/et_jam_tutup"
-                      android:inputType="text"
+                      android:inputType="time"
                       android:hint="@string/jam_tutup_hint"
                       android:background="@drawable/outline_stroke"
                       android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                       android:layout_marginBottom="@dimen/default_margin"/>
 
             <EditText android:id="@+id/et_latitude"
-                      android:inputType="text"
+                      android:inputType="numberDecimal|numberSigned"
                       android:hint="@string/latitude_hint"
                       android:background="@drawable/outline_stroke"
                       android:layout_width="match_parent"
@@ -79,7 +79,7 @@
                       android:layout_marginBottom="@dimen/default_margin"/>
 
             <EditText android:id="@+id/et_longitude"
-                      android:inputType="text"
+                      android:inputType="numberDecimal|numberSigned"
                       android:hint="@string/longitude_hint"
                       android:background="@drawable/outline_stroke"
                       android:layout_width="match_parent"

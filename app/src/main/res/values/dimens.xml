@@ -12,4 +12,6 @@
     <dimen name="text_size_infologin">18dip</dimen>
     <dimen name="account_icon">200dp</dimen>
     <dimen name="rMrgin_ibDel">35dp</dimen>
+    <dimen name="widthsize_fielddetail">76dp</dimen>
+    <dimen name="textsize_fielddetail">16sp</dimen>
 </resources>

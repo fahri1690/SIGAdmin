@@ -30,14 +30,18 @@
     <string name="login_icon_desc">Register Icon</string>
     <string name="kirim_otp">Kirim OTP</string>
     <string name="btn_perbarui">Perbarui</string>
-    <string name="tv_field_name">Nama Lapangan :</string>
-    <string name="tv_fasilitas">Fasilitas :</string>
-    <string name="tv_jamBuka">Jam Buka :</string>
-    <string name="tv_jamTutup">Jam Tutup :</string>
-    <string name="tv_noTelp">No Telepon :</string>
-    <string name="tv_alamat">Alamat :</string>
-    <string name="tv_latitude">Latitude :</string>
-    <string name="tv_longitude">Longitude :</string>
+    <string name="tv_field_name">Nama Lapangan</string>
+    <string name="tv_fasilitas">Fasilitas</string>
+    <string name="tv_jamBuka">Jam Buka</string>
+    <string name="tv_jamTutup">Jam Tutup</string>
+    <string name="tv_noTelp">No Telepon</string>
+    <string name="tv_alamat">Alamat</string>
+    <string name="tv_latitude">Latitude</string>
+    <string name="tv_longitude">Longitude</string>
     <string name="btn_backHome">Home</string>
     <string name="btn_addSubField">Tambah Sub</string>
+    <string name="verifikasi">verifikasi</string>
+    <string name="resend_otp">Kirim Ulang</string>
+    <string name="btn_addField">Add Field</string>
+    <string name="titik2">:</string>
 </resources>
