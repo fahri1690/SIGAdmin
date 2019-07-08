@@ -3,6 +3,7 @@ package com.example.sigadmin.layouts
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +11,10 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sigadmin.MainActivity
 import com.example.sigadmin.R
 import com.example.sigadmin.models.DataField
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
@@ -21,7 +24,6 @@ import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.field_detail.*
 import kotlinx.android.synthetic.main.home_admin.*
 import kotlinx.android.synthetic.main.item_field.view.*
-
 
 class HomeAdmin : AppCompatActivity() {
 
@@ -44,9 +46,12 @@ class HomeAdmin : AppCompatActivity() {
             val db = FirebaseFirestore.getInstance()
 
             fieldViewHolder.itemView.setOnClickListener {
+                val d = db.collection("Lapangan")
                 val snapshot = snapshots.getSnapshot(position)
                 snapshot.id
-                val intent = Intent(this@HomeAdmin, FieldDetail::class.java)
+                val list = d.document(snapshot.id).collection("listLapangan").document(snapshot.id)
+                list.id
+                val intent = Intent(this@HomeAdmin, MainActivity::class.java)
                 intent.putExtra("id", snapshot.id)
                 intent.putExtra("name", fieldModel.name)
                 intent.putExtra("facility", fieldModel.facility)
@@ -56,6 +61,7 @@ class HomeAdmin : AppCompatActivity() {
                 intent.putExtra("lat", fieldModel.lat)
                 intent.putExtra("long", fieldModel.long)
                 intent.putExtra("noTelp", fieldModel.noTelp)
+                intent.putExtra("listId", list.id)
                 startActivity(intent)
             }
 

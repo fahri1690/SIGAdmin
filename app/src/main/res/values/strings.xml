@@ -44,4 +44,7 @@
     <string name="resend_otp">Kirim Ulang</string>
     <string name="btn_addField">Add Field</string>
     <string name="titik2">:</string>
+    <string name="tab_text_1">Detail Lapangan</string>
+    <string name="tab_text_2">Daftar Lapangan</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
