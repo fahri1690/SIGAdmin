@@ -31,7 +31,8 @@
             </LinearLayout>
 
             <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content">
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
@@ -42,7 +43,8 @@
             </LinearLayout>
 
             <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content">
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
@@ -72,8 +74,7 @@
             </LinearLayout>
 
             <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_gravity="center_vertical">
+                          android:layout_height="wrap_content">
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
@@ -359,44 +360,62 @@
                       android:layout_marginTop="@dimen/default_margin"
                       android:orientation="vertical">
 
-            <Button android:id="@+id/btn_perbarui"
-                    android:textAllCaps="false"
-                    android:background="@drawable/button_layout"
-                    android:textColor="@color/buttonTextColor"
-                    android:layout_gravity="end"
-                    android:layout_width="@dimen/button_width"
-                    android:layout_height="@dimen/button_height"
-                    android:text="@string/btn_perbarui"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal"
+                          android:gravity="center_horizontal">
 
-            <Button android:id="@+id/btn_addSubField"
-                    android:textAllCaps="false"
-                    android:background="@drawable/button_layout"
-                    android:textColor="@color/buttonTextColor"
-                    android:layout_marginTop="@dimen/default_margin"
-                    android:layout_gravity="end"
-                    android:layout_width="@dimen/button_width"
-                    android:layout_height="@dimen/button_height"
-                    android:text="@string/btn_addSubField"/>
+                <Button android:id="@+id/btn_perbarui"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_layout"
+                        android:textColor="@color/buttonTextColor"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:layout_gravity="start"
+                        android:layout_width="@dimen/button_width"
+                        android:layout_height="@dimen/button_height"
+                        android:text="@string/btn_perbarui"/>
 
-            <Button android:id="@+id/btn_addField"
-                    android:textAllCaps="false"
-                    android:background="@drawable/button_layout"
-                    android:textColor="@color/buttonTextColor"
-                    android:layout_marginTop="@dimen/default_margin"
-                    android:layout_gravity="end"
-                    android:layout_width="@dimen/button_width"
-                    android:layout_height="@dimen/button_height"
-                    android:text="@string/btn_addField"/>
+                <Button android:id="@+id/btn_addSubField"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_layout"
+                        android:textColor="@color/buttonTextColor"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:layout_gravity="end"
+                        android:layout_width="@dimen/button_width"
+                        android:layout_height="@dimen/button_height"
+                        android:text="@string/btn_addSubField"/>
 
-            <Button android:id="@+id/btn_backHome"
-                    android:textAllCaps="false"
-                    android:background="@drawable/button_layout"
-                    android:textColor="@color/buttonTextColor"
-                    android:layout_marginTop="@dimen/default_margin"
-                    android:layout_gravity="end"
-                    android:layout_width="@dimen/button_width"
-                    android:layout_height="@dimen/button_height"
-                    android:text="@string/btn_backHome"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal"
+                          android:gravity="center_horizontal">
+
+                <Button android:id="@+id/btn_addField"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_layout"
+                        android:textColor="@color/buttonTextColor"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:layout_width="@dimen/button_width"
+                        android:layout_height="@dimen/button_height"
+                        android:text="@string/btn_addField"/>
+
+                <Button android:id="@+id/btn_backHome"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_layout"
+                        android:textColor="@color/buttonTextColor"
+                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:layout_gravity="end"
+                        android:layout_width="@dimen/button_width"
+                        android:layout_height="@dimen/button_height"
+                        android:text="@string/btn_backHome"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -111,7 +111,7 @@ class HomeAdmin : AppCompatActivity() {
 
         rvMain.adapter = adapter
 
-        ib_add_new_place.setOnClickListener {
+        floatacbut_add_new_place.setOnClickListener {
             val intent = Intent (this, InputNewField::class.java)
             startActivity(intent)
         }
