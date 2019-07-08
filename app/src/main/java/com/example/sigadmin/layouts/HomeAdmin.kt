@@ -11,7 +11,6 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sigadmin.MainActivity
@@ -21,7 +20,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import kotlinx.android.synthetic.main.field_detail.*
 import kotlinx.android.synthetic.main.home_admin.*
 import kotlinx.android.synthetic.main.item_field.view.*
 
@@ -49,8 +47,7 @@ class HomeAdmin : AppCompatActivity() {
                 val d = db.collection("Lapangan")
                 val snapshot = snapshots.getSnapshot(position)
                 snapshot.id
-                val list = d.document(snapshot.id).collection("listLapangan").document(snapshot.id)
-                list.id
+                val list = d.document(snapshot.id).collection("listLapangan").orderBy("name")
                 val intent = Intent(this@HomeAdmin, MainActivity::class.java)
                 intent.putExtra("id", snapshot.id)
                 intent.putExtra("name", fieldModel.name)
@@ -61,7 +58,6 @@ class HomeAdmin : AppCompatActivity() {
                 intent.putExtra("lat", fieldModel.lat)
                 intent.putExtra("long", fieldModel.long)
                 intent.putExtra("noTelp", fieldModel.noTelp)
-                intent.putExtra("listId", list.id)
                 startActivity(intent)
             }
 
@@ -77,12 +73,12 @@ class HomeAdmin : AppCompatActivity() {
 
                 builder.setMessage("Apakah kamu yakin?")
 
-                builder.setPositiveButton("Ya") { _, which ->
+                builder.setPositiveButton("Ya") { _, _ ->
                     db.collection("Lapangan").document(ids).delete()
                     Toast.makeText(applicationContext, "Lapangan berhasil dihapus.", Toast.LENGTH_SHORT).show()
                 }
 
-                builder.setNegativeButton("Tidak") { _, which ->
+                builder.setNegativeButton("Tidak") { _, _ ->
 
                 }
 

@@ -1,33 +1,41 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".layouts.HomeAdmin">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".ui.main.SecondFragment">
-
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical" tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints">
 
         <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvMain"
-                android:layout_width="395dp"
-                android:layout_height="600dp"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="8dp"/>
-
-        <ImageButton
-                android:id="@+id/ib_add_new_place"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:padding="10dp"
-                android:layout_gravity="end"
-                android:layout_marginRight="@dimen/rMrgin_ibDel"
-                android:src="@drawable/ic_add_new_field_place"/>
-
+            android:id="@+id/rvMMain"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp" />
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ibb_add_new_place"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/transparent"
+        android:foreground="@drawable/add_button"
+        app:backgroundTint="#00FFFFFF"
+        app:backgroundTintMode="add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

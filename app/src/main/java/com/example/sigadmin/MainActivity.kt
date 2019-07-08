@@ -1,11 +1,16 @@
 package com.example.sigadmin
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import com.example.sigadmin.layouts.HomeAdmin
 import com.example.sigadmin.ui.main.SectionsPagerAdapter
 import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,14 +23,17 @@ class MainActivity : AppCompatActivity() {
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
 
-        val listId = intent.getStringExtra("listId")
+        back_btn.setOnClickListener {
+            startActivity(Intent(this, HomeAdmin::class.java))
+        }
 
-        Log.d("ListID", "$listId")
+        Log.d("Meesss", intent.getStringExtra("id"))
 
     }
 
     fun getMyData(): Bundle {
 
+        val id = intent.getStringExtra("id")
         val name = intent.getStringExtra("name")
         val facility = intent.getStringExtra("facility")
         val openHour = intent.getStringExtra("jamBuka")
@@ -36,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         val lng = intent.getStringExtra("long")
 
         val b = Bundle()
+        b.putString("id", id)
         b.putString("name", name)
         b.putString("facility", facility)
         b.putString("jamBuka", openHour)
@@ -47,5 +56,18 @@ class MainActivity : AppCompatActivity() {
 
         return b
 
+    }
+
+    fun getList():Bundle {
+        val listId = intent.getStringExtra("id")
+        val b = Bundle()
+        b.putString("id", listId)
+
+        return b
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sigadmin.MainActivity
 import com.example.sigadmin.R
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.update_field.*
@@ -68,7 +69,7 @@ class UpdateField : AppCompatActivity() {
 
         query.update(result)
             .addOnSuccessListener {
-                val intent = Intent(this, FieldDetail::class.java)
+                val intent = Intent(this, HomeAdmin::class.java)
                 intent.putExtra("id", ids)
                 intent.putExtra("name", name)
                 intent.putExtra("facility", facility)

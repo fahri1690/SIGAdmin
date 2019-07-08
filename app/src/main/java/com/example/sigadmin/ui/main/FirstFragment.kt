@@ -8,22 +8,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.sigadmin.R
 import com.example.sigadmin.MainActivity
+import kotlinx.android.synthetic.main.fragment_main.view.*
+import android.content.Intent
+import android.util.Log
+import com.example.sigadmin.layouts.UpdateField
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class FirstFragment : Fragment() {
-
-    private lateinit var pageViewModel: PageViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val bundle = this.arguments
-        val myValue = bundle?.getString("message")
-        val tv = view?.findViewById<TextView>(R.id.tv_fnama_lapangan)
-
-        tv?.text = myValue
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,14 +34,15 @@ class FirstFragment : Fragment() {
         val activity = activity as MainActivity
 
         val results = activity.getMyData()
+        val ids  = results.getString("id")
         val name = results.getString("name")
         val facility = results.getString("facility")
         val jamBuka = results.getString("jamBuka")
         val jamTutup = results.getString("jamTutup")
         val noTelp = results.getString("noTelp")
         val lat = results.getString("lat")
-        val lng = results.getString("long")
-        val addr = results.getString("alamat")
+        val long = results.getString("long")
+        val alamat = results.getString("alamat")
 
         tvName.text = name
         tvFacility.text = facility
@@ -57,25 +50,30 @@ class FirstFragment : Fragment() {
         tvJamTutup.text = jamTutup
         tvNoTelp.text = noTelp
         tvLat.text = lat
-        tvLong.text = lng
-        tvAlamat.text = addr
+        tvLong.text = long
+        tvAlamat.text = alamat
+
+        val db = FirebaseFirestore.getInstance()
+        val query = db.collection("Lapangan").document(ids)
+        val docId = query.id
+
+        root.btn_perbarui.setOnClickListener {
+            val intent = Intent(getActivity(), UpdateField::class.java)
+            intent.putExtra("id", docId)
+            intent.putExtra("name", name)
+            intent.putExtra("facility", facility)
+            intent.putExtra("alamat", alamat)
+            intent.putExtra("jamBuka", jamBuka)
+            intent.putExtra("jamTutup", jamTutup)
+            intent.putExtra("lat", lat)
+            intent.putExtra("long", long)
+            intent.putExtra("noTelp", noTelp)
+            startActivity(intent)
+            Log.d("Meesss", docId)
+        }
 
         return root
     }
 
-    companion object {
-
-        private const val ARG_SECTION_NUMBER = "section_number"
-
-        const val names = "name"
-
-        @JvmStatic
-        fun newInstance(name: String): FirstFragment {
-            return FirstFragment().apply {
-                arguments = Bundle().apply {
-                    getString(names, name)
-                }
-            }
-        }
-    }
 }
+

@@ -47,4 +47,8 @@
     <string name="tab_text_1">Detail Lapangan</string>
     <string name="tab_text_2">Daftar Lapangan</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="tv_jenis">Jenis</string>
+    <string name="tv_field_kode">Kode Lapangan</string>
+    <string name="tv_hargaSiag">Harga Siang</string>
+    <string name="tv_hargaMalam">Harga Malam</string>
 </resources>
