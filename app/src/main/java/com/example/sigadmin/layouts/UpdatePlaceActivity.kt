@@ -7,13 +7,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.update_field.*
+import kotlinx.android.synthetic.main.activity_update_place.*
 
-class UpdateField : AppCompatActivity() {
+class UpdatePlaceActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.update_field)
+        setContentView(R.layout.activity_update_place)
 
         getData()
 
@@ -68,7 +68,7 @@ class UpdateField : AppCompatActivity() {
 
         query.update(result)
             .addOnSuccessListener {
-                val intent = Intent(this, FieldDetail::class.java)
+                val intent = Intent(this, HomeAdminActivity::class.java)
                 intent.putExtra("id", ids)
                 intent.putExtra("name", name)
                 intent.putExtra("facility", facility)

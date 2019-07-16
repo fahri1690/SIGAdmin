@@ -9,7 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.register.*
+import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -20,7 +20,7 @@ class RegisterActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.register)
+        setContentView(R.layout.activity_register)
 
         btn_register.setOnClickListener {
             saveData()
@@ -80,4 +80,3 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 }
-

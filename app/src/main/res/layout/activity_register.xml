@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,6 +10,7 @@
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:padding="@dimen/default_padding"
+                  android:layout_gravity="center_vertical"
                   android:orientation="vertical">
 
         <LinearLayout android:layout_width="match_parent"
@@ -18,10 +18,10 @@
 
             <ImageView
                     android:layout_width="match_parent"
-                       android:layout_height="@dimen/account_icon"
-                       android:layout_marginBottom="@dimen/default_margin"
-                       android:contentDescription="@string/login_icon_desc"
-                       android:src="@drawable/ic_account_icon"/>
+                    android:layout_height="@dimen/account_icon"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:contentDescription="@string/login_icon_desc"
+                    android:src="@drawable/ic_account_icon"/>
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent"
@@ -62,7 +62,7 @@
                     android:layout_height="@dimen/button_height"
                     android:layout_gravity="end"
                     android:background="@drawable/button_layout"
-                    android:text="@string/register"
+                    android:text="@string/btn_register"
                     android:textAllCaps="false"
                     android:textColor="@color/buttonTextColor"/>
 
@@ -70,6 +70,7 @@
 
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
+                      android:orientation="horizontal"
                       android:gravity="center_horizontal">
 
             <TextView android:layout_width="wrap_content"
@@ -83,7 +84,7 @@
                       android:layout_height="wrap_content"
                       android:layout_gravity="center"
                       android:layout_margin="@dimen/default_margin"
-                      android:text="@string/login"
+                      android:text="@string/tv_masuk"
                       android:textColor="@color/buttonColor"/>
 
         </LinearLayout>

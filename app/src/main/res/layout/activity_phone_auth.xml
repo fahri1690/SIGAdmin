@@ -60,7 +60,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
-                    android:text="@string/kirim_otp"/>
+                    android:text="@string/btn_kirim_otp"/>
 
                 <Button
                     android:theme="@style/AppTheme"

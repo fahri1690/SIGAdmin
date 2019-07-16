@@ -118,7 +118,7 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        val intent = Intent(this, HomeAdmin::class.java)
+                        val intent = Intent(this, HomeAdminActivity::class.java)
                         startActivity(intent)
                     } else {
                         Log.w(TAG, "signInWithCredential:failure", task.exception)

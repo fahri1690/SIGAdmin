@@ -20,4 +20,6 @@
     <dimen name="appbar_padding">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="widthsize_subfielddetail">100dp</dimen>
+    <dimen name="margintop_icuser">120dp</dimen>
 </resources>

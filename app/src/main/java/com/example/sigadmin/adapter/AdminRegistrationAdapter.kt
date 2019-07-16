@@ -18,7 +18,7 @@
 //    : RecyclerView.Adapter<AdminRegistrationAdapter.ViewHolder>() {
 //
 //    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-//        val view = LayoutInflater.from(parent!!.context).inflate(R.layout.home_admin, parent, false)
+//        val view = LayoutInflater.from(parent!!.context).inflate(R.layout.activity_home_admin, parent, false)
 //
 //        return ViewHolder(view)
 //    }

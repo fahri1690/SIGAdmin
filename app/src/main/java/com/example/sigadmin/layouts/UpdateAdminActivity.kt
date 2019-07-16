@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sigadmin.R
 
-class ListSubField : AppCompatActivity() {
+class UpdateAdminActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.list_sub_field)
+        setContentView(R.layout.activity_update_admin)
     }
 }

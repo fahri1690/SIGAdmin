@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/default_padding"
-        tools:context=".ui.main.FirstFragment">
+        tools:context=".ui.main.FirstFragmentActivity">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
 
-        <!--Nama Lapangan-->
+        <!--Nama Tempat Futsal-->
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -37,8 +37,7 @@
 
             <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom">
+                    android:layout_height="wrap_content">
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -51,8 +50,7 @@
 
             <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom">
+                    android:layout_height="wrap_content">
 
                 <TextView
                         android:id="@+id/tv_fnama_lapangan"
@@ -429,39 +427,6 @@
                     android:text="@string/btn_perbarui"
                     android:textAllCaps="false"
                     android:textColor="@color/buttonTextColor"/>
-
-            <!--<Button-->
-            <!--android:id="@+id/btn_addSubField"-->
-            <!--android:layout_width="@dimen/button_width"-->
-            <!--android:layout_height="@dimen/button_height"-->
-            <!--android:layout_gravity="end"-->
-            <!--android:layout_marginTop="@dimen/default_margin"-->
-            <!--android:background="@drawable/button_layout"-->
-            <!--android:text="@string/btn_addSubField"-->
-            <!--android:textAllCaps="false"-->
-            <!--android:textColor="@color/buttonTextColor"/>-->
-
-            <!--<Button-->
-            <!--android:id="@+id/btn_addField"-->
-            <!--android:layout_width="@dimen/button_width"-->
-            <!--android:layout_height="@dimen/button_height"-->
-            <!--android:layout_gravity="end"-->
-            <!--android:layout_marginTop="@dimen/default_margin"-->
-            <!--android:background="@drawable/button_layout"-->
-            <!--android:text="@string/btn_addField"-->
-            <!--android:textAllCaps="false"-->
-            <!--android:textColor="@color/buttonTextColor"/>-->
-
-            <!--<Button-->
-            <!--android:id="@+id/btn_backHome"-->
-            <!--android:layout_width="@dimen/button_width"-->
-            <!--android:layout_height="@dimen/button_height"-->
-            <!--android:layout_gravity="end"-->
-            <!--android:layout_marginTop="@dimen/default_margin"-->
-            <!--android:background="@drawable/button_layout"-->
-            <!--android:text="@string/btn_backHome"-->
-            <!--android:textAllCaps="false"-->
-            <!--android:textColor="@color/buttonTextColor"/>-->
 
         </LinearLayout>
 

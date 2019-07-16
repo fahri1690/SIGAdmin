@@ -16,12 +16,12 @@ import com.example.sigadmin.R
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.input_new_field.*
-import kotlinx.android.synthetic.main.input_new_sub_field.*
+import kotlinx.android.synthetic.main.activity_input_place.*
+import kotlinx.android.synthetic.main.activity_input_field.*
 import java.io.IOException
 import java.util.*
 
-class InputNewSubField : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class InputFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     private val db = FirebaseFirestore.getInstance()
 
@@ -44,7 +44,7 @@ class InputNewSubField : AppCompatActivity(), AdapterView.OnItemSelectedListener
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.input_new_sub_field)
+        setContentView(R.layout.activity_input_field)
 
         imgRef = FirebaseStorage.getInstance()
         storageReference = imgRef!!.reference
@@ -108,7 +108,7 @@ class InputNewSubField : AppCompatActivity(), AdapterView.OnItemSelectedListener
     }
 
     private fun rollBack() {
-        val newIntent = Intent(this, HomeAdmin::class.java)
+        val newIntent = Intent(this, HomeAdminActivity::class.java)
         startActivity(newIntent)
     }
 
@@ -142,7 +142,7 @@ class InputNewSubField : AppCompatActivity(), AdapterView.OnItemSelectedListener
             db.collection("SubLapangan")
                 .add(result)
                 .addOnSuccessListener {
-                    val intent = Intent(this, HomeAdmin::class.java)
+                    val intent = Intent(this, HomeAdminActivity::class.java)
                     startActivity(intent)
                 }
                 .addOnFailureListener {
@@ -151,4 +151,3 @@ class InputNewSubField : AppCompatActivity(), AdapterView.OnItemSelectedListener
         }
     }
 }
-

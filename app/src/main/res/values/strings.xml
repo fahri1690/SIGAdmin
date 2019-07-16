@@ -1,9 +1,12 @@
 <resources>
+
+
+
     <string name="app_name">SIG Admin</string>
-    <string name="register">Daftar</string>
-    <string name="login">Masuk</string>
+    <string name="btn_register">Daftar</string>
+    <string name="tv_masuk">Masuk</string>
     <string name="otp_hint">Masukkan Kode OTP</string>
-    <string name="nama_lapangan_hint">Nama Lapangan</string>
+    <string name="nama_lapangan_hint">Nama</string>
     <string name="fasilitas_hint">Fasilitas</string>
     <string name="jam_buka_hint">Jam Buka</string>
     <string name="jam_tutup_hint">Jam Tutup</string>
@@ -12,7 +15,7 @@
     <string name="latitude_hint">Latitude</string>
     <string name="longitude_hint">Longitude</string>
     <string name="btn_simpan_lap_baru">Simpan</string>
-    <string name="nama_sub_lapangan_hint">Nama Sub Lapangan</string>
+    <string name="nama_sub_lapangan_hint">Kode Lapangan</string>
     <string name="harga_siang_hint">Harga Siang</string>
     <string name="harga_malam_hint">Harga Malam</string>
     <string name="btn_simpan_sub_lap_baru">Simpan</string>
@@ -27,10 +30,10 @@
     </string-array>
 
     <string name="sudah_punya_akun">Sudah punya akun?</string>
-    <string name="login_icon_desc">Register Icon</string>
-    <string name="kirim_otp">Kirim OTP</string>
+    <string name="login_icon_desc">Phone Number Icon</string>
+    <string name="btn_kirim_otp">Kirim OTP</string>
     <string name="btn_perbarui">Perbarui</string>
-    <string name="tv_field_name">Nama Lapangan</string>
+    <string name="tv_field_name">Nama</string>
     <string name="tv_fasilitas">Fasilitas</string>
     <string name="tv_jamBuka">Jam Buka</string>
     <string name="tv_jamTutup">Jam Tutup</string>
@@ -44,7 +47,17 @@
     <string name="resend_otp">Kirim Ulang</string>
     <string name="btn_addField">Add Field</string>
     <string name="titik2">:</string>
-    <string name="tab_text_1">Detail Lapangan</string>
+    <string name="tab_text_1">Detail</string>
     <string name="tab_text_2">Daftar Lapangan</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="tv_jenis">Jenis</string>
+    <string name="tv_field_kode">Kode Lapangan</string>
+    <string name="tv_hargaSiag">Harga Siang</string>
+    <string name="tv_hargaMalam">Harga Malam</string>
+    <string name="nama_admin">Nama</string>
+    <string name="tv_email">Email</string>
+    <string name="tv_notelp_admin">No Telepon</string>
+    <string name="nama_admin_hint">Nama</string>
+    <string name="email_admin_hint">Email</string>
+    <string name="notelp_admin_hint">No Telepon</string>
 </resources>

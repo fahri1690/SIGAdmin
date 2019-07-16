@@ -1,12 +1,11 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        tools:context=".layouts.HomeAdmin">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="#FFFFFF"
+                                                   android:orientation="vertical"
+                                                   tools:context=".layouts.HomeAdminActivity">
 
     <LinearLayout
             android:id="@+id/linearLayout"
@@ -16,16 +15,16 @@
             tools:ignore="MissingConstraints">
 
         <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvMain"
+                android:id="@+id/rvMMain"
                 android:layout_width="395dp"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="8dp"/>
+                tools:layout_editor_absoluteY="8dp" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/ib_add_new_place"
+            android:id="@+id/ibb_add_new_place"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginEnd="10dp"
@@ -37,6 +36,6 @@
             app:backgroundTintMode="add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="MissingConstraints"/>
+            tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

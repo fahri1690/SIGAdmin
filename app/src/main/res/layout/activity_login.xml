@@ -78,7 +78,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:background="@drawable/button_layout"
-                    android:text="@string/kirim_otp"
+                    android:text="@string/btn_kirim_otp"
                     android:textAllCaps="false"
                     android:textColor="@color/buttonTextColor"/>
         </LinearLayout>

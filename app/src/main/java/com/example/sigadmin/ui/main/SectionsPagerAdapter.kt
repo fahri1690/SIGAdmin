@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.sigadmin.R
-import com.example.sigadmin.ui.main.FirstFragment.Companion.names
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
@@ -17,9 +16,9 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) : 
     override fun getItem(position: Int): Fragment {
         when(position) {
             0 -> {
-                return FirstFragment()
+                return FirstFragmentActivity()
             }
-            else -> return SecondFragment()
+            else -> return SecondFragmentActivity()
         }
     }
 

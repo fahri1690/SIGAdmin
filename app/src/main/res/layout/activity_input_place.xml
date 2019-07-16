@@ -2,28 +2,26 @@
 <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="@dimen/default_padding"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".layouts.UpdateField">
+        tools:context=".layouts.InputPlaceActivity">
 
-        <LinearLayout
-                android:padding="@dimen/default_padding"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints">
+        <LinearLayout android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
 
             <ImageView android:src="@drawable/ic_add_image"
                        android:background="@drawable/img_bg"
                        android:layout_width="match_parent"
-                       android:id="@+id/img_update_field"
+                       android:id="@+id/img_new_field"
                        android:layout_height="@dimen/image_view_height"
                        android:layout_marginBottom="@dimen/default_margin"/>
 
             <EditText android:layout_marginTop="@dimen/default_margin"
-                      android:id="@+id/et_update_field_name"
+                      android:id="@+id/et_field_name"
                       android:inputType="text"
                       android:hint="@string/nama_lapangan_hint"
                       android:background="@drawable/outline_stroke"
@@ -31,16 +29,16 @@
                       android:layout_height="wrap_content"
                       android:layout_marginBottom="@dimen/default_margin"/>
 
-            <EditText android:id="@+id/et_update_facility"
+            <EditText android:id="@+id/et_facility"
                       android:inputType="text"
+                      android:hint="@string/fasilitas_hint"
                       android:background="@drawable/outline_stroke"
                       android:lineSpacingExtra="@dimen/default_margin"
-                      android:hint="@string/fasilitas_hint"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:layout_marginBottom="@dimen/default_margin"/>
 
-            <EditText android:id="@+id/et_update_jam_buka"
+            <EditText android:id="@+id/et_jam_buka"
                       android:inputType="time"
                       android:hint="@string/jam_buka_hint"
                       android:background="@drawable/outline_stroke"
@@ -48,7 +46,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginBottom="@dimen/default_margin"/>
 
-            <EditText android:id="@+id/et_update_jam_tutup"
+            <EditText android:id="@+id/et_jam_tutup"
                       android:inputType="time"
                       android:hint="@string/jam_tutup_hint"
                       android:background="@drawable/outline_stroke"
@@ -56,7 +54,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginBottom="@dimen/default_margin"/>
 
-            <EditText android:id="@+id/et_update_no_telp"
+            <EditText android:id="@+id/et_no_telp"
                       android:inputType="phone"
                       android:hint="@string/notelp_hint"
                       android:background="@drawable/outline_stroke"
@@ -64,7 +62,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginBottom="@dimen/default_margin"/>
 
-            <EditText android:id="@+id/et_update_alamat"
+            <EditText android:id="@+id/et_alamat"
                       android:inputType="text"
                       android:hint="@string/alamat_hint"
                       android:background="@drawable/outline_stroke"
@@ -72,7 +70,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginBottom="@dimen/default_margin"/>
 
-            <EditText android:id="@+id/et_update_latitude"
+            <EditText android:id="@+id/et_latitude"
                       android:inputType="numberDecimal|numberSigned"
                       android:hint="@string/latitude_hint"
                       android:background="@drawable/outline_stroke"
@@ -80,7 +78,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginBottom="@dimen/default_margin"/>
 
-            <EditText android:id="@+id/et_update_longitude"
+            <EditText android:id="@+id/et_longitude"
                       android:inputType="numberDecimal|numberSigned"
                       android:hint="@string/longitude_hint"
                       android:background="@drawable/outline_stroke"
@@ -88,7 +86,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginBottom="@dimen/default_margin"/>
 
-            <Button android:id="@+id/btn_update_field"
+            <Button android:id="@+id/btn_save_new_field"
                     android:textAllCaps="false"
                     android:background="@drawable/button_layout"
                     android:textColor="@color/buttonTextColor"
@@ -97,5 +95,6 @@
                     android:layout_height="@dimen/button_height"
                     android:text="@string/btn_simpan_lap_baru"/>
         </LinearLayout>
+
 
 </ScrollView>

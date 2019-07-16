@@ -13,12 +13,12 @@ import com.example.sigadmin.R
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.input_new_field.*
+import kotlinx.android.synthetic.main.activity_input_place.*
 import java.util.*
 import kotlin.collections.HashMap
 import java.io.IOException as IOException1
 
-class InputNewField : AppCompatActivity() {
+class InputPlaceActivity : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
 
@@ -34,7 +34,7 @@ class InputNewField : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.input_new_field)
+        setContentView(R.layout.activity_input_place)
 
         imgRef = FirebaseStorage.getInstance()
         storageReference = imgRef!!.reference
@@ -89,7 +89,7 @@ class InputNewField : AppCompatActivity() {
     }
 
     private fun rollBack() {
-        val newIntent = Intent(this, HomeAdmin::class.java)
+        val newIntent = Intent(this, HomeAdminActivity::class.java)
         startActivity(newIntent)
     }
 
@@ -151,7 +151,7 @@ class InputNewField : AppCompatActivity() {
             db.collection("Lapangan")
                 .add(result)
                 .addOnSuccessListener {
-                    val intent = Intent(this, HomeAdmin::class.java)
+                    val intent = Intent(this, HomeAdminActivity::class.java)
                     startActivity(intent)
                 }
                 .addOnFailureListener {
@@ -160,9 +160,3 @@ class InputNewField : AppCompatActivity() {
         }
     }
 }
-
-
-
-
-
-
