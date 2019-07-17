@@ -1,13 +1,13 @@
-package com.example.sigadmin.layouts
+package com.example.sigadmin.layouts.admin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sigadmin.R
 
-class UpdateAdminActivity : AppCompatActivity() {
+class AdminInfoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_update_admin)
+        setContentView(R.layout.activity_admin_info)
     }
 }

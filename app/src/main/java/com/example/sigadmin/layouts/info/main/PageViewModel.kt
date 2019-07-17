@@ -1,4 +1,4 @@
-package com.example.sigadmin.ui.main
+package com.example.sigadmin.layouts.info.main
 
 import android.content.Intent
 import androidx.lifecycle.LiveData

@@ -1,6 +1,6 @@
 package com.example.sigadmin.models
 
-data class DataPlace(
+data class PlaceModel(
     val name: String = "",
     val alamat: String ="",
     val jamBuka: String = "",
@@ -9,8 +9,4 @@ data class DataPlace(
     val noTelp: String = "",
     val lat: String = "",
     val long: String = ""
-)
-
-class DataFieldByName(
-    val name: String = ""
 )

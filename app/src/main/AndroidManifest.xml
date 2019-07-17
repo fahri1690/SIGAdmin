@@ -16,23 +16,23 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".layouts.UpdateAdminActivity">
+        <activity android:name=".layouts.admin.UpdateAdminActivity">
         </activity>
-        <activity android:name=".layouts.AdminInfoActivity">
+        <activity android:name=".layouts.admin.AdminInfoActivity">
         </activity>
-        <activity android:name=".layouts.UpdateFieldActivity"/>
+        <activity android:name=".layouts.info.field.UpdateFieldActivity"/>
         <activity
-                android:name=".FragmentMainActivity"
+                android:name=".layouts.info.main.MainFragmentActivity"
                 android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".layouts.OtpActivity"/>
-        <activity android:name=".layouts.LoginActivity"/>
-        <activity android:name=".layouts.UpdatePlaceActivity"/>
-        <activity android:name=".layouts.FieldDetailActivity"/>
-        <activity android:name=".layouts.InputFieldActivity"/>
-        <activity android:name=".layouts.RegisterActivity"/>
-        <activity android:name=".layouts.InputPlaceActivity"/>
+        <activity android:name=".layouts.otp.OtpActivity"/>
+        <activity android:name=".layouts.login.LoginActivity"/>
+        <activity android:name=".layouts.info.place.UpdatePlaceActivity"/>
+        <activity android:name=".layouts.info.field.ReadFieldDetailActivity"/>
+        <activity android:name=".layouts.info.field.CreateFieldActivity"/>
+        <activity android:name=".layouts.register.RegisterActivity"/>
+        <activity android:name=".layouts.info.place.CreatePlaceActivity"/>
         <activity
-                android:name=".layouts.HomeAdminActivity"
+                android:name=".layouts.home.HomeAdminActivity"
                 android:label="Home">
 
             <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar"> -->

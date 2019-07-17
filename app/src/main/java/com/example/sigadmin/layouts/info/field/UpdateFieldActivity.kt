@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts
+package com.example.sigadmin.layouts.info.field
 
 import android.content.Intent
 import android.os.Bundle
@@ -45,10 +45,11 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
 
     private fun updateData() {
 
-        val ids: String = intent.getStringExtra("id")
+        val fieldId: String = intent.getStringExtra("fieldId")
+        val placeId = intent.getStringExtra("placeId")
 
         val db = FirebaseFirestore.getInstance()
-        val query = db.collection("Lapangan").document().collection("listLapangan").document(ids)
+        val query = db.collection("Lapangan").document(placeId).collection("listLapangan").document(fieldId)
 
         val name = et_updt_sub_field_name.text.toString()
         val jenis = spn_updt_jenis_lapangan.selectedItem.toString()
@@ -71,15 +72,22 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
 
         query.update(result)
             .addOnSuccessListener {
-                val intent = Intent(this, FieldDetailActivity::class.java)
-                intent.putExtra("id", ids)
+                val intent = Intent(this, ReadFieldDetailActivity::class.java)
+                intent.putExtra("fieldId", fieldId)
+                intent.putExtra("placeId", placeId)
                 intent.putExtra("name", name)
                 intent.putExtra("jenis", jenis)
                 intent.putExtra("hargaSiang", hargaSiang)
-                intent.putExtra("hargaalam", hargaMalam)
+                intent.putExtra("hargaMalam", hargaMalam)
+                finish()
                 startActivity(intent)
             }
             .addOnFailureListener { e -> Log.w("Messages", "Error updating document", e) }
+
+        Log.d("PLACEID", placeId)
+        Log.d("FIELDID", fieldId)
+
+
     }
 
     private fun getData() {
@@ -92,7 +100,6 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         val name = et_updt_sub_field_name
         val hargaSiang = et_updt_harga_siang
         val hargaMalam = et_updt_harga_malam
-
 
         name.setText(names)
         hargaSiang.setText(hargaSiangs)

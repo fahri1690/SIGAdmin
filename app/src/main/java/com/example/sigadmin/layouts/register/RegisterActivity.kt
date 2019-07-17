@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts
+package com.example.sigadmin.layouts.register
 
 import android.content.Intent
 import android.os.Build
@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
+import com.example.sigadmin.layouts.otp.OtpActivity
+import com.example.sigadmin.layouts.login.LoginActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_register.*
 

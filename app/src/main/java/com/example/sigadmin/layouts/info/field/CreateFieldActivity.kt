@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts
+package com.example.sigadmin.layouts.info.field
 
 import android.app.Activity
 import android.content.Intent
@@ -13,17 +13,18 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
-import com.google.firebase.firestore.FirebaseFirestore
+import com.example.sigadmin.layouts.home.HomeAdminActivity
+import com.example.sigadmin.layouts.info.main.MainFragmentActivity
+import com.example.sigadmin.services.db.GetDb
+import com.example.sigadmin.services.db.GetImage
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.activity_input_place.*
 import kotlinx.android.synthetic.main.activity_input_field.*
+import kotlinx.android.synthetic.main.activity_input_place.*
 import java.io.IOException
 import java.util.*
 
-class InputFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-
-    private val db = FirebaseFirestore.getInstance()
+class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     internal var id: String = ""
 
@@ -66,7 +67,6 @@ class InputFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListen
         btn_save_new_sub_field.setOnClickListener {
             uploadImage()
             saveData()
-            rollBack()
         }
     }
 
@@ -79,7 +79,7 @@ class InputFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListen
 
     private fun uploadImage() {
         if (filepath != null) {
-            val imageRef = storageReference!!.child("images/subFields/*" + UUID.randomUUID().toString())
+            val imageRef = storageReference!!.child("images/fields/*" + UUID.randomUUID().toString())
             imageRef.putFile(filepath!!)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Upload Gambar Sukses", Toast.LENGTH_SHORT).show()
@@ -107,13 +107,9 @@ class InputFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListen
         }
     }
 
-    private fun rollBack() {
-        val newIntent = Intent(this, HomeAdminActivity::class.java)
-        startActivity(newIntent)
-    }
-
     @RequiresApi(Build.VERSION_CODES.M)
     private fun saveData() {
+        val placeId = intent.getStringExtra("placeId")
         val namaSubLapangan = et_sub_field_name.text.toString()
         val jenis = spn_jenis_lapangan.selectedItem.toString()
         val hargaSiang = et_harga_siang.text.toString()
@@ -139,15 +135,53 @@ class InputFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListen
             result["hargaSiang"] = hargaSiang
             result["hargaMalam"] = hargaMalam
 
-            db.collection("SubLapangan")
+            GetDb().collection.document(placeId).collection("listLapangan")
                 .add(result)
                 .addOnSuccessListener {
-                    val intent = Intent(this, HomeAdminActivity::class.java)
+                    val intent = Intent(this, MainFragmentActivity::class.java)
+                    finish()
                     startActivity(intent)
                 }
                 .addOnFailureListener {
 
                 }
         }
+    }
+
+    override fun onBackPressed() {
+        val placeId = intent.getStringExtra("placeId")
+        val docRef = GetDb().collection.document(placeId)
+
+        docRef.get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+
+                        val name = document.data?.get("name").toString()
+                        val facility = document.data?.get("facility").toString()
+                        val jamBuka = document.data?.get("jamBuka").toString()
+                        val jamTutup = document.data?.get("jamTutup").toString()
+                        val noTelp = document.data?.get("noTelp").toString()
+                        val alamat = document.data?.get("alamat").toString()
+                        val lat = document.data?.get("lat").toString()
+                        val long = document.data?.get("long").toString()
+
+                        val intent = Intent(this, MainFragmentActivity::class.java)
+                        intent.putExtra("placeId", placeId)
+                        intent.putExtra("name", name)
+                        intent.putExtra("facility", facility)
+                        intent.putExtra("jamBuka", jamBuka)
+                        intent.putExtra("jamTutup", jamTutup)
+                        intent.putExtra("noTelp", noTelp)
+                        intent.putExtra("alamat", alamat)
+                        intent.putExtra("lat", lat)
+                        intent.putExtra("long", long)
+                        startActivity(intent)
+                    } else {
+
+                    }
+                }
+                .addOnFailureListener { exception ->
+
+                }
     }
 }

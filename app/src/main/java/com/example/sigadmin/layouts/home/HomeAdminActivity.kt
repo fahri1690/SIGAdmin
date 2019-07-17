@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts
+package com.example.sigadmin.layouts.home
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -11,9 +11,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sigadmin.FragmentMainActivity
+import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.R
-import com.example.sigadmin.models.DataPlace
+import com.example.sigadmin.layouts.info.place.CreatePlaceActivity
+import com.example.sigadmin.models.PlaceModel
+import com.example.sigadmin.services.db.GetDb
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
@@ -30,24 +32,23 @@ class HomeAdminActivity : AppCompatActivity() {
         }
     }
 
-    inner class FieldFireStoreRecyclerAdapter internal constructor(options: FirestoreRecyclerOptions<DataPlace>) :
-        FirestoreRecyclerAdapter<DataPlace, FieldViewHolder>(options) {
+    inner class FieldFireStoreRecyclerAdapter internal constructor(options: FirestoreRecyclerOptions<PlaceModel>) :
+        FirestoreRecyclerAdapter<PlaceModel, FieldViewHolder>(options) {
         override fun onBindViewHolder(
-            fieldViewHolder: FieldViewHolder,
-            position: Int,
-            fieldModel: DataPlace
+                fieldViewHolder: FieldViewHolder,
+                position: Int,
+                fieldModel: PlaceModel
         ) {
             fieldViewHolder.setFieldName(fieldModel.name)
 
-            val db = FirebaseFirestore.getInstance()
-
             fieldViewHolder.itemView.setOnClickListener {
-                val d = db.collection("Lapangan")
+
                 val snapshot = snapshots.getSnapshot(position)
                 snapshot.id
-                val list = d.document(snapshot.id).collection("listLapangan").orderBy("name")
-                val intent = Intent(this@HomeAdminActivity, FragmentMainActivity::class.java)
-                intent.putExtra("id", snapshot.id)
+                val list = GetDb().collection.document(snapshot.id).collection("listLapangan").document()
+                list.id
+                val intent = Intent(this@HomeAdminActivity, MainFragmentActivity::class.java)
+                intent.putExtra("placeId", snapshot.id)
                 intent.putExtra("name", fieldModel.name)
                 intent.putExtra("facility", fieldModel.facility)
                 intent.putExtra("alamat", fieldModel.alamat)
@@ -72,7 +73,7 @@ class HomeAdminActivity : AppCompatActivity() {
                 builder.setMessage("Apakah kamu yakin?")
 
                 builder.setPositiveButton("Ya") { _, _ ->
-                    db.collection("Lapangan").document(ids).delete()
+                    GetDb().collection.document(ids).delete()
                     Toast.makeText(applicationContext, "Lapangan berhasil dihapus.", Toast.LENGTH_SHORT).show()
                 }
 
@@ -102,17 +103,15 @@ class HomeAdminActivity : AppCompatActivity() {
 
         rvMain.layoutManager = LinearLayoutManager(this)
 
-        val rootRef = FirebaseFirestore.getInstance()
-        val query = rootRef.collection("Lapangan").orderBy("name", Query.Direction.ASCENDING)
-        val options =
-            FirestoreRecyclerOptions.Builder<DataPlace>().setQuery(query, DataPlace::class.java).build()
+        val query = GetDb().collection.orderBy("name", Query.Direction.ASCENDING)
+        val options = GetDb().recyclerOption.setQuery(query, PlaceModel::class.java).build()
 
         adapter = FieldFireStoreRecyclerAdapter(options)
 
         rvMain.adapter = adapter
 
         ib_add_new_place.setOnClickListener {
-            val intent = Intent (this, InputPlaceActivity::class.java)
+            val intent = Intent (this, CreatePlaceActivity::class.java)
             startActivity(intent)
         }
 
