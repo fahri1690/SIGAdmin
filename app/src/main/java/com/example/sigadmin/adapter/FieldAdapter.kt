@@ -1,4 +1,4 @@
-//package com.example.sigadmin.adapter
+package com.example.sigadmin.adapter
 //
 //import android.view.LayoutInflater
 //import android.view.View

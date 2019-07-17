@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts
+package com.example.sigadmin.layouts.info.place
 
 import android.app.Activity
 import android.content.Intent
@@ -10,7 +10,9 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
-import com.google.firebase.firestore.FirebaseFirestore
+import com.example.sigadmin.layouts.home.HomeAdminActivity
+import com.example.sigadmin.layouts.info.main.MainFragmentActivity
+import com.example.sigadmin.services.db.GetDb
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_input_place.*
@@ -18,9 +20,7 @@ import java.util.*
 import kotlin.collections.HashMap
 import java.io.IOException as IOException1
 
-class InputPlaceActivity : AppCompatActivity() {
-
-    private val db = FirebaseFirestore.getInstance()
+class CreatePlaceActivity : AppCompatActivity() {
 
     internal var id: String = ""
 
@@ -46,7 +46,6 @@ class InputPlaceActivity : AppCompatActivity() {
         btn_save_new_field.setOnClickListener {
             uploadImage()
             saveData()
-            rollBack()
         }
 
     }
@@ -60,7 +59,7 @@ class InputPlaceActivity : AppCompatActivity() {
 
     private fun uploadImage() {
         if (filepath != null) {
-            val imageRef = storageReference!!.child("images/fields/*" + UUID.randomUUID().toString())
+            val imageRef = storageReference!!.child("images/places/*" + UUID.randomUUID().toString())
             imageRef.putFile(filepath!!)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
@@ -86,11 +85,6 @@ class InputPlaceActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
-    }
-
-    private fun rollBack() {
-        val newIntent = Intent(this, HomeAdminActivity::class.java)
-        startActivity(newIntent)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -148,10 +142,11 @@ class InputPlaceActivity : AppCompatActivity() {
             result["lat"] = lat
             result["long"] = long
 
-            db.collection("Lapangan")
+            GetDb().collection
                 .add(result)
                 .addOnSuccessListener {
                     val intent = Intent(this, HomeAdminActivity::class.java)
+                    finish()
                     startActivity(intent)
                 }
                 .addOnFailureListener {

@@ -1,10 +1,11 @@
-package com.example.sigadmin.layouts
+package com.example.sigadmin.layouts.info.place
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.R
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_update_place.*
@@ -24,10 +25,10 @@ class UpdatePlaceActivity : AppCompatActivity() {
 
     private fun updateData() {
 
-        val ids: String = intent.getStringExtra("id")
+        val placeId: String = intent.getStringExtra("placeId")
 
         val db = FirebaseFirestore.getInstance()
-        val query = db.collection("Lapangan").document(ids)
+        val query = db.collection("Lapangan").document(placeId)
 
         val name = et_update_field_name.text.toString()
         val facility = et_update_facility.text.toString()
@@ -68,8 +69,8 @@ class UpdatePlaceActivity : AppCompatActivity() {
 
         query.update(result)
             .addOnSuccessListener {
-                val intent = Intent(this, HomeAdminActivity::class.java)
-                intent.putExtra("id", ids)
+                val intent = Intent(this, MainFragmentActivity::class.java)
+                intent.putExtra("placeId", placeId)
                 intent.putExtra("name", name)
                 intent.putExtra("facility", facility)
                 intent.putExtra("alamat", alamat)
@@ -78,9 +79,11 @@ class UpdatePlaceActivity : AppCompatActivity() {
                 intent.putExtra("lat", lat)
                 intent.putExtra("long", long)
                 intent.putExtra("noTelp", noTelp)
+                finish()
                 startActivity(intent)
             }
-            .addOnFailureListener { e -> Log.w("Messages", "Error updating document", e) }
+            .addOnFailureListener { e -> Log.w("Messages", "Error updating document", e)
+            }
     }
 
     private fun getData() {

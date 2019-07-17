@@ -1,4 +1,4 @@
-package com.example.sigadmin.ui.main
+package com.example.sigadmin.layouts.info.place
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.sigadmin.R
-import com.example.sigadmin.FragmentMainActivity
 import kotlinx.android.synthetic.main.activity_fragment_first.view.*
 import android.content.Intent
 import android.util.Log
-import com.example.sigadmin.layouts.UpdatePlaceActivity
+import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.*
 
 
-class FirstFragmentActivity : Fragment() {
+class ReadPlaceDetailActivity : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,10 +31,10 @@ class FirstFragmentActivity : Fragment() {
         val tvLong = root.findViewById<TextView>(R.id.tv_flongitude)
         val tvAlamat = root.findViewById<TextView>(R.id.tv_falamat)
 
-        val activity = activity as FragmentMainActivity
+        val activity = activity as MainFragmentActivity
 
         val results = activity.getMyData()
-        val ids  = results.getString("id")
+        val placeId  = results.getString("placeId")
         val name = results.getString("name")
         val facility = results.getString("facility")
         val jamBuka = results.getString("jamBuka")
@@ -54,12 +54,12 @@ class FirstFragmentActivity : Fragment() {
         tvAlamat.text = alamat
 
         val db = FirebaseFirestore.getInstance()
-        val query = db.collection("Lapangan").document(ids)
-        val docId = query.id
+        val query = db.collection("Lapangan").document(placeId)
+        val documentId = query.id
 
         root.btn_perbarui.setOnClickListener {
             val intent = Intent(getActivity(), UpdatePlaceActivity::class.java)
-            intent.putExtra("id", docId)
+            intent.putExtra("placeId", documentId)
             intent.putExtra("name", name)
             intent.putExtra("facility", facility)
             intent.putExtra("alamat", alamat)
@@ -68,8 +68,9 @@ class FirstFragmentActivity : Fragment() {
             intent.putExtra("lat", lat)
             intent.putExtra("long", long)
             intent.putExtra("noTelp", noTelp)
+            clearFindViewByIdCache()
             startActivity(intent)
-            Log.d("Meesss", docId)
+            Log.d("Meesss", documentId)
         }
 
         return root

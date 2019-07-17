@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:padding="@dimen/default_padding"
         android:orientation="vertical"
-        tools:context=".layouts.AdminInfoActivity">
+        tools:context=".layouts.admin.AdminInfoActivity">
 
     <!--Nama Admin-->
 

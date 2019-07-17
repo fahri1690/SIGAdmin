@@ -1,4 +1,4 @@
-package com.example.sigadmin.ui.main
+package com.example.sigadmin.layouts.info.field
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -12,10 +12,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sigadmin.FragmentMainActivity
 import com.example.sigadmin.R
-import com.example.sigadmin.layouts.FieldDetailActivity
+import com.example.sigadmin.layouts.info.main.MainFragmentActivity
+import com.example.sigadmin.layouts.info.main.PageViewModel
 import com.example.sigadmin.models.Field
+import com.example.sigadmin.services.db.GetDb
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
@@ -23,7 +24,7 @@ import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.item_place.view.*
 import kotlinx.android.synthetic.main.activity_fragment_sec.view.*
 
-class SecondFragmentActivity : Fragment() {
+class ReadFieldListActivity : Fragment() {
 
     inner class FieldViewHolder internal constructor(private val view: View) : RecyclerView.ViewHolder(view) {
         internal fun setFieldName(fieldName: String) {
@@ -41,39 +42,44 @@ class SecondFragmentActivity : Fragment() {
         ) {
             fieldViewHolder.setFieldName(fieldModel.name)
 
-            val db = FirebaseFirestore.getInstance()
+            val db = FirebaseFirestore.getInstance().collection("Lapangan").document()
+
+            val activity = activity as MainFragmentActivity
+
+            val results = activity.getList()
+            val placeId= results.getString("placeId")
 
             fieldViewHolder.itemView.setOnClickListener {
                 val snapshot = snapshots.getSnapshot(position)
                 snapshot.id
-                val sid = snapshots.getSnapshot(position).reference
-                sid.id
-                val intent = Intent(context, FieldDetailActivity::class.java)
-                intent.putExtra("sid", sid.id)
-                intent.putExtra("id", snapshot.id)
+                val intent = Intent(context, ReadFieldDetailActivity::class.java)
+                intent.putExtra("fieldId", snapshot.id)
                 intent.putExtra("name", fieldModel.name)
                 intent.putExtra("jenis", fieldModel.jenis)
                 intent.putExtra("hargaSiang", fieldModel.hargaSiang)
                 intent.putExtra("hargaMalam", fieldModel.hargaMalam)
-                Log.d("MESSSSS", sid.id)
+                intent.putExtra("placeId", placeId)
                 Log.d("MESSSSS", snapshot.id)
+                Log.d("PLACEID", placeId)
                 startActivity(intent)
             }
 
             fieldViewHolder.itemView.del_btn.setOnClickListener {
 
                 val builder = AlertDialog.Builder(context)
-                val snapshot = snapshots.getSnapshot(position).reference
+                val snapshot = snapshots.getSnapshot(position)
                 snapshot.id
 
-                val ids = snapshot.id
+                val fieldId = snapshot.id
+                Log.d("SNAPSHOTID", fieldId)
+                Log.d("PLACEID", placeId)
 
                 builder.setTitle("Hapus Lapangan")
 
                 builder.setMessage("Apakah kamu yakin?")
 
                 builder.setPositiveButton("Ya") { _, _ ->
-                    db.collection("Lapangan").document().collection("listLapangan").document(ids).delete()
+                    db.collection("Lapangan").document(placeId).collection("listLapangan").document(fieldId).delete()
                     Toast.makeText(context, "Lapangan berhasil dihapus.", Toast.LENGTH_SHORT).show()
                 }
 
@@ -111,15 +117,14 @@ class SecondFragmentActivity : Fragment() {
 
         val root = inflater.inflate(R.layout.activity_fragment_sec, container, false)
 
-        val activity = activity as FragmentMainActivity
+        val activity = activity as MainFragmentActivity
 
         val results = activity.getList()
-        val listId = results.getString("id")
+        val placeIds= results.getString("placeId")
 
         root.rvMMain.layoutManager = LinearLayoutManager(context)
 
-        val rootRef = FirebaseFirestore.getInstance()
-        val query = rootRef.collection("Lapangan").document(listId).collection("listLapangan").orderBy("name", Query.Direction.ASCENDING)
+        val query = GetDb().collection.document(placeIds).collection("listLapangan").orderBy("name", Query.Direction.ASCENDING)
         val options =
                 FirestoreRecyclerOptions.Builder<Field>().setQuery(query, Field::class.java).build()
 
@@ -128,7 +133,10 @@ class SecondFragmentActivity : Fragment() {
         root.rvMMain.adapter = adapter
 
         root.ibb_add_new_place.setOnClickListener {
-
+            val intent = Intent(getActivity(), CreateFieldActivity::class.java)
+            intent.putExtra("placeId", placeIds)
+            Log.d("FIELDID", placeIds)
+            startActivity(intent)
         }
 
         return root

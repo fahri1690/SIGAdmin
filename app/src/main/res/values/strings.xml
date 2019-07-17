@@ -60,4 +60,5 @@
     <string name="nama_admin_hint">Nama</string>
     <string name="email_admin_hint">Email</string>
     <string name="notelp_admin_hint">No Telepon</string>
+	<string name="info">Info Lapangan</string>
 </resources>
