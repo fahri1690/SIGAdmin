@@ -39,7 +39,6 @@ class ReadFieldDetailActivity : AppCompatActivity() {
             intent.putExtra("jenis", jenis)
             intent.putExtra("hargaSiang", hargaSiang)
             intent.putExtra("hargaMalam", hargaMalam)
-            Log.d("Mess", subDocumentId)
             startActivity(intent)
         }
 

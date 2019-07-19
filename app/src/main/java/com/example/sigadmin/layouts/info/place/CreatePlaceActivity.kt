@@ -6,20 +6,23 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.home.HomeAdminActivity
-import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.activity_input_place.*
+import kotlinx.android.synthetic.main.activity_create_place.*
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
-import java.io.IOException as IOException1
 
+
+@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "REDUNDANT_LABEL_WARNING")
 class CreatePlaceActivity : AppCompatActivity() {
 
     internal var id: String = ""
@@ -30,16 +33,20 @@ class CreatePlaceActivity : AppCompatActivity() {
     private var imgRef: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
 
+    private var uploadCount = 0
+
+    var imageList: ArrayList<Uri> = ArrayList()
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_input_place)
+        setContentView(R.layout.activity_create_place)
 
         imgRef = FirebaseStorage.getInstance()
         storageReference = imgRef!!.reference
 
-        img_new_field.setOnClickListener {
+        progressBar.visibility = View.INVISIBLE
+        select_button.setOnClickListener {
             selectImage()
         }
 
@@ -53,38 +60,90 @@ class CreatePlaceActivity : AppCompatActivity() {
     private fun selectImage() {
         intent = Intent()
         intent.type = "image/*"
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), PICK_IMAGE_REQUEST)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK ) {
+            when {
+                data?.clipData != null -> {
+                    val totalItem = data.clipData.itemCount
+
+                    for (i in 0 until totalItem step 1){
+                        val uri = data.clipData.getItemAt(i).uri
+                        imageList.add(uri)
+                    }
+
+                    Toast.makeText(this, "Multiple Image Selected", Toast.LENGTH_SHORT).show()
+                }
+                data?.data != null -> {
+                    filepath = data.data
+                    MediaStore.Images.Media.getBitmap(contentResolver, filepath)
+//                    R.id.image_list!!.setImageBitmap(bitmap)
+                }
+                else -> {
+
+                }
+            }
+//            filepath = data?.data
+//            try {
+//                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filepath)
+////                img_new_sub_field!!.setImageBitmap(bitmap)
+//            } catch (e: IOException1) {
+//                e.printStackTrace()
+//            }
+        }
+    }
+
     private fun uploadImage() {
+
+        val imageRef = storageReference!!.child("images/places/*" + UUID.randomUUID().toString())
+
+        for(uploadCount in 0 until imageList.size step 1) {
+            val single = imageList.get(uploadCount)
+
+            val images = storageReference!!.child("images/places/*" + single.lastPathSegment)
+
+            images.putFile(single)
+                    .addOnSuccessListener {
+                        progressBar.visibility = View.GONE
+                        Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+
+                    }
+                    .addOnProgressListener { taskSnapShot ->
+
+                    }
+
+        }
+
         if (filepath != null) {
-            val imageRef = storageReference!!.child("images/places/*" + UUID.randomUUID().toString())
+
+            progressBar.visibility = View.VISIBLE
+
             imageRef.putFile(filepath!!)
                 .addOnSuccessListener {
+                    progressBar.visibility = View.GONE
                     Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
 
                 }
-//                .addOnProgressListener { taskSnapShot ->
-//                    val progress = 100.0 * taskSnapShot.bytesTransferred/taskSnapShot.totalByteCount
-//                }
+                .addOnProgressListener { taskSnapShot ->
+                    val layout:RelativeLayout = findViewById(R.id.layout)
+                    val params = RelativeLayout.LayoutParams(100, 100)
+                    params.addRule(RelativeLayout.CENTER_IN_PARENT)
+                    layout.addView(progressBar, params)
+                }
         }
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
-            filepath = data.data
-            try {
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filepath)
-                img_new_field!!.setImageBitmap(bitmap)
-            } catch (e: IOException1) {
-                e.printStackTrace()
-            }
-        }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

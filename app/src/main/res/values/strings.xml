@@ -1,7 +1,5 @@
 <resources>
 
-
-
     <string name="app_name">SIG Admin</string>
     <string name="btn_register">Daftar</string>
     <string name="tv_masuk">Masuk</string>

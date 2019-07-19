@@ -11,15 +11,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.R
+import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.layouts.info.place.CreatePlaceActivity
 import com.example.sigadmin.models.PlaceModel
 import com.example.sigadmin.services.db.GetDb
+import com.example.sigadmin.services.db.GetImage
+import com.example.sigadmin.services.db.OrderBy
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_home_admin.*
 import kotlinx.android.synthetic.main.item_place.view.*
 
@@ -103,7 +103,7 @@ class HomeAdminActivity : AppCompatActivity() {
 
         rvMain.layoutManager = LinearLayoutManager(this)
 
-        val query = GetDb().collection.orderBy("name", Query.Direction.ASCENDING)
+        val query = OrderBy().ascendingName
         val options = GetDb().recyclerOption.setQuery(query, PlaceModel::class.java).build()
 
         adapter = FieldFireStoreRecyclerAdapter(options)

@@ -16,12 +16,10 @@ import com.example.sigadmin.R
 import com.example.sigadmin.layouts.home.HomeAdminActivity
 import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
-import com.example.sigadmin.services.db.GetImage
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_input_field.*
-import kotlinx.android.synthetic.main.activity_input_place.*
-import java.io.IOException
+import kotlinx.android.synthetic.main.activity_create_place.*
 import java.util.*
 
 class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -29,7 +27,7 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
     internal var id: String = ""
 
     private var filepath: Uri? = null
-    private var PICK_IMAGE_REQUEST = 111
+    private var PICK_IMAGE_REQUEST = 1
 
     private var imgRef: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
@@ -65,51 +63,65 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         }
 
         btn_save_new_sub_field.setOnClickListener {
-            uploadImage()
             saveData()
+            uploadImage()
         }
     }
 
     private fun selectImage() {
         intent = Intent()
         intent.type = "image/*"
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), PICK_IMAGE_REQUEST)
     }
 
     private fun uploadImage() {
         if (filepath != null) {
-            val imageRef = storageReference!!.child("images/fields/*" + UUID.randomUUID().toString())
+            val imageRef = storageReference!!.child("images/fields/${UUID.randomUUID()}/*" + UUID.randomUUID().toString())
             imageRef.putFile(filepath!!)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Upload Gambar Sukses", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Upload Gambar Gagal", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
 
                 }
-//                .addOnProgressListener { taskSnapShot ->
-//                    val progress = 100.0 * taskSnapShot.bytesTransferred/taskSnapShot.totalByteCount
-//                }
+                .addOnProgressListener { taskSnapShot ->
+                    val progress = 100.0 * taskSnapShot.bytesTransferred / taskSnapShot.totalByteCount
+                }
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
-            filepath = data.data
-            try {
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filepath)
-                img_new_sub_field!!.setImageBitmap(bitmap)
-            } catch (e: IOException) {
-                e.printStackTrace()
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+            when {
+                data?.clipData != null -> {
+                    Toast.makeText(this, "Multiple Image Selected", Toast.LENGTH_SHORT).show()
+                }
+                data?.data != null -> {
+                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filepath)
+                    img_new_sub_field!!.setImageBitmap(bitmap)
+                }
+                else -> {
+
+                }
             }
+//            filepath = data.data
+//            try {
+//                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filepath)
+////                img_new_sub_field!!.setImageBitmap(bitmap)
+//            } catch (e: IOException) {
+//                e.printStackTrace()
+//            }
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun saveData() {
         val placeId = intent.getStringExtra("placeId")
+        val docRef = GetDb().collection.document(placeId)
         val namaSubLapangan = et_sub_field_name.text.toString()
         val jenis = spn_jenis_lapangan.selectedItem.toString()
         val hargaSiang = et_harga_siang.text.toString()
@@ -135,12 +147,12 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
             result["hargaSiang"] = hargaSiang
             result["hargaMalam"] = hargaMalam
 
-            GetDb().collection.document(placeId).collection("listLapangan")
+            docRef.collection("listLapangan")
                 .add(result)
                 .addOnSuccessListener {
-                    val intent = Intent(this, MainFragmentActivity::class.java)
-                    finish()
+                    val intent = Intent(this, HomeAdminActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 .addOnFailureListener {
 
@@ -153,35 +165,35 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         val docRef = GetDb().collection.document(placeId)
 
         docRef.get()
-                .addOnSuccessListener { document ->
-                    if (document != null) {
+            .addOnSuccessListener { document ->
+                if (document != null) {
 
-                        val name = document.data?.get("name").toString()
-                        val facility = document.data?.get("facility").toString()
-                        val jamBuka = document.data?.get("jamBuka").toString()
-                        val jamTutup = document.data?.get("jamTutup").toString()
-                        val noTelp = document.data?.get("noTelp").toString()
-                        val alamat = document.data?.get("alamat").toString()
-                        val lat = document.data?.get("lat").toString()
-                        val long = document.data?.get("long").toString()
+                    val intent = Intent(this, MainFragmentActivity::class.java)
 
-                        val intent = Intent(this, MainFragmentActivity::class.java)
-                        intent.putExtra("placeId", placeId)
-                        intent.putExtra("name", name)
-                        intent.putExtra("facility", facility)
-                        intent.putExtra("jamBuka", jamBuka)
-                        intent.putExtra("jamTutup", jamTutup)
-                        intent.putExtra("noTelp", noTelp)
-                        intent.putExtra("alamat", alamat)
-                        intent.putExtra("lat", lat)
-                        intent.putExtra("long", long)
-                        startActivity(intent)
-                    } else {
-
-                    }
-                }
-                .addOnFailureListener { exception ->
+                    val name = document.data?.get("name").toString()
+                    val facility = document.data?.get("facility").toString()
+                    val jamBuka = document.data?.get("jamBuka").toString()
+                    val jamTutup = document.data?.get("jamTutup").toString()
+                    val noTelp = document.data?.get("noTelp").toString()
+                    val alamat = document.data?.get("alamat").toString()
+                    val lat = document.data?.get("lat").toString()
+                    val long = document.data?.get("long").toString()
+                    intent.putExtra("placeId", placeId)
+                    intent.putExtra("name", name)
+                    intent.putExtra("facility", facility)
+                    intent.putExtra("jamBuka", jamBuka)
+                    intent.putExtra("jamTutup", jamTutup)
+                    intent.putExtra("noTelp", noTelp)
+                    intent.putExtra("alamat", alamat)
+                    intent.putExtra("lat", lat)
+                    intent.putExtra("long", long)
+                    startActivity(intent)
+                } else {
 
                 }
+            }
+            .addOnFailureListener { exception ->
+
+            }
     }
 }

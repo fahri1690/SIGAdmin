@@ -19,6 +19,8 @@ class MainFragmentActivity : AppCompatActivity() {
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
 
+
+
     }
 
     fun getMyData(): Bundle {
@@ -26,24 +28,24 @@ class MainFragmentActivity : AppCompatActivity() {
         val placeId = intent.getStringExtra("placeId")
         val name = intent.getStringExtra("name")
         val facility = intent.getStringExtra("facility")
-        val openHour = intent.getStringExtra("jamBuka")
-        val closeHour = intent.getStringExtra("jamTutup")
-        val phone = intent.getStringExtra("noTelp")
-        val addr = intent.getStringExtra("alamat")
+        val jamBuka = intent.getStringExtra("jamBuka")
+        val jamTutup = intent.getStringExtra("jamTutup")
+        val noTelp = intent.getStringExtra("noTelp")
+        val alamat = intent.getStringExtra("alamat")
         val lat = intent.getStringExtra("lat")
-        val lng = intent.getStringExtra("long")
+        val long = intent.getStringExtra("long")
 
         val bundle = Bundle()
 
         bundle.putString("placeId", placeId)
         bundle.putString("name", name)
         bundle.putString("facility", facility)
-        bundle.putString("jamBuka", openHour)
-        bundle.putString("jamTutup", closeHour)
-        bundle.putString("noTelp", phone)
-        bundle.putString("alamat", addr)
+        bundle.putString("jamBuka", jamBuka)
+        bundle.putString("jamTutup", jamTutup)
+        bundle.putString("noTelp", noTelp)
+        bundle.putString("alamat", alamat)
         bundle.putString("lat", lat)
-        bundle.putString("long", lng)
+        bundle.putString("long", long)
 
         return bundle
 

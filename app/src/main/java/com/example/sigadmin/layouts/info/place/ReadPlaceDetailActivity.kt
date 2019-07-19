@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_fragment_first.view.*
 import android.content.Intent
 import android.util.Log
 import com.example.sigadmin.layouts.info.main.MainFragmentActivity
+import com.example.sigadmin.services.db.GetDb
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.*
 
@@ -53,8 +54,7 @@ class ReadPlaceDetailActivity : Fragment() {
         tvLong.text = long
         tvAlamat.text = alamat
 
-        val db = FirebaseFirestore.getInstance()
-        val query = db.collection("Lapangan").document(placeId)
+        val query = GetDb().collection.document(placeId)
         val documentId = query.id
 
         root.btn_perbarui.setOnClickListener {
@@ -68,7 +68,6 @@ class ReadPlaceDetailActivity : Fragment() {
             intent.putExtra("lat", lat)
             intent.putExtra("long", long)
             intent.putExtra("noTelp", noTelp)
-            clearFindViewByIdCache()
             startActivity(intent)
             Log.d("Meesss", documentId)
         }
