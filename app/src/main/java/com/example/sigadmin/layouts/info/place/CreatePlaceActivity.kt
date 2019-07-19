@@ -2,6 +2,7 @@ package com.example.sigadmin.layouts.info.place
 
 import android.app.Activity
 import android.content.Intent
+import android.content.Intent.*
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -11,7 +12,6 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.home.HomeAdminActivity
-import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -53,8 +53,9 @@ class CreatePlaceActivity : AppCompatActivity() {
     private fun selectImage() {
         intent = Intent()
         intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), PICK_IMAGE_REQUEST)
+        intent.putExtra(EXTRA_ALLOW_MULTIPLE, true)
+        intent.action = ACTION_GET_CONTENT
+        startActivityForResult(createChooser(intent, "Pilih Foto"), PICK_IMAGE_REQUEST)
     }
 
     private fun uploadImage() {

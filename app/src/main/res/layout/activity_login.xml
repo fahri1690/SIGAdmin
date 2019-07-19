@@ -1,104 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:padding="@dimen/default_padding"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-            android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:layout_marginTop="20dp"
-                  android:orientation="vertical">
-
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal">
-
-            <ImageView
-                    android:layout_width="50dp"
-                       android:layout_height="50dp"
-                       android:layout_marginStart="8dp"
-                       android:layout_marginLeft="8dp"
-                       android:contentDescription="@string/login_icon_desc"
-                       android:src="@drawable/ic_phone_number"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_marginLeft="8dp"
-                      android:layout_marginRight="8dp"
-                      android:text="@string/login_info"
-                      android:textSize="@dimen/text_size_infologin"
-                      android:textStyle="bold"/>
-        </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_gravity="center_vertical">
 
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical">
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginStart="8dp"
-                          android:layout_marginLeft="8dp"
-                          android:layout_marginTop="10dp"
-                          android:layout_marginEnd="8dp"
-                          android:layout_marginRight="8dp"
-                          android:layout_marginBottom="20dp"
-                          android:orientation="horizontal">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@string/login_info"
+                      android:textStyle="bold"
+                      android:textSize="@dimen/fontSz_loginInfo"
+                      android:paddingBottom="@dimen/default_padding"/>
 
-                <FrameLayout android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:background="@drawable/spinner_bg">
+            <EditText android:id="@+id/et_email_login"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/default_margin"
+                      android:background="@drawable/outline_stroke"
+                      android:hint="@string/et_email"
+                      android:inputType="textEmailAddress"
+                      android:textColorHint="@color/colorPrimary"/>
 
-                    <Spinner android:id="@+id/spinner"
-                             android:layout_width="120dp"
-                             android:layout_height="wrap_content"></Spinner>
+            <EditText android:id="@+id/et_password_login"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/default_margin"
+                      android:background="@drawable/outline_stroke"
+                      android:hint="@string/btn_Masuk"
+                      android:inputType="textPassword"
+                      android:textColorHint="@color/colorPrimary"/>
 
-                </FrameLayout>
-
-                <EditText android:id="@+id/et_phone_login"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/default_margin"
-                          android:background="@drawable/outline_stroke"
-                          android:hint="@string/et_no_telepon"
-                          android:inputType="phone"
-                          android:textColorHint="@color/colorPrimary"/>
-
-            </LinearLayout>
-
-            <Button android:id="@+id/btn_otp_request"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
+            <Button android:layout_marginTop="@dimen/default_margin"
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_gravity="end"
                     android:background="@drawable/button_layout"
-                    android:text="@string/btn_kirim_otp"
+                    android:text="@string/tv_masuk"
                     android:textAllCaps="false"
                     android:textColor="@color/buttonTextColor"/>
+
         </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:gravity="center_horizontal">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:layout_margin="@dimen/default_margin"
+                      android:text="@string/belum_punya_akun"/>
+
+            <TextView android:id="@+id/tv_register"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:layout_margin="@dimen/default_margin"
+                      android:text="@string/tv_register"
+                      android:textColor="@color/buttonColor"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
-    <ProgressBar android:id="@+id/progress"
-                 style="?android:attr/progressBarStyle"
-                 android:layout_width="0dp"
-                 android:layout_height="wrap_content"
-                 android:layout_marginStart="8dp"
-                 android:layout_marginLeft="8dp"
-                 android:layout_marginTop="8dp"
-                 android:layout_marginEnd="8dp"
-                 android:layout_marginRight="8dp"
-                 android:layout_marginBottom="8dp"
-                 android:gravity="center_horizontal"
-                 app:layout_constraintBottom_toBottomOf="parent"
-                 app:layout_constraintEnd_toEndOf="parent"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toTopOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

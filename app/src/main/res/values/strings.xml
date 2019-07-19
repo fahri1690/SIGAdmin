@@ -1,7 +1,6 @@
 <resources>
 
 
-
     <string name="app_name">SIG Admin</string>
     <string name="btn_register">Daftar</string>
     <string name="tv_masuk">Masuk</string>
@@ -22,7 +21,7 @@
     <string name="et_email">Email</string>
     <string name="et_nama_admin">Nama Pengguna</string>
     <string name="et_no_telepon">No Telepon</string>
-    <string name="login_info">Masukkan nomor telepon yang telah terdaftar untuk masuk</string>
+    <string name="login_info">Gunakan email terdaftar untuk Login</string>
 
     <string-array name="jenis_lapangan">
         <item>Vinyl</item>
@@ -60,5 +59,9 @@
     <string name="nama_admin_hint">Nama</string>
     <string name="email_admin_hint">Email</string>
     <string name="notelp_admin_hint">No Telepon</string>
-	<string name="info">Info Lapangan</string>
+    <string name="info">Info Lapangan</string>
+    <string name="btn_Masuk">Kata Sandi</string>
+    <string name="tv_register">Daftar</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+
 </resources>

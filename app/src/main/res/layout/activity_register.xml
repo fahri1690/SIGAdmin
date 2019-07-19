@@ -47,13 +47,13 @@
                       android:inputType="textEmailAddress"
                       android:textColorHint="@color/colorPrimary"/>
 
-            <EditText android:id="@+id/et_phone_register"
+            <EditText android:id="@+id/et_password_register"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:layout_marginBottom="@dimen/default_margin"
                       android:background="@drawable/outline_stroke"
-                      android:hint="@string/et_no_telepon"
-                      android:inputType="phone"
+                      android:hint="Kata Sandi"
+                      android:inputType="textPassword"
                       android:textColorHint="@color/colorPrimary"/>
 
             <Button android:layout_marginTop="@dimen/default_margin"

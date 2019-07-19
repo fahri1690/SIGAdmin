@@ -16,6 +16,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".layouts.login.ForgetPasswordActivity">
+        </activity>
         <activity android:name=".layouts.admin.UpdateAdminActivity">
         </activity>
         <activity android:name=".layouts.admin.AdminInfoActivity">
@@ -29,11 +31,9 @@
         <activity android:name=".layouts.info.place.UpdatePlaceActivity"/>
         <activity android:name=".layouts.info.field.ReadFieldDetailActivity"/>
         <activity android:name=".layouts.info.field.CreateFieldActivity"/>
-        <activity android:name=".layouts.register.RegisterActivity"/>
+        <activity android:name=".layouts.home.HomeAdminActivity"/>
         <activity android:name=".layouts.info.place.CreatePlaceActivity"/>
-        <activity
-                android:name=".layouts.home.HomeAdminActivity"
-                android:label="Home">
+        <activity android:name=".layouts.register.RegisterActivity">
 
             <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar"> -->
             <intent-filter>
