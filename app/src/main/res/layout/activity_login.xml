@@ -37,7 +37,7 @@
                       android:layout_height="wrap_content"
                       android:layout_marginBottom="@dimen/default_margin"
                       android:background="@drawable/outline_stroke"
-                      android:hint="@string/btn_Masuk"
+                      android:hint="@string/et_kata_sandi"
                       android:inputType="textPassword"
                       android:textColorHint="@color/colorPrimary"/>
 

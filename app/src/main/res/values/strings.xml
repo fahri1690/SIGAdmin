@@ -20,7 +20,7 @@
     <string name="et_email">Email</string>
     <string name="et_nama_admin">Nama Pengguna</string>
     <string name="et_no_telepon">No Telepon</string>
-    <string name="login_info">Masukkan nomor telepon yang telah terdaftar untuk masuk</string>
+    <string name="login_info">Silahkan Login dengan email terdaftar</string>
 
     <string-array name="jenis_lapangan">
         <item>Vinyl</item>
@@ -59,4 +59,8 @@
     <string name="email_admin_hint">Email</string>
     <string name="notelp_admin_hint">No Telepon</string>
 	<string name="info">Info Lapangan</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="tv_register">Daftar</string>
+    <string name="btn_Masuk">Masuk</string>
+    <string name="et_kata_sandi">Kata Sandi</string>
 </resources>
