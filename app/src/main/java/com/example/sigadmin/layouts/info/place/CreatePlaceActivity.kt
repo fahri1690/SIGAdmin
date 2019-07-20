@@ -67,14 +67,21 @@ class CreatePlaceActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK ) {
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
             when {
                 data?.clipData != null -> {
                     val totalItem = data.clipData.itemCount
 
-                    for (i in 0 until totalItem step 1){
+                    for (i in 0 until totalItem step 1) {
                         val uri = data.clipData.getItemAt(i).uri
                         imageList.add(uri)
+
+                        val ref = GetDb().collection.document().collection("images")
+
+                        val map: HashMap<String, String> = HashMap()
+                        map.put("url", value = uri.toString())
+
+                        ref.add(map)
                     }
 
                     Toast.makeText(this, "Multiple Image Selected", Toast.LENGTH_SHORT).show()
@@ -93,10 +100,10 @@ class CreatePlaceActivity : AppCompatActivity() {
 //                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filepath)
 ////                img_new_sub_field!!.setImageBitmap(bitmap)
 //            } catch (e: IOException1) {
-//                e.printStackTrace()
-//            }
+//                e.printStackTr>}
         }
     }
+
 
     private fun uploadImage() {
 
