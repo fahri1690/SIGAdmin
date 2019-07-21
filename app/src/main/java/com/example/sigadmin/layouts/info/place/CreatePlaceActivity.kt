@@ -7,7 +7,6 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
-import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -27,7 +26,7 @@ class CreatePlaceActivity : AppCompatActivity() {
 
     internal var id: String = ""
 
-    private var filepath: Uri? = null
+//    private var filepath: Uri? = null
     private var PICK_IMAGE_REQUEST = 111
 
     private var imgRef: FirebaseStorage? = null
@@ -70,28 +69,17 @@ class CreatePlaceActivity : AppCompatActivity() {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
             when {
                 data?.clipData != null -> {
+
                     val totalItem = data.clipData.itemCount
 
                     for (i in 0 until totalItem step 1) {
                         val uri = data.clipData.getItemAt(i).uri
                         imageList.add(uri)
 
-                        val ref = GetDb().collection.document().collection("images")
-
-                        val map: HashMap<String, String> = HashMap()
-                        map.put("url", value = uri.toString())
-
-                        ref.add(map)
                     }
 
-                    Toast.makeText(this, "Multiple Image Selected", Toast.LENGTH_SHORT).show()
-                }
-                data?.data != null -> {
-                    filepath = data.data
-                    MediaStore.Images.Media.getBitmap(contentResolver, filepath)
-//                    R.id.image_list!!.setImageBitmap(bitmap)
-                }
-                else -> {
+                    Toast.makeText(this, "$totalItem Image Selected", Toast.LENGTH_LONG).show()
+                } else -> {
 
                 }
             }
@@ -109,31 +97,13 @@ class CreatePlaceActivity : AppCompatActivity() {
 
         val imageRef = storageReference!!.child("images/places/*" + UUID.randomUUID().toString())
 
-        for(uploadCount in 0 until imageList.size step 1) {
+        for (uploadCount in 0 until imageList.size step 1) {
+
             val single = imageList.get(uploadCount)
 
             val images = storageReference!!.child("images/places/*" + single.lastPathSegment)
 
             images.putFile(single)
-                    .addOnSuccessListener {
-                        progressBar.visibility = View.GONE
-                        Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
-
-                    }
-                    .addOnProgressListener { taskSnapShot ->
-
-                    }
-
-        }
-
-        if (filepath != null) {
-
-            progressBar.visibility = View.VISIBLE
-
-            imageRef.putFile(filepath!!)
                 .addOnSuccessListener {
                     progressBar.visibility = View.GONE
                     Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
@@ -143,18 +113,35 @@ class CreatePlaceActivity : AppCompatActivity() {
 
                 }
                 .addOnProgressListener { taskSnapShot ->
-                    val layout:RelativeLayout = findViewById(R.id.layout)
-                    val params = RelativeLayout.LayoutParams(100, 100)
-                    params.addRule(RelativeLayout.CENTER_IN_PARENT)
-                    layout.addView(progressBar, params)
+
                 }
+
         }
+
+//        if (filepath != null) {
+//
+//            progressBar.visibility = View.VISIBLE
+//
+//            imageRef.putFile(filepath!!)
+//                .addOnSuccessListener {
+//                    progressBar.visibility = View.GONE
+//                    Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
+//                }
+//                .addOnFailureListener {
+//                    Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+//
+//                }
+//                .addOnProgressListener { taskSnapShot ->
+//
+//                }
+//        }
 
 
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun saveData() {
+
         val name = et_field_name.text.toString()
         val facility = et_facility.text.toString()
         val jamBuka = et_jam_buka.text.toString()
@@ -198,6 +185,8 @@ class CreatePlaceActivity : AppCompatActivity() {
             et_longitude.setHintTextColor(getColor(R.color.errColor))
         } else {
 
+            val image = imageList
+
             val result = HashMap<String, Any>()
             result["name"] = name
             result["facility"] = facility
@@ -207,17 +196,22 @@ class CreatePlaceActivity : AppCompatActivity() {
             result["alamat"] = alamat
             result["lat"] = lat
             result["long"] = long
+            result["images"] = listOf(image).toString()
 
             GetDb().collection
                 .add(result)
                 .addOnSuccessListener {
+
                     val intent = Intent(this, HomeAdminActivity::class.java)
                     finish()
                     startActivity(intent)
+
                 }
                 .addOnFailureListener {
 
                 }
+
+
         }
     }
 }
