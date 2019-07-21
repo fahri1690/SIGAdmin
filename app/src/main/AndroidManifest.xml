@@ -16,8 +16,6 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".layouts.login.ForgetPasswordActivity">
-        </activity>
         <activity android:name=".layouts.admin.UpdateAdminActivity">
         </activity>
         <activity android:name=".layouts.admin.AdminInfoActivity">
