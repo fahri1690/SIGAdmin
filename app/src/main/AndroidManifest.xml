@@ -29,9 +29,9 @@
         <activity android:name=".layouts.info.place.UpdatePlaceActivity"/>
         <activity android:name=".layouts.info.field.ReadFieldDetailActivity"/>
         <activity android:name=".layouts.info.field.CreateFieldActivity"/>
-        <activity android:name=".layouts.home.HomeAdminActivity"/>
+        <activity android:name=".layouts.register.RegisterActivity"/>
         <activity android:name=".layouts.info.place.CreatePlaceActivity"/>
-        <activity android:name=".layouts.register.RegisterActivity">
+        <activity android:name=".layouts.home.HomeAdminActivity">
 
             <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar"> -->
             <intent-filter>
