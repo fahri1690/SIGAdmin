@@ -58,9 +58,11 @@
     <string name="nama_admin_hint">Nama</string>
     <string name="email_admin_hint">Email</string>
     <string name="notelp_admin_hint">No Telepon</string>
-	<string name="info">Info Lapangan</string>
+    <string name="info">Info Lapangan</string>
     <string name="belum_punya_akun">Belum punya akun?</string>
     <string name="tv_register">Daftar</string>
     <string name="btn_Masuk">Masuk</string>
     <string name="et_kata_sandi">Kata Sandi</string>
+    <string name="forgetpass_info">Masukkan email yang sudah terdaftar</string>
+    <string name="btn_ferivikasi">Verivikasi</string>
 </resources>

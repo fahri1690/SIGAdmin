@@ -13,14 +13,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <ImageView
-                    android:src="@drawable/ic_add_image"
-                    android:background="@drawable/img_bg"
-                    android:layout_width="match_parent"
-                    android:id="@+id/img_new_sub_field"
-                    android:layout_height="@dimen/image_view_height"
-                    android:layout_marginBottom="@dimen/default_margin"/>
-
             <EditText android:layout_marginTop="@dimen/default_margin"
                       android:id="@+id/et_sub_field_name"
                       android:inputType="text"

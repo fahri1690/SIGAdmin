@@ -1,19 +1,18 @@
 package com.example.sigadmin.layouts.info.place
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.sigadmin.R
-import kotlinx.android.synthetic.main.activity_fragment_first.view.*
-import android.content.Intent
-import android.util.Log
 import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.activity_fragment_first.view.*
 
 
 class ReadPlaceDetailActivity : Fragment() {
@@ -23,6 +22,7 @@ class ReadPlaceDetailActivity : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.activity_fragment_first, container, false)
+        val ivImages = root.findViewById<ImageView>(R.id.iv_tampil_foto)
         val tvName = root.findViewById<TextView>(R.id.tv_fnama_lapangan)
         val tvFacility = root.findViewById<TextView>(R.id.tv_ffasilitas)
         val tvJamBuka = root.findViewById<TextView>(R.id.tv_fjam_buka)
@@ -35,6 +35,7 @@ class ReadPlaceDetailActivity : Fragment() {
         val activity = activity as MainFragmentActivity
 
         val results = activity.getMyData()
+
         val placeId  = results.getString("placeId")
         val name = results.getString("name")
         val facility = results.getString("facility")

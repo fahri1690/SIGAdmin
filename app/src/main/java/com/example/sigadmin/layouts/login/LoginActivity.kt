@@ -11,6 +11,7 @@ import com.example.sigadmin.layouts.register.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
+@Suppress("UNREACHABLE_CODE")
 class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

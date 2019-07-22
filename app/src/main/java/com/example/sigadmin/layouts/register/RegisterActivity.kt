@@ -9,8 +9,6 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
-import com.example.sigadmin.layouts.home.HomeAdminActivity
-import com.example.sigadmin.layouts.otp.OtpActivity
 import com.example.sigadmin.layouts.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
