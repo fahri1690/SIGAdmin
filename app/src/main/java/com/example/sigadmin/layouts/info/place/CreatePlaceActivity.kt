@@ -49,7 +49,7 @@ class CreatePlaceActivity : AppCompatActivity() {
             selectImage()
         }
 
-        btn_save_new_field.setOnClickListener {
+        btn_save_new_place.setOnClickListener {
             uploadImage()
             saveData()
         }

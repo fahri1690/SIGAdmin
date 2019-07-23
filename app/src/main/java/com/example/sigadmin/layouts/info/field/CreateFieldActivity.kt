@@ -126,7 +126,7 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
 
                 }
             }
-            .addOnFailureListener {
+            .addOnFailureListener { exception ->
 
             }
     }
