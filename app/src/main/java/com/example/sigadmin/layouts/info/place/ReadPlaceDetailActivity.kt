@@ -1,27 +1,29 @@
 package com.example.sigadmin.layouts.info.place
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sigadmin.R
-import kotlinx.android.synthetic.main.activity_fragment_first.view.*
-import android.content.Intent
-import android.util.Log
+import com.example.sigadmin.carousel.BannerCarouselItem
 import com.example.sigadmin.layouts.info.main.MainFragmentActivity
+import com.example.sigadmin.models.PlaceImages
 import com.example.sigadmin.services.db.GetDb
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.*
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.Section
+import kotlinx.android.synthetic.main.activity_fragment_first.view.*
 
 
-class ReadPlaceDetailActivity : Fragment() {
+class ReadPlaceDetailActivity : Fragment(){
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    private var groupAdapter = GroupAdapter<com.xwray.groupie.kotlinandroidextensions.ViewHolder>()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.activity_fragment_first, container, false)
         val tvName = root.findViewById<TextView>(R.id.tv_fnama_lapangan)
         val tvFacility = root.findViewById<TextView>(R.id.tv_ffasilitas)
@@ -44,6 +46,7 @@ class ReadPlaceDetailActivity : Fragment() {
         val lat = results.getString("lat")
         val long = results.getString("long")
         val alamat = results.getString("alamat")
+        val imageList = "https://firebasestorage.googleapis.com/v0/b/sigfutsal.appspot.com/o/images%2Fplaces%2F*0bda00fe-fbb8-4862-81af-65665a51a2b4?alt=media&token=2dfee65e-0744-4045-a974-d44c09a4bc9a"
 
         tvName.text = name
         tvFacility.text = facility
@@ -70,6 +73,25 @@ class ReadPlaceDetailActivity : Fragment() {
             intent.putExtra("noTelp", noTelp)
             startActivity(intent)
             Log.d("Meesss", documentId)
+        }
+
+        val listImages = listOf(
+                PlaceImages(images = imageList),
+                PlaceImages(images = imageList),
+                PlaceImages(images = imageList)
+        )
+
+        root.rvImagesMain.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = groupAdapter
+        }
+
+        // declare banner carousel
+        val bannerCarouselItem = BannerCarouselItem(listImages, activity.supportFragmentManager)
+        groupAdapter.add(bannerCarouselItem)
+
+        Section().apply {
+            groupAdapter.add(this)
         }
 
         return root

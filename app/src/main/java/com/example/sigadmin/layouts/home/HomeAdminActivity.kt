@@ -57,6 +57,7 @@ class HomeAdminActivity : AppCompatActivity() {
                 intent.putExtra("lat", fieldModel.lat)
                 intent.putExtra("long", fieldModel.long)
                 intent.putExtra("noTelp", fieldModel.noTelp)
+//                intent.putExtra("images", fieldModel.images)
                 startActivity(intent)
             }
 

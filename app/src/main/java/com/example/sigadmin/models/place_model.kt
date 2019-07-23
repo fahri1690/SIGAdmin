@@ -11,6 +11,10 @@ data class PlaceModel(
     val facility: String = "",
     val noTelp: String = "",
     val lat: String = "",
-    val long: String = ""
-//    val images: ArrayList<Uri> = ArrayList()
+    val long: String = "",
+    val images: String = ""
+)
+
+data class PlaceImages(
+    val images: String
 )

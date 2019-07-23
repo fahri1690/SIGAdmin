@@ -9,11 +9,21 @@
         android:padding="@dimen/default_padding"
         tools:context=".layouts.info.place.ReadPlaceDetailActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+        android:paddingBottom="30dp"
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvImagesMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
         <!--Nama Tempat Futsal-->
 
@@ -423,6 +433,7 @@
                     android:layout_width="@dimen/button_width"
                     android:layout_height="@dimen/button_height"
                     android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
                     android:background="@drawable/button_layout"
                     android:text="@string/btn_perbarui"
                     android:textAllCaps="false"
@@ -431,5 +442,6 @@
         </LinearLayout>
 
     </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
