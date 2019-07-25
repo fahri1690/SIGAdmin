@@ -20,7 +20,7 @@
     <string name="et_email">Email</string>
     <string name="et_nama_admin">Nama Pengguna</string>
     <string name="et_no_telepon">No Telepon</string>
-    <string name="login_info">Silahkan Login dengan email terdaftar</string>
+    <string name="login_info">Silahkan Login dengan email yang telah terdaftar</string>
 
     <string-array name="jenis_lapangan">
         <item>Vinyl</item>
@@ -65,4 +65,5 @@
     <string name="et_kata_sandi">Kata Sandi</string>
     <string name="forgetpass_info">Masukkan email yang sudah terdaftar</string>
     <string name="btn_ferivikasi">Verivikasi</string>
+    <string name="lupasandi">Lupa Sandi?</string>
 </resources>

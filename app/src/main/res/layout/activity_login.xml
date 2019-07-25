@@ -39,6 +39,15 @@
                       android:inputType="textPassword"
                       android:textColorHint="@color/colorPrimary"/>
 
+            <TextView
+                    android:id="@+id/tv_lupa_sandi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:gravity="end"
+                    android:text="@string/lupasandi"
+                    android:textColor="@color/colorPrimary"/>
+
             <Button android:layout_marginTop="@dimen/default_margin"
                     android:id="@+id/btn_login"
                     android:layout_width="match_parent"
@@ -50,28 +59,6 @@
                     android:textColor="@color/buttonTextColor"/>
 
         </LinearLayout>
-
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal"
-                      android:gravity="center_horizontal">
-
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_gravity="center"
-                      android:layout_margin="@dimen/default_margin"
-                      android:text="@string/belum_punya_akun"/>
-
-            <TextView android:id="@+id/tv_register"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_gravity="center"
-                      android:layout_margin="@dimen/default_margin"
-                      android:text="@string/tv_register"
-                      android:textColor="@color/buttonColor"/>
-
-        </LinearLayout>
-
 
     </LinearLayout>
 

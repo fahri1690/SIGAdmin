@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:attrs="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<androidx.viewpager.widget.ViewPager
+		android:id="@+id/viewPagerImages"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/image_view_height"
+		android:focusableInTouchMode="true" />
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:gravity="center">
+
+		<com.rd.PageIndicatorView
+			android:id="@+id/indicator"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="16dp"
+			app:piv_animationType="scale"
+			app:piv_dynamicCount="true"
+			app:piv_selectedColor="@color/colorPrimary"
+			app:piv_unselectedColor="@color/fui_buttonShadow"
+			attrs:piv_padding="12dp"
+			attrs:piv_radius="8dp" />
+	</RelativeLayout>
+
+
+</LinearLayout>

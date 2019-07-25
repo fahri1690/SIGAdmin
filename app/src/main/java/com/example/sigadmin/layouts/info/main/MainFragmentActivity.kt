@@ -19,8 +19,6 @@ class MainFragmentActivity : AppCompatActivity() {
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
 
-
-
     }
 
     fun getMyData(): Bundle {
@@ -62,4 +60,5 @@ class MainFragmentActivity : AppCompatActivity() {
     override fun onBackPressed() {
         startActivity(Intent(this, HomeAdminActivity::class.java))
     }
+
 }

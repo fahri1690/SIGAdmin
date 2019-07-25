@@ -49,8 +49,8 @@ class CreatePlaceActivity : AppCompatActivity() {
             selectImage()
         }
 
-        btn_save_new_place.setOnClickListener {
-            uploadImage()
+        btn_save_new_field.setOnClickListener {
+//            uploadImage()
             saveData()
         }
 
@@ -83,17 +83,41 @@ class CreatePlaceActivity : AppCompatActivity() {
 
                 }
             }
-//            filepath = data?.data
-//            try {
-//                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filepath)
-////                img_new_sub_field!!.setImageBitmap(bitmap)
-//            } catch (e: IOException1) {
-//                e.printStackTr>}
         }
     }
 
 
-    private fun uploadImage() {
+//    private fun uploadImage() {
+//
+//        val imageRef = storageReference!!.child("images/places/*" + UUID.randomUUID().toString())
+//
+//        for (uploadCount in 0 until imageList.size step 1) {
+//
+//            val single = imageList.get(uploadCount)
+//
+//            val images = storageReference!!.child("images/places/*" + single.lastPathSegment)
+//
+//            images.putFile(single)
+//                .addOnSuccessListener {
+//                    progressBar.visibility = View.GONE
+//
+//                    Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
+//                }
+//                .addOnFailureListener {
+//                    Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+//
+//                }
+//                .addOnProgressListener { taskSnapShot ->
+//
+//                }
+//
+//        }
+//
+//
+//    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun saveData() {
 
         val imageRef = storageReference!!.child("images/places/*" + UUID.randomUUID().toString())
 
@@ -104,113 +128,88 @@ class CreatePlaceActivity : AppCompatActivity() {
             val images = storageReference!!.child("images/places/*" + single.lastPathSegment)
 
             images.putFile(single)
-                .addOnSuccessListener {
-                    progressBar.visibility = View.GONE
-                    Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                    .addOnSuccessListener {
+                        progressBar.visibility = View.GONE
 
-                }
-                .addOnProgressListener { taskSnapShot ->
+                        val name = et_field_name.text.toString()
+                        val facility = et_facility.text.toString()
+                        val jamBuka = et_jam_buka.text.toString()
+                        val jamTutup = et_jam_tutup.text.toString()
+                        val noTelp = et_no_telp.text.toString()
+                        val alamat = et_alamat.text.toString()
+                        val lat = et_latitude.text.toString()
+                        val long = et_longitude.text.toString()
 
-                }
+                        if (name.isEmpty()) {
+                            Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
+                            et_field_name.setBackgroundResource(R.drawable.err_outline_stroke)
+                            et_field_name.setHintTextColor(getColor(R.color.errColor))
+                        } else if (facility.isEmpty()) {
+                            Toast.makeText(this, "Fasilitas wajib diisi", Toast.LENGTH_SHORT).show()
+                            et_facility.setBackgroundResource(R.drawable.err_outline_stroke)
+                            et_facility.setHintTextColor(getColor(R.color.errColor))
+                        } else if (jamBuka.isEmpty()) {
+                            Toast.makeText(this, "Jam Buka wajib diisi", Toast.LENGTH_SHORT).show()
+                            et_jam_buka.setBackgroundResource(R.drawable.err_outline_stroke)
+                            et_jam_buka.setHintTextColor(getColor(R.color.errColor))
+                        } else if (jamTutup.isEmpty()) {
+                            Toast.makeText(this, "Jam Tutup wajib diisi", Toast.LENGTH_SHORT).show()
+                            et_jam_tutup.setBackgroundResource(R.drawable.err_outline_stroke)
+                            et_jam_tutup.setHintTextColor(getColor(R.color.errColor))
+                        } else if (noTelp.isEmpty()) {
+                            Toast.makeText(this, "Nomor Telepon wajib diisi", Toast.LENGTH_SHORT).show()
+                            et_no_telp.setBackgroundResource(R.drawable.err_outline_stroke)
+                            et_no_telp.setHintTextColor(getColor(R.color.errColor))
+                        } else if (alamat.isEmpty()) {
+                            Toast.makeText(this, "Alamat wajib diisi", Toast.LENGTH_SHORT).show()
+                            et_alamat.setBackgroundResource(R.drawable.err_outline_stroke)
+                            et_alamat.setHintTextColor(getColor(R.color.errColor))
+                        } else if (lat.isEmpty()) {
+                            Toast.makeText(this, "Latitude wajib diisi", Toast.LENGTH_SHORT).show()
+                            et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
+                            et_latitude.setHintTextColor(getColor(R.color.errColor))
+                        } else if (long.isEmpty()) {
+                            Toast.makeText(this, "Longitude wajib diisi", Toast.LENGTH_SHORT).show()
+                            et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
+                            et_longitude.setHintTextColor(getColor(R.color.errColor))
+                        } else {
 
-        }
+                            val result = HashMap<String, Any>()
+                            result["name"] = name
+                            result["facility"] = facility
+                            result["jamBuka"] = jamBuka
+                            result["jamTutup"] = jamTutup
+                            result["noTelp"] = noTelp
+                            result["alamat"] = alamat
+                            result["lat"] = lat
+                            result["long"] = long
+                            result["images"] = listOf(images.downloadUrl).toString()
 
-//        if (filepath != null) {
-//
-//            progressBar.visibility = View.VISIBLE
-//
-//            imageRef.putFile(filepath!!)
-//                .addOnSuccessListener {
-//                    progressBar.visibility = View.GONE
-//                    Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
-//                }
-//                .addOnFailureListener {
-//                    Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
-//
-//                }
-//                .addOnProgressListener { taskSnapShot ->
-//
-//                }
-//        }
+                            GetDb().collection
+                                    .add(result)
+                                    .addOnSuccessListener {
+
+                                        val intent = Intent(this, HomeAdminActivity::class.java)
+                                        finish()
+                                        startActivity(intent)
+
+                                    }
+                                    .addOnFailureListener {
+
+                                    }
 
 
-    }
+                        }
 
-    @RequiresApi(Build.VERSION_CODES.M)
-    private fun saveData() {
+                        Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
 
-        val name = et_field_name.text.toString()
-        val facility = et_facility.text.toString()
-        val jamBuka = et_jam_buka.text.toString()
-        val jamTutup = et_jam_tutup.text.toString()
-        val noTelp = et_no_telp.text.toString()
-        val alamat = et_alamat.text.toString()
-        val lat = et_latitude.text.toString()
-        val long = et_longitude.text.toString()
+                    }
+                    .addOnProgressListener { taskSnapShot ->
 
-        if (name.isEmpty()) {
-            Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
-            et_field_name.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_field_name.setHintTextColor(getColor(R.color.errColor))
-        } else if (facility.isEmpty()) {
-            Toast.makeText(this, "Fasilitas wajib diisi", Toast.LENGTH_SHORT).show()
-            et_facility.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_facility.setHintTextColor(getColor(R.color.errColor))
-        } else if (jamBuka.isEmpty()) {
-            Toast.makeText(this, "Jam Buka wajib diisi", Toast.LENGTH_SHORT).show()
-            et_jam_buka.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_jam_buka.setHintTextColor(getColor(R.color.errColor))
-        } else if (jamTutup.isEmpty()) {
-            Toast.makeText(this, "Jam Tutup wajib diisi", Toast.LENGTH_SHORT).show()
-            et_jam_tutup.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_jam_tutup.setHintTextColor(getColor(R.color.errColor))
-        } else if (noTelp.isEmpty()) {
-            Toast.makeText(this, "Nomor Telepon wajib diisi", Toast.LENGTH_SHORT).show()
-            et_no_telp.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_no_telp.setHintTextColor(getColor(R.color.errColor))
-        } else if (alamat.isEmpty()) {
-            Toast.makeText(this, "Alamat wajib diisi", Toast.LENGTH_SHORT).show()
-            et_alamat.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_alamat.setHintTextColor(getColor(R.color.errColor))
-        } else if (lat.isEmpty()) {
-            Toast.makeText(this, "Latitude wajib diisi", Toast.LENGTH_SHORT).show()
-            et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_latitude.setHintTextColor(getColor(R.color.errColor))
-        } else if (long.isEmpty()) {
-            Toast.makeText(this, "Longitude wajib diisi", Toast.LENGTH_SHORT).show()
-            et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_longitude.setHintTextColor(getColor(R.color.errColor))
-        } else {
-
-            val image = imageList
-
-            val result = HashMap<String, Any>()
-            result["name"] = name
-            result["facility"] = facility
-            result["jamBuka"] = jamBuka
-            result["jamTutup"] = jamTutup
-            result["noTelp"] = noTelp
-            result["alamat"] = alamat
-            result["lat"] = lat
-            result["long"] = long
-            result["images"] = listOf(image).toString()
-
-            GetDb().collection
-                .add(result)
-                .addOnSuccessListener {
-
-                    val intent = Intent(this, HomeAdminActivity::class.java)
-                    finish()
-                    startActivity(intent)
-
-                }
-                .addOnFailureListener {
-
-                }
-
+                    }
 
         }
     }

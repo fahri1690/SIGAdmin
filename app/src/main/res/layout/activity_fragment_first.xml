@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:padding="@dimen/default_padding"
         tools:context=".layouts.info.place.ReadPlaceDetailActivity">
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-
-        <androidx.viewpager.widget.ViewPager
-                android:id="@+id/iv_tampil_foto"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/image_view_height"
-                android:layout_marginBottom="@dimen/default_margin"/>
-
-    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+        android:paddingBottom="30dp"
             android:orientation="vertical"
-            android:padding="@dimen/default_padding"
             tools:ignore="MissingConstraints">
 
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvImagesMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
         <!--Nama Tempat Futsal-->
 
@@ -69,7 +66,7 @@
                         android:id="@+id/tv_fnama_lapangan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginLeft="@dimen/default_margin"
                         android:layout_marginBottom="@dimen/default_margin"
                         android:textSize="@dimen/textsize_fielddetail"/>
 
@@ -119,7 +116,7 @@
                         android:id="@+id/tv_ffasilitas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginLeft="@dimen/default_margin"
                         android:layout_marginBottom="@dimen/default_margin"
                         android:textSize="@dimen/textsize_fielddetail"/>
             </LinearLayout>
@@ -169,7 +166,7 @@
                         android:id="@+id/tv_fjam_buka"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginLeft="@dimen/default_margin"
                         android:layout_marginBottom="@dimen/default_margin"
                         android:textSize="@dimen/textsize_fielddetail"/>
             </LinearLayout>
@@ -219,7 +216,7 @@
                         android:id="@+id/tv_fjam_tutup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginLeft="@dimen/default_margin"
                         android:layout_marginBottom="@dimen/default_margin"
                         android:textSize="@dimen/textsize_fielddetail"/>
             </LinearLayout>
@@ -269,7 +266,7 @@
                         android:id="@+id/tv_fno_telepon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginLeft="@dimen/default_margin"
                         android:layout_marginBottom="@dimen/default_margin"
                         android:textSize="@dimen/textsize_fielddetail"/>
             </LinearLayout>
@@ -318,7 +315,7 @@
                         android:id="@+id/tv_falamat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginLeft="@dimen/default_margin"
                         android:layout_marginBottom="@dimen/default_margin"
                         android:textSize="@dimen/textsize_fielddetail"/>
             </LinearLayout>
@@ -368,7 +365,7 @@
                         android:id="@+id/tv_flatitude"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginLeft="@dimen/default_margin"
                         android:layout_marginBottom="@dimen/default_margin"
                         android:textSize="@dimen/textsize_fielddetail"/>
             </LinearLayout>
@@ -418,7 +415,7 @@
                         android:id="@+id/tv_flongitude"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginLeft="@dimen/default_margin"
                         android:layout_marginBottom="@dimen/default_margin"
                         android:textSize="@dimen/textsize_fielddetail"/>
             </LinearLayout>
@@ -436,6 +433,7 @@
                     android:layout_width="@dimen/button_width"
                     android:layout_height="@dimen/button_height"
                     android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
                     android:background="@drawable/button_layout"
                     android:text="@string/btn_perbarui"
                     android:textAllCaps="false"
@@ -444,5 +442,6 @@
         </LinearLayout>
 
     </LinearLayout>
+    </ScrollView>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

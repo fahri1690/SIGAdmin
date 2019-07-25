@@ -46,8 +46,8 @@ class LoginActivity : AppCompatActivity() {
                 }
         }
 
-        tv_register.setOnClickListener {
-            intent = Intent (this, RegisterActivity::class.java)
+        tv_lupa_sandi.setOnClickListener {
+            intent = Intent (this, ForgetPassword::class.java)
             startActivity(intent)
         }
     }

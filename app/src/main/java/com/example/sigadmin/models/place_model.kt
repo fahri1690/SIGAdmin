@@ -1,7 +1,9 @@
 package com.example.sigadmin.models
 
+import android.net.Uri
+
 data class PlaceModel(
-    val images: ArrayList<String> = ArrayList(),
+    val placeId: String = "",
     val name: String = "",
     val alamat: String ="",
     val jamBuka: String = "",
@@ -9,5 +11,10 @@ data class PlaceModel(
     val facility: String = "",
     val noTelp: String = "",
     val lat: String = "",
-    val long: String = ""
+    val long: String = "",
+    val images: String = ""
+)
+
+data class PlaceImages(
+    val images: String
 )

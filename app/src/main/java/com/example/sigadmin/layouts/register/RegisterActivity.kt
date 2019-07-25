@@ -37,7 +37,6 @@ class RegisterActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun saveData() {
-        // Create a new user with a first, middle, and last name
         val name = et_name_register.text.toString()
         val email = et_email_register.text.toString()
         val password = et_password_register.text.toString()
@@ -49,7 +48,7 @@ class RegisterActivity : AppCompatActivity() {
                 Log.d("Main", "Sukses bikin akun baru ")
             }
             .addOnFailureListener {
-                Log.d("Main", "Failed to create user! ${it.message}")
+                Log.d("Main", "Gagal daftar! ${it.message}")
             }
 
         if (name.isEmpty()) {
