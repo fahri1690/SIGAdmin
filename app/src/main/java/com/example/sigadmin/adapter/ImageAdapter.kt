@@ -7,10 +7,10 @@ import com.example.sigadmin.layouts.info.place.ImageFragment
 import com.example.sigadmin.models.PlaceImages
 
 class ImageAdapter(fragmentManager: FragmentManager,
-                   private val images: List<PlaceImages>) : FragmentPagerAdapter(fragmentManager) {
+                   private val images: ArrayList<String>) : FragmentPagerAdapter(fragmentManager) {
 
     override fun getItem(pos: Int): Fragment {
-        return ImageFragment.newInstance(images[pos].images)
+        return ImageFragment.newInstance(images[pos])
     }
 
     override fun getCount(): Int = images.size

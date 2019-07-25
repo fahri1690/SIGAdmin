@@ -4,15 +4,12 @@ import androidx.fragment.app.FragmentManager
 import com.example.sigadmin.R
 import com.example.sigadmin.adapter.ImageAdapter
 import com.example.sigadmin.models.PlaceImages
+import com.example.sigadmin.models.PlaceModel
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.item_carousel_images.view.*
 
-interface BannerListener {
-    fun onBannerClick(promo: PlaceImages)
-}
-
-class BannerCarouselItem(private val banners: List<PlaceImages>,
+class BannerCarouselItem(private val banners: ArrayList<String>,
                          private val supportFragmentManager: FragmentManager
 ) : Item() {
 

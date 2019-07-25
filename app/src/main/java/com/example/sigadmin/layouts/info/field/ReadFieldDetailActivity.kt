@@ -22,7 +22,7 @@ class ReadFieldDetailActivity : AppCompatActivity() {
 
         val documentId = GetDb().collection.document(placeId)
         val subCollection = documentId.collection("listLapangan")
-        val subDocument = subCollection.document(fieldId)
+        val subDocument = subCollection.document(fieldId.toString())
         val subDocumentId = subDocument.id
 
         val name = intent.extras.getString("name")
@@ -91,7 +91,7 @@ class ReadFieldDetailActivity : AppCompatActivity() {
 
                     }
                 }
-                .addOnFailureListener { exception ->
+                .addOnFailureListener {
 
                 }
     }

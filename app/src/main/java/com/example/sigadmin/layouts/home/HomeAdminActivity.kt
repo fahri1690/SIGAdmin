@@ -22,6 +22,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import kotlinx.android.synthetic.main.activity_home_admin.*
 import kotlinx.android.synthetic.main.item_place.view.*
+import java.util.ArrayList
 
 class HomeAdminActivity : AppCompatActivity() {
 
@@ -57,7 +58,7 @@ class HomeAdminActivity : AppCompatActivity() {
                 intent.putExtra("lat", fieldModel.lat)
                 intent.putExtra("long", fieldModel.long)
                 intent.putExtra("noTelp", fieldModel.noTelp)
-//                intent.putExtra("images", fieldModel.images)
+                intent.putStringArrayListExtra("images", fieldModel.images)
                 startActivity(intent)
             }
 
