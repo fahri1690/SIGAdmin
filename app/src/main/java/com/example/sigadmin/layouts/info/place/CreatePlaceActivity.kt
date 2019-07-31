@@ -12,6 +12,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.home.HomeAdminActivity
+import com.example.sigadmin.models.PlaceModel
 import com.example.sigadmin.services.db.GetDb
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
@@ -118,22 +119,24 @@ class CreatePlaceActivity : AppCompatActivity() {
 
             }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
 
                 }
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
 
-                        val list = ArrayList<String>()
-                        list.add(it.result.toString())
+                        val list = arrayListOf(it.result.toString())
+                        val totalItem = list.size
 
-                        for (item in list) {
-                            println(item)
-                            addUploadToDb(arrayListOf(item))
+                        for (size in 0 until totalItem step 1) {
+                            println(totalItem)
+                            addUploadToDb(it.result.toString())
                         }
 
 
                     }
+
+                    return@addOnCompleteListener
                 }
 
         }
@@ -154,13 +157,8 @@ class CreatePlaceActivity : AppCompatActivity() {
             }.addOnCompleteListener {
                 if (it.isSuccessful) {
 
-                    val list = ArrayList<String>()
-                    list.add(it.result.toString())
-
-                    for (item in list) {
-                        println(item)
-                        addUploadToDb(arrayListOf(item))
-                    }
+                    val list = it.result.toString()
+                    addUploadToDb(list)
 
 
                 }
@@ -170,15 +168,17 @@ class CreatePlaceActivity : AppCompatActivity() {
 
     }
 
-    private fun addUploadToDb(uri: ArrayList<String>) {
+    private fun addUploadToDb(uri: String) {
 
         val db = GetDb().collection
+
+        val model = PlaceModel()
 
         val name = et_field_name.text.toString()
         val facility = et_facility.text.toString()
         val jamBuka = et_jam_buka.text.toString()
         val jamTutup = et_jam_tutup.text.toString()
-        val noTelp = et_no_telp.text.toString()
+        val noTelp = et_no_telp.text.length
         val alamat = et_alamat.text.toString()
         val lat = et_latitude.text.toString()
         val long = et_longitude.text.toString()
@@ -199,7 +199,7 @@ class CreatePlaceActivity : AppCompatActivity() {
             Toast.makeText(this, "Jam Tutup wajib diisi", Toast.LENGTH_SHORT).show()
             et_jam_tutup.setBackgroundResource(R.drawable.err_outline_stroke)
             et_jam_tutup.setHintTextColor(getColor(R.color.errColor))
-        } else if (noTelp.isEmpty()) {
+        } else if (noTelp == null) {
             Toast.makeText(this, "Nomor Telepon wajib diisi", Toast.LENGTH_SHORT).show()
             et_no_telp.setBackgroundResource(R.drawable.err_outline_stroke)
             et_no_telp.setHintTextColor(getColor(R.color.errColor))
@@ -217,8 +217,8 @@ class CreatePlaceActivity : AppCompatActivity() {
             et_longitude.setHintTextColor(getColor(R.color.errColor))
         } else {
 
-            val result= hashMapOf(
-                "images" to uri,
+            val result = hashMapOf(
+                "images" to arrayListOf(uri),
                 "name" to name,
                 "facility" to facility,
                 "jamBuka" to jamBuka,

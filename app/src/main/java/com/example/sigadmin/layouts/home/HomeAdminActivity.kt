@@ -57,7 +57,7 @@ class HomeAdminActivity : AppCompatActivity() {
                 intent.putExtra("jamTutup", fieldModel.jamTutup)
                 intent.putExtra("lat", fieldModel.lat)
                 intent.putExtra("long", fieldModel.long)
-                intent.putExtra("noTelp", fieldModel.noTelp)
+                intent.putExtra("noTelp", fieldModel.noTelp.toString())
                 intent.putStringArrayListExtra("images", fieldModel.images)
                 startActivity(intent)
             }

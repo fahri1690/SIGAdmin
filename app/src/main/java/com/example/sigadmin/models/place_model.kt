@@ -7,7 +7,7 @@ data class PlaceModel(
     val jamBuka: String = "",
     val jamTutup: String = "",
     val facility: String = "",
-    val noTelp: String = "",
+    val noTelp: Int = 0,
     val lat: String = "",
     val long: String = "",
     val images: ArrayList<String> = arrayListOf(PlaceImages().images)
