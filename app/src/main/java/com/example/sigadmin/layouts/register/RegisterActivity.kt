@@ -44,17 +44,16 @@ class RegisterActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (!it.isSuccessful) return@addOnCompleteListener
-
-                Log.d("Main", "Sukses bikin akun baru ")
+                Log.d("Main", "Daftar Sukses")
             }
             .addOnFailureListener {
-                Log.d("Main", "Gagal daftar! ${it.message}")
+                Log.d("Main", "Daftar Gagal! ${it.message}")
             }
 
         if (name.isEmpty()) {
             Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
-            et_email_register.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_email_register.setHintTextColor(getColor(R.color.errColor))
+            et_name_register.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_name_register.setHintTextColor(getColor(R.color.errColor))
         } else if (name.length < 2) {
             Toast.makeText(this, "Nama minimal 2 karakter", Toast.LENGTH_SHORT).show()
             et_name_register.setBackgroundResource(R.drawable.err_outline_stroke)
@@ -69,8 +68,8 @@ class RegisterActivity : AppCompatActivity() {
             et_email_register.setHintTextColor(getColor(R.color.errColor))
         } else if (password.isEmpty()) {
             Toast.makeText(this, "Kata Sandi wajib diisi", Toast.LENGTH_SHORT).show()
-            et_name_register.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_name_register.setHintTextColor(getColor(R.color.errColor))
+            et_password_register.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_password_register.setHintTextColor(getColor(R.color.errColor))
         } else {
             val result = HashMap<String, Any>()
             result["nama"] = name
@@ -82,6 +81,7 @@ class RegisterActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
+                    Toast.makeText(this, "Daftar Sukses", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
 

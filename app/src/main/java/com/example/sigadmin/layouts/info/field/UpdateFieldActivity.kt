@@ -93,7 +93,6 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
     private fun getData() {
 
         val names = intent.getStringExtra("name")
-
         val hargaSiangs = intent.getStringExtra("hargaSiang")
         val hargaMalams = intent.getStringExtra("hargaMalam")
 

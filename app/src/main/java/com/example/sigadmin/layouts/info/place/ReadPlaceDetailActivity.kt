@@ -13,6 +13,7 @@ import com.example.sigadmin.R
 import com.example.sigadmin.carousel.BannerCarouselItem
 import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.models.PlaceImages
+import com.example.sigadmin.models.PlaceModel
 import com.example.sigadmin.services.db.GetDb
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
@@ -46,7 +47,7 @@ class ReadPlaceDetailActivity : Fragment(){
         val lat = results.getString("lat")
         val long = results.getString("long")
         val alamat = results.getString("alamat")
-        val imageList = "https://firebasestorage.googleapis.com/v0/b/sigfutsal.appspot.com/o/images%2Fplaces%2F*0bda00fe-fbb8-4862-81af-65665a51a2b4?alt=media&token=2dfee65e-0744-4045-a974-d44c09a4bc9a"
+        val imageList = results.getStringArrayList("images")
 
         tvName.text = name
         tvFacility.text = facility
@@ -57,7 +58,7 @@ class ReadPlaceDetailActivity : Fragment(){
         tvLong.text = long
         tvAlamat.text = alamat
 
-        val query = GetDb().collection.document(placeId)
+        val query = GetDb().collection.document(placeId!!.toString())
         val documentId = query.id
 
         root.btn_perbarui.setOnClickListener {
@@ -75,11 +76,8 @@ class ReadPlaceDetailActivity : Fragment(){
             Log.d("Meesss", documentId)
         }
 
-        val listImages = listOf(
-                PlaceImages(images = imageList),
-                PlaceImages(images = imageList),
-                PlaceImages(images = imageList)
-        )
+        @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS"
+        ) val listImages= imageList
 
         root.rvImagesMain.apply {
             layoutManager = LinearLayoutManager(activity)
