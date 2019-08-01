@@ -40,6 +40,4 @@ class ImageFragment : Fragment() {
             Picasso.get().load(url).into(imgBanner)
         }
     }
-
-
 }

@@ -37,11 +37,7 @@ class CreatePlaceActivity : AppCompatActivity() {
     private var imgRef: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
 
-    private var uploadCount = 0
-
     var imageList: ArrayList<Uri> = ArrayList()
-
-    var stringList: ArrayList<String> = ArrayList()
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -132,13 +128,10 @@ class CreatePlaceActivity : AppCompatActivity() {
                             println(totalItem)
                             addUploadToDb(it.result.toString())
                         }
-
-
                     }
 
                     return@addOnCompleteListener
                 }
-
         }
 
         if (filepath != null) {
@@ -159,20 +152,14 @@ class CreatePlaceActivity : AppCompatActivity() {
 
                     val list = it.result.toString()
                     addUploadToDb(list)
-
-
                 }
             }
         }
-
-
     }
 
     private fun addUploadToDb(uri: String) {
 
         val db = GetDb().collection
-
-        val model = PlaceModel()
 
         val name = et_field_name.text.toString()
         val facility = et_facility.text.toString()
@@ -237,5 +224,4 @@ class CreatePlaceActivity : AppCompatActivity() {
         }
 
     }
-
 }

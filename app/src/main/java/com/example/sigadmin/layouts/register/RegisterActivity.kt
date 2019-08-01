@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
+import com.example.sigadmin.layouts.home.HomeAdminActivity
 import com.example.sigadmin.layouts.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -17,8 +18,6 @@ import kotlinx.android.synthetic.main.activity_register.*
 class RegisterActivity : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
-
-    internal var id: String = ""
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +78,7 @@ class RegisterActivity : AppCompatActivity() {
             db.collection("Admin")
                 .add(result)
                 .addOnSuccessListener {
-                    val intent = Intent(this, LoginActivity::class.java)
+                    val intent = Intent(this, HomeAdminActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(this, "Daftar Sukses", Toast.LENGTH_SHORT).show()
                 }

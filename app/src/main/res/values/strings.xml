@@ -66,4 +66,7 @@
     <string name="forgetpass_info">Masukkan email yang sudah terdaftar</string>
     <string name="btn_ferivikasi">Verivikasi</string>
     <string name="lupasandi">Lupa Sandi?</string>
+    <string name="keluar">Keluar</string>
+    <string name="admin">Admin</string>
+    <string name="hayy">hi,</string>
 </resources>

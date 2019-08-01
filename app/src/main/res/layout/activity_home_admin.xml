@@ -15,20 +15,52 @@
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
 
-        <!--<LinearLayout android:layout_width="match_parent"-->
-                      <!--android:layout_height="wrap_content"-->
-                      <!--android:padding="@dimen/default_padding"-->
-                      <!--android:orientation="horizontal"-->
-                      <!--android:layout_gravity="center_vertical">-->
+        <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/default_padding"
+                android:paddingBottom="@dimen/default_padding"
+                android:elevation="@dimen/default_padding"
+                android:background="@color/colorPrimary"
+                android:layout_marginBottom="@dimen/default_margin">
 
-            <!--<ImageView android:layout_width="wrap_content"-->
-                       <!--android:layout_height="wrap_content"-->
-                       <!--android:src="@drawable/ic_admin"/>-->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:orientation="horizontal">
 
-            <!--<TextView android:layout_width="match_parent"-->
-                      <!--android:layout_height="wrap_content"-->
-                      <!--android:text="Admin"/>-->
-        <!--</LinearLayout>-->
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hayy"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:drawableLeft="@drawable/ic_account_box_black"
+                        android:drawablePadding="@dimen/padding_5"/>
+
+                <TextView
+                        android:id="@+id/tv_admin"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:drawablePadding="@dimen/padding_5"/>
+
+                <TextView
+                        android:id="@+id/tv_logOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/keluar"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:drawableRight="@drawable/ic_exit_to_app_black_24dp"
+                        android:drawablePadding="@dimen/padding_5"/>
+
+            </LinearLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMain"

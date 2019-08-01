@@ -23,4 +23,5 @@
     <dimen name="widthsize_subfielddetail">100dp</dimen>
     <dimen name="margintop_icuser">120dp</dimen>
     <dimen name="fontSz_loginInfo">24sp</dimen>
+    <dimen name="padding_5">5dp</dimen>
 </resources>
