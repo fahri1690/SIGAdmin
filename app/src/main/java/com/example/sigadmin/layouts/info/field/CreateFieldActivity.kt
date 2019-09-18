@@ -58,21 +58,24 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         val docRef = GetDb().collection.document(placeId)
         val namaSubLapangan = et_sub_field_name.text.toString()
         val jenis = spn_jenis_lapangan.selectedItem.toString()
-        val hargaSiang = et_harga_siang.text.toString()
-        val hargaMalam = et_harga_malam.text.toString()
+        val hargaSiang = et_harga_siang.text.length
+        val hargaMalam = et_harga_malam.text.length
 
         if (namaSubLapangan.isEmpty()) {
             Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
             et_field_name.setBackgroundResource(R.drawable.err_outline_stroke)
             et_field_name.setHintTextColor(getColor(R.color.errColor))
-        } else if (hargaSiang.isEmpty()) {
+            return
+        } else if (hargaSiang == null) {
             Toast.makeText(this, "Harga Siang wajib diisi", Toast.LENGTH_SHORT).show()
             et_harga_siang.setBackgroundResource(R.drawable.err_outline_stroke)
             et_harga_siang.setHintTextColor(getColor(R.color.errColor))
-        } else if (hargaMalam.isEmpty()) {
+            return
+        } else if (hargaMalam == null) {
             Toast.makeText(this, "Harga Malam wajib diisi", Toast.LENGTH_SHORT).show()
             et_harga_malam.setBackgroundResource(R.drawable.err_outline_stroke)
             et_harga_malam.setHintTextColor(getColor(R.color.errColor))
+            return
         } else {
 
             val result = HashMap<String, Any>()

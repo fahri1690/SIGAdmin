@@ -36,7 +36,9 @@ class UpdatePlaceActivity : AppCompatActivity() {
         val jamBuka = et_update_jam_buka.text.toString()
         val jamTutup = et_update_jam_tutup.text.toString()
         val lat = et_update_latitude.text.toString()
+        val latToDouble = lat.toDouble()
         val long = et_update_longitude.text.toString()
+        val longToDouble = long.toDouble()
         val noTelp = et_update_no_telp.text.toString()
 
         if (name.isEmpty()) {
@@ -64,8 +66,8 @@ class UpdatePlaceActivity : AppCompatActivity() {
         result["jamTutup"] = jamTutup
         result["noTelp"] = noTelp
         result["alamat"] = alamat
-        result["lat"] = lat
-        result["long"] = long
+        result["lat"] = latToDouble
+        result["long"] = longToDouble
 
         query.update(result)
             .addOnSuccessListener {

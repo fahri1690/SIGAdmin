@@ -58,10 +58,13 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
 
         if (name.isEmpty()) {
             Toast.makeText(this, "Kode Lapangn wajib diisi", Toast.LENGTH_SHORT).show()
+            return
         } else if (hargaSiang.isEmpty()) {
             Toast.makeText(this, "Harga Siang wajib diisi", Toast.LENGTH_SHORT).show()
+            return
         } else if (hargaMalam.isEmpty()) {
             Toast.makeText(this, "Harga Malam wajib diisi", Toast.LENGTH_SHORT).show()
+            return
         }
 
         val result = HashMap<String, Any>()

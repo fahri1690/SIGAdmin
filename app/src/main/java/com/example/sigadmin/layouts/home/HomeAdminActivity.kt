@@ -17,13 +17,11 @@ import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.layouts.info.place.CreatePlaceActivity
 import com.example.sigadmin.models.PlaceModel
 import com.example.sigadmin.services.db.GetDb
-import com.example.sigadmin.services.db.GetImage
 import com.example.sigadmin.services.db.OrderBy
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import kotlinx.android.synthetic.main.activity_home_admin.*
 import kotlinx.android.synthetic.main.item_place.view.*
-import java.util.ArrayList
 
 class HomeAdminActivity : AppCompatActivity() {
 
@@ -56,9 +54,9 @@ class HomeAdminActivity : AppCompatActivity() {
                 intent.putExtra("alamat", fieldModel.alamat)
                 intent.putExtra("jamBuka", fieldModel.jamBuka)
                 intent.putExtra("jamTutup", fieldModel.jamTutup)
-                intent.putExtra("lat", fieldModel.lat)
-                intent.putExtra("long", fieldModel.long)
-                intent.putExtra("noTelp", fieldModel.noTelp.toString())
+                intent.putExtra("lat", fieldModel.lat.toString())
+                intent.putExtra("long", fieldModel.long.toString())
+                intent.putExtra("noTelp", fieldModel.noTelp)
                 intent.putStringArrayListExtra("images", fieldModel.images)
                 startActivity(intent)
             }
@@ -141,7 +139,6 @@ class HomeAdminActivity : AppCompatActivity() {
             dialog.show()
 
         }
-
     }
 
     override fun onStart() {
