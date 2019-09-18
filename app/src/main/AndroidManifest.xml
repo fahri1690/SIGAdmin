@@ -28,20 +28,22 @@
         <activity
                 android:name=".layouts.info.main.MainFragmentActivity"
                 android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".layouts.login.LoginActivity"/>
-        <activity android:name=".layouts.info.place.UpdatePlaceActivity"/>
+        <activity android:name=".layouts.login.LoginActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".layouts.info.place.UpdatePlaceActivity"
+                  android:label="Update Tempat Futsal"/>
         <activity android:name=".layouts.info.field.ReadFieldDetailActivity"/>
-        <activity android:name=".layouts.info.field.CreateFieldActivity"/>
-        <activity android:name=".layouts.register.RegisterActivity"/>
-        <activity android:name=".layouts.info.place.CreatePlaceActivity"/>
-        <activity
-                android:name=".layouts.home.HomeAdminActivity"
-                android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".layouts.info.field.CreateFieldActivity"
+                  android:label="Input Data Lapangan"/>
+        <activity android:name=".layouts.register.RegisterActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".layouts.info.place.CreatePlaceActivity"
+                  android:label="Input Data Tempat Futsal"/>
+        <activity android:name=".layouts.home.HomeAdminActivity"
+                  android:theme="@style/AppTheme.NoActionBar">
 
-            <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar"> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>

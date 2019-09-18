@@ -10,34 +10,63 @@
 
     <LinearLayout
             android:orientation="vertical"
+            android:paddingTop="@dimen/default_padding"
+            android:paddingBottom="@dimen/default_padding"
+            android:paddingLeft="@dimen/padding_5"
+            android:paddingRight="@dimen/padding_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/padding_5"
+                      android:orientation="horizontal">
 
-        <EditText android:layout_marginTop="@dimen/default_margin"
-                  android:id="@+id/et_updt_admin_name"
-                  android:inputType="text"
-                  android:hint="@string/nama_admin_hint"
-                  android:background="@drawable/outline_stroke"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginBottom="@dimen/default_margin"/>
+            <TextView android:layout_width="@dimen/margin_130"
+                      android:layout_height="wrap_content"
+                      android:paddingLeft="@dimen/margin_2"
+                      android:paddingTop="@dimen/default_padding"
+                      android:paddingBottom="@dimen/default_padding"
+                      android:text="@string/tv_nama_admin"
+                      android:textSize="18dp"/>
 
-        <EditText android:id="@+id/et_updt_admin_email"
-                  android:inputType="number"
-                  android:hint="@string/email_admin_hint"
-                  android:background="@drawable/outline_stroke"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginBottom="@dimen/default_margin"/>
+            <EditText
+                    android:id="@+id/et_updt_admin_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline_stroke"
+                    android:inputType="text"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/default_margin"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="@dimen/margin_130"
+                      android:layout_height="wrap_content"
+                      android:paddingLeft="@dimen/margin_2"
+                      android:paddingTop="@dimen/default_padding"
+                      android:paddingBottom="@dimen/default_padding"
+                      android:text="@string/tv_email"
+                      android:textSize="18dp"/>
+
+            <EditText
+                    android:id="@+id/et_updt_admin_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline_stroke"
+                    android:inputType="text"/>
+
+        </LinearLayout>
 
         <Button android:id="@+id/btn_save_updt_admin"
-                android:textAllCaps="false"
-                android:background="@drawable/button_layout"
+                android:background="@drawable/button_ouval"
                 android:textColor="@color/buttonTextColor"
-                android:layout_gravity="end"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="@dimen/button_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
                 android:text="@string/btn_simpan_sub_lap_baru"/>
     </LinearLayout>
 

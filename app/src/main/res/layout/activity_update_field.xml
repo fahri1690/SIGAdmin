@@ -11,52 +11,115 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
+            android:paddingTop="@dimen/default_padding"
+            android:paddingBottom="@dimen/default_padding"
+            android:paddingLeft="@dimen/padding_5"
+            android:paddingRight="@dimen/padding_5"
             android:layout_height="wrap_content">
 
-        <EditText android:layout_marginTop="@dimen/default_margin"
-                  android:id="@+id/et_updt_sub_field_name"
-                  android:inputType="text"
-                  android:hint="@string/nama_sub_lapangan_hint"
-                  android:background="@drawable/outline_stroke"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginBottom="@dimen/default_margin"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/padding_5"
+                      android:orientation="horizontal">
 
-        <FrameLayout android:layout_width="match_parent"
-                     android:background="@drawable/spinner_bg"
-                     android:layout_marginBottom="@dimen/default_margin"
-                     android:layout_height="wrap_content">
-            <Spinner android:id="@+id/spn_updt_jenis_lapangan"
-                     android:layout_width="match_parent"
-                     android:layout_height="@dimen/spn_height"
-                     android:entries="@array/jenis_lapangan"
-                     android:spinnerMode="dropdown"/>
-        </FrameLayout>
+            <TextView android:layout_width="@dimen/margin_130"
+                      android:layout_height="wrap_content"
+                      android:paddingLeft="@dimen/margin_2"
+                      android:paddingTop="@dimen/default_padding"
+                      android:paddingBottom="@dimen/default_padding"
+                      android:text="@string/tv_field_kode"
+                      android:layout_marginRight="@dimen/padding_5"
+                      android:textSize="18dp"/>
 
-        <EditText android:id="@+id/et_updt_harga_siang"
-                  android:inputType="number"
-                  android:hint="@string/harga_siang_hint"
-                  android:background="@drawable/outline_stroke"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginBottom="@dimen/default_margin"/>
+            <EditText
+                    android:id="@+id/et_updt_sub_field_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline_stroke"
+                    android:inputType="text"/>
 
-        <EditText android:id="@+id/et_updt_harga_malam"
-                  android:inputType="number"
-                  android:hint="@string/harga_malam_hint"
-                  android:background="@drawable/outline_stroke"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginBottom="@dimen/default_margin"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/padding_5"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="@dimen/margin_130"
+                      android:layout_height="wrap_content"
+                      android:paddingLeft="@dimen/margin_2"
+                      android:paddingTop="@dimen/default_padding"
+                      android:paddingBottom="@dimen/default_padding"
+                      android:text="@string/tv_jenis"
+                      android:layout_marginRight="@dimen/padding_5"
+                      android:textSize="18dp"/>
+
+            <FrameLayout android:layout_width="match_parent"
+                         android:background="@drawable/spinner_bg"
+                         android:layout_marginBottom="@dimen/default_margin"
+                         android:layout_height="wrap_content">
+                <Spinner android:id="@+id/spn_updt_jenis_lapangan"
+                         android:layout_width="match_parent"
+                         android:layout_height="@dimen/spn_height"
+                         android:entries="@array/jenis_lapangan"
+                         android:spinnerMode="dropdown"/>
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/padding_5"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="@dimen/margin_130"
+                      android:layout_height="wrap_content"
+                      android:paddingLeft="@dimen/margin_2"
+                      android:paddingTop="@dimen/default_padding"
+                      android:paddingBottom="@dimen/default_padding"
+                      android:text="@string/tv_hargaSiag"
+                      android:layout_marginRight="@dimen/padding_5"
+                      android:textSize="18dp"/>
+
+            <EditText
+                    android:id="@+id/et_updt_harga_siang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline_stroke"
+                    android:inputType="text"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="@dimen/default_margin"
+                      android:orientation="horizontal">
+
+            <TextView android:layout_width="@dimen/margin_130"
+                      android:layout_height="wrap_content"
+                      android:paddingLeft="@dimen/margin_2"
+                      android:paddingTop="@dimen/default_padding"
+                      android:paddingBottom="@dimen/default_padding"
+                      android:text="@string/tv_hargaMalam"
+                      android:layout_marginRight="@dimen/padding_5"
+                      android:textSize="18dp"/>
+
+            <EditText
+                    android:id="@+id/et_updt_harga_malam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline_stroke"
+                    android:inputType="text"/>
+
+        </LinearLayout>
 
         <Button android:id="@+id/btn_updt_sub_field"
-                android:textAllCaps="false"
-                android:background="@drawable/button_layout"
+                android:background="@drawable/button_ouval"
                 android:textColor="@color/buttonTextColor"
-                android:layout_gravity="end"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="@dimen/button_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="@string/btn_simpan_sub_lap_baru"/>
+
     </LinearLayout>
 
 </ScrollView>

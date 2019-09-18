@@ -93,12 +93,11 @@
     </LinearLayout>
 
     <Button android:id="@+id/btn_perbarui_admin"
-            android:textAllCaps="false"
-            android:background="@drawable/button_layout"
+            android:background="@drawable/button_ouval"
             android:textColor="@color/buttonTextColor"
-            android:layout_gravity="end"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
             android:text="@string/btn_perbarui"/>
 
 </LinearLayout>

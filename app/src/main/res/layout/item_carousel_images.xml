@@ -29,7 +29,7 @@
 			app:piv_selectedColor="@color/colorPrimary"
 			app:piv_unselectedColor="@color/fui_buttonShadow"
 			attrs:piv_padding="12dp"
-			attrs:piv_radius="8dp" />
+			attrs:piv_radius="dp" />
 	</RelativeLayout>
 
 

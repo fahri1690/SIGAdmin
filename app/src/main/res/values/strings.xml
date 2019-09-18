@@ -4,8 +4,8 @@
     <string name="btn_register">Daftar</string>
     <string name="tv_masuk">Masuk</string>
     <string name="otp_hint">Masukkan Kode OTP</string>
-    <string name="nama_lapangan_hint">Nama</string>
-    <string name="fasilitas_hint">Fasilitas</string>
+    <string name="nama_lapangan_hint">Masukkan nama tempat futsal</string>
+    <string name="fasilitas_hint">Masukkan fasilitas</string>
     <string name="jam_buka_hint">Jam Buka</string>
     <string name="jam_tutup_hint">Jam Tutup</string>
     <string name="notelp_hint">No. Telepon</string>
@@ -20,7 +20,7 @@
     <string name="et_email">Email</string>
     <string name="et_nama_admin">Nama Pengguna</string>
     <string name="et_no_telepon">No Telepon</string>
-    <string name="login_info">Silahkan Login dengan email yang telah terdaftar</string>
+    <string name="login_info">Silahkan Login menggunakan Email dan Kata Sandi yang telah terdaftar.</string>
 
     <string-array name="jenis_lapangan">
         <item>Vinyl</item>
@@ -48,7 +48,7 @@
     <string name="tab_text_1">Detail</string>
     <string name="tab_text_2">Daftar Lapangan</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="tv_jenis">Jenis</string>
+    <string name="tv_jenis">Jenis Lapangan</string>
     <string name="tv_field_kode">Kode Lapangan</string>
     <string name="tv_hargaSiag">Harga Siang</string>
     <string name="tv_hargaMalam">Harga Malam</string>
@@ -64,9 +64,11 @@
     <string name="btn_Masuk">Masuk</string>
     <string name="et_kata_sandi">Kata Sandi</string>
     <string name="forgetpass_info">Masukkan email yang sudah terdaftar</string>
-    <string name="btn_ferivikasi">Verivikasi</string>
+    <string name="btn_ferivikasi">Verifikasi</string>
     <string name="lupasandi">Lupa Sandi?</string>
     <string name="keluar">Keluar</string>
     <string name="admin">Admin</string>
     <string name="hayy">hi,</string>
+    <string name="pilih_foto">Pilih Foto</string>
+    <string name="tv_nama_admin">Nama</string>
 </resources>
