@@ -6,24 +6,26 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.home.HomeAdminActivity
-import com.example.sigadmin.models.PlaceModel
 import com.example.sigadmin.services.db.GetDb
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.GeoPoint
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.activity_create_place.*
 import java.io.IOException
+import java.lang.reflect.Constructor
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
+
+
+
 
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "REDUNDANT_LABEL_WARNING")
@@ -37,11 +39,9 @@ class CreatePlaceActivity : AppCompatActivity() {
     private var imgRef: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
 
-    private var uploadCount = 0
+    var geoPoint = GeoPoint(0.0, 0.0)
 
     var imageList: ArrayList<Uri> = ArrayList()
-
-    var stringList: ArrayList<String> = ArrayList()
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -172,49 +172,55 @@ class CreatePlaceActivity : AppCompatActivity() {
 
         val db = GetDb().collection
 
-        val model = PlaceModel()
-
         val name = et_field_name.text.toString()
         val facility = et_facility.text.toString()
         val jamBuka = et_jam_buka.text.toString()
         val jamTutup = et_jam_tutup.text.toString()
         val noTelp = et_no_telp.text.length
         val alamat = et_alamat.text.toString()
-        val lat = et_latitude.text.toString()
-        val long = et_longitude.text.toString()
+        val lat = java.lang.Double.parseDouble(et_latitude.text.toString())
+        val long = java.lang.Double.parseDouble(et_longitude.text.toString())
 
         if (name.isEmpty()) {
             Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
             et_field_name.setBackgroundResource(R.drawable.err_outline_stroke)
             et_field_name.setHintTextColor(getColor(R.color.errColor))
+            return
         } else if (facility.isEmpty()) {
             Toast.makeText(this, "Fasilitas wajib diisi", Toast.LENGTH_SHORT).show()
             et_facility.setBackgroundResource(R.drawable.err_outline_stroke)
             et_facility.setHintTextColor(getColor(R.color.errColor))
+            return
         } else if (jamBuka.isEmpty()) {
             Toast.makeText(this, "Jam Buka wajib diisi", Toast.LENGTH_SHORT).show()
             et_jam_buka.setBackgroundResource(R.drawable.err_outline_stroke)
             et_jam_buka.setHintTextColor(getColor(R.color.errColor))
+            return
         } else if (jamTutup.isEmpty()) {
             Toast.makeText(this, "Jam Tutup wajib diisi", Toast.LENGTH_SHORT).show()
             et_jam_tutup.setBackgroundResource(R.drawable.err_outline_stroke)
             et_jam_tutup.setHintTextColor(getColor(R.color.errColor))
+            return
         } else if (noTelp == null) {
             Toast.makeText(this, "Nomor Telepon wajib diisi", Toast.LENGTH_SHORT).show()
             et_no_telp.setBackgroundResource(R.drawable.err_outline_stroke)
             et_no_telp.setHintTextColor(getColor(R.color.errColor))
+            return
         } else if (alamat.isEmpty()) {
             Toast.makeText(this, "Alamat wajib diisi", Toast.LENGTH_SHORT).show()
             et_alamat.setBackgroundResource(R.drawable.err_outline_stroke)
             et_alamat.setHintTextColor(getColor(R.color.errColor))
-        } else if (lat.isEmpty()) {
+            return
+        } else if (lat == null) {
             Toast.makeText(this, "Latitude wajib diisi", Toast.LENGTH_SHORT).show()
             et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_latitude.setHintTextColor(getColor(R.color.errColor))
-        } else if (long.isEmpty()) {
+            return
+        } else if (long == null) {
             Toast.makeText(this, "Longitude wajib diisi", Toast.LENGTH_SHORT).show()
             et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_longitude.setHintTextColor(getColor(R.color.errColor))
+            return
         } else {
 
             val result = hashMapOf(
@@ -234,6 +240,7 @@ class CreatePlaceActivity : AppCompatActivity() {
                 finish()
                 startActivity(intent)
             }
+
         }
 
     }

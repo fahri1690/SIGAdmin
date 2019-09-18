@@ -98,7 +98,7 @@
 				android:layout_marginBottom="@dimen/default_margin"
 				android:background="@drawable/outline_stroke"
 				android:hint="@string/latitude_hint"
-				android:inputType="numberDecimal|numberSigned" />
+				android:inputType="numberDecimal" />
 
 			<EditText
 				android:id="@+id/et_longitude"
@@ -107,7 +107,7 @@
 				android:layout_marginBottom="@dimen/default_margin"
 				android:background="@drawable/outline_stroke"
 				android:hint="@string/longitude_hint"
-				android:inputType="numberDecimal|numberSigned" />
+				android:inputType="numberDecimal" />
 
 			<Button
 				android:id="@+id/btn_save_new_field"

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.konform:konform:0.1.0@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.konform/konform/0.1.0/5dd18525e946402cc576d38d0ccd1ab693705c28/konform-0.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.konform/konform/0.1.0/5b896306c2952dbeeb82cffd8892ae75050de13b/konform-0.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
