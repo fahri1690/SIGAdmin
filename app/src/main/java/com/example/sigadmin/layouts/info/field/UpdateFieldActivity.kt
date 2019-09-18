@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_update_field.*
 class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
@@ -93,7 +93,6 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
     private fun getData() {
 
         val names = intent.getStringExtra("name")
-
         val hargaSiangs = intent.getStringExtra("hargaSiang")
         val hargaMalams = intent.getStringExtra("hargaMalam")
 

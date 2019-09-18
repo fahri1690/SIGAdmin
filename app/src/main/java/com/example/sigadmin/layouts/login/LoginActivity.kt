@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.home.HomeAdminActivity
-import com.example.sigadmin.layouts.register.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -46,8 +45,8 @@ class LoginActivity : AppCompatActivity() {
                 }
         }
 
-        tv_register.setOnClickListener {
-            intent = Intent (this, RegisterActivity::class.java)
+        tv_lupa_sandi.setOnClickListener {
+            intent = Intent (this, ForgetPassword::class.java)
             startActivity(intent)
         }
     }

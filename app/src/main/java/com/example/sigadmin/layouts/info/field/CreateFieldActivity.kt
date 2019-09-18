@@ -14,7 +14,7 @@ import com.example.sigadmin.layouts.home.HomeAdminActivity
 import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
 import kotlinx.android.synthetic.main.activity_create_place.*
-import kotlinx.android.synthetic.main.activity_input_field.*
+import kotlinx.android.synthetic.main.activity_create_field.*
 import java.util.*
 
 class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -27,20 +27,20 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
     }
 
     override fun onNothingSelected(parent: AdapterView<*>) {
-        // Another interface callback
+
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_input_field)
+        setContentView(R.layout.activity_create_field)
 
         val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.jenis_lapangan, android.R.layout.simple_spinner_item
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        // Apply the adapter to the spinner
+
         spn_jenis_lapangan.adapter = adapter
 
         spn_jenis_lapangan.onItemSelectedListener = this
@@ -126,7 +126,7 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
 
                 }
             }
-            .addOnFailureListener {
+            .addOnFailureListener { exception ->
 
             }
     }

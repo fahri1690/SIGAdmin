@@ -114,6 +114,5 @@ class UpdatePlaceActivity : AppCompatActivity() {
         lat.setText(lats)
         long.setText(longs)
         noTelp.setText(noTelps)
-
     }
 }

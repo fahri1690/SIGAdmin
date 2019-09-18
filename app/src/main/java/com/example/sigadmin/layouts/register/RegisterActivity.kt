@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
+import com.example.sigadmin.layouts.home.HomeAdminActivity
 import com.example.sigadmin.layouts.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -17,8 +18,6 @@ import kotlinx.android.synthetic.main.activity_register.*
 class RegisterActivity : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
-
-    internal var id: String = ""
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +36,6 @@ class RegisterActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun saveData() {
-        // Create a new user with a first, middle, and last name
         val name = et_name_register.text.toString()
         val email = et_email_register.text.toString()
         val password = et_password_register.text.toString()
@@ -45,17 +43,16 @@ class RegisterActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (!it.isSuccessful) return@addOnCompleteListener
-
-                Log.d("Main", "Sukses bikin akun baru ")
+                Log.d("Main", "Daftar Sukses")
             }
             .addOnFailureListener {
-                Log.d("Main", "Failed to create user! ${it.message}")
+                Log.d("Main", "Daftar Gagal! ${it.message}")
             }
 
         if (name.isEmpty()) {
             Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
-            et_email_register.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_email_register.setHintTextColor(getColor(R.color.errColor))
+            et_name_register.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_name_register.setHintTextColor(getColor(R.color.errColor))
         } else if (name.length < 2) {
             Toast.makeText(this, "Nama minimal 2 karakter", Toast.LENGTH_SHORT).show()
             et_name_register.setBackgroundResource(R.drawable.err_outline_stroke)
@@ -70,8 +67,8 @@ class RegisterActivity : AppCompatActivity() {
             et_email_register.setHintTextColor(getColor(R.color.errColor))
         } else if (password.isEmpty()) {
             Toast.makeText(this, "Kata Sandi wajib diisi", Toast.LENGTH_SHORT).show()
-            et_name_register.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_name_register.setHintTextColor(getColor(R.color.errColor))
+            et_password_register.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_password_register.setHintTextColor(getColor(R.color.errColor))
         } else {
             val result = HashMap<String, Any>()
             result["nama"] = name
@@ -81,8 +78,9 @@ class RegisterActivity : AppCompatActivity() {
             db.collection("Admin")
                 .add(result)
                 .addOnSuccessListener {
-                    val intent = Intent(this, LoginActivity::class.java)
+                    val intent = Intent(this, HomeAdminActivity::class.java)
                     startActivity(intent)
+                    Toast.makeText(this, "Daftar Sukses", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
 

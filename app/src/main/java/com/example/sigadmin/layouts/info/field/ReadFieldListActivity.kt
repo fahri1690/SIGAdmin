@@ -18,7 +18,7 @@ import com.example.sigadmin.services.db.GetDb
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
-import kotlinx.android.synthetic.main.activity_fragment_sec.view.*
+import kotlinx.android.synthetic.main.activity_field_list.view.*
 import kotlinx.android.synthetic.main.item_place.view.*
 
 class ReadFieldListActivity : Fragment() {
@@ -99,7 +99,7 @@ class ReadFieldListActivity : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val root = inflater.inflate(R.layout.activity_fragment_sec, container, false)
+        val root = inflater.inflate(R.layout.activity_field_list, container, false)
 
         val activity = activity as MainFragmentActivity
 

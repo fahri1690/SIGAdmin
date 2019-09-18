@@ -12,12 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sigadmin.R
 import com.example.sigadmin.carousel.BannerCarouselItem
 import com.example.sigadmin.layouts.info.main.MainFragmentActivity
-import com.example.sigadmin.models.PlaceImages
-import com.example.sigadmin.models.PlaceModel
 import com.example.sigadmin.services.db.GetDb
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
-import kotlinx.android.synthetic.main.activity_fragment_first.view.*
+import kotlinx.android.synthetic.main.activity_read_place_detail.view.*
 
 
 class ReadPlaceDetailActivity : Fragment(){
@@ -25,7 +23,7 @@ class ReadPlaceDetailActivity : Fragment(){
     private var groupAdapter = GroupAdapter<com.xwray.groupie.kotlinandroidextensions.ViewHolder>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val root = inflater.inflate(R.layout.activity_fragment_first, container, false)
+        val root = inflater.inflate(R.layout.activity_read_place_detail, container, false)
         val tvName = root.findViewById<TextView>(R.id.tv_fnama_lapangan)
         val tvFacility = root.findViewById<TextView>(R.id.tv_ffasilitas)
         val tvJamBuka = root.findViewById<TextView>(R.id.tv_fjam_buka)

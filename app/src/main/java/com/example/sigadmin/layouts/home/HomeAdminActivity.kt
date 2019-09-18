@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sigadmin.R
+import com.example.sigadmin.layouts.admin.AdminInfoActivity
 import com.example.sigadmin.layouts.info.main.MainFragmentActivity
 import com.example.sigadmin.layouts.info.place.CreatePlaceActivity
 import com.example.sigadmin.models.PlaceModel
@@ -115,6 +116,30 @@ class HomeAdminActivity : AppCompatActivity() {
         ib_add_new_place.setOnClickListener {
             val intent = Intent (this, CreatePlaceActivity::class.java)
             startActivity(intent)
+        }
+
+        tv_admin.setOnClickListener {
+            val intent = Intent(this, AdminInfoActivity::class.java)
+            startActivity(intent)
+        }
+
+        tv_logOut.setOnClickListener {
+
+            val builder = AlertDialog.Builder(this@HomeAdminActivity)
+
+            builder.setMessage("Apakah kamu yakin akan keluar aplikasi?")
+
+            builder.setPositiveButton("Ya") { _, _ ->
+            }
+
+            builder.setNegativeButton("Tidak") { _, _ ->
+
+            }
+
+            val dialog: AlertDialog = builder.create()
+
+            dialog.show()
+
         }
 
     }
