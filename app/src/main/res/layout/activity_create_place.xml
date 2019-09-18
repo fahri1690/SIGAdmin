@@ -1,127 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/layout"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:gravity="center_vertical"
-	android:orientation="vertical"
-	android:padding="@dimen/default_padding"
-	tools:context=".layouts.info.place.CreatePlaceActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/padding_5"
+                android:paddingTop="@dimen/default_padding"
+                android:paddingBottom="@dimen/default_padding"
+                android:paddingRight="@dimen/padding_5"
+                tools:context=".layouts.info.place.CreatePlaceActivity">
 
-	<ProgressBar
-		android:id="@+id/progressBar"
-		style="?android:attr/progressBarStyleHorizontal"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentStart="true"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentEnd="true"
-		android:layout_alignParentBottom="true" />
+    <!--<ProgressBar-->
+            <!--android:id="@+id/progressBar"-->
+            <!--style="?android:attr/progressBarStyleHorizontal"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignParentBottom="true"/>-->
 
-	<ScrollView
-		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-			<Button
-				android:id="@+id/select_button"
-				android:layout_width="wrap_content"
-				android:layout_gravity="center_horizontal"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/default_margin"
-				android:drawableLeft="@drawable/ic_add_a_photo_black_24dp"
-				android:drawablePadding="@dimen/padding_5"
-				android:text="Pilih Foto"/>
+            <!--Nama tempat Futsal-->
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginBottom="@dimen/padding_5"
+                          android:orientation="horizontal">
 
-			<EditText
-				android:id="@+id/et_field_name"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/default_margin"
-				android:layout_marginBottom="@dimen/default_margin"
-				android:background="@drawable/outline_stroke"
-				android:hint="@string/nama_lapangan_hint"
-				android:inputType="text" />
+                <TextView android:layout_width="@dimen/margin_100"
+                          android:layout_height="wrap_content"
+                          android:paddingLeft="@dimen/margin_2"
+                          android:paddingTop="@dimen/default_padding"
+                          android:paddingBottom="@dimen/default_padding"
+                          android:text="@string/tv_field_name"
+                          android:textSize="18dp"/>
 
-			<EditText
-				android:id="@+id/et_facility"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/default_margin"
-				android:background="@drawable/outline_stroke"
-				android:hint="@string/fasilitas_hint"
-				android:inputType="text"
-				android:lineSpacingExtra="@dimen/default_margin" />
+                <EditText
+                        android:id="@+id/et_field_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/outline_stroke"
+                        android:inputType="text"/>
 
-			<EditText
-				android:id="@+id/et_jam_buka"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/default_margin"
-				android:background="@drawable/outline_stroke"
-				android:hint="@string/jam_buka_hint"
-				android:inputType="time" />
+            </LinearLayout>
 
-			<EditText
-				android:id="@+id/et_jam_tutup"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/default_margin"
-				android:background="@drawable/outline_stroke"
-				android:hint="@string/jam_tutup_hint"
-				android:inputType="time" />
+            <!--Jam buka-->
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginBottom="@dimen/padding_5"
+                          android:orientation="horizontal">
 
-			<EditText
-				android:id="@+id/et_no_telp"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/default_margin"
-				android:background="@drawable/outline_stroke"
-				android:hint="@string/notelp_hint"
-				android:inputType="number" />
+                <TextView android:layout_width="@dimen/margin_100"
+                          android:layout_height="wrap_content"
+                          android:paddingLeft="@dimen/margin_2"
+                          android:paddingTop="@dimen/default_padding"
+                          android:paddingBottom="@dimen/default_padding"
+                          android:text="@string/tv_jamBuka"
+                          android:textSize="18dp"/>
 
-			<EditText
-				android:id="@+id/et_alamat"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/default_margin"
-				android:background="@drawable/outline_stroke"
-				android:hint="@string/alamat_hint"
-				android:inputType="text" />
+                <EditText
+                        android:id="@+id/et_jam_buka"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/outline_stroke"
+                        android:inputType="time"/>
 
-			<EditText
-				android:id="@+id/et_latitude"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/default_margin"
-				android:background="@drawable/outline_stroke"
-				android:hint="@string/latitude_hint"
-				android:inputType="numberDecimal" />
+            </LinearLayout>
 
-			<EditText
-				android:id="@+id/et_longitude"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/default_margin"
-				android:background="@drawable/outline_stroke"
-				android:hint="@string/longitude_hint"
-				android:inputType="numberDecimal" />
+            <!--Jam tutup-->
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginBottom="@dimen/padding_5"
+                          android:orientation="horizontal">
 
-			<Button
-				android:id="@+id/btn_save_new_field"
-				android:layout_width="@dimen/button_width"
-				android:layout_height="@dimen/button_height"
-				android:layout_gravity="end"
-				android:background="@drawable/button_layout"
-				android:text="@string/btn_simpan_lap_baru"
-				android:textAllCaps="false"
-				android:textColor="@color/buttonTextColor" />
-		</LinearLayout>
+                <TextView android:layout_width="@dimen/margin_100"
+                          android:layout_height="wrap_content"
+                          android:paddingLeft="@dimen/margin_2"
+                          android:paddingTop="@dimen/default_padding"
+                          android:paddingBottom="@dimen/default_padding"
+                          android:text="@string/tv_jamTutup"
+                          android:textSize="18dp"/>
 
-	</ScrollView>
+                <EditText
+                        android:id="@+id/et_jam_tutup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/outline_stroke"
+                        android:inputType="time"/>
+
+            </LinearLayout>
+
+            <!--No telepon-->
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginBottom="@dimen/padding_5"
+                          android:orientation="horizontal">
+
+                <TextView android:layout_width="@dimen/margin_100"
+                          android:layout_height="wrap_content"
+                          android:paddingLeft="@dimen/margin_2"
+                          android:paddingTop="@dimen/default_padding"
+                          android:paddingBottom="@dimen/default_padding"
+                          android:text="@string/tv_noTelp"
+                          android:textSize="18dp"/>
+
+                <EditText
+                        android:id="@+id/et_no_telp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/outline_stroke"
+                        android:inputType="phone"/>
+
+            </LinearLayout>
+
+            <!--Alamat-->
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginBottom="@dimen/padding_5"
+                          android:orientation="horizontal">
+
+                <TextView android:layout_width="@dimen/margin_100"
+                          android:layout_height="wrap_content"
+                          android:paddingLeft="@dimen/margin_2"
+                          android:paddingTop="@dimen/default_padding"
+                          android:paddingBottom="@dimen/default_padding"
+                          android:text="@string/tv_alamat"
+                          android:textSize="18dp"/>
+
+                <EditText
+                        android:id="@+id/et_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/outline_stroke"
+                        android:inputType="text"/>
+
+            </LinearLayout>
+
+            <!--Latitude-->
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginBottom="@dimen/padding_5"
+                          android:orientation="horizontal">
+
+                <TextView android:layout_width="@dimen/margin_100"
+                          android:layout_height="wrap_content"
+                          android:paddingLeft="@dimen/margin_2"
+                          android:paddingTop="@dimen/default_padding"
+                          android:paddingBottom="@dimen/default_padding"
+                          android:text="@string/tv_latitude"
+                          android:textSize="18dp"/>
+
+                <EditText
+                        android:id="@+id/et_latitude"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/outline_stroke"
+                        android:inputType="numberDecimal|numberSigned"/>
+
+            </LinearLayout>
+
+            <!--Longitude-->
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginBottom="@dimen/padding_5"
+                          android:orientation="horizontal">
+
+                <TextView android:layout_width="@dimen/margin_100"
+                          android:layout_height="wrap_content"
+                          android:paddingLeft="@dimen/margin_2"
+                          android:paddingTop="@dimen/default_padding"
+                          android:paddingBottom="@dimen/default_padding"
+                          android:text="@string/tv_longitude"
+                          android:textSize="18dp"/>
+
+                <EditText
+                        android:id="@+id/et_longitude"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/outline_stroke"
+                        android:inputType="numberDecimal|numberSigned"/>
+
+            </LinearLayout>
+
+            <!--Fasilitas-->
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginBottom="@dimen/padding_5"
+                          android:orientation="horizontal">
+
+                <TextView android:layout_width="@dimen/margin_100"
+                          android:layout_height="wrap_content"
+                          android:paddingLeft="@dimen/margin_2"
+                          android:paddingTop="@dimen/default_padding"
+                          android:paddingBottom="@dimen/default_padding"
+                          android:text="@string/tv_fasilitas"
+                          android:textSize="18dp"/>
+
+                <EditText
+                        android:id="@+id/et_facility"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/outline_stroke"
+                        android:lines="3"
+                        android:inputType="textMultiLine"/>
+
+            </LinearLayout>
+
+            <Button
+                    android:id="@+id/pick_place_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:drawableTop="@drawable/ic_add_a_photo_black_24dp"
+                    android:drawablePadding="@dimen/padding_5"
+                    android:text="@string/pilih_foto"/>
+
+            <Button
+                    android:id="@+id/btn_save_new_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_ouval"
+                    android:text="@string/btn_simpan_lap_baru"
+                    android:textColor="@color/buttonTextColor"/>
+        </LinearLayout>
+
+    </ScrollView>
 </RelativeLayout>
