@@ -51,8 +51,8 @@ class ReadFieldListActivity : Fragment() {
                 intent.putExtra("fieldId", snapshot.id)
                 intent.putExtra("name", fieldModel.name)
                 intent.putExtra("jenis", fieldModel.jenis)
-                intent.putExtra("hargaSiang", fieldModel.hargaSiang)
-                intent.putExtra("hargaMalam", fieldModel.hargaMalam)
+                intent.putExtra("hargaSiang", fieldModel.hargaSiang.toString())
+                intent.putExtra("hargaMalam", fieldModel.hargaMalam.toString())
                 intent.putExtra("placeId", placeId)
                 startActivity(intent)
             }

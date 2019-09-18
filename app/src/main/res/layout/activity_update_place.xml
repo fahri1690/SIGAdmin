@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,200 +8,235 @@
         android:layout_height="match_parent"
         tools:context=".layouts.info.place.UpdatePlaceActivity">
 
+    <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <LinearLayout
-                android:paddingTop="@dimen/default_padding"
-                android:paddingBottom="@dimen/default_padding"
-                android:paddingLeft="@dimen/padding_5"
-                android:paddingRight="@dimen/padding_5"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/padding_5"
+                android:paddingTop="@dimen/default_padding"
+                android:paddingRight="@dimen/padding_5"
+                android:paddingBottom="@dimen/default_padding"
                 tools:ignore="MissingConstraints">
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_5"
+                    android:orientation="horizontal">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_field_name"
-                          android:textSize="18dp"/>
+                <TextView
+                        android:layout_width="@dimen/margin_100"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_2"
+                        android:paddingTop="@dimen/default_padding"
+                        android:paddingBottom="@dimen/default_padding"
+                        android:text="@string/tv_field_name"
+                        android:textSize="18dp" />
 
                 <EditText
                         android:id="@+id/et_update_field_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/outline_stroke"
-                        android:inputType="text"/>
+                        android:inputType="text" />
 
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_5"
+                    android:orientation="horizontal">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_jamBuka"
-                          android:textSize="18dp"/>
+                <TextView
+                        android:layout_width="@dimen/margin_100"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_2"
+                        android:paddingTop="@dimen/default_padding"
+                        android:paddingBottom="@dimen/default_padding"
+                        android:text="@string/tv_jamBuka"
+                        android:textSize="18dp" />
 
                 <EditText
                         android:id="@+id/et_update_jam_buka"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/outline_stroke"
-                        android:inputType="time"/>
+                        android:inputType="time" />
 
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_5"
+                    android:orientation="horizontal">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_jamTutup"
-                          android:textSize="18dp"/>
+                <TextView
+                        android:layout_width="@dimen/margin_100"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_2"
+                        android:paddingTop="@dimen/default_padding"
+                        android:paddingBottom="@dimen/default_padding"
+                        android:text="@string/tv_jamTutup"
+                        android:textSize="18dp" />
 
                 <EditText
                         android:id="@+id/et_update_jam_tutup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/outline_stroke"
-                        android:inputType="time"/>
+                        android:inputType="time" />
 
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_5"
+                    android:orientation="horizontal">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_noTelp"
-                          android:textSize="18dp"/>
+                <TextView
+                        android:layout_width="@dimen/margin_100"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_2"
+                        android:paddingTop="@dimen/default_padding"
+                        android:paddingBottom="@dimen/default_padding"
+                        android:text="@string/tv_noTelp"
+                        android:textSize="18dp" />
 
                 <EditText
                         android:id="@+id/et_update_no_telp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/outline_stroke"
-                        android:inputType="text"/>
+                        android:inputType="text" />
 
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_5"
+                    android:orientation="horizontal">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_alamat"
-                          android:textSize="18dp"/>
+                <TextView
+                        android:layout_width="@dimen/margin_100"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_2"
+                        android:paddingTop="@dimen/default_padding"
+                        android:paddingBottom="@dimen/default_padding"
+                        android:text="@string/tv_alamat"
+                        android:textSize="18dp" />
 
                 <EditText
                         android:id="@+id/et_update_alamat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/outline_stroke"
-                        android:inputType="text"/>
+                        android:inputType="text" />
 
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_5"
+                    android:orientation="horizontal">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_latitude"
-                          android:textSize="18dp"/>
+                <TextView
+                        android:layout_width="@dimen/margin_100"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_2"
+                        android:paddingTop="@dimen/default_padding"
+                        android:paddingBottom="@dimen/default_padding"
+                        android:text="@string/tv_latitude"
+                        android:textSize="18dp" />
 
                 <EditText
                         android:id="@+id/et_update_latitude"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/outline_stroke"
-                        android:inputType="numberDecimal|numberSigned"/>
+                        android:inputType="numberDecimal|numberSigned" />
 
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_5"
+                    android:orientation="horizontal">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_longitude"
-                          android:textSize="18dp"/>
+                <TextView
+                        android:layout_width="@dimen/margin_100"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_2"
+                        android:paddingTop="@dimen/default_padding"
+                        android:paddingBottom="@dimen/default_padding"
+                        android:text="@string/tv_longitude"
+                        android:textSize="18dp" />
 
                 <EditText
                         android:id="@+id/et_update_longitude"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/outline_stroke"
-                        android:inputType="numberDecimal|numberSigned"/>
+                        android:inputType="numberDecimal|numberSigned" />
 
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_5"
+                    android:orientation="horizontal">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_fasilitas"
-                          android:textSize="18dp"/>
+                <TextView
+                        android:layout_width="@dimen/margin_100"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_2"
+                        android:paddingTop="@dimen/default_padding"
+                        android:paddingBottom="@dimen/default_padding"
+                        android:text="@string/tv_fasilitas"
+                        android:textSize="18dp" />
 
                 <EditText
                         android:id="@+id/et_update_facility"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/outline_stroke"
-                        android:lines="3"
-                        android:inputType="textMultiLine"/>
+                        android:inputType="textMultiLine"
+                        android:lines="3" />
 
             </LinearLayout>
 
-            <Button android:id="@+id/btn_update_field"
-                    android:background="@drawable/button_ouval"
-                    android:textColor="@color/buttonTextColor"
+            <Button
+                    android:id="@+id/btn_update_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/default_margin"
-                    android:text="@string/btn_simpan_lap_baru"/>
+                    android:background="@drawable/button_ouval"
+                    android:text="@string/btn_simpan_lap_baru"
+                    android:textColor="@color/buttonTextColor" />
         </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+
+    <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
+            app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+            app:layout_constraintStart_toStartOf="@+id/scrollView3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -70,6 +70,7 @@ class ReadPlaceDetailActivity : Fragment(){
             intent.putExtra("lat", lat)
             intent.putExtra("long", long)
             intent.putExtra("noTelp", noTelp)
+            intent.putStringArrayListExtra("images", imageList)
             startActivity(intent)
             Log.d("Meesss", documentId)
         }

@@ -61,6 +61,9 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         val hargaSiang = et_harga_siang.text.toString()
         val hargaMalam = et_harga_malam.text.toString()
 
+        val dayPrice = hargaSiang.toInt()
+        val nighPrice = hargaMalam.toInt()
+
         if (namaSubLapangan.isEmpty()) {
             Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
             et_field_name.setBackgroundResource(R.drawable.err_outline_stroke)
@@ -78,8 +81,8 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
             val result = HashMap<String, Any>()
             result["name"] = namaSubLapangan
             result["jenis"] = jenis
-            result["hargaSiang"] = hargaSiang
-            result["hargaMalam"] = hargaMalam
+            result["hargaSiang"] = dayPrice
+            result["hargaMalam"] = nighPrice
 
             docRef.collection("listLapangan")
                 .add(result)

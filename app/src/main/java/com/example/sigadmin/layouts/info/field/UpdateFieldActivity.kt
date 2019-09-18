@@ -56,6 +56,9 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         val hargaSiang = et_updt_harga_siang.text.toString()
         val hargaMalam = et_updt_harga_malam.text.toString()
 
+        val dayPrice = hargaSiang.toInt()
+        val nightPrice = hargaMalam.toInt()
+
         if (name.isEmpty()) {
             Toast.makeText(this, "Kode Lapangn wajib diisi", Toast.LENGTH_SHORT).show()
         } else if (hargaSiang.isEmpty()) {
@@ -67,8 +70,8 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         val result = HashMap<String, Any>()
         result["name"] = name
         result["jenis"] = jenis
-        result["hargaSiang"] = hargaSiang
-        result["hargaMalam"] = hargaMalam
+        result["hargaSiang"] = dayPrice
+        result["hargaMalam"] = nightPrice
 
         query.update(result)
             .addOnSuccessListener {
@@ -77,8 +80,8 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
                 intent.putExtra("placeId", placeId)
                 intent.putExtra("name", name)
                 intent.putExtra("jenis", jenis)
-                intent.putExtra("hargaSiang", hargaSiang)
-                intent.putExtra("hargaMalam", hargaMalam)
+                intent.putExtra("hargaSiang", dayPrice)
+                intent.putExtra("hargaMalam", nightPrice)
                 finish()
                 startActivity(intent)
             }

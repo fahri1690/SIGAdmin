@@ -3,6 +3,8 @@ package com.example.sigadmin.layouts.info.place
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.layouts.info.main.MainFragmentActivity
@@ -18,6 +20,8 @@ class UpdatePlaceActivity : AppCompatActivity() {
 
         getData()
 
+        progressBar3.visibility = View.GONE
+
         btn_update_field.setOnClickListener {
             updateData()
         }
@@ -25,7 +29,10 @@ class UpdatePlaceActivity : AppCompatActivity() {
 
     private fun updateData() {
 
+        progressBar3.visibility = View.VISIBLE
+
         val placeId: String = intent.getStringExtra("placeId")
+        val images = intent.getStringArrayListExtra("images")
 
         val db = FirebaseFirestore.getInstance()
         val query = db.collection("Lapangan").document(placeId)
@@ -38,23 +45,20 @@ class UpdatePlaceActivity : AppCompatActivity() {
         val lat = et_update_latitude.text.toString()
         val long = et_update_longitude.text.toString()
         val noTelp = et_update_no_telp.text.toString()
+        val latToDouble = lat.toDouble()
+        val longToDouble = long.toDouble()
 
-        if (name.isEmpty()) {
-            Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
-        } else if (facility.isEmpty()) {
-            Toast.makeText(this, "Fasilitas wajib diisi", Toast.LENGTH_SHORT).show()
-        } else if (jamBuka.isEmpty()) {
-            Toast.makeText(this, "Jam Buka wajib diisi", Toast.LENGTH_SHORT).show()
-        } else if (jamTutup.isEmpty()) {
-            Toast.makeText(this, "Jam Tutup wajib diisi", Toast.LENGTH_SHORT).show()
-        } else if (noTelp.isEmpty()) {
-            Toast.makeText(this, "Nomor Telepon wajib diisi", Toast.LENGTH_SHORT).show()
-        } else if (alamat.isEmpty()) {
-            Toast.makeText(this, "Alamat wajib diisi", Toast.LENGTH_SHORT).show()
-        } else if (lat.isEmpty()) {
-            Toast.makeText(this, "Latitude wajib diisi", Toast.LENGTH_SHORT).show()
-        } else if (long.isEmpty()) {
-            Toast.makeText(this, "Longitude wajib diisi", Toast.LENGTH_SHORT).show()
+        when {
+            name.isEmpty() -> Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
+            facility.isEmpty() -> Toast.makeText(this, "Fasilitas wajib diisi", Toast.LENGTH_SHORT).show()
+            jamBuka.isEmpty() -> Toast.makeText(this, "Jam Buka wajib diisi", Toast.LENGTH_SHORT).show()
+            jamTutup.isEmpty() -> Toast.makeText(this, "Jam Tutup wajib diisi", Toast.LENGTH_SHORT).show()
+            noTelp.isEmpty() -> Toast.makeText(this, "Nomor Telepon wajib diisi", Toast.LENGTH_SHORT).show()
+            alamat.isEmpty() -> Toast.makeText(this, "Alamat wajib diisi", Toast.LENGTH_SHORT).show()
+            lat.isEmpty() -> Toast.makeText(this, "Latitude wajib diisi", Toast.LENGTH_SHORT).show()
+            long.isEmpty() -> Toast.makeText(this, "Longitude wajib diisi", Toast.LENGTH_SHORT).show()
+            latToDouble < -90 || latToDouble > 90 -> Toast.makeText(this, "Latitude salah, maksimal 90 dan minimal -90", Toast.LENGTH_SHORT).show()
+            longToDouble < -180 || longToDouble > 180 -> Toast.makeText(this, "Longitude salah, maksimal 180 dan minimal -180", Toast.LENGTH_SHORT).show()
         }
 
         val result = HashMap<String, Any>()
@@ -64,8 +68,9 @@ class UpdatePlaceActivity : AppCompatActivity() {
         result["jamTutup"] = jamTutup
         result["noTelp"] = noTelp
         result["alamat"] = alamat
-        result["lat"] = lat
-        result["long"] = long
+        result["lat"] = latToDouble
+        result["long"] = longToDouble
+        result["images"] = images
 
         query.update(result)
             .addOnSuccessListener {
@@ -76,9 +81,11 @@ class UpdatePlaceActivity : AppCompatActivity() {
                 intent.putExtra("alamat", alamat)
                 intent.putExtra("jamBuka", jamBuka)
                 intent.putExtra("jamTutup", jamTutup)
-                intent.putExtra("lat", lat)
-                intent.putExtra("long", long)
+                intent.putExtra("lat", latToDouble)
+                intent.putExtra("long", longToDouble)
                 intent.putExtra("noTelp", noTelp)
+                intent.putStringArrayListExtra("images", images)
+                progressBar3.visibility = View.GONE
                 finish()
                 startActivity(intent)
             }

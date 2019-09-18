@@ -75,6 +75,7 @@ class ReadFieldDetailActivity : AppCompatActivity() {
                         val alamat = document.data?.get("alamat").toString()
                         val lat = document.data?.get("lat").toString()
                         val long = document.data?.get("long").toString()
+                        val images:ArrayList<String> = arrayListOf(document.data?.get("images").toString())
 
                         val intent = Intent(this, MainFragmentActivity::class.java)
                         intent.putExtra("placeId", placeId)
@@ -86,6 +87,7 @@ class ReadFieldDetailActivity : AppCompatActivity() {
                         intent.putExtra("alamat", alamat)
                         intent.putExtra("lat", lat)
                         intent.putExtra("long", long)
+                        intent.putStringArrayListExtra("images", images)
                         startActivity(intent)
                     } else {
 
