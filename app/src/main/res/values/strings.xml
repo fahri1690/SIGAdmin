@@ -3,33 +3,21 @@
     <string name="app_name">SIG Admin</string>
     <string name="btn_register">Daftar</string>
     <string name="tv_masuk">Masuk</string>
-    <string name="otp_hint">Masukkan Kode OTP</string>
-    <string name="nama_lapangan_hint">Masukkan nama tempat futsal</string>
-    <string name="fasilitas_hint">Masukkan fasilitas</string>
-    <string name="jam_buka_hint">Jam Buka</string>
-    <string name="jam_tutup_hint">Jam Tutup</string>
-    <string name="notelp_hint">No. Telepon</string>
-    <string name="alamat_hint">Alamat</string>
-    <string name="latitude_hint">Latitude</string>
-    <string name="longitude_hint">Longitude</string>
     <string name="btn_simpan_lap_baru">Simpan</string>
     <string name="nama_sub_lapangan_hint">Kode Lapangan</string>
-    <string name="harga_siang_hint">Harga Siang</string>
-    <string name="harga_malam_hint">Harga Malam</string>
     <string name="btn_simpan_sub_lap_baru">Simpan</string>
     <string name="et_email">Email</string>
     <string name="et_nama_admin">Nama Pengguna</string>
-    <string name="et_no_telepon">No Telepon</string>
     <string name="login_info">Silahkan Login menggunakan Email dan Kata Sandi yang telah terdaftar.</string>
 
+
+<!--    Array jenis lapangan-->
     <string-array name="jenis_lapangan">
         <item>Vinyl</item>
         <item>Sintetis</item>
     </string-array>
 
     <string name="sudah_punya_akun">Sudah punya akun?</string>
-    <string name="login_icon_desc">Phone Number Icon</string>
-    <string name="btn_kirim_otp">Kirim OTP</string>
     <string name="btn_perbarui">Perbarui</string>
     <string name="tv_field_name">Nama</string>
     <string name="tv_fasilitas">Fasilitas</string>
@@ -55,9 +43,6 @@
     <string name="nama_admin">Nama</string>
     <string name="tv_email">Email</string>
     <string name="tv_notelp_admin">No Telepon</string>
-    <string name="nama_admin_hint">Nama</string>
-    <string name="email_admin_hint">Email</string>
-    <string name="notelp_admin_hint">No Telepon</string>
     <string name="info">Info Lapangan</string>
     <string name="belum_punya_akun">Belum punya akun?</string>
     <string name="tv_register">Daftar</string>
@@ -71,4 +56,5 @@
     <string name="hayy">hi,</string>
     <string name="pilih_foto">Pilih Foto</string>
     <string name="tv_nama_admin">Nama</string>
+    <string name="images">images</string>
 </resources>

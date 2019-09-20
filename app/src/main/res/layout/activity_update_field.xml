@@ -1,125 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".layouts.info.field.UpdateFieldActivity">
+        style="@style/allmatchparent"
+        android:padding="@dimen/default_padding"
+        tools:context=".layouts.field.UpdateFieldActivity">
 
     <LinearLayout
+            android:id="@+id/linlayUpdateField"
+            style="@style/matchwrap"
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:paddingTop="@dimen/default_padding"
-            android:paddingBottom="@dimen/default_padding"
-            android:paddingLeft="@dimen/padding_5"
-            android:paddingRight="@dimen/padding_5"
-            android:layout_height="wrap_content">
+            tools:ignore="MissingConstraints">
 
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginBottom="@dimen/padding_5"
-                      android:orientation="horizontal">
+        <LinearLayout
+                style="@style/LinLayCreateField"
+                android:layout_marginBottom="7dp">
 
-            <TextView android:layout_width="@dimen/margin_130"
-                      android:layout_height="wrap_content"
-                      android:paddingLeft="@dimen/margin_2"
-                      android:paddingTop="@dimen/default_padding"
-                      android:paddingBottom="@dimen/default_padding"
-                      android:text="@string/tv_field_kode"
-                      android:layout_marginRight="@dimen/padding_5"
-                      android:textSize="18dp"/>
+            <TextView
+                    style="@style/tvCreateField"
+                    android:text="@string/tv_field_kode" />
 
             <EditText
                     android:id="@+id/et_updt_sub_field_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/outline_stroke"
-                    android:inputType="text"/>
+                    style="@style/etCreateField"
+                    android:inputType="text" />
 
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginBottom="@dimen/padding_5"
-                      android:orientation="horizontal">
+        <LinearLayout
+                style="@style/LinLayCreateField"
+                android:layout_marginBottom="@dimen/margin_2">
 
-            <TextView android:layout_width="@dimen/margin_130"
-                      android:layout_height="wrap_content"
-                      android:paddingLeft="@dimen/margin_2"
-                      android:paddingTop="@dimen/default_padding"
-                      android:paddingBottom="@dimen/default_padding"
-                      android:text="@string/tv_jenis"
-                      android:layout_marginRight="@dimen/padding_5"
-                      android:textSize="18dp"/>
+            <TextView
+                    style="@style/tvCreateField"
+                    android:text="@string/tv_jenis" />
 
-            <FrameLayout android:layout_width="match_parent"
-                         android:background="@drawable/spinner_bg"
-                         android:layout_marginBottom="@dimen/default_margin"
-                         android:layout_height="wrap_content">
-                <Spinner android:id="@+id/spn_updt_jenis_lapangan"
-                         android:layout_width="match_parent"
-                         android:layout_height="@dimen/spn_height"
-                         android:entries="@array/jenis_lapangan"
-                         android:spinnerMode="dropdown"/>
+            <FrameLayout
+                    style="@style/matchwrap"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:background="@drawable/spinner_bg">
+
+                <Spinner
+                        android:id="@+id/spn_updt_jenis_lapangan"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spn_height"
+                        android:entries="@array/jenis_lapangan"
+                        android:spinnerMode="dropdown" />
             </FrameLayout>
 
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginBottom="@dimen/padding_5"
-                      android:orientation="horizontal">
+        <LinearLayout
+                style="@style/LinLayCreateField"
+                android:layout_marginBottom="@dimen/padding_5">
 
-            <TextView android:layout_width="@dimen/margin_130"
-                      android:layout_height="wrap_content"
-                      android:paddingLeft="@dimen/margin_2"
-                      android:paddingTop="@dimen/default_padding"
-                      android:paddingBottom="@dimen/default_padding"
-                      android:text="@string/tv_hargaSiag"
-                      android:layout_marginRight="@dimen/padding_5"
-                      android:textSize="18dp"/>
+            <TextView
+                    style="@style/tvCreateField"
+                    android:text="@string/tv_hargaSiag" />
 
             <EditText
                     android:id="@+id/et_updt_harga_siang"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/outline_stroke"
-                    android:inputType="text"/>
+                    style="@style/etCreateField"
+                    android:inputType="text" />
 
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginBottom="@dimen/default_margin"
-                      android:orientation="horizontal">
+        <LinearLayout
+                style="@style/LinLayCreateField"
+                android:layout_marginBottom="@dimen/default_margin">
 
-            <TextView android:layout_width="@dimen/margin_130"
-                      android:layout_height="wrap_content"
-                      android:paddingLeft="@dimen/margin_2"
-                      android:paddingTop="@dimen/default_padding"
-                      android:paddingBottom="@dimen/default_padding"
-                      android:text="@string/tv_hargaMalam"
-                      android:layout_marginRight="@dimen/padding_5"
-                      android:textSize="18dp"/>
+            <TextView
+                    style="@style/tvCreateField"
+                    android:text="@string/tv_hargaMalam" />
 
             <EditText
                     android:id="@+id/et_updt_harga_malam"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/outline_stroke"
-                    android:inputType="text"/>
+                    style="@style/etCreateField"
+                    android:inputType="text" />
 
         </LinearLayout>
 
-        <Button android:id="@+id/btn_updt_sub_field"
-                android:background="@drawable/button_ouval"
-                android:textColor="@color/buttonTextColor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_simpan_sub_lap_baru"/>
+        <Button
+                android:id="@+id/btn_updt_sub_field"
+                style="@style/button"
+                android:text="@string/btn_simpan_sub_lap_baru" />
 
     </LinearLayout>
 
-</ScrollView>
+    <ProgressBar
+            android:id="@+id/pb_update_field"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="@+id/linlayUpdateField"
+            app:layout_constraintEnd_toEndOf="@+id/linlayUpdateField"
+            app:layout_constraintStart_toStartOf="@+id/linlayUpdateField"
+            app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

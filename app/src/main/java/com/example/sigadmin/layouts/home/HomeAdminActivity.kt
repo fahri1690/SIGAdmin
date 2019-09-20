@@ -21,7 +21,7 @@ import com.example.sigadmin.services.db.OrderBy
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import kotlinx.android.synthetic.main.activity_home_admin.*
-import kotlinx.android.synthetic.main.item_place.view.*
+import kotlinx.android.synthetic.main.recycler_item.view.*
 
 class HomeAdminActivity : AppCompatActivity() {
 
@@ -91,7 +91,7 @@ class HomeAdminActivity : AppCompatActivity() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FieldViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_place, parent, false)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
             return FieldViewHolder(view)
         }
     }

@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.sigadmin.R
-import com.example.sigadmin.layouts.info.field.ReadFieldListActivity
-import com.example.sigadmin.layouts.info.place.ReadPlaceDetailActivity
+import com.example.sigadmin.layouts.field.FieldListActivity
+import com.example.sigadmin.layouts.info.place.PlaceDetailActivity
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
@@ -18,9 +18,9 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) : 
     override fun getItem(position: Int): Fragment {
         when(position) {
             0 -> {
-                return ReadPlaceDetailActivity()
+                return PlaceDetailActivity()
             }
-            else -> return ReadFieldListActivity()
+            else -> return FieldListActivity()
         }
     }
 

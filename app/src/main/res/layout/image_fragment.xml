@@ -7,10 +7,10 @@
 
     <ImageView
             android:id="@+id/imgBanner"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/allmatchparent"
             android:adjustViewBounds="true"
             android:focusableInTouchMode="true"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/images" />
 
 </RelativeLayout>

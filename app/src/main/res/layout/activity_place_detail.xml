@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/constraintLayout"
+        style="@style/allmatchparent"
+        tools:context=".layouts.info.place.PlaceDetailActivity">
+
+    <ScrollView android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                style="@style/matchwrap"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/value30dp"
+                tools:ignore="MissingConstraints">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvImagesMain"
+                    style="@style/matchwrap"/>
+
+            <LinearLayout
+                    style="@style/matchwrap"
+                    android:layout_marginTop="@dimen/margin_2"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/padding_5"
+                    android:paddingRight="@dimen/padding_5">
+
+                <!--Nama Tempat Futsal-->
+
+                <LinearLayout style="@style/matchwrap">
+
+                    <TextView
+                            style="@style/tvPlaceDetail1"
+                            android:text="@string/tv_field_name" />
+
+                    <TextView style="@style/tvTitik2" />
+
+                    <TextView
+                            android:id="@+id/tv_fnama_lapangan"
+                            style="@style/tvPlaceDetail2" />
+                </LinearLayout>
+
+                <!--Jam Buka-->
+
+                <LinearLayout style="@style/matchwrap">
+
+                    <TextView
+                            style="@style/tvPlaceDetail1"
+                            android:text="@string/tv_jamBuka" />
+
+                    <TextView style="@style/tvTitik2" />
+
+                    <TextView
+                            android:id="@+id/tv_fjam_buka"
+                            style="@style/tvPlaceDetail2" />
+
+                </LinearLayout>
+
+                <!--Jam Tutup-->
+
+                <LinearLayout style="@style/matchwrap">
+
+                    <TextView
+                            style="@style/tvPlaceDetail1"
+                            android:text="@string/tv_jamTutup" />
+
+                    <TextView style="@style/tvTitik2" />
+
+                    <TextView
+                            android:id="@+id/tv_fjam_tutup"
+                            style="@style/tvPlaceDetail2" />
+
+                </LinearLayout>
+
+                <!--No Telepon-->
+
+                <LinearLayout style="@style/matchwrap">
+
+                    <TextView
+                            style="@style/tvPlaceDetail1"
+                            android:text="@string/tv_noTelp" />
+
+                    <TextView style="@style/tvTitik2"
+                            android:layout_gravity="center_vertical"/>
+
+                    <TextView
+                            android:id="@+id/tv_fno_telepon"
+                            style="@style/tvPlaceDetail2"
+                            android:layout_gravity="center_vertical"/>
+
+                </LinearLayout>
+
+                <!--Fasilitas-->
+
+                <LinearLayout style="@style/matchwrap">
+
+                    <TextView
+                            style="@style/tvPlaceDetail1"
+                            android:text="@string/tv_fasilitas" />
+
+                    <TextView style="@style/tvTitik2" />
+
+                    <TextView
+                            android:id="@+id/tv_ffasilitas"
+                            style="@style/tvPlaceDetail2" />
+                </LinearLayout>
+
+                <!--Alamat-->
+
+                <LinearLayout style="@style/matchwrap"
+                        android:layout_marginBottom="@dimen/margin_2">
+
+                    <TextView
+                            style="@style/tvPlaceDetail1"
+                            android:text="@string/tv_alamat" />
+
+                    <TextView style="@style/tvTitik2" />
+
+                    <TextView
+                            android:id="@+id/tv_falamat"
+                            style="@style/tvPlaceDetail2" />
+
+                </LinearLayout>
+
+                <!--Latitude-->
+
+                <LinearLayout style="@style/matchwrap">
+
+                    <TextView
+                            style="@style/tvPlaceDetail1"
+                            android:text="@string/tv_latitude" />
+
+                    <TextView style="@style/tvTitik2" />
+
+                    <TextView
+                            android:id="@+id/tv_flatitude"
+                            style="@style/tvPlaceDetail2" />
+
+                </LinearLayout>
+
+                <!--Longitude-->
+
+                <LinearLayout style="@style/matchwrap">
+
+                    <TextView
+                            style="@style/tvPlaceDetail1"
+                            android:text="@string/tv_longitude" />
+
+                    <TextView style="@style/tvTitik2" />
+
+                    <TextView
+                            android:id="@+id/tv_flongitude"
+                            style="@style/tvPlaceDetail2" />
+
+                </LinearLayout>
+
+                <Button
+                        android:id="@+id/btn_perbarui"
+                        style="@style/button"
+                        android:paddingTop="@dimen/padding_5"
+                        android:text="@string/btn_perbarui" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,218 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/padding_5"
-                android:paddingTop="@dimen/default_padding"
-                android:paddingBottom="@dimen/default_padding"
-                android:paddingRight="@dimen/padding_5"
-                tools:context=".layouts.info.place.CreatePlaceActivity">
-
-    <!--<ProgressBar-->
-            <!--android:id="@+id/progressBar"-->
-            <!--style="?android:attr/progressBarStyleHorizontal"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--android:layout_alignParentTop="true"-->
-            <!--android:layout_alignParentEnd="true"-->
-            <!--android:layout_alignParentBottom="true"/>-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/allmatchparent"
+        android:paddingLeft="@dimen/padding_5"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingRight="@dimen/padding_5"
+        android:paddingBottom="@dimen/default_padding"
+        tools:context=".layouts.info.place.CreatePlaceActivity">
 
     <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="10dp">
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/matchwrap"
                 android:orientation="vertical">
 
             <!--Nama tempat Futsal-->
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_field_name"
-                          android:textSize="18dp"/>
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/tv_field_name" />
 
                 <EditText
                         android:id="@+id/et_field_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/outline_stroke"
-                        android:inputType="text"/>
+                        style="@style/etCreatePlace"
+                        android:inputType="text" />
 
             </LinearLayout>
 
             <!--Jam buka-->
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_jamBuka"
-                          android:textSize="18dp"/>
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/tv_jamBuka" />
 
                 <EditText
                         android:id="@+id/et_jam_buka"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/outline_stroke"
-                        android:inputType="time"/>
+                        style="@style/etCreatePlace"
+                        android:inputType="time" />
 
             </LinearLayout>
 
             <!--Jam tutup-->
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_jamTutup"
-                          android:textSize="18dp"/>
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/tv_jamTutup" />
 
                 <EditText
                         android:id="@+id/et_jam_tutup"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/outline_stroke"
-                        android:inputType="time"/>
+                        style="@style/etCreatePlace"
+                        android:inputType="time" />
 
             </LinearLayout>
 
             <!--No telepon-->
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_noTelp"
-                          android:textSize="18dp"/>
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/tv_noTelp" />
 
                 <EditText
                         android:id="@+id/et_no_telp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/outline_stroke"
-                        android:inputType="phone"/>
+                        style="@style/etCreatePlace"
+                        android:inputType="phone" />
 
             </LinearLayout>
 
             <!--Alamat-->
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_alamat"
-                          android:textSize="18dp"/>
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/tv_alamat" />
 
                 <EditText
                         android:id="@+id/et_alamat"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/outline_stroke"
-                        android:inputType="text"/>
+                        style="@style/etCreatePlace"
+                        android:inputType="text" />
 
             </LinearLayout>
 
             <!--Latitude-->
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_latitude"
-                          android:textSize="18dp"/>
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/tv_latitude" />
 
                 <EditText
                         android:id="@+id/et_latitude"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/outline_stroke"
-                        android:inputType="numberDecimal|numberSigned"/>
+                        style="@style/etCreatePlace"
+                        android:inputType="numberDecimal|numberSigned" />
 
             </LinearLayout>
 
             <!--Longitude-->
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_longitude"
-                          android:textSize="18dp"/>
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/tv_longitude" />
 
                 <EditText
                         android:id="@+id/et_longitude"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/outline_stroke"
-                        android:inputType="numberDecimal|numberSigned"/>
+                        style="@style/etCreatePlace"
+                        android:inputType="numberDecimal|numberSigned" />
 
             </LinearLayout>
 
             <!--Fasilitas-->
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginBottom="@dimen/padding_5"
-                          android:orientation="horizontal">
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
 
-                <TextView android:layout_width="@dimen/margin_100"
-                          android:layout_height="wrap_content"
-                          android:paddingLeft="@dimen/margin_2"
-                          android:paddingTop="@dimen/default_padding"
-                          android:paddingBottom="@dimen/default_padding"
-                          android:text="@string/tv_fasilitas"
-                          android:textSize="18dp"/>
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/tv_fasilitas" />
 
                 <EditText
                         android:id="@+id/et_facility"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/outline_stroke"
-                        android:lines="3"
-                        android:inputType="textMultiLine"/>
+                        style="@style/etCreatePlace"
+                        android:inputType="textMultiLine"
+                        android:lines="3" />
 
             </LinearLayout>
 
@@ -223,16 +140,26 @@
                     android:layout_marginBottom="@dimen/default_margin"
                     android:drawableTop="@drawable/ic_add_a_photo_black_24dp"
                     android:drawablePadding="@dimen/padding_5"
-                    android:text="@string/pilih_foto"/>
+                    android:text="@string/pilih_foto" />
 
             <Button
                     android:id="@+id/btn_save_new_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_ouval"
-                    android:text="@string/btn_simpan_lap_baru"
-                    android:textColor="@color/buttonTextColor"/>
+                    style="@style/button"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:text="@string/btn_simpan_lap_baru" />
         </LinearLayout>
-
     </ScrollView>
-</RelativeLayout>
+
+    <ProgressBar
+            android:id="@+id/pb_create_place"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

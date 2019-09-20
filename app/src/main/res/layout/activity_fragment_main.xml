@@ -3,42 +3,34 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/allmatchparent"
         tools:context=".layouts.info.main.MainFragmentActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            style="@style/matchwrap"
             android:theme="@style/AppTheme.AppBarOverlay">
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                style="@style/allmatchparent">
 
             <TextView
-                android:paddingLeft="@dimen/default_padding"
+                android:paddingStart="@dimen/default_padding"
                     android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/allwrapcontent"
                     android:gravity="center"
                     android:minHeight="?actionBarSize"
-                    android:paddingVertical="@dimen/appbar_padding"
                     android:text="@string/info"
                     android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/matchwrap"
                 android:background="?attr/colorPrimary"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/allmatchparent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

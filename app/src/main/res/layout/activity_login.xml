@@ -18,7 +18,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/account_icon"
                     android:layout_marginBottom="@dimen/default_margin"
-                    android:contentDescription="@string/login_icon_desc"
                     android:src="@drawable/ic_account_icon"/>
 
             <TextView android:layout_width="match_parent"
