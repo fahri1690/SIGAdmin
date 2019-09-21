@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts.info.main
+package com.example.sigadmin.layouts.main
 
 import android.content.Context
 import androidx.fragment.app.Fragment
@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.field.FieldListActivity
-import com.example.sigadmin.layouts.info.place.PlaceDetailActivity
+import com.example.sigadmin.layouts.place.PlaceDetailActivity
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,

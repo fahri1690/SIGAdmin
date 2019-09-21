@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sigadmin.R
-import com.example.sigadmin.layouts.info.main.MainFragmentActivity
+import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.models.Field
 import com.example.sigadmin.services.db.GetDb
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter

@@ -7,7 +7,7 @@
         android:paddingTop="@dimen/default_padding"
         android:paddingRight="@dimen/padding_5"
         android:paddingBottom="@dimen/default_padding"
-        tools:context=".layouts.info.place.CreatePlaceActivity">
+        tools:context=".layouts.place.CreatePlaceActivity">
 
     <ScrollView
             android:id="@+id/scrollView2"

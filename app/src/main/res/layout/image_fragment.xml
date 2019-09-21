@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/image_view_height"
-                tools:context=".layouts.info.place.ImageFragment">
+                tools:context=".layouts.place.ImageFragment">
 
     <ImageView
             android:id="@+id/imgBanner"

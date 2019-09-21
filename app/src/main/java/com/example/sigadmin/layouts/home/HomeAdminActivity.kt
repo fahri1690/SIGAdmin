@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.admin.AdminInfoActivity
-import com.example.sigadmin.layouts.info.main.MainFragmentActivity
-import com.example.sigadmin.layouts.info.place.CreatePlaceActivity
+import com.example.sigadmin.layouts.main.MainFragmentActivity
+import com.example.sigadmin.layouts.place.CreatePlaceActivity
 import com.example.sigadmin.models.PlaceModel
 import com.example.sigadmin.services.db.GetDb
 import com.example.sigadmin.services.db.OrderBy

@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts.info.place
+package com.example.sigadmin.layouts.place
 
 import android.os.Bundle
 import android.view.LayoutInflater

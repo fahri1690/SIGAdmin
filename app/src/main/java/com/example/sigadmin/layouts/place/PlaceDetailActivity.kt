@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts.info.place
+package com.example.sigadmin.layouts.place
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sigadmin.R
 import com.example.sigadmin.carousel.BannerCarouselItem
-import com.example.sigadmin.layouts.info.main.MainFragmentActivity
+import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section

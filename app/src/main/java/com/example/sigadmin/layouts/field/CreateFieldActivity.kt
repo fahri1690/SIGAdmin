@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
-import com.example.sigadmin.layouts.info.main.MainFragmentActivity
+import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
 import kotlinx.android.synthetic.main.activity_create_place.*
 import kotlinx.android.synthetic.main.activity_create_field.*
@@ -75,13 +75,13 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
                 et_field_name.setHintTextColor(getColor(R.color.errColor))
                 return
             }
-            hargaSiang == null -> {
+            dayPrice == null -> {
                 Toast.makeText(this, "Harga Siang wajib diisi", Toast.LENGTH_SHORT).show()
                 et_harga_siang.setBackgroundResource(R.drawable.err_outline_stroke)
                 et_harga_siang.setHintTextColor(getColor(R.color.errColor))
                 return
             }
-            hargaMalam == null -> {
+            nighPrice == null -> {
                 Toast.makeText(this, "Harga Malam wajib diisi", Toast.LENGTH_SHORT).show()
                 et_harga_malam.setBackgroundResource(R.drawable.err_outline_stroke)
                 et_harga_malam.setHintTextColor(getColor(R.color.errColor))

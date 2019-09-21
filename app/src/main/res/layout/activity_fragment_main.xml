@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         style="@style/allmatchparent"
-        tools:context=".layouts.info.main.MainFragmentActivity">
+        tools:context=".layouts.main.MainFragmentActivity">
 
     <com.google.android.material.appbar.AppBarLayout
             style="@style/matchwrap"

@@ -24,13 +24,13 @@
                 android:name="com.example.sigadmin.layouts.field.UpdateFieldActivity"
                 android:label="Update Lapangan" />
         <activity
-                android:name=".layouts.info.main.MainFragmentActivity"
+                android:name=".layouts.main.MainFragmentActivity"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
                 android:name=".layouts.login.LoginActivity"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name=".layouts.info.place.UpdatePlaceActivity"
+                android:name="com.example.sigadmin.layouts.place.UpdatePlaceActivity"
                 android:label="Update Tempat Futsal" />
         <activity
                 android:name="com.example.sigadmin.layouts.field.FieldDetailActivity"
@@ -42,7 +42,7 @@
                 android:name=".layouts.register.RegisterActivity"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name=".layouts.info.place.CreatePlaceActivity"
+                android:name="com.example.sigadmin.layouts.place.CreatePlaceActivity"
                 android:label="Input Data Tempat Futsal" />
         <activity
                 android:name=".layouts.home.HomeAdminActivity"

@@ -1,3 +1,5 @@
+package com.example.sigadmin.layouts.main
+
 //package com.example.sigadmin.layouts.info.main
 //
 //import android.content.Intent

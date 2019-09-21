@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
-import com.example.sigadmin.layouts.info.main.MainFragmentActivity
+import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
 import kotlinx.android.synthetic.main.activity_field_detail.*
 

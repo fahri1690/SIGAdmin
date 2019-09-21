@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts.info.place
+package com.example.sigadmin.layouts.place
 
 import android.app.Activity
 import android.content.Intent
@@ -23,9 +23,6 @@ import kotlinx.android.synthetic.main.activity_create_place.*
 import java.io.IOException
 import java.util.*
 import kotlin.collections.ArrayList
-
-
-
 
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "REDUNDANT_LABEL_WARNING")
@@ -61,7 +58,7 @@ class CreatePlaceActivity : AppCompatActivity() {
 
     }
 
-    var countDownTimer = object : CountDownTimer(3000, 1000) {
+    var countDownTimer = object : CountDownTimer(2000, 800) {
         override fun onTick(millisUntilFinished: Long) {
 
         }
@@ -262,7 +259,7 @@ class CreatePlaceActivity : AppCompatActivity() {
             return
         }
         else if (lat.isEmpty()) {
-            Toast.makeText(this, "Nomor Telepon wajib diisi", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Latitude Telepon wajib diisi", Toast.LENGTH_SHORT).show()
             et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_latitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE

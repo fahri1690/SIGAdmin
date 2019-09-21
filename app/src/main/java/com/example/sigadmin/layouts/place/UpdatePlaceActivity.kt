@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts.info.place
+package com.example.sigadmin.layouts.place
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sigadmin.layouts.info.main.MainFragmentActivity
+import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.R
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_update_place.*

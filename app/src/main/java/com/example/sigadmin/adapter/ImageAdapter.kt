@@ -3,8 +3,7 @@ package com.example.sigadmin.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.sigadmin.layouts.info.place.ImageFragment
-import com.example.sigadmin.models.PlaceImages
+import com.example.sigadmin.layouts.place.ImageFragment
 
 class ImageAdapter(fragmentManager: FragmentManager,
                    private val images: ArrayList<String>) : FragmentPagerAdapter(fragmentManager) {
