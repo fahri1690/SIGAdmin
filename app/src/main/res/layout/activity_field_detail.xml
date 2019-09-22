@@ -60,7 +60,7 @@
         <TextView style="@style/tvTitik2" />
 
         <TextView
-                android:id="@+id/tv_harga_siang"
+                android:id="@+id/tv_hargaSiang"
                 style="@style/tvFieldDetail2" />
     </LinearLayout>
 
@@ -77,12 +77,12 @@
         <TextView style="@style/tvTitik2" />
 
         <TextView
-                android:id="@+id/tv_harga_malam"
+                android:id="@+id/tv_hargaMalam"
                 style="@style/tvFieldDetail2" />
     </LinearLayout>
 
     <Button
-            android:id="@+id/btn_perbarui"
+            android:id="@+id/btn_update_field"
             style="@style/button"
             android:layout_marginTop="@dimen/default_margin"
             android:text="@string/btn_perbarui" />

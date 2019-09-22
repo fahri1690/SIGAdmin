@@ -25,28 +25,28 @@ class MainFragmentActivity : AppCompatActivity() {
     fun getMyData(): Bundle {
 
         val placeId = intent.getStringExtra("placeId")
-        val name = intent.getStringExtra("name")
-        val facility = intent.getStringExtra("facility")
+        val name = intent.getStringExtra("namaTempat")
+        val facility = intent.getStringExtra("fasilitas")
         val jamBuka = intent.getStringExtra("jamBuka")
         val jamTutup = intent.getStringExtra("jamTutup")
         val noTelp = intent.getStringExtra("noTelp")
         val alamat = intent.getStringExtra("alamat")
-        val lat = intent.getStringExtra("lat")
-        val long = intent.getStringExtra("long")
-        val images = intent.getStringArrayListExtra("images")
+        val lat = intent.getStringExtra("latitude")
+        val long = intent.getStringExtra("longitude")
+        val images = intent.getStringArrayListExtra("gambar")
 
         val bundle = Bundle()
 
         bundle.putString("placeId", placeId)
-        bundle.putString("name", name)
-        bundle.putString("facility", facility)
+        bundle.putString("namaTempat", name)
+        bundle.putString("fasilitas", facility)
         bundle.putString("jamBuka", jamBuka)
         bundle.putString("jamTutup", jamTutup)
         bundle.putString("noTelp", noTelp)
         bundle.putString("alamat", alamat)
-        bundle.putString("lat", lat)
-        bundle.putString("long", long)
-        bundle.putStringArrayList("images", images)
+        bundle.putString("latitude", lat)
+        bundle.putString("longitude", long)
+        bundle.putStringArrayList("gambar", images)
 
         return bundle
 

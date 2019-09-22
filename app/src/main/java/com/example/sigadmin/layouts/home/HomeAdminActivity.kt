@@ -27,7 +27,7 @@ class HomeAdminActivity : AppCompatActivity() {
 
     inner class FieldViewHolder internal constructor(private val view: View) : RecyclerView.ViewHolder(view) {
         internal fun setFieldName(fieldName: String) {
-            val textView = view.findViewById<TextView>(R.id.txtFieldName)
+            val textView = view.findViewById<TextView>(R.id.tv_name_item)
             textView.text = fieldName
         }
     }
@@ -35,11 +35,11 @@ class HomeAdminActivity : AppCompatActivity() {
     inner class FieldFireStoreRecyclerAdapter internal constructor(options: FirestoreRecyclerOptions<PlaceModel>) :
         FirestoreRecyclerAdapter<PlaceModel, FieldViewHolder>(options) {
         override fun onBindViewHolder(
-                fieldViewHolder: FieldViewHolder,
-                position: Int,
-                fieldModel: PlaceModel
+            fieldViewHolder: FieldViewHolder,
+            position: Int,
+            placeModel: PlaceModel
         ) {
-            fieldViewHolder.setFieldName(fieldModel.name)
+            fieldViewHolder.setFieldName(placeModel.namaTempat)
 
             fieldViewHolder.itemView.setOnClickListener {
 
@@ -49,19 +49,19 @@ class HomeAdminActivity : AppCompatActivity() {
                 list.id
                 val intent = Intent(this@HomeAdminActivity, MainFragmentActivity::class.java)
                 intent.putExtra("placeId", snapshot.id)
-                intent.putExtra("name", fieldModel.name)
-                intent.putExtra("facility", fieldModel.facility)
-                intent.putExtra("alamat", fieldModel.alamat)
-                intent.putExtra("jamBuka", fieldModel.jamBuka)
-                intent.putExtra("jamTutup", fieldModel.jamTutup)
-                intent.putExtra("lat", fieldModel.lat.toString())
-                intent.putExtra("long", fieldModel.long.toString())
-                intent.putExtra("noTelp", fieldModel.noTelp)
-                intent.putStringArrayListExtra("images", fieldModel.images)
+                intent.putExtra("namaTempat", placeModel.namaTempat)
+                intent.putExtra("fasilitas", placeModel.fasilitas)
+                intent.putExtra("alamat", placeModel.alamat)
+                intent.putExtra("jamBuka", placeModel.jamBuka)
+                intent.putExtra("jamTutup", placeModel.jamTutup)
+                intent.putExtra("latitude", placeModel.latitude.toString())
+                intent.putExtra("longitude", placeModel.longitude.toString())
+                intent.putExtra("noTelp", placeModel.noTelp)
+                intent.putStringArrayListExtra("gambar", placeModel.gambar)
                 startActivity(intent)
             }
 
-            fieldViewHolder.itemView.del_btn.setOnClickListener {
+            fieldViewHolder.itemView.btn_delete.setOnClickListener {
 
                 val builder = AlertDialog.Builder(this@HomeAdminActivity)
                 val snapshot = snapshots.getSnapshot(position)
@@ -69,13 +69,13 @@ class HomeAdminActivity : AppCompatActivity() {
 
                 val ids = snapshot.id
 
-                builder.setTitle("Hapus Lapangan")
+                builder.setTitle("Hapus Tempat Futsal")
 
                 builder.setMessage("Apakah kamu yakin?")
 
                 builder.setPositiveButton("Ya") { _, _ ->
                     GetDb().collection.document(ids).delete()
-                    Toast.makeText(applicationContext, "Lapangan berhasil dihapus.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "${placeModel.namaTempat} berhasil dihapus.", Toast.LENGTH_SHORT).show()
                 }
 
                 builder.setNegativeButton("Tidak") { _, _ ->
@@ -154,4 +154,7 @@ class HomeAdminActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        finishAffinity()
+    }
 }

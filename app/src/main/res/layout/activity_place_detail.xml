@@ -36,7 +36,7 @@
                     <TextView style="@style/tvTitik2" />
 
                     <TextView
-                            android:id="@+id/tv_fnama_lapangan"
+                            android:id="@+id/tv_nama_tempat"
                             style="@style/tvPlaceDetail2" />
                 </LinearLayout>
 
@@ -51,7 +51,7 @@
                     <TextView style="@style/tvTitik2" />
 
                     <TextView
-                            android:id="@+id/tv_fjam_buka"
+                            android:id="@+id/tv_jam_buka"
                             style="@style/tvPlaceDetail2" />
 
                 </LinearLayout>
@@ -67,7 +67,7 @@
                     <TextView style="@style/tvTitik2" />
 
                     <TextView
-                            android:id="@+id/tv_fjam_tutup"
+                            android:id="@+id/tv_jam_tutup"
                             style="@style/tvPlaceDetail2" />
 
                 </LinearLayout>
@@ -84,7 +84,7 @@
                             android:layout_gravity="center_vertical"/>
 
                     <TextView
-                            android:id="@+id/tv_fno_telepon"
+                            android:id="@+id/tv_no_telepon"
                             style="@style/tvPlaceDetail2"
                             android:layout_gravity="center_vertical"/>
 
@@ -101,7 +101,7 @@
                     <TextView style="@style/tvTitik2" />
 
                     <TextView
-                            android:id="@+id/tv_ffasilitas"
+                            android:id="@+id/tv_fasilitas"
                             style="@style/tvPlaceDetail2" />
                 </LinearLayout>
 
@@ -117,7 +117,7 @@
                     <TextView style="@style/tvTitik2" />
 
                     <TextView
-                            android:id="@+id/tv_falamat"
+                            android:id="@+id/tv_alamat"
                             style="@style/tvPlaceDetail2" />
 
                 </LinearLayout>
@@ -133,7 +133,7 @@
                     <TextView style="@style/tvTitik2" />
 
                     <TextView
-                            android:id="@+id/tv_flatitude"
+                            android:id="@+id/tv_latitude"
                             style="@style/tvPlaceDetail2" />
 
                 </LinearLayout>
@@ -149,13 +149,13 @@
                     <TextView style="@style/tvTitik2" />
 
                     <TextView
-                            android:id="@+id/tv_flongitude"
+                            android:id="@+id/tv_longitude"
                             style="@style/tvPlaceDetail2" />
 
                 </LinearLayout>
 
                 <Button
-                        android:id="@+id/btn_perbarui"
+                        android:id="@+id/btn_update_place"
                         style="@style/button"
                         android:paddingTop="@dimen/padding_5"
                         android:text="@string/btn_perbarui" />

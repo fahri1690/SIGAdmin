@@ -2,7 +2,6 @@ package com.example.sigadmin.layouts.field
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.main.MainFragmentActivity
@@ -24,36 +23,26 @@ class FieldDetailActivity : AppCompatActivity() {
         val subDocument = subCollection.document(fieldId.toString())
         val subDocumentId = subDocument.id
 
-        val name = intent.extras.getString("name")
+        val kodeLapangan = intent.extras.getString("kodeLapangan")
         val jenis = intent.extras.getString("jenis")
-        val hargaSiang = intent.extras.getString("hargaSiang")
-        val hargaMalam = intent.extras.getString("hargaMalam")
+        val hargaSiang = intent.extras.getInt("hargaSiang")
+        val hargaMalam = intent.extras.getInt("hargaMalam")
 
-        getData()
-        btn_perbarui.setOnClickListener {
+        tv_kode_lapangan.text = intent.getStringExtra("kodeLapangan")
+        tv_jenis_lapangan.text = intent.getStringExtra("jenis")
+        tv_hargaSiang.text = hargaSiang.toString()
+        tv_hargaMalam.text = hargaMalam.toString()
+
+        btn_update_field.setOnClickListener {
             val intent = Intent(this, UpdateFieldActivity::class.java)
             intent.putExtra("placeId", placeId)
             intent.putExtra("fieldId", subDocumentId)
-            intent.putExtra("name", name)
+            intent.putExtra("kodeLapangan", kodeLapangan)
             intent.putExtra("jenis", jenis)
             intent.putExtra("hargaSiang", hargaSiang)
             intent.putExtra("hargaMalam", hargaMalam)
             startActivity(intent)
         }
-
-    }
-
-    private fun getData() {
-
-        val name = findViewById<TextView>(R.id.tv_kode_lapangan)
-        val jenis = findViewById<TextView>(R.id.tv_jenis_lapangan)
-        val hargaSiang = findViewById<TextView>(R.id.tv_harga_siang)
-        val hargaMalam = findViewById<TextView>(R.id.tv_harga_malam)
-
-        name.text = intent.getStringExtra("name")
-        jenis.text = intent.getStringExtra("jenis")
-        hargaSiang.text = intent.getStringExtra("hargaSiang")
-        hargaMalam.text = intent.getStringExtra("hargaMalam")
 
     }
 
@@ -63,37 +52,36 @@ class FieldDetailActivity : AppCompatActivity() {
         val docRef = GetDb().collection.document(placeId)
 
         docRef.get()
-                .addOnSuccessListener { document ->
-                    if (document != null) {
+            .addOnSuccessListener { document ->
+                if (document != null) {
 
-                        val name = document.data?.get("name").toString()
-                        val facility = document.data?.get("facility").toString()
-                        val jamBuka = document.data?.get("jamBuka").toString()
-                        val jamTutup = document.data?.get("jamTutup").toString()
-                        val noTelp = document.data?.get("noTelp").toString()
-                        val alamat = document.data?.get("alamat").toString()
-                        val lat = document.data?.get("lat").toString()
-                        val long = document.data?.get("long").toString()
-                        val images:ArrayList<String> = arrayListOf(document.data?.get("images").toString())
+                    val name = document.data?.get("namaTempat").toString()
+                    val facility = document.data?.get("fasilitas").toString()
+                    val jamBuka = document.data?.get("jamBuka").toString()
+                    val jamTutup = document.data?.get("jamTutup").toString()
+                    val noTelp = document.data?.get("noTelp").toString()
+                    val alamat = document.data?.get("alamat").toString()
+                    val lat = document.data?.get("latitude").toString()
+                    val long = document.data?.get("longitude").toString()
+                    val images: ArrayList<String> =
+                        arrayListOf(document.data?.get("gambar").toString())
 
-                        val intent = Intent(this, MainFragmentActivity::class.java)
-                        intent.putExtra("placeId", placeId)
-                        intent.putExtra("name", name)
-                        intent.putExtra("facility", facility)
-                        intent.putExtra("jamBuka", jamBuka)
-                        intent.putExtra("jamTutup", jamTutup)
-                        intent.putExtra("noTelp", noTelp)
-                        intent.putExtra("alamat", alamat)
-                        intent.putExtra("lat", lat)
-                        intent.putExtra("long", long)
-                        intent.putStringArrayListExtra("images", images)
-                        startActivity(intent)
-                    } else {
-
-                    }
+                    val intent = Intent(this, MainFragmentActivity::class.java)
+                    intent.putExtra("placeId", placeId)
+                    intent.putExtra("namaTempat", name)
+                    intent.putExtra("fasilitas", facility)
+                    intent.putExtra("jamBuka", jamBuka)
+                    intent.putExtra("jamTutup", jamTutup)
+                    intent.putExtra("noTelp", noTelp)
+                    intent.putExtra("alamat", alamat)
+                    intent.putExtra("latitude", lat)
+                    intent.putExtra("longitude", long)
+                    intent.putStringArrayListExtra("gambar", images)
+                    startActivity(intent)
                 }
-                .addOnFailureListener {
+            }
+            .addOnFailureListener {
 
-                }
+            }
     }
 }

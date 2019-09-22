@@ -25,7 +25,7 @@ class FieldListActivity : Fragment() {
 
     inner class FieldViewHolder internal constructor(private val view: View) : RecyclerView.ViewHolder(view) {
         internal fun setFieldName(fieldName: String) {
-            val textView = view.findViewById<TextView>(R.id.txtFieldName)
+            val textView = view.findViewById<TextView>(R.id.tv_name_item)
             textView.text = fieldName
         }
     }
@@ -37,7 +37,7 @@ class FieldListActivity : Fragment() {
                 position: Int,
                 fieldModel: Field
         ) {
-            fieldViewHolder.setFieldName("Lapangan ${fieldModel.name}")
+            fieldViewHolder.setFieldName("Lapangan ${fieldModel.kodeLapangan}")
 
             val activity = activity as MainFragmentActivity
 
@@ -49,15 +49,15 @@ class FieldListActivity : Fragment() {
                 snapshot.id
                 val intent = Intent(context, FieldDetailActivity::class.java)
                 intent.putExtra("fieldId", snapshot.id)
-                intent.putExtra("name", fieldModel.name)
+                intent.putExtra("kodeLapangan", fieldModel.kodeLapangan)
                 intent.putExtra("jenis", fieldModel.jenis)
-                intent.putExtra("hargaSiang", fieldModel.hargaSiang.toString())
-                intent.putExtra("hargaMalam", fieldModel.hargaMalam.toString())
+                intent.putExtra("hargaSiang", fieldModel.hargaSiang)
+                intent.putExtra("hargaMalam", fieldModel.hargaMalam)
                 intent.putExtra("placeId", placeId)
                 startActivity(intent)
             }
 
-            fieldViewHolder.itemView.del_btn.setOnClickListener {
+            fieldViewHolder.itemView.btn_delete.setOnClickListener {
 
                 val builder = AlertDialog.Builder(activity)
                 val snapshot = snapshots.getSnapshot(position)
@@ -71,7 +71,7 @@ class FieldListActivity : Fragment() {
 
                 builder.setPositiveButton("Ya") { _, _ ->
                     GetDb().collection.document(placeId.toString()).collection("listLapangan").document(fieldId).delete()
-                    Toast.makeText(activity, "Lapangan berhasil dihapus.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Lapangan ${fieldModel.kodeLapangan} berhasil dihapus.", Toast.LENGTH_SHORT).show()
                 }
 
                 builder.setNegativeButton("Tidak") { _, _ ->
@@ -108,7 +108,7 @@ class FieldListActivity : Fragment() {
 
         root.rvMMain.layoutManager = LinearLayoutManager(context)
 
-        val query = GetDb().collection.document(placeId.toString()).collection("listLapangan").orderBy("name", Query.Direction.ASCENDING)
+        val query = GetDb().collection.document(placeId.toString()).collection("listLapangan").orderBy("kodeLapangan", Query.Direction.ASCENDING)
         val options =
                 FirestoreRecyclerOptions.Builder<Field>().setQuery(query, Field::class.java).build()
 

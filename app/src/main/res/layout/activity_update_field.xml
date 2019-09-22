@@ -21,7 +21,7 @@
                     android:text="@string/tv_field_kode" />
 
             <EditText
-                    android:id="@+id/et_updt_sub_field_name"
+                    android:id="@+id/et_updt_kodeLapangan"
                     style="@style/etCreateField"
                     android:inputType="text" />
 
@@ -41,7 +41,7 @@
                     android:background="@drawable/spinner_bg">
 
                 <Spinner
-                        android:id="@+id/spn_updt_jenis_lapangan"
+                        android:id="@+id/spn_updt_jenisLapangan"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/spn_height"
                         android:entries="@array/jenis_lapangan"
@@ -59,7 +59,7 @@
                     android:text="@string/tv_hargaSiag" />
 
             <EditText
-                    android:id="@+id/et_updt_harga_siang"
+                    android:id="@+id/et_updt_hargaSiang"
                     style="@style/etCreateField"
                     android:inputType="text" />
 
@@ -74,14 +74,14 @@
                     android:text="@string/tv_hargaMalam" />
 
             <EditText
-                    android:id="@+id/et_updt_harga_malam"
+                    android:id="@+id/et_updt_hargaMalam"
                     style="@style/etCreateField"
                     android:inputType="text" />
 
         </LinearLayout>
 
         <Button
-                android:id="@+id/btn_updt_sub_field"
+                android:id="@+id/btn_save_updateField"
                 style="@style/button"
                 android:text="@string/btn_simpan_sub_lap_baru" />
 

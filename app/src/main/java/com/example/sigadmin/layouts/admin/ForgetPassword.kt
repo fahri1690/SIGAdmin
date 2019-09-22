@@ -1,13 +1,13 @@
-package com.example.sigadmin.layouts.login
+package com.example.sigadmin.layouts.admin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sigadmin.R
 
-class NewPassword : AppCompatActivity() {
+class ForgetPassword : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_password)
+        setContentView(R.layout.activity_forget_password)
     }
 }

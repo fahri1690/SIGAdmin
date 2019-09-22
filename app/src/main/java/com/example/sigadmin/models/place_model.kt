@@ -2,17 +2,17 @@ package com.example.sigadmin.models
 
 data class PlaceModel(
     val placeId: String = "",
-    val name: String = "",
+    val namaTempat: String = "",
     val alamat: String ="",
     val jamBuka: String = "",
     val jamTutup: String = "",
-    val facility: String = "",
+    val fasilitas: String = "",
     val noTelp: String = "",
-    val lat: Double = 0.0,
-    val long: Double = 0.0,
-    val images: ArrayList<String> = arrayListOf(PlaceImages().images)
+    val latitude: Double = 0.0,
+    val longitude: Double = 0.0,
+    val gambar: ArrayList<String> = arrayListOf(PlaceImages().gambar)
 )
 
 data class PlaceImages(
-    val images: String = ""
+    val gambar: String = ""
 )

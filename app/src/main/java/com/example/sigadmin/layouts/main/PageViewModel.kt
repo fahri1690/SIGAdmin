@@ -13,10 +13,10 @@ package com.example.sigadmin.layouts.main
 //    private val _index = MutableLiveData<Int>()
 //    val intent = Intent()
 //
-//    val name = intent.getStringExtra("name")
+//    val namaTempat = intent.getStringExtra("namaTempat")
 //
 //    val text: LiveData<String> = Transformations.map(_index) {
-//        name
+//        namaTempat
 //    }
 //
 //    fun setIndex(index: Int) {

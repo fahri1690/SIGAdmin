@@ -1,4 +1,4 @@
-package com.example.sigadmin.layouts.register
+package com.example.sigadmin.layouts.admin
 
 import android.content.Intent
 import android.os.Build
@@ -10,7 +10,6 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.home.HomeAdminActivity
-import com.example.sigadmin.layouts.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_register.*
@@ -29,7 +28,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         tv_login.setOnClickListener {
-            intent = Intent (this, LoginActivity::class.java)
+            intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
@@ -49,29 +48,36 @@ class RegisterActivity : AppCompatActivity() {
                 Log.d("Main", "Daftar Gagal! ${it.message}")
             }
 
+
+
         if (name.isEmpty()) {
-            Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Nama tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_name_register.setBackgroundResource(R.drawable.err_outline_stroke)
             et_name_register.setHintTextColor(getColor(R.color.errColor))
+            return
         } else if (name.length < 2) {
             Toast.makeText(this, "Nama minimal 2 karakter", Toast.LENGTH_SHORT).show()
             et_name_register.setBackgroundResource(R.drawable.err_outline_stroke)
             et_name_register.setHintTextColor(getColor(R.color.errColor))
+            return
         } else if (email.isEmpty()) {
-            Toast.makeText(this, "email wajib diisi", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Email tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_email_register.setBackgroundResource(R.drawable.err_outline_stroke)
             et_email_register.setHintTextColor(getColor(R.color.errColor))
+            return
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(this, "Format email tidak sesuai", Toast.LENGTH_SHORT).show()
             et_email_register.setBackgroundResource(R.drawable.err_outline_stroke)
             et_email_register.setHintTextColor(getColor(R.color.errColor))
+            return
         } else if (password.isEmpty()) {
-            Toast.makeText(this, "Kata Sandi wajib diisi", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Kata Sandi tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_password_register.setBackgroundResource(R.drawable.err_outline_stroke)
             et_password_register.setHintTextColor(getColor(R.color.errColor))
+            return
         } else {
             val result = HashMap<String, Any>()
-            result["nama"] = name
+            result["namaTempat"] = name
             result["email"] = email
             result["kataSandi"] = password
 

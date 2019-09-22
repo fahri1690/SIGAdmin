@@ -16,6 +16,7 @@ import com.example.sigadmin.services.db.GetDb
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import kotlinx.android.synthetic.main.activity_place_detail.view.*
+import java.util.ArrayList
 
 
 class PlaceDetailActivity : Fragment(){
@@ -24,28 +25,28 @@ class PlaceDetailActivity : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.activity_place_detail, container, false)
-        val tvName = root.findViewById<TextView>(R.id.tv_fnama_lapangan)
-        val tvFacility = root.findViewById<TextView>(R.id.tv_ffasilitas)
-        val tvJamBuka = root.findViewById<TextView>(R.id.tv_fjam_buka)
-        val tvJamTutup = root.findViewById<TextView>(R.id.tv_fjam_tutup)
-        val tvNoTelp = root.findViewById<TextView>(R.id.tv_fno_telepon)
-        val tvLat = root.findViewById<TextView>(R.id.tv_flatitude)
-        val tvLong = root.findViewById<TextView>(R.id.tv_flongitude)
-        val tvAlamat = root.findViewById<TextView>(R.id.tv_falamat)
+        val tvName = root.findViewById<TextView>(R.id.tv_nama_tempat)
+        val tvFacility = root.findViewById<TextView>(R.id.tv_fasilitas)
+        val tvJamBuka = root.findViewById<TextView>(R.id.tv_jam_buka)
+        val tvJamTutup = root.findViewById<TextView>(R.id.tv_jam_tutup)
+        val tvNoTelp = root.findViewById<TextView>(R.id.tv_no_telepon)
+        val tvLat = root.findViewById<TextView>(R.id.tv_latitude)
+        val tvLong = root.findViewById<TextView>(R.id.tv_longitude)
+        val tvAlamat = root.findViewById<TextView>(R.id.tv_alamat)
 
         val activity = activity as MainFragmentActivity
 
         val results = activity.getMyData()
         val placeId  = results.getString("placeId")
-        val name = results.getString("name")
-        val facility = results.getString("facility")
+        val name = results.getString("namaTempat")
+        val facility = results.getString("fasilitas")
         val jamBuka = results.getString("jamBuka")
         val jamTutup = results.getString("jamTutup")
         val noTelp = results.getString("noTelp")
-        val lat = results.getString("lat")
-        val long = results.getString("long")
+        val lat = results.getString("latitude")
+        val long = results.getString("longitude")
         val alamat = results.getString("alamat")
-        val imageList = results.getStringArrayList("images")
+        val imageList = results.getStringArrayList("gambar")
 
         tvName.text = name
         tvFacility.text = facility
@@ -59,24 +60,24 @@ class PlaceDetailActivity : Fragment(){
         val query = GetDb().collection.document(placeId!!.toString())
         val documentId = query.id
 
-        root.btn_perbarui.setOnClickListener {
+        root.btn_update_place.setOnClickListener {
             val intent = Intent(getActivity(), UpdatePlaceActivity::class.java)
             intent.putExtra("placeId", documentId)
-            intent.putExtra("name", name)
-            intent.putExtra("facility", facility)
+            intent.putExtra("namaTempat", name)
+            intent.putExtra("fasilitas", facility)
             intent.putExtra("alamat", alamat)
             intent.putExtra("jamBuka", jamBuka)
             intent.putExtra("jamTutup", jamTutup)
-            intent.putExtra("lat", lat)
-            intent.putExtra("long", long)
+            intent.putExtra("latitude", lat)
+            intent.putExtra("longitude", long)
             intent.putExtra("noTelp", noTelp)
-            intent.putStringArrayListExtra("images", imageList)
+            intent.putStringArrayListExtra("gambar", imageList)
             startActivity(intent)
             Log.d("Meesss", documentId)
         }
 
         @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS"
-        ) val listImages= imageList
+        ) val listImages: ArrayList<String> = imageList
 
         root.rvImagesMain.apply {
             layoutManager = LinearLayoutManager(activity)

@@ -31,12 +31,12 @@ class CreatePlaceActivity : AppCompatActivity() {
     internal var id: String = ""
 
     private var filepath: Uri? = null
-    private var PICK_IMAGE_REQUEST = 111
+    private var pickImageRequest = 111
 
     private var imgRef: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
 
-    var imageList: ArrayList<Uri> = ArrayList()
+    private var imageList: ArrayList<Uri> = ArrayList()
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,19 +55,16 @@ class CreatePlaceActivity : AppCompatActivity() {
         btn_save_new_field.setOnClickListener {
             uploadImage()
         }
-
     }
 
-    var countDownTimer = object : CountDownTimer(2000, 800) {
+    private var countDownTimer = object : CountDownTimer(2000, 800) {
         override fun onTick(millisUntilFinished: Long) {
 
         }
 
         override fun onFinish() {
-            Toast.makeText(this@CreatePlaceActivity, "Foto belum dipilih", Toast.LENGTH_SHORT).show()
             pb_create_place.visibility = View.GONE
         }
-
     }
 
     private fun selectImage() {
@@ -75,12 +72,12 @@ class CreatePlaceActivity : AppCompatActivity() {
         intent.type = "image/*"
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), PICK_IMAGE_REQUEST)
+        startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), pickImageRequest)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+        if (requestCode == pickImageRequest && resultCode == Activity.RESULT_OK) {
             when {
                 data?.clipData != null -> {
 
@@ -92,7 +89,6 @@ class CreatePlaceActivity : AppCompatActivity() {
                     }
 
                     Toast.makeText(this, "$totalItem foto dipilih", Toast.LENGTH_LONG).show()
-
 
                 }
                 data?.data != null -> {
@@ -112,20 +108,17 @@ class CreatePlaceActivity : AppCompatActivity() {
 
     private fun uploadImage() {
 
-
         pb_create_place.visibility = View.VISIBLE
 
-        val imageRef = storageReference!!.child("images/places/*" + UUID.randomUUID().toString())
+        val imageRef = storageReference!!.child("gambar/places/*" + UUID.randomUUID().toString())
 
         for (uploadCount in 0 until imageList.size step 1) {
 
             val single = imageList[uploadCount]
+            val images = storageReference!!.child("gambar/places/*" + single.lastPathSegment)
+            val uploadTask = images.putFile(single)
 
             countDownTimer.start()
-
-            val images = storageReference!!.child("images/places/*" + single.lastPathSegment)
-
-            val uploadTask = images.putFile(single)
 
             uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
                 when {
@@ -153,21 +146,15 @@ class CreatePlaceActivity : AppCompatActivity() {
                                 list.add(it.result.toString())
                             }
                             addUploadToDb(it.result.toString())
-
-
                         }
                     }
-
                     return@addOnCompleteListener
                 }
-
         }
 
         if (filepath == null) {
             countDownTimer.start()
         } else {
-
-            println("AAAAA $filepath")
 
             val uploadTask = imageRef.putFile(filepath!!)
             uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
@@ -204,7 +191,7 @@ class CreatePlaceActivity : AppCompatActivity() {
 
         val db = GetDb().collection
 
-        val name = et_field_name.text.toString()
+        val name = et_place_name.text.toString()
         val facility = et_facility.text.toString()
         val jamBuka = et_jam_buka.text.toString()
         val jamTutup = et_jam_tutup.text.toString()
@@ -213,112 +200,101 @@ class CreatePlaceActivity : AppCompatActivity() {
         val lat = et_latitude.text.toString()
         val long = et_longitude.text.toString()
 
-        var latToDouble:Double? = null
-        var longToDouble:Double? = null
+        var latToDouble: Double? = null
+        var longToDouble: Double? = null
 
         if (lat.isNotEmpty()) {
             latToDouble = java.lang.Double.parseDouble(lat)
         }
-        if(long.isNotEmpty()) {
+        if (long.isNotEmpty()) {
             longToDouble = java.lang.Double.parseDouble(long)
         }
 
         if (name.isEmpty()) {
-            Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
-            et_field_name.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_field_name.setHintTextColor(getColor(R.color.errColor))
+            Toast.makeText(this, "Nama tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            et_place_name.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_place_name.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (facility.isEmpty()) {
-            Toast.makeText(this, "Fasilitas wajib diisi", Toast.LENGTH_SHORT).show()
+        } else if (facility.isEmpty()) {
+            Toast.makeText(this, "Fasilitas tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_facility.setBackgroundResource(R.drawable.err_outline_stroke)
             et_facility.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (jamBuka.isEmpty()) {
-            Toast.makeText(this, "Jam Buka wajib diisi", Toast.LENGTH_SHORT).show()
+        } else if (jamBuka.isEmpty()) {
+            Toast.makeText(this, "Jam Buka tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_jam_buka.setBackgroundResource(R.drawable.err_outline_stroke)
             et_jam_buka.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (jamTutup.isEmpty()) {
-            Toast.makeText(this, "Jam Tutup wajib diisi", Toast.LENGTH_SHORT).show()
+        } else if (jamTutup.isEmpty()) {
+            Toast.makeText(this, "Jam Tutup tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_jam_tutup.setBackgroundResource(R.drawable.err_outline_stroke)
             et_jam_tutup.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (noTelp.isEmpty()) {
-            Toast.makeText(this, "Nomor Telepon wajib diisi", Toast.LENGTH_SHORT).show()
+        } else if (noTelp.isEmpty()) {
+            Toast.makeText(this, "Nomor Telepon tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_no_telp.setBackgroundResource(R.drawable.err_outline_stroke)
             et_no_telp.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (lat.isEmpty()) {
-            Toast.makeText(this, "Latitude Telepon wajib diisi", Toast.LENGTH_SHORT).show()
+        } else if (lat.isEmpty()) {
+            Toast.makeText(this, "Latitude Telepon tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_latitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (latToDouble == null) {
-            Toast.makeText(this, "Latitude wajib diisi", Toast.LENGTH_SHORT).show()
+        } else if (latToDouble == null) {
+            Toast.makeText(this, "Latitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_latitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (latToDouble < -90 || latToDouble > 90) {
-            Toast.makeText(this, "Latitude salah, maksimal 90 dan minimal -90", Toast.LENGTH_SHORT).show()
+        } else if (latToDouble < -90 || latToDouble > 90) {
+            Toast.makeText(this, "Latitude harus diantara -90 sampai 90", Toast.LENGTH_SHORT)
+                .show()
             et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_latitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (long.isEmpty()) {
-            Toast.makeText(this, "Longitude wajib diisi", Toast.LENGTH_SHORT).show()
+        } else if (long.isEmpty()) {
+            Toast.makeText(this, "Longitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_longitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (longToDouble == null) {
-            Toast.makeText(this, "Longitude wajib diisi", Toast.LENGTH_SHORT).show()
+        } else if (longToDouble == null) {
+            Toast.makeText(this, "Longitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_longitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (longToDouble < -180 || longToDouble > 180) {
-            Toast.makeText(this, "Longitude salah, maksimal 180 dan minimal -180", Toast.LENGTH_SHORT).show()
+        } else if (longToDouble < -180 || longToDouble > 180) {
+            Toast.makeText(this,"Longitude harus diantara -180 sampai 180",Toast.LENGTH_SHORT).show()
             et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_longitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else if (alamat.isEmpty()) {
-            Toast.makeText(this, "Alamat wajib diisi", Toast.LENGTH_SHORT).show()
+        } else if (alamat.isEmpty()) {
+            Toast.makeText(this, "Alamat tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_alamat.setBackgroundResource(R.drawable.err_outline_stroke)
             et_alamat.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }
-        else {
+        } else {
 
             val result = hashMapOf(
-                "images" to arrayListOf(uri),
-                "name" to name,
-                "facility" to facility,
+                "gambar" to arrayListOf(uri),
+                "namaTempat" to name,
+                "fasilitas" to facility,
                 "jamBuka" to jamBuka,
                 "jamTutup" to jamTutup,
                 "noTelp" to noTelp,
                 "alamat" to alamat,
-                "lat" to latToDouble,
-                "long" to longToDouble
+                "latitude" to latToDouble,
+                "longitude" to longToDouble
             )
 
             db.add(result).addOnSuccessListener {

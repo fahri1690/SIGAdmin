@@ -1,6 +1,5 @@
 package com.example.sigadmin.services.db
 
-import android.content.Intent
 import com.example.sigadmin.models.PlaceModel
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -10,7 +9,7 @@ import com.google.firebase.storage.FirebaseStorage
 
 class GetDb {
     val ref = FirebaseFirestore.getInstance()
-    val collection = ref.collection("Lapangan")
+    val collection = ref.collection("tempatFutsal")
     val recyclerOption = FirestoreRecyclerOptions.Builder<PlaceModel>()
 }
 
@@ -20,7 +19,7 @@ class GetImage {
 }
 
 class OrderBy {
-    val ascendingName = GetDb().collection.orderBy("name", Query.Direction.ASCENDING)
+    val ascendingName = GetDb().collection.orderBy("namaTempat", Query.Direction.ASCENDING)
 }
 
 class GetAuth {
