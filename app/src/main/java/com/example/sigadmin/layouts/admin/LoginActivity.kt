@@ -42,8 +42,7 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 }
                 .addOnFailureListener {
-                    Log.d("Main", "Failed Login: ${it.message}")
-                    Log.e("Main", it.message)
+                    Log.e("Main", "Failed Login: ${it.message}")
                     Toast.makeText(this, "Email/Password tidak sesuai", Toast.LENGTH_SHORT).show()
                 }
         }
@@ -58,21 +57,28 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        verifyToken()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        verifyToken()
     }
 
     private fun verifyToken() {
-        val mUser =
-            FirebaseAuth.getInstance().currentUser
-        mUser!!.getIdToken(true).addOnCompleteListener { p0 ->
+
+        val mUser = FirebaseAuth.getInstance().currentUser
+
+        if (mUser?.email == null) {
+
+        } else{
+            mUser.getIdToken(true).addOnCompleteListener { p0 ->
                 if (p0.isSuccessful) {
-                    val idToken = p0.result!!.token
                     startActivity(Intent(this@LoginActivity, HomeAdminActivity::class.java))
-                    println(idToken)
                 } else {
                     p0.exception
                 }
             }
+        }
     }
 
     override fun onBackPressed() {

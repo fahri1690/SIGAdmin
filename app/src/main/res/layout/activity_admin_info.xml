@@ -92,12 +92,12 @@
 
     </LinearLayout>
 
-    <Button android:id="@+id/btn_perbarui_admin"
-            android:background="@drawable/button_ouval"
-            android:textColor="@color/buttonTextColor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/default_margin"
-            android:text="@string/btn_perbarui"/>
+<!--    <Button android:id="@+id/btn_perbarui_admin"-->
+<!--            android:background="@drawable/button_ouval"-->
+<!--            android:textColor="@color/buttonTextColor"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/default_margin"-->
+<!--            android:text="@string/btn_perbarui"/>-->
 
 </LinearLayout>
