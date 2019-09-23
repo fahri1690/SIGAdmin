@@ -10,6 +10,7 @@ import com.example.sigadmin.layouts.home.HomeAdminActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
+
 @Suppress("UNREACHABLE_CODE")
 class LoginActivity : AppCompatActivity() {
 
@@ -22,7 +23,8 @@ class LoginActivity : AppCompatActivity() {
             val password = et_password_login.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Email atau Kata Sandi tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Email atau Kata Sandi tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
 
@@ -41,18 +43,41 @@ class LoginActivity : AppCompatActivity() {
                 }
                 .addOnFailureListener {
                     Log.d("Main", "Failed Login: ${it.message}")
+                    Log.e("Main", it.message)
                     Toast.makeText(this, "Email/Password tidak sesuai", Toast.LENGTH_SHORT).show()
                 }
         }
 
         tv_lupa_sandi.setOnClickListener {
-            intent = Intent (this, ForgetPassword::class.java)
+            intent = Intent(this, ForgetPassword::class.java)
             startActivity(intent)
         }
 
         tv_daftar.setOnClickListener {
-            intent = Intent (this, RegisterActivity::class.java)
+            intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+
+//        verifyToken()
     }
+
+    private fun verifyToken() {
+        val mUser =
+            FirebaseAuth.getInstance().currentUser
+        mUser!!.getIdToken(true).addOnCompleteListener { p0 ->
+                if (p0.isSuccessful) {
+                    val idToken = p0.result!!.token
+                    startActivity(Intent(this@LoginActivity, HomeAdminActivity::class.java))
+                    println(idToken)
+                } else {
+                    p0.exception
+                }
+            }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
+
 }

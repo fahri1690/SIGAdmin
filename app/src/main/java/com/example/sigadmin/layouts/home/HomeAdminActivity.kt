@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.admin.AdminInfoActivity
+import com.example.sigadmin.layouts.admin.LoginActivity
 import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.layouts.place.CreatePlaceActivity
 import com.example.sigadmin.models.PlaceModel
@@ -20,6 +21,8 @@ import com.example.sigadmin.services.db.GetDb
 import com.example.sigadmin.services.db.OrderBy
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home_admin.*
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
@@ -116,6 +119,12 @@ class HomeAdminActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val db = FirebaseFirestore.getInstance()
+
+        val adminQuery = db.collection("Admin")
+
+        tv_admin.text = "Admin"
+
         tv_admin.setOnClickListener {
             val intent = Intent(this, AdminInfoActivity::class.java)
             startActivity(intent)
@@ -128,6 +137,10 @@ class HomeAdminActivity : AppCompatActivity() {
             builder.setMessage("Apakah kamu yakin akan keluar aplikasi?")
 
             builder.setPositiveButton("Ya") { _, _ ->
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this, LoginActivity::class.java)
+                finish()
+                startActivity(intent)
             }
 
             builder.setNegativeButton("Tidak") { _, _ ->

@@ -34,7 +34,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         auth = FirebaseAuth.getInstance()
 
         btn_register.setOnClickListener {
-            createAccount(email = "",password = "")
+            createAccount("","")
         }
 
         tv_login.setOnClickListener {
