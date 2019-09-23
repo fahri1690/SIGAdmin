@@ -4,7 +4,6 @@
         package="com.example.sigadmin">
 
     <uses-permission android:name="INTERNET" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -16,40 +15,43 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity
+                android:name=".layouts.admin.LoginActivity"
+                android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".layouts.admin.NewPassword" />
         <activity android:name=".layouts.admin.ForgetPassword" />
         <activity android:name=".layouts.admin.UpdateAdminActivity" />
         <activity android:name=".layouts.admin.AdminInfoActivity" />
         <activity
-                android:name="com.example.sigadmin.layouts.field.UpdateFieldActivity"
+                android:name=".layouts.field.UpdateFieldActivity"
                 android:label="Update Lapangan" />
         <activity
                 android:name=".layouts.main.MainFragmentActivity"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.example.sigadmin.layouts.place.UpdatePlaceActivity"
+                android:name=".layouts.place.UpdatePlaceActivity"
                 android:label="Update Tempat Futsal" />
         <activity
-                android:name="com.example.sigadmin.layouts.field.FieldDetailActivity"
+                android:name=".layouts.field.FieldDetailActivity"
                 android:label="Detail Lapangan" />
         <activity
-                android:name="com.example.sigadmin.layouts.field.CreateFieldActivity"
+                android:name=".layouts.field.CreateFieldActivity"
                 android:label="Input Data Lapangan" />
         <activity
                 android:name=".layouts.admin.RegisterActivity"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.example.sigadmin.layouts.place.CreatePlaceActivity"
+                android:name=".layouts.place.CreatePlaceActivity"
                 android:label="Input Data Tempat Futsal" />
         <activity
                 android:name=".layouts.home.HomeAdminActivity"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name=".layouts.admin.LoginActivity"
+                android:name=".layouts.home.SplashScreenActivity"
                 android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

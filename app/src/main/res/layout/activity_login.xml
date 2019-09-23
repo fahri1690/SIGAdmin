@@ -1,91 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:padding="@dimen/padding_18"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_5">
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical"
-                  android:layout_gravity="center_vertical">
+    <LinearLayout
+            style="@style/matchwrap"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/default_padding">
 
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="vertical">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
             <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/account_icon"
                     android:layout_marginBottom="@dimen/default_margin"
-                    android:src="@drawable/ic_account_icon"/>
+                    android:src="@drawable/ic_account_icon"
+                    android:contentDescription="@string/logoaccount" />
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:text="@string/login_info"
-                      android:textAlignment="center"
-                      android:textColor="@color/colorPrimary"
-                      android:textSize="@dimen/fontSz_loginInfo"
-                      android:paddingBottom="@dimen/padding_18"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/padding_18"
+                    android:text="@string/login_info"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/fontSz_loginInfo" />
 
-            <EditText android:id="@+id/et_email_login"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginBottom="@dimen/default_margin"
-                      android:background="@drawable/outline_stroke_ouval"
-                      android:hint="@string/et_email"
-                      android:textColorHint="@android:color/darker_gray"
-                      android:drawableLeft="@drawable/ic_mail"
-                      android:drawablePadding="@dimen/padding_5"
-                      android:inputType="textEmailAddress"/>
+            <EditText
+                    android:id="@+id/et_email_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:background="@drawable/outline_stroke_ouval"
+                    android:drawableStart="@drawable/ic_mail"
+                    android:drawablePadding="@dimen/padding_5"
+                    android:hint="@string/et_email"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="@android:color/darker_gray" />
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                     android:id="@+id/et_password_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/default_margin"
                     android:background="@drawable/outline_stroke_ouval"
-                    android:hint="@string/et_kata_sandi"
-                    android:inputType="textPassword"
                     android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
                     android:drawablePadding="@dimen/padding_5"
-                    android:textColorHint="@android:color/darker_gray"/>
+                    android:hint="@string/et_kata_sandi"
+                    android:inputType="textPassword"
+                    android:textColorHint="@android:color/darker_gray" />
 
-            <Button android:layout_marginTop="@dimen/default_margin"
+            <Button
                     android:id="@+id/btn_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/default_margin"
                     android:background="@drawable/button_ouval"
                     android:text="@string/tv_masuk"
-                    android:textColor="@color/buttonTextColor"/>
+                    android:textColor="@color/buttonTextColor" />
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginTop="@dimen/default_margin"
-                          android:gravity="center"
-                          android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                 <TextView
                         android:id="@+id/tv_lupa_sandi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/lupasandi"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorPrimary" />
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/padding_5"
                         android:layout_marginRight="@dimen/padding_5"
-                        android:text="|"/>
+                        android:text="@string/garisvertical" />
 
                 <TextView
                         android:id="@+id/tv_daftar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/tv_register"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorPrimary" />
 
             </LinearLayout>
 
