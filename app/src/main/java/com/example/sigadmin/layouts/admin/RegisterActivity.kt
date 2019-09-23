@@ -60,10 +60,12 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             .addOnCompleteListener(this){task ->
                 if (task.isSuccessful){
                     Log.d(TAG, "Sukses bikin akun dengan email baru")
+                    Toast.makeText(this, "Daftar Sukses", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, LoginActivity::class.java))
 //
                 } else {
                     Log.w(TAG, "gagal bikin akun baru", task.exception)
-                    Toast.makeText(baseContext, "Authentication gagal",
+                    Toast.makeText(baseContext, "Autentikasi gagal",
                         Toast.LENGTH_SHORT).show()
                 }
             }
@@ -93,18 +95,21 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             et_password_register.setBackgroundResource(R.drawable.err_outline_stroke)
             et_password_register.setHintTextColor(getColor(R.color.errColor))
             return
+        } else if(password.length < 6){
+            Toast.makeText(this, "Kata Sandi minimal 6 karakter", Toast.LENGTH_SHORT).show()
+            et_password_register.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_password_register.setHintTextColor(getColor(R.color.errColor))
+            return
         } else {
             val result = HashMap<String, Any>()
-            result["namaTempat"] = name
+            result["namaAdmin"] = name
             result["email"] = email
             result["kataSandi"] = password
 
-            db.collection("Admin")
+            db.collection("admin")
                 .add(result)
                 .addOnSuccessListener {
-                    val intent = Intent(this, HomeAdminActivity::class.java)
-                    startActivity(intent)
-                    Toast.makeText(this, "Daftar Sukses", Toast.LENGTH_SHORT).show()
+
                 }
                 .addOnFailureListener {
 

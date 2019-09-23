@@ -132,7 +132,7 @@ class HomeAdminActivity : AppCompatActivity() {
                     val doc = document.data
 
                     val mail = doc?.get("email").toString()
-                    val name = doc?.get("namaTempat").toString()
+                    val name = doc?.get("namaAdmin").toString()
                     val phone = doc?.get("").toString()
 
                     val intent = Intent(this, AdminInfoActivity::class.java)
