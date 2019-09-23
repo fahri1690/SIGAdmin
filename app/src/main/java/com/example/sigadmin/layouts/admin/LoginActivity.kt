@@ -59,27 +59,9 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        verifyToken()
-    }
 
-    private fun verifyToken() {
 
-        val mUser = FirebaseAuth.getInstance().currentUser
 
-        if (mUser?.email == null) {
-
-        } else{
-            mUser.getIdToken(true).addOnCompleteListener { p0 ->
-                if (p0.isSuccessful) {
-                    startActivity(Intent(this@LoginActivity, HomeAdminActivity::class.java))
-                } else {
-                    p0.exception
-                }
-            }
-        }
-    }
 
     override fun onBackPressed() {
         super.onBackPressed()

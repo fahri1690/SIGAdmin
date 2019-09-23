@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.admin.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -15,10 +16,10 @@ class SplashScreenActivity : AppCompatActivity() {
         object : Thread() {
             override fun run() {
                 try {
-                    sleep(1500)
+                    sleep(2500)
+                    verifyToken()
 
-                    val intent = Intent(baseContext, LoginActivity::class.java)
-                    startActivity(intent)
+
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
@@ -26,5 +27,30 @@ class SplashScreenActivity : AppCompatActivity() {
         }.also {
             it.start()
         }
+    }
+
+    private fun verifyToken() {
+
+        val mUser = FirebaseAuth.getInstance().currentUser
+
+        if (mUser?.email == null) {
+
+            val intent = Intent(baseContext, LoginActivity::class.java)
+            startActivity(intent)
+
+        } else{
+            mUser.getIdToken(true).addOnCompleteListener { p0 ->
+                if (p0.isSuccessful) {
+                    startActivity(Intent(baseContext, HomeAdminActivity::class.java))
+                } else {
+                    p0.exception
+                }
+            }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        verifyToken()
     }
 }
