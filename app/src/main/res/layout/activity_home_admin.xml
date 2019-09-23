@@ -36,11 +36,14 @@
                         android:drawablePadding="@dimen/padding_5"/>
 
                 <TextView
+                        android:layout_marginStart="@dimen/default_margin"
                         android:id="@+id/tv_admin"
                         android:layout_width="210dp"
+                        android:textColor="@android:color/white"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:textStyle="bold"
+                        android:text="Admin"
                         android:drawablePadding="@dimen/padding_5"/>
 
                 <TextView

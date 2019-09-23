@@ -107,6 +107,8 @@ class HomeAdminActivity : AppCompatActivity() {
 
         rvMain.layoutManager = LinearLayoutManager(this)
 
+        val user = FirebaseAuth.getInstance().currentUser
+
         val query = OrderBy().ascendingName
         val options = GetDb().recyclerOption.setQuery(query, PlaceModel::class.java).build()
 
@@ -119,15 +121,27 @@ class HomeAdminActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val db = FirebaseFirestore.getInstance()
-
-        val adminQuery = db.collection("Admin")
-
-        tv_admin.text = "Admin"
+        tv_admin.text = user?.email
 
         tv_admin.setOnClickListener {
-            val intent = Intent(this, AdminInfoActivity::class.java)
-            startActivity(intent)
+
+            val db = FirebaseFirestore.getInstance()
+            db.collection("Admin").whereEqualTo("email", user?.email).get().addOnSuccessListener{
+                for(document in it.documents) {
+
+                    val doc = document.data
+
+                    val mail = doc?.get("email").toString()
+                    val name = doc?.get("namaTempat").toString()
+                    val phone = doc?.get("").toString()
+
+                    val intent = Intent(this, AdminInfoActivity::class.java)
+                    intent.putExtra(AdminInfoActivity.USER_EMAIL, mail)
+                    intent.putExtra(AdminInfoActivity.USER_NAME, name)
+                    intent.putExtra(AdminInfoActivity.PHONE, phone)
+                    startActivity(intent)
+                }
+            }
         }
 
         tv_logOut.setOnClickListener {
