@@ -18,6 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 try {
                     sleep(2500)
                     verifyToken()
+                    
 
 
                 } catch (e: Exception) {
