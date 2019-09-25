@@ -1,88 +1,88 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         style="@style/allmatchparent"
-        android:background="#FFFFFF"
         android:orientation="vertical"
         tools:context=".layouts.home.HomeAdminActivity">
 
-    <LinearLayout
-            android:id="@+id/linearLayout"
-            style="@style/matchwrap"
-            android:orientation="vertical"
-            tools:ignore="MissingConstraints">
-
-        <androidx.appcompat.widget.Toolbar
-                style="@style/matchwrap"
-                android:paddingTop="@dimen/default_padding"
-                android:paddingBottom="@dimen/default_padding"
-                android:elevation="@dimen/default_padding"
-                android:background="@color/colorPrimary"
-                android:layout_marginBottom="@dimen/default_margin">
-
-            <LinearLayout
-                    style="@style/allmatchparent"
-                    android:background="@color/colorPrimary"
-                    android:orientation="horizontal">
-
-                <TextView
-                        style="@style/allwrapcontent"
-                        android:text="@string/hayy"
-                        android:textColor="@color/buttonTextColor"
-                        android:gravity="center_vertical"
-                        android:textStyle="bold"
-                        android:drawableLeft="@drawable/ic_account_box_black"
-                        android:drawablePadding="@dimen/padding_5"/>
-
-                <TextView
-                        android:layout_marginStart="@dimen/default_margin"
-                        android:id="@+id/tv_admin"
-                        android:layout_width="210dp"
-                        android:textColor="@android:color/white"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:textStyle="bold"
-                        android:text="Admin"
-                        android:drawablePadding="@dimen/padding_5"/>
-
-                <TextView
-                        android:id="@+id/tv_logOut"
-                        style="@style/allwrapcontent"
-                        android:text="@string/keluar"
-                        android:textColor="@color/buttonTextColor"
-                        android:gravity="center_vertical"
-                        android:textStyle="bold"
-                        android:drawableRight="@drawable/ic_exit_to_app_black_24dp"
-                        android:drawablePadding="@dimen/padding_5"/>
-
-            </LinearLayout>
+<!--    toolbar-->
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarHoeomeAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginBottom="@dimen/padding_5"
+            android:background="@color/colorPrimary"
+            android:elevation="@dimen/default_padding">
 
 
-        </androidx.appcompat.widget.Toolbar>
+        <RelativeLayout style="@style/allmatchparent">
 
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvMain"
-                android:layout_width="395dp"
-                android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="8dp"/>
-    </LinearLayout>
+            <TextView
+                    android:id="@+id/judulhalamanutama"
+                    style="@style/allwrapcontent"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/margin_2"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:text="@string/halaman_utama" />
 
+            <TextView
+                    android:id="@+id/tv_admin"
+                    style="@style/allwrapcontent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/padding_5"
+                    android:layout_toStartOf="@id/tv_admin"
+                    android:drawableStart="@drawable/ic_account_box_black"
+                    android:drawablePadding="@dimen/margin_2"
+                    android:text="@string/admin"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            <TextView
+                    android:id="@+id/tv_logOut"
+                    style="@style/allwrapcontent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/padding_5"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:drawableStart="@drawable/ic_exit_to_app_black_24dp"
+                    android:drawablePadding="@dimen/margin_2"
+                    android:text="@string/keluar" />
+
+        </RelativeLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--    Recycler List Lapangan-->
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbarHoeomeAdmin"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp" />
+
+    <!--    FloatingActionButton Add Place-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/ib_add_new_place"
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:background="@color/transparent"
             android:foreground="@drawable/add_button"
             app:backgroundTint="#00FFFFFF"
             app:backgroundTintMode="add"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="MissingConstraints"/>
+            tools:ignore="MissingConstraints" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -1,38 +1,28 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         style="@style/allmatchparent"
-        android:background="#FFFFFF"
         tools:context=".layouts.home.HomeAdminActivity">
-
-    <LinearLayout
-            android:id="@+id/linearLayout"
-            style="@style/matchwrap"
-            android:orientation="vertical"
-            tools:ignore="MissingConstraints">
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMMain"
-                android:layout_width="395dp"
-                android:layout_height="wrap_content"
+                style="@style/allmatchparent"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp" />
-    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/ibb_add_new_field"
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:background="@color/transparent"
             android:foreground="@drawable/add_button"
             app:backgroundTint="#00FFFFFF"
             app:backgroundTintMode="add"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="MissingConstraints" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

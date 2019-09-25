@@ -121,12 +121,12 @@ class HomeAdminActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        tv_admin.text = user?.email
+//        tv_admin.text = user?.email
 
         tv_admin.setOnClickListener {
 
             val db = FirebaseFirestore.getInstance()
-            db.collection("Admin").whereEqualTo("email", user?.email).get().addOnSuccessListener{
+            db.collection("admin").whereEqualTo("email", user?.email).get().addOnSuccessListener{
                 for(document in it.documents) {
 
                     val doc = document.data

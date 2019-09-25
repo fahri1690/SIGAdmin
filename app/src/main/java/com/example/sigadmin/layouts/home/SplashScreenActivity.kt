@@ -16,10 +16,8 @@ class SplashScreenActivity : AppCompatActivity() {
         object : Thread() {
             override fun run() {
                 try {
-                    sleep(2500)
+                    sleep(1000)
                     verifyToken()
-                    
-
 
                 } catch (e: Exception) {
                     e.printStackTrace()

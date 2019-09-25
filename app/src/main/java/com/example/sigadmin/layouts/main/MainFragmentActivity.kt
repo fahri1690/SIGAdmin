@@ -7,6 +7,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.home.HomeAdminActivity
 import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.activity_fragment_main.*
 
 class MainFragmentActivity : AppCompatActivity() {
 
@@ -19,6 +20,10 @@ class MainFragmentActivity : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
+
+        iv_backHome.setOnClickListener {
+            onBackPressed()
+        }
 
     }
 

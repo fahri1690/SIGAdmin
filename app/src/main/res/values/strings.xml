@@ -59,4 +59,6 @@
     <string name="images">images</string>
     <string name="logoaccount">logoaccount</string>
     <string name="garisvertical">|</string>
+    <string name="halaman_utama">Halaman Utama</string>
+    <string name="detail_lapangan">Detail Lapangan</string>
 </resources>

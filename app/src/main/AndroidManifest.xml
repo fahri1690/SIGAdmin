@@ -33,7 +33,7 @@
                 android:label="Update Tempat Futsal" />
         <activity
                 android:name=".layouts.field.FieldDetailActivity"
-                android:label="Detail Lapangan" />
+                android:theme="@style/AppTheme.NoActionBar"/>
         <activity
                 android:name=".layouts.field.CreateFieldActivity"
                 android:label="Input Data Lapangan" />
@@ -45,7 +45,7 @@
                 android:label="Input Data Tempat Futsal" />
         <activity
                 android:name=".layouts.home.HomeAdminActivity"
-                android:theme="@style/AppTheme.NoActionBar" />
+                android:theme="@style/AppTheme.NoActionBar"/>
         <activity
                 android:name=".layouts.home.SplashScreenActivity"
                 android:theme="@style/AppTheme.NoActionBar">

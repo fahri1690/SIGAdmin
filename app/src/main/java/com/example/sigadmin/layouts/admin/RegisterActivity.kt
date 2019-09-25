@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
-import com.example.sigadmin.layouts.home.HomeAdminActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_register.*
@@ -54,15 +53,12 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             return
         }
 
-//        showProgressDialog()
-
         auth.createUserWithEmailAndPassword(email,password)
             .addOnCompleteListener(this){task ->
                 if (task.isSuccessful){
                     Log.d(TAG, "Sukses bikin akun dengan email baru")
                     Toast.makeText(this, "Daftar Sukses", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, LoginActivity::class.java))
-//
                 } else {
                     Log.w(TAG, "gagal bikin akun baru", task.exception)
                     Toast.makeText(baseContext, "Autentikasi gagal",

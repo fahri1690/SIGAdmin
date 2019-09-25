@@ -4,87 +4,123 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/default_padding"
         tools:context=".layouts.field.FieldDetailActivity">
 
-    <!--Kode Lapangan-->
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView
+                    android:id="@+id/iv_backMainFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:src="@drawable/arrow_back"/>
+
+            <TextView
+                    android:id="@+id/title"
+                    style="@style/allwrapcontent"
+                    android:layout_toEndOf="@id/iv_backMainFragment"
+                    android:gravity="center"
+                    android:minHeight="?actionBarSize"
+                    android:text="@string/detail_lapangan"
+                    android:textColor="@android:color/white"
+                    android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+
+        </RelativeLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
-            style="@style/matchwrap"
-            android:layout_marginBottom="@dimen/default_margin">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/default_padding">
 
-        <TextView
-                style="@style/tvFieldDetail"
-                android:text="@string/tv_field_kode" />
+        <!--Kode Lapangan-->
+        <LinearLayout
+                style="@style/matchwrap"
+                android:layout_marginBottom="@dimen/default_margin">
 
-        <TextView
-                style="@style/tvTitik2"
-                android:layout_gravity="center_vertical" />
+            <TextView
+                    style="@style/tvFieldDetail"
+                    android:text="@string/tv_field_kode" />
 
-        <TextView
-                android:id="@+id/tv_kode_lapangan"
-                style="@style/tvFieldDetail2"
-                android:layout_gravity="center_vertical"/>
+            <TextView
+                    style="@style/tvTitik2"
+                    android:layout_gravity="center_vertical" />
+
+            <TextView
+                    android:id="@+id/tv_kode_lapangan"
+                    style="@style/tvFieldDetail2"
+                    android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <!--Jenis-->
+        <LinearLayout
+                style="@style/matchwrap"
+                android:layout_marginBottom="@dimen/default_margin">
+
+            <TextView
+                    style="@style/tvFieldDetail"
+                    android:text="@string/tv_jenis" />
+
+            <TextView
+                    style="@style/tvTitik2"
+                    android:layout_gravity="center_vertical" />
+
+            <TextView
+                    android:id="@+id/tv_jenis_lapangan"
+                    style="@style/tvFieldDetail2"
+                    android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
+
+        <!--harga siang-->
+        <LinearLayout
+                style="@style/matchwrap"
+                android:layout_marginBottom="@dimen/default_margin">
+
+            <TextView
+                    style="@style/tvFieldDetail"
+                    android:text="@string/tv_hargaSiag" />
+
+            <TextView style="@style/tvTitik2" />
+
+            <TextView
+                    android:id="@+id/tv_hargaSiang"
+                    style="@style/tvFieldDetail2" />
+        </LinearLayout>
+
+        <!--Harga Malam-->
+        <LinearLayout
+                style="@style/matchwrap"
+                android:layout_marginBottom="@dimen/default_margin">
+
+            <TextView
+                    style="@style/tvFieldDetail"
+                    android:text="@string/tv_hargaMalam" />
+
+            <TextView style="@style/tvTitik2" />
+
+            <TextView
+                    android:id="@+id/tv_hargaMalam"
+                    style="@style/tvFieldDetail2" />
+        </LinearLayout>
+
+        <Button
+                android:id="@+id/btn_update_field"
+                style="@style/button"
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="@string/btn_perbarui" />
+
     </LinearLayout>
 
-    <!--Jenis-->
-
-    <LinearLayout
-            style="@style/matchwrap"
-            android:layout_marginBottom="@dimen/default_margin">
-
-        <TextView
-                style="@style/tvFieldDetail"
-                android:text="@string/tv_jenis" />
-
-        <TextView
-                style="@style/tvTitik2"
-                android:layout_gravity="center_vertical" />
-
-        <TextView
-                android:id="@+id/tv_jenis_lapangan"
-                style="@style/tvFieldDetail2"
-                android:layout_gravity="center_vertical"/>
-
-    </LinearLayout>
-
-    <!--harga siang-->
-    <LinearLayout
-            style="@style/matchwrap"
-            android:layout_marginBottom="@dimen/default_margin">
-
-        <TextView
-                style="@style/tvFieldDetail"
-                android:text="@string/tv_hargaSiag" />
-
-        <TextView style="@style/tvTitik2" />
-
-        <TextView
-                android:id="@+id/tv_hargaSiang"
-                style="@style/tvFieldDetail2" />
-    </LinearLayout>
-
-    <!--Harga Malam-->
-
-    <LinearLayout
-            style="@style/matchwrap"
-            android:layout_marginBottom="@dimen/default_margin">
-
-        <TextView
-                style="@style/tvFieldDetail"
-                android:text="@string/tv_hargaMalam" />
-
-        <TextView style="@style/tvTitik2" />
-
-        <TextView
-                android:id="@+id/tv_hargaMalam"
-                style="@style/tvFieldDetail2" />
-    </LinearLayout>
-
-    <Button
-            android:id="@+id/btn_update_field"
-            style="@style/button"
-            android:layout_marginTop="@dimen/default_margin"
-            android:text="@string/btn_perbarui" />
 
 </LinearLayout>

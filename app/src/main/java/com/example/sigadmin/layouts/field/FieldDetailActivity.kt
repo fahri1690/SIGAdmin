@@ -44,6 +44,10 @@ class FieldDetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        iv_backMainFragment.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     override fun onBackPressed() {
