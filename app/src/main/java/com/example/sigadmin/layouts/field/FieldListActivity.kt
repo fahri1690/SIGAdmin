@@ -43,6 +43,7 @@ class FieldListActivity : Fragment() {
 
             val results = activity.getList()
             val placeId:String? = results.getString("placeId")
+            val gambar = results.getStringArrayList("gambar")
 
             fieldViewHolder.itemView.setOnClickListener {
                 val snapshot = snapshots.getSnapshot(position)
@@ -54,6 +55,7 @@ class FieldListActivity : Fragment() {
                 intent.putExtra("hargaSiang", fieldModel.hargaSiang)
                 intent.putExtra("hargaMalam", fieldModel.hargaMalam)
                 intent.putExtra("placeId", placeId)
+                intent.putExtra("gambar", gambar)
                 startActivity(intent)
             }
 

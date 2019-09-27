@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.R
+import com.example.sigadmin.services.db.GetDb
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_create_place.*
 import kotlinx.android.synthetic.main.activity_update_place.*
 
 class UpdatePlaceActivity : AppCompatActivity() {
@@ -28,13 +30,10 @@ class UpdatePlaceActivity : AppCompatActivity() {
 
     private fun updateData() {
 
-        pb_update_place.visibility = View.VISIBLE
-
         val placeId: String = intent.getStringExtra("placeId")
         val images = intent.getStringArrayListExtra("gambar")
 
-        val db = FirebaseFirestore.getInstance()
-        val query = db.collection("Lapangan").document(placeId)
+        val query = GetDb().collection.document(placeId)
 
         val name = et_updt_nama_tempat.text.toString()
         val facility = et_updt_fasilitas.text.toString()
@@ -84,6 +83,8 @@ class UpdatePlaceActivity : AppCompatActivity() {
             Toast.makeText(this,"Longitude harus diantara -180 sampai 180",Toast.LENGTH_SHORT).show()
         } else {
 
+            pb_update_place.visibility = View.VISIBLE
+
             val result = HashMap<String, Any?>()
             result["namaTempat"] = name
             result["fasilitas"] = facility
@@ -114,37 +115,36 @@ class UpdatePlaceActivity : AppCompatActivity() {
                 }
                 .addOnFailureListener { e ->
                     Log.w("Messages", "Error updating document", e)
+                    pb_update_place.visibility = View.GONE
                 }
         }
     }
 
     private fun getData() {
 
-        val names = intent.getStringExtra("namaTempat")
-        val facilitys = intent.getStringExtra("fasilitas")
-        val alamats = intent.getStringExtra("alamat")
-        val jamBukas = intent.getStringExtra("jamBuka")
-        val jamTutups = intent.getStringExtra("jamTutup")
-        val lats = intent.getStringExtra("latitude")
-        val longs = intent.getStringExtra("longitude")
-        val noTelps = intent.getStringExtra("noTelp")
+        val placeId = intent.getStringExtra("placeId")
 
-        val name = et_updt_nama_tempat
-        val facility = et_updt_fasilitas
-        val alamat = et_updt_alamat
-        val jamBuka = et_updt_jamBuka
-        val jamTutup = et_updt_jamTutup
-        val lat = et_updt_latitude
-        val long = et_updt_longitude
-        val noTelp = et_updt_noTelp
+        val query = GetDb().collection.document(placeId)
 
-        name.setText(names)
-        facility.setText(facilitys)
-        alamat.setText(alamats)
-        jamBuka.setText(jamBukas)
-        jamTutup.setText(jamTutups)
-        lat.setText(lats)
-        long.setText(longs)
-        noTelp.setText(noTelps)
+        query.get().addOnSuccessListener {
+            val name = it.data?.get("namaTempat").toString()
+            val facility = it.data?.get("fasilitas").toString()
+            val jamBuka = it.data?.get("jamBuka").toString()
+            val jamTutup = it.data?.get("jamTutup").toString()
+            val noTelp = it.data?.get("noTelp").toString()
+            val lat = it.data?.get("latitude").toString()
+            val long = it.data?.get("longitude").toString()
+            val alamat = it.data?.get("alamat").toString()
+
+            et_updt_nama_tempat.setText(name)
+            et_updt_fasilitas.setText(facility)
+            et_updt_alamat.setText(alamat)
+            et_updt_jamBuka.setText(jamBuka)
+            et_updt_jamTutup.setText(jamTutup)
+            et_updt_latitude.setText(lat)
+            et_updt_longitude.setText(long)
+            et_updt_noTelp.setText(noTelp)
+        }
+
     }
 }

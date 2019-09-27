@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
+import com.example.sigadmin.services.db.GetDb
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_update_field.*
 
@@ -66,9 +67,9 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         val fieldId: String = intent.getStringExtra("fieldId")
         val placeId = intent.getStringExtra("placeId")
 
-        val db = FirebaseFirestore.getInstance()
+        val db = GetDb().collection
         val query =
-            db.collection("Lapangan").document(placeId).collection("listLapangan").document(fieldId)
+            db.document(placeId).collection("listLapangan").document(fieldId)
 
         val kodeLapangan = et_updt_kodeLapangan.text.toString()
         val jenis = spn_updt_jenisLapangan.selectedItem.toString()

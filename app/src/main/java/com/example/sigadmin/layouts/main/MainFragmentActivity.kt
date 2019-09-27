@@ -38,7 +38,7 @@ class MainFragmentActivity : AppCompatActivity() {
         val alamat = intent.getStringExtra("alamat")
         val lat = intent.getStringExtra("latitude")
         val long = intent.getStringExtra("longitude")
-        val images = intent.getStringArrayListExtra("gambar")
+        val gambar = intent.getStringArrayListExtra("gambar")
 
         val bundle = Bundle()
 
@@ -51,7 +51,7 @@ class MainFragmentActivity : AppCompatActivity() {
         bundle.putString("alamat", alamat)
         bundle.putString("latitude", lat)
         bundle.putString("longitude", long)
-        bundle.putStringArrayList("gambar", images)
+        bundle.putStringArrayList("gambar", gambar)
 
         return bundle
 
@@ -59,8 +59,10 @@ class MainFragmentActivity : AppCompatActivity() {
 
     fun getList():Bundle {
         val placeId = intent.getStringExtra("placeId")
+        val gambar = intent.getStringArrayListExtra("gambar")
         val bundle = Bundle()
         bundle.putString("placeId", placeId)
+        bundle.putStringArrayList("gambar", gambar)
 
         return bundle
     }

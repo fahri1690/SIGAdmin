@@ -53,6 +53,7 @@ class FieldDetailActivity : AppCompatActivity() {
     override fun onBackPressed() {
 
         val placeId = intent.getStringExtra("placeId")
+        val gambar = intent.getStringArrayListExtra("gambar")
         val docRef = GetDb().collection.document(placeId)
 
         docRef.get()
@@ -67,8 +68,6 @@ class FieldDetailActivity : AppCompatActivity() {
                     val alamat = document.data?.get("alamat").toString()
                     val lat = document.data?.get("latitude").toString()
                     val long = document.data?.get("longitude").toString()
-                    val images: ArrayList<String> =
-                        arrayListOf(document.data?.get("gambar").toString())
 
                     val intent = Intent(this, MainFragmentActivity::class.java)
                     intent.putExtra("placeId", placeId)
@@ -80,7 +79,7 @@ class FieldDetailActivity : AppCompatActivity() {
                     intent.putExtra("alamat", alamat)
                     intent.putExtra("latitude", lat)
                     intent.putExtra("longitude", long)
-                    intent.putStringArrayListExtra("gambar", images)
+                    intent.putStringArrayListExtra("gambar", gambar)
                     startActivity(intent)
                 }
             }

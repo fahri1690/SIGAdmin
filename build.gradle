@@ -24,6 +24,7 @@ allprojects {
         google()
         jcenter()
         maven { url "https://dl.bintray.com/konform-kt/konform" }
+        maven { url "https://jitpack.io"}
     }
 }
 

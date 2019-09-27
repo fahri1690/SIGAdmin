@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/constraintLayout"
         style="@style/allmatchparent"
         tools:context=".layouts.place.PlaceDetailActivity">
 
-    <ScrollView android:layout_width="match_parent"
+    <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         <LinearLayout
@@ -14,9 +16,28 @@
                 android:paddingBottom="@dimen/value30dp"
                 tools:ignore="MissingConstraints">
 
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvImagesMain"
-                    style="@style/matchwrap"/>
+            <com.glide.slider.library.SliderLayout
+                    android:id="@+id/carousels"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/ic_maps"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        app:fabCustomSize="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/colorPrimary"
+                        android:foregroundGravity="center"
+                        android:foreground="@android:drawable/ic_dialog_map"
+                        app:backgroundTint="@color/colorPrimary"
+                        tools:ignore="MissingConstraints" />
+
+
+            </com.glide.slider.library.SliderLayout>
 
             <LinearLayout
                     style="@style/matchwrap"
@@ -80,13 +101,14 @@
                             style="@style/tvPlaceDetail1"
                             android:text="@string/tv_noTelp" />
 
-                    <TextView style="@style/tvTitik2"
-                            android:layout_gravity="center_vertical"/>
+                    <TextView
+                            style="@style/tvTitik2"
+                            android:layout_gravity="center_vertical" />
 
                     <TextView
                             android:id="@+id/tv_no_telepon"
                             style="@style/tvPlaceDetail2"
-                            android:layout_gravity="center_vertical"/>
+                            android:layout_gravity="center_vertical" />
 
                 </LinearLayout>
 
@@ -107,7 +129,8 @@
 
                 <!--Alamat-->
 
-                <LinearLayout style="@style/matchwrap"
+                <LinearLayout
+                        style="@style/matchwrap"
                         android:layout_marginBottom="@dimen/margin_2">
 
                     <TextView

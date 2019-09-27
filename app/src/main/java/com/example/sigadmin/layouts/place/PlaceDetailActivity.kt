@@ -1,5 +1,6 @@
 package com.example.sigadmin.layouts.place
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,21 +9,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.request.RequestOptions
 import com.example.sigadmin.R
-import com.example.sigadmin.carousel.BannerCarouselItem
 import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
-import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.Section
+import com.glide.slider.library.SliderLayout
+import com.glide.slider.library.SliderTypes.BaseSliderView
+import com.glide.slider.library.SliderTypes.TextSliderView
+import kotlinx.android.synthetic.main.activity_place_detail.*
 import kotlinx.android.synthetic.main.activity_place_detail.view.*
-import java.util.ArrayList
+import java.util.*
 
 
-class PlaceDetailActivity : Fragment(){
+class PlaceDetailActivity : Fragment(), BaseSliderView.OnSliderClickListener{
+    override fun onSliderClick(slider: BaseSliderView?) {
 
-    private var groupAdapter = GroupAdapter<com.xwray.groupie.kotlinandroidextensions.ViewHolder>()
+    }
 
+    @SuppressLint("CheckResult")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.activity_place_detail, container, false)
         val tvName = root.findViewById<TextView>(R.id.tv_nama_tempat)
@@ -38,59 +42,64 @@ class PlaceDetailActivity : Fragment(){
 
         val results = activity.getMyData()
         val placeId  = results.getString("placeId")
-        val name = results.getString("namaTempat")
-        val facility = results.getString("fasilitas")
-        val jamBuka = results.getString("jamBuka")
-        val jamTutup = results.getString("jamTutup")
-        val noTelp = results.getString("noTelp")
-        val lat = results.getString("latitude")
-        val long = results.getString("longitude")
-        val alamat = results.getString("alamat")
+
         val imageList = results.getStringArrayList("gambar")
 
-        tvName.text = name
-        tvFacility.text = facility
-        tvJamBuka.text = jamBuka
-        tvJamTutup.text = jamTutup
-        tvNoTelp.text = noTelp
-        tvLat.text = lat
-        tvLong.text = long
-        tvAlamat.text = alamat
 
         val query = GetDb().collection.document(placeId!!.toString())
         val documentId = query.id
 
+        query.get().addOnSuccessListener {
+            tvName.text = it.data?.get("namaTempat").toString()
+            tvFacility.text = it.data?.get("fasilitas").toString()
+            tvJamBuka.text = it.data?.get("jamBuka").toString()
+            tvJamTutup.text = it.data?.get("jamTutup").toString()
+            tvNoTelp.text = it.data?.get("noTelp").toString()
+            tvLat.text = it.data?.get("latitude").toString()
+            tvLong.text = it.data?.get("longitude").toString()
+            tvAlamat.text = it.data?.get("alamat").toString()
+        }
+
         root.btn_update_place.setOnClickListener {
             val intent = Intent(getActivity(), UpdatePlaceActivity::class.java)
             intent.putExtra("placeId", documentId)
-            intent.putExtra("namaTempat", name)
-            intent.putExtra("fasilitas", facility)
-            intent.putExtra("alamat", alamat)
-            intent.putExtra("jamBuka", jamBuka)
-            intent.putExtra("jamTutup", jamTutup)
-            intent.putExtra("latitude", lat)
-            intent.putExtra("longitude", long)
-            intent.putExtra("noTelp", noTelp)
             intent.putStringArrayListExtra("gambar", imageList)
             startActivity(intent)
             Log.d("Meesss", documentId)
         }
 
+        root.ic_maps.setOnClickListener {
+            val intent = Intent(getActivity(), MapsActivity::class.java)
+            startActivity(intent)
+        }
+
         @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS"
         ) val listImages: ArrayList<String> = imageList
 
-        root.rvImagesMain.apply {
-            layoutManager = LinearLayoutManager(activity)
-            adapter = groupAdapter
-        }
+        val requestOptions = RequestOptions()
 
-        // declare banner carousel
-        val bannerCarouselItem = BannerCarouselItem(listImages, activity.supportFragmentManager)
-        groupAdapter.add(bannerCarouselItem)
+        val slide = root.findViewById<SliderLayout>(R.id.carousels)
 
-        Section().apply {
-            groupAdapter.add(this)
+        requestOptions.centerCrop()
+
+        // Background image
+        for (i in 0 until listImages.size) {
+            val textSliderView =
+                TextSliderView(context)
+            // initialize a SliderLayout
+
+            textSliderView
+                .image(listImages[i])
+                .setRequestOption(requestOptions)
+                .setProgressBarVisible(false)
+            //add your extra information
+
+            textSliderView.bundle(Bundle())
+            slide.addSlider(textSliderView)
         }
+        slide.setPresetTransformer(SliderLayout.Transformer.Fade)
+        slide.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom)
+        slide.setDuration(4000)
 
         return root
     }

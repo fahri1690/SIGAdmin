@@ -61,4 +61,5 @@
     <string name="garisvertical">|</string>
     <string name="halaman_utama">Halaman Utama</string>
     <string name="detail_lapangan">Detail Lapangan</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

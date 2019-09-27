@@ -53,19 +53,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             return
         }
 
-        auth.createUserWithEmailAndPassword(email,password)
-            .addOnCompleteListener(this){task ->
-                if (task.isSuccessful){
-                    Log.d(TAG, "Sukses bikin akun dengan email baru")
-                    Toast.makeText(this, "Daftar Sukses", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, LoginActivity::class.java))
-                } else {
-                    Log.w(TAG, "gagal bikin akun baru", task.exception)
-                    Toast.makeText(baseContext, "Autentikasi gagal",
-                        Toast.LENGTH_SHORT).show()
-                }
-            }
-
         if (name.isEmpty()) {
             Toast.makeText(this, "Nama tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_name_register.setBackgroundResource(R.drawable.err_outline_stroke)
@@ -105,10 +92,21 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             db.collection("admin")
                 .add(result)
                 .addOnSuccessListener {
-
+                    auth.createUserWithEmailAndPassword(email,password)
+                        .addOnCompleteListener(this){task ->
+                            if (task.isSuccessful){
+                                Log.d(TAG, "Sukses bikin akun dengan email baru")
+                                Toast.makeText(this, "Daftar Sukses", Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(this, LoginActivity::class.java))
+                            } else {
+                                Log.w(TAG, "gagal bikin akun baru", task.exception)
+                                Toast.makeText(baseContext, "Autentikasi gagal",
+                                    Toast.LENGTH_SHORT).show()
+                            }
+                        }
                 }
                 .addOnFailureListener {
-
+                    Toast.makeText(this, "Registrasi gagal, coba lagi beberapa saat", Toast.LENGTH_SHORT).show()
                 }
         }
     }
