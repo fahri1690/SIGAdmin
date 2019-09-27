@@ -7,4 +7,5 @@
     <color name="buttonTextColor">#FFF</color>
     <color name="errColor" >#DC143C</color>
     <color name="transparent">#00000000</color>
+    <color name="bgHome">#DAFFF9</color>
 </resources>

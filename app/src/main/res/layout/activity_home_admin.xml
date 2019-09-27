@@ -3,14 +3,14 @@
         xmlns:tools="http://schemas.android.com/tools"
         style="@style/allmatchparent"
         android:orientation="vertical"
+        android:background="@color/bgHome"
         tools:context=".layouts.home.HomeAdminActivity">
 
-<!--    toolbar-->
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarHoeomeAdmin"
             android:layout_width="match_parent"
             android:layout_height="85dp"
-            android:layout_marginBottom="@dimen/padding_5"
+            android:layout_marginBottom="@dimen/default_margin"
             android:background="@color/colorPrimary"
             android:elevation="@dimen/default_padding">
 
@@ -60,7 +60,6 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <!--    Recycler List Lapangan-->
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMain"
             android:layout_width="match_parent"
@@ -70,7 +69,6 @@
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp" />
 
-    <!--    FloatingActionButton Add Place-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/ib_add_new_place"
             android:layout_width="70dp"
