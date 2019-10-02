@@ -23,17 +23,13 @@
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/ic_maps"
-                        android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        app:fabCustomSize="50dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@color/colorPrimary"
-                        android:foregroundGravity="center"
-                        android:foreground="@android:drawable/ic_dialog_map"
-                        app:backgroundTint="@color/colorPrimary"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="2dp"
+                        app:srcCompat="@drawable/ic_map_white_24dp"
                         tools:ignore="MissingConstraints" />
 
 

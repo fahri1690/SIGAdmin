@@ -11,7 +11,18 @@ data class PlaceModel(
     val latitude: Double = 0.0,
     val longitude: Double = 0.0,
     val gambar: ArrayList<String> = arrayListOf(PlaceImages().gambar)
-)
+){
+
+    companion object {
+
+        const val PLACE_NAME = "namaTempat"
+    }
+
+    fun getName(): String {
+        return  this.namaTempat
+    }
+
+}
 
 data class PlaceImages(
     val gambar: String = ""

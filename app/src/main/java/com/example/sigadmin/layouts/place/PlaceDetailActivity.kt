@@ -68,8 +68,19 @@ class PlaceDetailActivity : Fragment(), BaseSliderView.OnSliderClickListener{
             Log.d("Meesss", documentId)
         }
 
+        val name = results.getString("namaTempat")
+        val lat = results.getString("latitude")
+        val long = results.getString("longitude")
+
         root.ic_maps.setOnClickListener {
             val intent = Intent(getActivity(), MapsActivity::class.java)
+            intent.putExtra(MapsActivity(). extraName, name)
+            intent.putExtra(MapsActivity(). extraLat, lat)
+            intent.putExtra(MapsActivity(). extraLong, long)
+
+            println("LATITIDE = $lat")
+            println("LONGITUDE = $long")
+
             startActivity(intent)
         }
 
@@ -99,7 +110,7 @@ class PlaceDetailActivity : Fragment(), BaseSliderView.OnSliderClickListener{
         }
         slide.setPresetTransformer(SliderLayout.Transformer.Fade)
         slide.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom)
-        slide.setDuration(4000)
+        slide.setDuration(3000)
 
         return root
     }
