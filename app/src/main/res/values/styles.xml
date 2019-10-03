@@ -51,7 +51,7 @@
     </style>
 
     <style name="tvCreatePlace">
-        <item name="android:layout_width">@dimen/margin_100</item>
+        <item name="android:layout_width">128dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/huruf18</item>
         <item name="android:textColor">@android:color/black</item>

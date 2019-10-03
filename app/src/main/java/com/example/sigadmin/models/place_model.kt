@@ -10,6 +10,9 @@ data class PlaceModel(
     val noTelp: String = "",
     val latitude: Double = 0.0,
     val longitude: Double = 0.0,
+    val jenisLapangan: String = "",
+    val hargaTerendah: Int = 0,
+    val hargaTertinggi: Int = 0,
     val gambar: ArrayList<String> = arrayListOf(PlaceImages().gambar)
 ){
 

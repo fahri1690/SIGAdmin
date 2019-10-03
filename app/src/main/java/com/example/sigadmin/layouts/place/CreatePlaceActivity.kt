@@ -199,6 +199,9 @@ class CreatePlaceActivity : AppCompatActivity() {
         val alamat = et_alamat.text.toString()
         val lat = et_latitude.text.toString()
         val long = et_longitude.text.toString()
+        val jenisLapangan = et_jenisLapangan.text.toString()
+        val hargaTerendah = et_harga_terendah.text.toString()
+        val hargaTertinggi = et_harga_tertinggi.text.toString()
 
         var latToDouble: Double? = null
         var longToDouble: Double? = null
@@ -208,6 +211,17 @@ class CreatePlaceActivity : AppCompatActivity() {
         }
         if (long.isNotEmpty()) {
             longToDouble = java.lang.Double.parseDouble(long)
+        }
+
+        var lowestPrice: Int? = null
+        var highestPrice: Int? = null
+
+        if (hargaTerendah.isNotEmpty()) {
+            lowestPrice = hargaTerendah.toInt()
+        }
+
+        if (hargaTertinggi.isNotEmpty()) {
+            highestPrice = hargaTertinggi.toInt()
         }
 
         if (name.isEmpty()) {
@@ -277,7 +291,37 @@ class CreatePlaceActivity : AppCompatActivity() {
             et_longitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        } else if (alamat.isEmpty()) {
+        } else if (jenisLapangan.isEmpty()) {
+            Toast.makeText(this, "Jenis Lapangan tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            et_jenisLapangan.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_jenisLapangan.setHintTextColor(getColor(R.color.errColor))
+            pb_create_place.visibility = View.GONE
+            return
+        }else if (hargaTerendah.isEmpty()) {
+            Toast.makeText(this, "Harga Terendah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            et_harga_terendah.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_harga_terendah.setHintTextColor(getColor(R.color.errColor))
+            pb_create_place.visibility = View.GONE
+            return
+        }else if (lowestPrice == null) {
+            Toast.makeText(this, "Harga Terendah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            et_harga_terendah.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_harga_terendah.setHintTextColor(getColor(R.color.errColor))
+            pb_create_place.visibility = View.GONE
+            return
+        }else if (hargaTertinggi.isEmpty()) {
+            Toast.makeText(this, "Harga Tertinggi tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            et_harga_tertinggi.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_harga_tertinggi.setHintTextColor(getColor(R.color.errColor))
+            pb_create_place.visibility = View.GONE
+            return
+        }else if (highestPrice == null) {
+            Toast.makeText(this, "Harga Tertinggi tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            et_harga_tertinggi.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_harga_tertinggi.setHintTextColor(getColor(R.color.errColor))
+            pb_create_place.visibility = View.GONE
+            return
+        }else if (alamat.isEmpty()) {
             Toast.makeText(this, "Alamat tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_alamat.setBackgroundResource(R.drawable.err_outline_stroke)
             et_alamat.setHintTextColor(getColor(R.color.errColor))
@@ -294,7 +338,10 @@ class CreatePlaceActivity : AppCompatActivity() {
                 "noTelp" to noTelp,
                 "alamat" to alamat,
                 "latitude" to latToDouble,
-                "longitude" to longToDouble
+                "longitude" to longToDouble,
+                "jenisLapangan" to jenisLapangan,
+                "hargaTerendah" to lowestPrice,
+                "hargaTertinggi" to highestPrice
             )
 
             db.add(result).addOnSuccessListener {

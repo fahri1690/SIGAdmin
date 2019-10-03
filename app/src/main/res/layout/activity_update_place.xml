@@ -111,6 +111,48 @@
 
             </LinearLayout>
 
+            <!--            jenis lapangan tersedia-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
+
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/jenis" />
+
+                <EditText
+                        android:id="@+id/et_updt_jenisLapangan"
+                        style="@style/etCreatePlace"
+                        android:inputType="text" />
+
+            </LinearLayout>
+
+            <!--            harga lapangan terendah-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
+
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/harga_terendah" />
+
+                <EditText
+                        android:id="@+id/et_updt_harga_terendah"
+                        style="@style/etCreatePlace"
+                        android:inputType="number" />
+
+            </LinearLayout>
+
+            <!--            harga lapangan tertinggi-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity">
+
+                <TextView
+                        style="@style/tvCreatePlace"
+                        android:text="@string/harga_tertinggi" />
+
+                <EditText
+                        android:id="@+id/et_updt_harga_tertinggi"
+                        style="@style/etCreatePlace"
+                        android:inputType="number" />
+
+            </LinearLayout>
+
             <LinearLayout style="@style/linlayCreatePlaceActivity">
 
                 <TextView

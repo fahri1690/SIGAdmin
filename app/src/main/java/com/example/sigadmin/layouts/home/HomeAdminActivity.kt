@@ -60,6 +60,9 @@ class HomeAdminActivity : AppCompatActivity() {
                 intent.putExtra("latitude", placeModel.latitude.toString())
                 intent.putExtra("longitude", placeModel.longitude.toString())
                 intent.putExtra("noTelp", placeModel.noTelp)
+                intent.putExtra("jenisLapangan", placeModel.jenisLapangan)
+                intent.putExtra("hargaTerendah", placeModel.hargaTerendah.toString())
+                intent.putExtra("hargaTertinggi", placeModel.hargaTertinggi.toString())
                 intent.putStringArrayListExtra("gambar", placeModel.gambar)
                 startActivity(intent)
             }

@@ -68,6 +68,9 @@ class FieldDetailActivity : AppCompatActivity() {
                     val alamat = document.data?.get("alamat").toString()
                     val lat = document.data?.get("latitude").toString()
                     val long = document.data?.get("longitude").toString()
+                    val jenis = document.data?.get("jenisLapangan").toString()
+                    val hargaTerendah = document.data?.get("hargaTerendah").toString()
+                    val hargaTertinggi = document.data?.get("hargaTertinggi").toString()
 
                     val intent = Intent(this, MainFragmentActivity::class.java)
                     intent.putExtra("placeId", placeId)
@@ -79,6 +82,9 @@ class FieldDetailActivity : AppCompatActivity() {
                     intent.putExtra("alamat", alamat)
                     intent.putExtra("latitude", lat)
                     intent.putExtra("longitude", long)
+                    intent.putExtra("jenisLapangan", jenis)
+                    intent.putExtra("hargaTerendah", hargaTerendah)
+                    intent.putExtra("hargaTertinggi", hargaTertinggi)
                     intent.putStringArrayListExtra("gambar", gambar)
                     startActivity(intent)
                 }

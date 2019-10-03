@@ -62,5 +62,7 @@
     <string name="halaman_utama">Halaman Utama</string>
     <string name="detail_lapangan">Detail Lapangan</string>
     <string name="title_activity_maps">Map</string>
-    <string name="jenis">Jenis</string>
+    <string name="jenis">Jenis Lapangan</string>
+    <string name="harga_terendah">Harga Terendah</string>
+    <string name="harga_tertinggi">Harga Tertinggi</string>
 </resources>

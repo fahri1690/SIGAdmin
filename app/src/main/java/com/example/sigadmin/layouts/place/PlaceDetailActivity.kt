@@ -37,6 +37,10 @@ class PlaceDetailActivity : Fragment(), BaseSliderView.OnSliderClickListener{
         val tvLat = root.findViewById<TextView>(R.id.tv_latitude)
         val tvLong = root.findViewById<TextView>(R.id.tv_longitude)
         val tvAlamat = root.findViewById<TextView>(R.id.tv_alamat)
+        val tvJenisLapangan = root.findViewById<TextView>(R.id.tv_jenisLapangan)
+        val tvHargaTerendah = root.findViewById<TextView>(R.id.tv_harga_terendah)
+        val tvHargaTertinggi = root.findViewById<TextView>(R.id.tv_harga_tertinggi)
+
 
         val activity = activity as MainFragmentActivity
 
@@ -58,6 +62,9 @@ class PlaceDetailActivity : Fragment(), BaseSliderView.OnSliderClickListener{
             tvLat.text = it.data?.get("latitude").toString()
             tvLong.text = it.data?.get("longitude").toString()
             tvAlamat.text = it.data?.get("alamat").toString()
+            tvJenisLapangan.text = it.data?.get("jenisLapangan").toString()
+            tvHargaTerendah.text = it.data?.get("hargaTerendah").toString()
+            tvHargaTertinggi.text = it.data?.get("hargaTertinggi").toString()
         }
 
         root.btn_update_place.setOnClickListener {
@@ -110,7 +117,7 @@ class PlaceDetailActivity : Fragment(), BaseSliderView.OnSliderClickListener{
         }
         slide.setPresetTransformer(SliderLayout.Transformer.Fade)
         slide.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom)
-        slide.setDuration(3000)
+        slide.setDuration(2500)
 
         return root
     }

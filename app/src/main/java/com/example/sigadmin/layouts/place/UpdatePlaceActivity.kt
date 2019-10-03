@@ -6,11 +6,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.R
+import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_create_place.*
 import kotlinx.android.synthetic.main.activity_update_place.*
 
 class UpdatePlaceActivity : AppCompatActivity() {
@@ -43,6 +41,9 @@ class UpdatePlaceActivity : AppCompatActivity() {
         val lat = et_updt_latitude.text.toString()
         val long = et_updt_longitude.text.toString()
         val noTelp = et_updt_noTelp.text.toString()
+        val jenisLapangan = et_updt_jenisLapangan.text.toString()
+        val hargaTerendah = et_updt_harga_terendah.text.toString()
+        val hargaTertinggi = et_updt_harga_tertinggi.text.toString()
 
         var latToDouble:Double? = null
         var longToDouble: Double? = null
@@ -51,6 +52,17 @@ class UpdatePlaceActivity : AppCompatActivity() {
             latToDouble = lat.toDouble()
         if(long.isNotEmpty())
             longToDouble = long.toDouble()
+
+        var lowestPrice: Int? = null
+        var highestPrice: Int? = null
+
+        if (hargaTerendah.isNotEmpty()) {
+            lowestPrice = hargaTerendah.toInt()
+        }
+
+        if (hargaTertinggi.isNotEmpty()) {
+            highestPrice = hargaTertinggi.toInt()
+        }
 
         if (name.isEmpty()) {
             Toast.makeText(this, "Nama tidak boleh kosong", Toast.LENGTH_SHORT).show()
@@ -73,14 +85,30 @@ class UpdatePlaceActivity : AppCompatActivity() {
         } else if (lat.isEmpty()) {
             Toast.makeText(this, "Latitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
             return
+        }else if (latToDouble!! < -90 || latToDouble > 90) {
+            Toast.makeText(this, "Latitude harus diantara -90 sampai 90", Toast.LENGTH_SHORT).show()
+            return
         } else if (long.isEmpty()) {
             Toast.makeText(this, "Longitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
             return
-        } else if (latToDouble!! < -90 || latToDouble > 90) {
-            Toast.makeText(this, "Latitude harus diantara -90 sampai 90", Toast.LENGTH_SHORT).show()
-            return
         } else if (longToDouble!! < -180 || longToDouble > 180) {
             Toast.makeText(this,"Longitude harus diantara -180 sampai 180",Toast.LENGTH_SHORT).show()
+            return
+        } else if (jenisLapangan.isEmpty()) {
+            Toast.makeText(this, "Jenis Lapangan tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            return
+        } else if (hargaTerendah.isEmpty()) {
+            Toast.makeText(this, "Harga Terendah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            return
+        } else if (lowestPrice == null) {
+            Toast.makeText(this, "Harga Terendah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            return
+        } else if (hargaTertinggi.isEmpty()) {
+            Toast.makeText(this, "Harga Tertinggi tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            return
+        } else if (highestPrice == null) {
+            Toast.makeText(this, "Harga Tertinggi tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            return
         } else {
 
             pb_update_place.visibility = View.VISIBLE
@@ -94,6 +122,9 @@ class UpdatePlaceActivity : AppCompatActivity() {
             result["alamat"] = alamat
             result["latitude"] = latToDouble
             result["longitude"] = longToDouble
+            result["jenisLapangan"] = jenisLapangan
+            result["hargaTerendah"] = lowestPrice
+            result["hargaTertinggi"] = highestPrice
             result["gambar"] = images
 
             query.update(result)
@@ -108,6 +139,9 @@ class UpdatePlaceActivity : AppCompatActivity() {
                     intent.putExtra("latitude", latToDouble)
                     intent.putExtra("longitude", longToDouble)
                     intent.putExtra("noTelp", noTelp)
+                    intent.putExtra("jenisLapangan", jenisLapangan)
+                    intent.putExtra("hargaTerendah", lowestPrice)
+                    intent.putExtra("hargaTertinggi", highestPrice)
                     intent.putStringArrayListExtra("gambar", images)
                     pb_update_place.visibility = View.GONE
                     finish()
@@ -135,6 +169,9 @@ class UpdatePlaceActivity : AppCompatActivity() {
             val lat = it.data?.get("latitude").toString()
             val long = it.data?.get("longitude").toString()
             val alamat = it.data?.get("alamat").toString()
+            val jenisLapangan = it.data?.get("jenisLapangan").toString()
+            val hargaTerendah = it.data?.get("hargaTerendah").toString()
+            val hargaTertinggi = it.data?.get("hargaTertinggi").toString()
 
             et_updt_nama_tempat.setText(name)
             et_updt_fasilitas.setText(facility)
@@ -144,6 +181,9 @@ class UpdatePlaceActivity : AppCompatActivity() {
             et_updt_latitude.setText(lat)
             et_updt_longitude.setText(long)
             et_updt_noTelp.setText(noTelp)
+            et_updt_jenisLapangan.setText(jenisLapangan)
+            et_updt_harga_terendah.setText(hargaTerendah)
+            et_updt_harga_tertinggi.setText(hargaTertinggi)
         }
 
     }
