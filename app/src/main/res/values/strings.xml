@@ -65,4 +65,5 @@
     <string name="jenis">Jenis Lapangan</string>
     <string name="harga_terendah">Harga Terendah</string>
     <string name="harga_tertinggi">Harga Tertinggi</string>
+    <string name="tampil_map">tampil map</string>
 </resources>

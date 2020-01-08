@@ -13,15 +13,15 @@ class GetDb {
     val recyclerOption = FirestoreRecyclerOptions.Builder<PlaceModel>()
 }
 
-class GetImage {
-    val ref = FirebaseStorage.getInstance()
-    val storage = ref.reference
-}
+//class GetImage {
+//    val ref = FirebaseStorage.getInstance()
+//    val storage = ref.reference
+//}
 
 class OrderBy {
     val ascendingName = GetDb().collection.orderBy("namaTempat", Query.Direction.ASCENDING)
 }
 
-class GetAuth {
-    val userAuth = FirebaseAuth.getInstance().currentUser?.uid
-}
+//class GetAuth {
+//    val userAuth = FirebaseAuth.getInstance().currentUser?.uid
+//}
