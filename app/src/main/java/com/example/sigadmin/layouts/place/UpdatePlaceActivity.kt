@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
+import kotlinx.android.synthetic.main.activity_create_place.*
 import kotlinx.android.synthetic.main.activity_update_place.*
 
 class UpdatePlaceActivity : AppCompatActivity() {
@@ -109,7 +110,11 @@ class UpdatePlaceActivity : AppCompatActivity() {
         } else if (highestPrice == null) {
             Toast.makeText(this, "Harga Tertinggi tidak boleh kosong", Toast.LENGTH_SHORT).show()
             return
-        } else {
+        } else if (lowestPrice >= highestPrice) {
+            Toast.makeText(this,"Harga Terendah harus lebih murah dari Harga Tertinggi",Toast.LENGTH_SHORT
+            ).show()
+            return
+        }else {
 
             pb_update_place.visibility = View.VISIBLE
 
@@ -144,6 +149,8 @@ class UpdatePlaceActivity : AppCompatActivity() {
                     intent.putExtra("hargaTertinggi", highestPrice)
                     intent.putStringArrayListExtra("gambar", images)
                     pb_update_place.visibility = View.GONE
+                    finish()
+                    Toast.makeText(this, "Update berhasil", Toast.LENGTH_SHORT).show()
                     finish()
                     startActivity(intent)
                 }

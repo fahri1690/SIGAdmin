@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -37,12 +38,14 @@ class CreatePlaceActivity : AppCompatActivity() {
     private var storageReference: StorageReference? = null
 
     private var imageList: ArrayList<Uri> = ArrayList()
+    private var imageListString: ArrayList<String> = ArrayList()
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_place)
 
+//        read database
         imgRef = FirebaseStorage.getInstance()
         storageReference = imgRef!!.reference
 
@@ -57,16 +60,7 @@ class CreatePlaceActivity : AppCompatActivity() {
         }
     }
 
-    private var countDownTimer = object : CountDownTimer(2000, 800) {
-        override fun onTick(millisUntilFinished: Long) {
-
-        }
-
-        override fun onFinish() {
-            pb_create_place.visibility = View.GONE
-        }
-    }
-
+    //    select image in gallery
     private fun selectImage() {
         intent = Intent()
         intent.type = "image/*"
@@ -75,6 +69,7 @@ class CreatePlaceActivity : AppCompatActivity() {
         startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), pickImageRequest)
     }
 
+    //    cek image selected
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == pickImageRequest && resultCode == Activity.RESULT_OK) {
@@ -91,103 +86,57 @@ class CreatePlaceActivity : AppCompatActivity() {
                     Toast.makeText(this, "$totalItem foto dipilih", Toast.LENGTH_LONG).show()
 
                 }
-                data?.data != null -> {
-                    filepath = data.data
-                    try {
-                        MediaStore.Images.Media.getBitmap(contentResolver, filepath)
-                    } catch (e: IOException) {
-                        e.printStackTrace()
-                    }
-
-                    Toast.makeText(this, "1 foto dipilih", Toast.LENGTH_LONG).show()
-                }
             }
 
         }
     }
 
+    //    add image to storage n DB
     private fun uploadImage() {
 
         pb_create_place.visibility = View.VISIBLE
 
-        val imageRef = storageReference!!.child("gambar/places/*" + UUID.randomUUID().toString())
+        val imageCount = imageList.size
 
-        for (uploadCount in 0 until imageList.size step 1) {
+        if(imageCount >= 1) {
+            for (i in 0 until imageCount step 1) {
 
-            val single = imageList[uploadCount]
-            val images = storageReference!!.child("gambar/places/*" + single.lastPathSegment)
-            val uploadTask = images.putFile(single)
+                val single = imageList[i]
+                val images = storageReference!!.child("gambar/places/*" + single.lastPathSegment)
+                val uploadTask = images.putFile(single)
 
-            countDownTimer.start()
-
-            uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
-                when {
-                    !task.isSuccessful -> task.exception?.let {
-                        pb_create_place.visibility = View.GONE
-                        Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
-                        throw it
-                    }
-                }
-                return@Continuation images.downloadUrl
-            }).addOnSuccessListener {
-
-            }
-                .addOnFailureListener {
-                    pb_create_place.visibility = View.GONE
-                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
-                }
-                .addOnCompleteListener {
+                uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
                     when {
-                        it.isSuccessful -> {
-
-                            val list = arrayListOf(it.result.toString())
-
-                            for (size in 0 until list.size step 1) {
-                                list.add(it.result.toString())
-                            }
-                            addUploadToDb(it.result.toString())
+                        !task.isSuccessful -> task.exception?.let {
+                            Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                            throw it
                         }
                     }
-                    return@addOnCompleteListener
-                }
-        }
+                    Log.d("success", task.result.toString())
+                    return@Continuation images.downloadUrl
+                }).addOnSuccessListener {
 
-        if (filepath == null) {
-            countDownTimer.start()
-        } else {
-
-            val uploadTask = imageRef.putFile(filepath!!)
-            uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
-                when {
-                    !task.isSuccessful -> task.exception?.let {
-                        throw it
-                    }
-                }
-                return@Continuation imageRef.downloadUrl
-            }).addOnFailureListener {
-                Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
-
-            }.addOnCompleteListener {
-                when {
-                    it.isSuccessful -> {
-
-                        pb_create_place.visibility = View.GONE
-
-                        val list = arrayListOf(it.result.toString())
-
-                        for (size in 0 until list.size step 1) {
-                            list.add(it.result.toString())
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                }.addOnCompleteListener {
+                    if (it.isComplete) {
+                        imageListString.add(it.result.toString())
+                        Log.d("imageList", imageCount.toString())
+                        Log.d("imageListString", imageListString.size.toString())
+                        if(imageListString.size == imageCount){
+                            pb_create_place.visibility = View.GONE
+                            addUploadToDb(imageListString)
                         }
-                        addUploadToDb(it.result.toString())
-
                     }
                 }
             }
+        }else{
+            Toast.makeText(this, "Foto tidak boleh kosong", Toast.LENGTH_LONG).show()
+            pb_create_place.visibility = View.GONE
         }
-
     }
 
-    private fun addUploadToDb(uri: String) {
+    private fun addUploadToDb(uri: ArrayList<String>) {
 
         val db = GetDb().collection
 
@@ -229,42 +178,49 @@ class CreatePlaceActivity : AppCompatActivity() {
             et_place_name.setBackgroundResource(R.drawable.err_outline_stroke)
             et_place_name.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
         } else if (facility.isEmpty()) {
             Toast.makeText(this, "Fasilitas tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_facility.setBackgroundResource(R.drawable.err_outline_stroke)
             et_facility.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
         } else if (jamBuka.isEmpty()) {
             Toast.makeText(this, "Jam Buka tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_jam_buka.setBackgroundResource(R.drawable.err_outline_stroke)
             et_jam_buka.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
         } else if (jamTutup.isEmpty()) {
             Toast.makeText(this, "Jam Tutup tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_jam_tutup.setBackgroundResource(R.drawable.err_outline_stroke)
             et_jam_tutup.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
         } else if (noTelp.isEmpty()) {
             Toast.makeText(this, "Nomor Telepon tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_no_telp.setBackgroundResource(R.drawable.err_outline_stroke)
             et_no_telp.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
         } else if (lat.isEmpty()) {
             Toast.makeText(this, "Latitude Telepon tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_latitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
         } else if (latToDouble == null) {
             Toast.makeText(this, "Latitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_latitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
         } else if (latToDouble < -90 || latToDouble > 90) {
             Toast.makeText(this, "Latitude harus diantara -90 sampai 90", Toast.LENGTH_SHORT)
@@ -272,21 +228,25 @@ class CreatePlaceActivity : AppCompatActivity() {
             et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_latitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
         } else if (long.isEmpty()) {
             Toast.makeText(this, "Longitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_longitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
         } else if (longToDouble == null) {
             Toast.makeText(this, "Longitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_longitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
         } else if (longToDouble < -180 || longToDouble > 180) {
-            Toast.makeText(this,"Longitude harus diantara -180 sampai 180",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Longitude harus diantara -180 sampai 180", Toast.LENGTH_SHORT)
+                .show()
             et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
             et_longitude.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
@@ -296,41 +256,51 @@ class CreatePlaceActivity : AppCompatActivity() {
             et_jenisLapangan.setBackgroundResource(R.drawable.err_outline_stroke)
             et_jenisLapangan.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
-        }else if (hargaTerendah.isEmpty()) {
+        } else if (hargaTerendah.isEmpty()) {
+            Toast.makeText(this, "Harga Terendah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            et_harga_terendah.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_harga_terendah.setHintTextColor(getColor(R.color.errColor))
+            pb_create_place.visibility = View.GONE
+            imageListString.clear()
+            return
+        } else if (lowestPrice == null) {
             Toast.makeText(this, "Harga Terendah tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_harga_terendah.setBackgroundResource(R.drawable.err_outline_stroke)
             et_harga_terendah.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
-        }else if (lowestPrice == null) {
-            Toast.makeText(this, "Harga Terendah tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            et_harga_terendah.setBackgroundResource(R.drawable.err_outline_stroke)
-            et_harga_terendah.setHintTextColor(getColor(R.color.errColor))
-            pb_create_place.visibility = View.GONE
-            return
-        }else if (hargaTertinggi.isEmpty()) {
+        } else if (hargaTertinggi.isEmpty()) {
             Toast.makeText(this, "Harga Tertinggi tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_harga_tertinggi.setBackgroundResource(R.drawable.err_outline_stroke)
             et_harga_tertinggi.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
-        }else if (highestPrice == null) {
+        } else if (highestPrice == null) {
             Toast.makeText(this, "Harga Tertinggi tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_harga_tertinggi.setBackgroundResource(R.drawable.err_outline_stroke)
             et_harga_tertinggi.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
+            imageListString.clear()
             return
-        }else if (alamat.isEmpty()) {
+        } else if (alamat.isEmpty()) {
             Toast.makeText(this, "Alamat tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_alamat.setBackgroundResource(R.drawable.err_outline_stroke)
             et_alamat.setHintTextColor(getColor(R.color.errColor))
             pb_create_place.visibility = View.GONE
             return
+        }else if (lowestPrice >= highestPrice) {
+            Toast.makeText(this, "Harga Terendah harus lebih murah dari Harga Tertinggi", Toast.LENGTH_SHORT).show()
+            et_harga_terendah.setBackgroundResource(R.drawable.err_outline_stroke)
+            et_harga_terendah.setHintTextColor(getColor(R.color.errColor))
+            pb_create_place.visibility = View.GONE
+            imageListString.clear()
+            return
         } else {
-
             val result = hashMapOf(
-                "gambar" to arrayListOf(uri),
+                "gambar" to uri,
                 "namaTempat" to name,
                 "fasilitas" to facility,
                 "jamBuka" to jamBuka,
@@ -346,6 +316,7 @@ class CreatePlaceActivity : AppCompatActivity() {
 
             db.add(result).addOnSuccessListener {
                 val intent = Intent(this, HomeAdminActivity::class.java)
+                Toast.makeText(this, "Upload berhasil", Toast.LENGTH_SHORT).show()
                 finish()
                 startActivity(intent)
             }

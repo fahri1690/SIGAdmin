@@ -134,6 +134,7 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
                         val intent = Intent(this, MainFragmentActivity::class.java)
                         startActivity(intent)
                         finish()
+                        Toast.makeText(this, "Tambah Lapangan Berhasil", Toast.LENGTH_SHORT).show()
                     }
                     .addOnFailureListener {
 

@@ -124,8 +124,6 @@ class HomeAdminActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        tv_admin.text = user?.email
-
         tv_admin.setOnClickListener {
 
             val db = FirebaseFirestore.getInstance()

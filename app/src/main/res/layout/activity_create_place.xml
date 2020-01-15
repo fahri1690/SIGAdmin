@@ -45,6 +45,37 @@
                         android:id="@+id/et_jam_buka"
                         style="@style/etCreatePlace"
                         android:inputType="time" />
+<!--                <FrameLayout-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_width="60dp"-->
+<!--                        android:layout_gravity="bottom"-->
+<!--                        android:layout_marginBottom="@dimen/default_margin"-->
+<!--                        android:background="@drawable/spinner_bg">-->
+
+<!--                    <Spinner-->
+<!--                            android:id="@+id/spn_jam"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="@dimen/spn_height"-->
+<!--                            android:entries="@array/jam"-->
+<!--                            android:spinnerMode="dropdown" />-->
+<!--                    -->
+<!--                </FrameLayout>-->
+
+<!--                <FrameLayout-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_width="60dp"-->
+<!--                        android:layout_gravity="bottom"-->
+<!--                        android:layout_marginBottom="@dimen/default_margin"-->
+<!--                        android:background="@drawable/spinner_bg">-->
+
+<!--                    <Spinner-->
+<!--                            android:id="@+id/spn_menit"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="@dimen/spn_height"-->
+<!--                            android:entries="@array/menit"-->
+<!--                            android:spinnerMode="dropdown" />-->
+
+<!--                </FrameLayout>-->
 
             </LinearLayout>
 

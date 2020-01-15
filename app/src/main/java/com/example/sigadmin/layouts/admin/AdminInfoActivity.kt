@@ -19,11 +19,9 @@ class AdminInfoActivity : AppCompatActivity() {
 
         val email = intent.getStringExtra(USER_EMAIL)
         val name = intent.getStringExtra(USER_NAME)
-        val phone = intent.getStringExtra(PHONE)
 
         tv_email_admin.text = email
         tv_nama_admin.text = name
-//        tv_phone.text = phone
 
     }
 }

@@ -96,11 +96,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                         .addOnCompleteListener(this){task ->
                             if (task.isSuccessful){
                                 Log.d(TAG, "Sukses bikin akun dengan email baru")
-                                Toast.makeText(this, "Daftar Sukses", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Daftar Sukses, silahkan Login untuk masuk sebagai Admin", Toast.LENGTH_SHORT).show()
                                 startActivity(Intent(this, LoginActivity::class.java))
                             } else {
-                                Log.w(TAG, "gagal bikin akun baru", task.exception)
-                                Toast.makeText(baseContext, "Autentikasi gagal",
+                                Log.w(TAG, "Gagal bikin akun baru", task.exception)
+                                Toast.makeText(baseContext, "Gagal bikin akun baru",
                                     Toast.LENGTH_SHORT).show()
                             }
                         }

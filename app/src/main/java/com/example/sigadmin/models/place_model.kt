@@ -14,18 +14,7 @@ data class PlaceModel(
     val hargaTerendah: Int = 0,
     val hargaTertinggi: Int = 0,
     val gambar: ArrayList<String> = arrayListOf(PlaceImages().gambar)
-){
-
-    companion object {
-
-        const val PLACE_NAME = "namaTempat"
-    }
-
-    fun getName(): String {
-        return  this.namaTempat
-    }
-
-}
+)
 
 data class PlaceImages(
     val gambar: String = ""
