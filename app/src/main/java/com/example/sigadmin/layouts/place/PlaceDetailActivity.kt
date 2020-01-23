@@ -16,7 +16,6 @@ import com.example.sigadmin.services.db.GetDb
 import com.glide.slider.library.SliderLayout
 import com.glide.slider.library.SliderTypes.BaseSliderView
 import com.glide.slider.library.SliderTypes.TextSliderView
-import kotlinx.android.synthetic.main.activity_place_detail.*
 import kotlinx.android.synthetic.main.activity_place_detail.view.*
 import java.util.*
 

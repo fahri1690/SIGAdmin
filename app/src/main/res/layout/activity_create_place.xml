@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        style="@style/allmatchparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:paddingLeft="@dimen/padding_5"
         android:paddingTop="@dimen/default_padding"
         android:paddingRight="@dimen/padding_5"
@@ -12,7 +12,7 @@
     <ScrollView
             android:id="@+id/sv_create_place"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="10dp">
 
@@ -41,41 +41,45 @@
                         style="@style/tvCreatePlace"
                         android:text="@string/tv_jamBuka" />
 
-                <EditText
-                        android:id="@+id/et_jam_buka"
-                        style="@style/etCreatePlace"
-                        android:inputType="time" />
-<!--                <FrameLayout-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_width="60dp"-->
-<!--                        android:layout_gravity="bottom"-->
-<!--                        android:layout_marginBottom="@dimen/default_margin"-->
-<!--                        android:background="@drawable/spinner_bg">-->
+                <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:background="@drawable/spinner_bg">
 
-<!--                    <Spinner-->
-<!--                            android:id="@+id/spn_jam"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="@dimen/spn_height"-->
-<!--                            android:entries="@array/jam"-->
-<!--                            android:spinnerMode="dropdown" />-->
-<!--                    -->
-<!--                </FrameLayout>-->
+                    <Spinner
+                            android:id="@+id/spn_jam_buka"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/spn_height"
+                            android:entries="@array/jamBuka"
+                            android:spinnerMode="dropdown" />
 
-<!--                <FrameLayout-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_width="60dp"-->
-<!--                        android:layout_gravity="bottom"-->
-<!--                        android:layout_marginBottom="@dimen/default_margin"-->
-<!--                        android:background="@drawable/spinner_bg">-->
+                </FrameLayout>
 
-<!--                    <Spinner-->
-<!--                            android:id="@+id/spn_menit"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="@dimen/spn_height"-->
-<!--                            android:entries="@array/menit"-->
-<!--                            android:spinnerMode="dropdown" />-->
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textSize="30sp"
+                        android:text=":"/>
 
-<!--                </FrameLayout>-->
+                <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:background="@drawable/spinner_bg">
+
+                    <Spinner
+                            android:id="@+id/spn_menit_buka"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/spn_height"
+                            android:entries="@array/menit"
+                            android:spinnerMode="dropdown" />
+
+                </FrameLayout>
 
             </LinearLayout>
 
@@ -86,10 +90,45 @@
                         style="@style/tvCreatePlace"
                         android:text="@string/tv_jamTutup" />
 
-                <EditText
-                        android:id="@+id/et_jam_tutup"
-                        style="@style/etCreatePlace"
-                        android:inputType="time" />
+                <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:background="@drawable/spinner_bg">
+
+                    <Spinner
+                            android:id="@+id/spn_jam_tutup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/spn_height"
+                            android:entries="@array/jamTutup"
+                            android:spinnerMode="dropdown" />
+
+                </FrameLayout>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textSize="30sp"
+                        android:text=":"/>
+
+                <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:background="@drawable/spinner_bg">
+
+                    <Spinner
+                            android:id="@+id/spn_menit_tutup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/spn_height"
+                            android:entries="@array/menit"
+                            android:spinnerMode="dropdown" />
+
+                </FrameLayout>
 
             </LinearLayout>
 
@@ -154,13 +193,22 @@
 
                 <TextView
                         style="@style/tvCreatePlace"
+                        android:layout_marginEnd="@dimen/value30dp"
                         android:text="@string/jenis" />
 
-                <EditText
-                        android:id="@+id/et_jenisLapangan"
-                        style="@style/etCreatePlace"
-                        android:inputType="text" />
+                <CheckBox
+                        android:id="@+id/cb_vinyl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/vinyl" />
 
+                <CheckBox
+                        android:id="@+id/cb_sintetis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/sintetis" />
             </LinearLayout>
 
             <!--            harga lapangan terendah-->
@@ -210,7 +258,7 @@
                     android:id="@+id/pick_place_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/default_margin"
+                    android:layout_marginBottom="30dp"
                     android:drawableTop="@drawable/ic_add_a_photo_black_24dp"
                     android:drawablePadding="@dimen/padding_5"
                     android:text="@string/pilih_foto" />
@@ -218,9 +266,12 @@
             <Button
                     android:id="@+id/btn_save_new_field"
                     style="@style/button"
-                    android:layout_marginBottom="@dimen/default_margin"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="2dp"
                     android:text="@string/btn_simpan_lap_baru" />
+
         </LinearLayout>
+
     </ScrollView>
 
     <ProgressBar
@@ -228,11 +279,8 @@
             style="@android:style/Widget.DeviceDefault.Light.ProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:layout_constraintBottom_toBottomOf="@+id/sv_create_place"
-            app:layout_constraintEnd_toEndOf="@+id/sv_create_place"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -134,12 +134,10 @@ class HomeAdminActivity : AppCompatActivity() {
 
                     val mail = doc?.get("email").toString()
                     val name = doc?.get("namaAdmin").toString()
-                    val phone = doc?.get("").toString()
 
                     val intent = Intent(this, AdminInfoActivity::class.java)
                     intent.putExtra(AdminInfoActivity.USER_EMAIL, mail)
                     intent.putExtra(AdminInfoActivity.USER_NAME, name)
-                    intent.putExtra(AdminInfoActivity.PHONE, phone)
                     startActivity(intent)
                 }
             }

@@ -1,6 +1,7 @@
 package com.example.sigadmin.layouts.field
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -91,45 +92,59 @@ class UpdateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
             kodeLapangan.isEmpty() -> {
                 Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
                 et_updt_kodeLapangan.setBackgroundResource(R.drawable.err_outline_stroke)
-                et_updt_kodeLapangan.setHintTextColor(getColor(R.color.errColor))
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    et_updt_kodeLapangan.setHintTextColor(getColor(R.color.errColor))
+                }
                 countDownTimer.start()
                 return
             }
             hargaSiang.isEmpty() -> {
                 Toast.makeText(this, "Harga Siang wajib diisi", Toast.LENGTH_SHORT).show()
                 et_updt_hargaSiang.setBackgroundResource(R.drawable.err_outline_stroke)
-                et_updt_hargaSiang.setHintTextColor(getColor(R.color.errColor))
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    et_updt_hargaSiang.setHintTextColor(getColor(R.color.errColor))
+                }
                 countDownTimer.start()
             }
             dayPrice == null -> {
                 Toast.makeText(this, "Harga Siang wajib diisi", Toast.LENGTH_SHORT).show()
                 et_updt_hargaSiang.setBackgroundResource(R.drawable.err_outline_stroke)
-                et_updt_hargaSiang.setHintTextColor(getColor(R.color.errColor))
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    et_updt_hargaSiang.setHintTextColor(getColor(R.color.errColor))
+                }
                 return
             }
             dayPrice <= 0 -> {
                 Toast.makeText(this, "Harga Siang harus lebih besar dari 0", Toast.LENGTH_SHORT).show()
                 et_updt_hargaSiang.setBackgroundResource(R.drawable.err_outline_stroke)
-                et_updt_hargaSiang.setHintTextColor(getColor(R.color.errColor))
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    et_updt_hargaSiang.setHintTextColor(getColor(R.color.errColor))
+                }
                 return
             }
             hargaMalam.isEmpty() -> {
                 Toast.makeText(this, "Harga Malam wajib diisi", Toast.LENGTH_SHORT).show()
                 et_updt_hargaMalam.setBackgroundResource(R.drawable.err_outline_stroke)
-                et_updt_hargaMalam.setHintTextColor(getColor(R.color.errColor))
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    et_updt_hargaMalam.setHintTextColor(getColor(R.color.errColor))
+                }
                 countDownTimer.start()
                 return
             }
             nightPrice == null -> {
                 Toast.makeText(this, "Harga Malam wajib diisi", Toast.LENGTH_SHORT).show()
                 et_updt_hargaMalam.setBackgroundResource(R.drawable.err_outline_stroke)
-                et_updt_hargaMalam.setHintTextColor(getColor(R.color.errColor))
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    et_updt_hargaMalam.setHintTextColor(getColor(R.color.errColor))
+                }
                 return
             }
             nightPrice <= 0 -> {
                 Toast.makeText(this, "Harga malam harus lebih besar dari 0", Toast.LENGTH_SHORT).show()
                 et_updt_hargaMalam.setBackgroundResource(R.drawable.err_outline_stroke)
-                et_updt_hargaMalam.setHintTextColor(getColor(R.color.errColor))
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    et_updt_hargaMalam.setHintTextColor(getColor(R.color.errColor))
+                }
                 return
             }
             else -> {

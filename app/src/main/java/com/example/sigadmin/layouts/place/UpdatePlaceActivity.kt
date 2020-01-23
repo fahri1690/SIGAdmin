@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
 import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
-import kotlinx.android.synthetic.main.activity_create_place.*
 import kotlinx.android.synthetic.main.activity_update_place.*
 
 class UpdatePlaceActivity : AppCompatActivity() {
@@ -37,12 +36,30 @@ class UpdatePlaceActivity : AppCompatActivity() {
         val name = et_updt_nama_tempat.text.toString()
         val facility = et_updt_fasilitas.text.toString()
         val alamat = et_updt_alamat.text.toString()
-        val jamBuka = et_updt_jamBuka.text.toString()
-        val jamTutup = et_updt_jamTutup.text.toString()
+
+        val hBuka = spn_updt_jam_buka.selectedItem as String
+        val mBuka = spn_updt_menit_buka.selectedItem as String
+        val jamBuka = "$hBuka:$mBuka"
+
+        val hTutup = spn_updt_jam_tutup.selectedItem as String
+        val mTutup = spn_updt_menit_tutup.selectedItem as String
+        val jamTutup = "$hTutup:$mTutup"
+
         val lat = et_updt_latitude.text.toString()
         val long = et_updt_longitude.text.toString()
         val noTelp = et_updt_noTelp.text.toString()
-        val jenisLapangan = et_updt_jenisLapangan.text.toString()
+
+        var jnsLapangan = ""
+
+        if(cb_updt_sintetis.isChecked && !cb_updt_vinyl.isChecked) {
+            jnsLapangan = "Sintetis"
+        }else if (cb_updt_vinyl.isChecked && !cb_updt_sintetis.isChecked) {
+            jnsLapangan = "Vinyl"
+        }else if(cb_updt_sintetis.isChecked && cb_updt_vinyl.isChecked) {
+            jnsLapangan = "Vinyl & Sintetis"
+        }
+
+        val jenisLapangan = jnsLapangan
         val hargaTerendah = et_updt_harga_terendah.text.toString()
         val hargaTertinggi = et_updt_harga_tertinggi.text.toString()
 
@@ -71,13 +88,8 @@ class UpdatePlaceActivity : AppCompatActivity() {
         } else if (facility.isEmpty()) {
             Toast.makeText(this, "Fasilitas tidak boleh kosong", Toast.LENGTH_SHORT).show()
             return
-        } else if (jamBuka.isEmpty()) {
-            Toast.makeText(this, "Jam Buka tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            return
-        } else if (jamTutup.isEmpty()) {
-            Toast.makeText(this, "Jam Tutup tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            return
-        } else if (noTelp.isEmpty()) {
+        }
+        else if (noTelp.isEmpty()) {
             Toast.makeText(this, "Nomor Telepon tidak boleh kosong", Toast.LENGTH_SHORT).show()
             return
         } else if (alamat.isEmpty()) {
@@ -170,25 +182,19 @@ class UpdatePlaceActivity : AppCompatActivity() {
         query.get().addOnSuccessListener {
             val name = it.data?.get("namaTempat").toString()
             val facility = it.data?.get("fasilitas").toString()
-            val jamBuka = it.data?.get("jamBuka").toString()
-            val jamTutup = it.data?.get("jamTutup").toString()
             val noTelp = it.data?.get("noTelp").toString()
             val lat = it.data?.get("latitude").toString()
             val long = it.data?.get("longitude").toString()
             val alamat = it.data?.get("alamat").toString()
-            val jenisLapangan = it.data?.get("jenisLapangan").toString()
             val hargaTerendah = it.data?.get("hargaTerendah").toString()
             val hargaTertinggi = it.data?.get("hargaTertinggi").toString()
 
             et_updt_nama_tempat.setText(name)
             et_updt_fasilitas.setText(facility)
             et_updt_alamat.setText(alamat)
-            et_updt_jamBuka.setText(jamBuka)
-            et_updt_jamTutup.setText(jamTutup)
             et_updt_latitude.setText(lat)
             et_updt_longitude.setText(long)
             et_updt_noTelp.setText(noTelp)
-            et_updt_jenisLapangan.setText(jenisLapangan)
             et_updt_harga_terendah.setText(hargaTerendah)
             et_updt_harga_tertinggi.setText(hargaTertinggi)
         }

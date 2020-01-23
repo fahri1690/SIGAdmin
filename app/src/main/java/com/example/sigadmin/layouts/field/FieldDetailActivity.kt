@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
-import com.example.sigadmin.layouts.main.MainFragmentActivity
 import com.example.sigadmin.services.db.GetDb
 import kotlinx.android.synthetic.main.activity_field_detail.*
 
@@ -72,7 +71,7 @@ class FieldDetailActivity : AppCompatActivity() {
                     val hargaTerendah = document.data?.get("hargaTerendah").toString()
                     val hargaTertinggi = document.data?.get("hargaTertinggi").toString()
 
-                    val intent = Intent(this, MainFragmentActivity::class.java)
+                    val intent = Intent(this, FieldListActivity::class.java)
                     intent.putExtra("placeId", placeId)
                     intent.putExtra("namaTempat", name)
                     intent.putExtra("fasilitas", facility)

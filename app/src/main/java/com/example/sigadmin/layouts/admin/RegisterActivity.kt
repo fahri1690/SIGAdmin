@@ -33,7 +33,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         auth = FirebaseAuth.getInstance()
 
         btn_register.setOnClickListener {
-            createAccount("","")
+            createAccount()
         }
 
         tv_login.setOnClickListener {
@@ -43,7 +43,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun createAccount(email: String, password: String) {
+    private fun createAccount() {
         val name = et_name_register.text.toString()
         val email = et_email_register.text.toString()
         val password = et_password_register.text.toString()
@@ -135,7 +135,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.btn_register -> createAccount(et_email_register.text.toString(), et_password_register.text.toString())
+            R.id.btn_register -> if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                createAccount()
+            }
         }
     }
 

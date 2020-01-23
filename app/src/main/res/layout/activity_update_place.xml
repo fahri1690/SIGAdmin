@@ -39,10 +39,45 @@
                         style="@style/tvCreatePlace"
                         android:text="@string/tv_jamBuka" />
 
-                <EditText
-                        android:id="@+id/et_updt_jamBuka"
-                        style="@style/etCreatePlace"
-                        android:inputType="time" />
+                <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:background="@drawable/spinner_bg">
+
+                    <Spinner
+                            android:id="@+id/spn_updt_jam_buka"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/spn_height"
+                            android:entries="@array/jamBuka"
+                            android:spinnerMode="dropdown" />
+
+                </FrameLayout>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textSize="30sp"
+                        android:text=":"/>
+
+                <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:background="@drawable/spinner_bg">
+
+                    <Spinner
+                            android:id="@+id/spn_updt_menit_buka"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/spn_height"
+                            android:entries="@array/menit"
+                            android:spinnerMode="dropdown" />
+
+                </FrameLayout>
 
             </LinearLayout>
 
@@ -52,10 +87,45 @@
                         style="@style/tvCreatePlace"
                         android:text="@string/tv_jamTutup" />
 
-                <EditText
-                        android:id="@+id/et_updt_jamTutup"
-                        style="@style/etCreatePlace"
-                        android:inputType="time" />
+                <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:background="@drawable/spinner_bg">
+
+                    <Spinner
+                            android:id="@+id/spn_updt_jam_tutup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/spn_height"
+                            android:entries="@array/jamTutup"
+                            android:spinnerMode="dropdown" />
+
+                </FrameLayout>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textSize="30sp"
+                        android:text=":"/>
+
+                <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/default_margin"
+                        android:background="@drawable/spinner_bg">
+
+                    <Spinner
+                            android:id="@+id/spn_updt_menit_tutup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/spn_height"
+                            android:entries="@array/menit"
+                            android:spinnerMode="dropdown" />
+
+                </FrameLayout>
 
             </LinearLayout>
 
@@ -116,12 +186,22 @@
 
                 <TextView
                         style="@style/tvCreatePlace"
+                        android:layout_marginEnd="@dimen/value30dp"
                         android:text="@string/jenis" />
 
-                <EditText
-                        android:id="@+id/et_updt_jenisLapangan"
-                        style="@style/etCreatePlace"
-                        android:inputType="text" />
+                <CheckBox
+                        android:id="@+id/cb_updt_vinyl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/vinyl" />
+
+                <CheckBox
+                        android:id="@+id/cb_updt_sintetis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/sintetis" />
 
             </LinearLayout>
 
