@@ -1,4 +1,4 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -17,7 +17,7 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
-<!--    width height layout-->
+    <!--    width height layout-->
     <style name="matchwrap">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -34,7 +34,7 @@
     </style>
 
 
-<!--    Button-->
+    <!--    Button-->
     <style name="button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -42,7 +42,7 @@
         <item name="android:textColor">@color/buttonTextColor</item>
     </style>
 
-<!--    create place activity-->
+    <!--    create place activity-->
     <style name="linlayCreatePlaceActivity">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -51,9 +51,10 @@
     </style>
 
     <style name="tvCreatePlace">
-        <item name="android:layout_width">128dp</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/huruf18</item>
+        <item name="android:layout_marginStart">2dp</item>
+        <item name="android:textSize">@dimen/huruf16</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 
@@ -63,22 +64,18 @@
         <item name="android:background">@drawable/outline_stroke</item>
     </style>"
 
-<!--    linear layout create field activity-->
+    <!--    linear layout create field activity-->
     <style name="LinLayCreateField">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-<!-- create field activity-->
+    <!-- create field activity-->
     <style name="tvCreateField">
-        <item name="android:layout_width">@dimen/margin_130</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/padding_5</item>
         <item name="android:paddingLeft">@dimen/margin_2</item>
-        <item name="android:paddingTop">@dimen/default_padding</item>
-        <item name="android:paddingBottom">@dimen/default_padding</item>
         <item name="android:textSize">@dimen/huruf18</item>
-        <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="etCreateField">
@@ -87,7 +84,7 @@
         <item name="android:background">@drawable/outline_stroke</item>
     </style>
 
-<!-- read place detail activity-->
+    <!-- read place detail activity-->
 
     <style name="tvPlaceDetail1">
         <item name="android:layout_width">@dimen/widthsize_fielddetail</item>
@@ -113,7 +110,7 @@
         <item name="android:textSize">@dimen/textsize_fielddetail</item>
     </style>
 
-<!--    Field detail activity-->
+    <!--    Field detail activity-->
     <style name="tvFieldDetail">
         <item name="android:layout_width">@dimen/margin_100</item>
         <item name="android:layout_height">wrap_content</item>
@@ -125,6 +122,10 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/textsize_fielddetail</item>
+    </style>
+
+    <style name="ThemeOverlay.FilterButton" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
     </style>
 
 </resources>

@@ -3,7 +3,6 @@ package com.example.sigadmin.layouts.place
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -71,7 +70,6 @@ class PlaceDetailActivity : Fragment(), BaseSliderView.OnSliderClickListener{
             intent.putExtra("placeId", documentId)
             intent.putStringArrayListExtra("gambar", imageList)
             startActivity(intent)
-            Log.d("Meesss", documentId)
         }
 
         val name = results.getString("namaTempat")
@@ -83,9 +81,6 @@ class PlaceDetailActivity : Fragment(), BaseSliderView.OnSliderClickListener{
             intent.putExtra(MapsActivity(). extraName, name)
             intent.putExtra(MapsActivity(). extraLat, lat)
             intent.putExtra(MapsActivity(). extraLong, long)
-
-            println("LATITIDE = $lat")
-            println("LONGITUDE = $long")
 
             startActivity(intent)
         }

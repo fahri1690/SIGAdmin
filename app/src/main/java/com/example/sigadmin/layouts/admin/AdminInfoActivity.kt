@@ -1,8 +1,10 @@
 package com.example.sigadmin.layouts.admin
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigadmin.R
+import com.example.sigadmin.layouts.home.HomeAdminActivity
 import kotlinx.android.synthetic.main.activity_admin_info.*
 
 class AdminInfoActivity : AppCompatActivity() {
@@ -22,6 +24,11 @@ class AdminInfoActivity : AppCompatActivity() {
 
         tv_email_admin.text = email
         tv_nama_admin.text = name
+
+        back_from_admininfo.setOnClickListener {
+            intent = Intent(this, HomeAdminActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

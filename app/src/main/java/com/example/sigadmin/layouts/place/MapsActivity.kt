@@ -64,7 +64,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
         //stop location updates when Activity is no longer active
 
-
         if (mGoogleApiClient != null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(
                 mGoogleApiClient,
@@ -137,9 +136,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         val x = lat.toDouble()
         val y = lng.toDouble()
 
-        println("latDouble = $lat")
-        println("longDouble = $lng")
-
         mLastLocation = location
         if (mCurrLocationMarker != null) {
             mCurrLocationMarker!!.remove()
@@ -196,10 +192,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                 // sees the explanation, try again to request the permission.
 
                 AlertDialog.Builder(this)
-                    .setTitle("Location Permission Needed")
-                    .setMessage("This app needs the Location permission, please accept to use location functionality")
+                    .setTitle("Akses Lokasi Dibutuhkan")
+                    .setMessage("Aplikasi ini membutuhkan izin Lokasi untuk menggunakan fungsionalitas lokasi")
                     .setPositiveButton(
-                        "OK"
+                        "Izinkan"
                     ) { _, _ ->
                         //Prompt the user once explanation has been shown
 

@@ -4,10 +4,10 @@
     <dimen name="default_padding">10dip</dimen>
     <dimen name="default_margin">10dip</dimen>
     <dimen name="stroke_width">1dip</dimen>
-    <dimen name="stroke_radius">8dip</dimen>
+    <dimen name="stroke_radius">4dip</dimen>
     <dimen name="button_height">40dip</dimen>
     <dimen name="button_width">150dp</dimen>
-    <dimen name="spn_height">40dp</dimen>
+    <dimen name="spn_height">34dp</dimen>
     <dimen name="image_view_height">220dp</dimen>
     <dimen name="text_size_infologin">18dip</dimen>
     <dimen name="account_icon">130dp</dimen>
@@ -20,15 +20,17 @@
     <dimen name="appbar_padding">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
-    <dimen name="widthsize_subfielddetail">100dp</dimen>
+    <dimen name="widthsize_subfielddetail">65dp</dimen>
     <dimen name="margintop_icuser">120dp</dimen>
     <dimen name="fontSz_loginInfo">20sp</dimen>
     <dimen name="padding_5">5dp</dimen>
     <dimen name="padding_18">18dp</dimen>
     <dimen name="huruf18">18sp</dimen>
-    <dimen name="stroke_ouval_radius">100dip</dimen>
+    <dimen name="huruf16">16sp</dimen>
+    <dimen name="stroke_ouval_radius">8dip</dimen>
     <dimen name="margin_100">100dp</dimen>
     <dimen name="margin_130">130dp</dimen>
     <dimen name="margin_2">2dp</dimen>
     <dimen name="value30dp">30dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
 </resources>

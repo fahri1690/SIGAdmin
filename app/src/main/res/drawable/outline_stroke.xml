@@ -12,8 +12,8 @@
 
     <padding android:left="@dimen/default_margin"
              android:right="@dimen/default_margin"
-             android:top="@dimen/default_margin"
-             android:bottom="@dimen/default_margin">
+             android:top="@dimen/padding_5"
+             android:bottom="@dimen/padding_5">
 
     </padding>
 </shape>

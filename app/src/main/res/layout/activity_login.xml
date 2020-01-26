@@ -73,18 +73,10 @@
                     android:orientation="horizontal">
 
                 <TextView
-                        android:id="@+id/tv_lupa_sandi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/lupasandi"
-                        android:textColor="@color/colorPrimary" />
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/padding_5"
-                        android:layout_marginRight="@dimen/padding_5"
-                        android:text="@string/garisvertical" />
+                        android:layout_marginEnd="@dimen/margin_2"
+                        android:text="@string/belum_punya_akun" />
 
                 <TextView
                         android:id="@+id/tv_daftar"

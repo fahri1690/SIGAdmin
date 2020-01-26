@@ -42,7 +42,6 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 }
                 .addOnFailureListener {
-                    Log.e("Main", "Failed Login: ${it.message}")
                     Toast.makeText(this, "Email/Password tidak sesuai", Toast.LENGTH_SHORT).show()
                 }
         }

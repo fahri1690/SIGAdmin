@@ -8,4 +8,5 @@
     <color name="errColor" >#DC143C</color>
     <color name="transparent">#00000000</color>
     <color name="bgHome">#DAFFF9</color>
+    <color name="black">#585352</color>
 </resources>

@@ -48,9 +48,13 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         btn_save_newField.setOnClickListener {
             saveData()
         }
+
+        back_to_field_list.setOnClickListener {
+            onBackPressed()
+        }
     }
 
-    private var countDownTimer = object : CountDownTimer(2000, 800) {
+    private var countDownTimer = object : CountDownTimer(500, 100) {
         override fun onTick(millisUntilFinished: Long) {
 
         }
@@ -65,7 +69,6 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
     private fun saveData() {
 
         pb_create_field.visibility = View.VISIBLE
-        countDownTimer.start()
 
 
         val placeId = intent.getStringExtra("placeId")
@@ -136,49 +139,7 @@ class CreateFieldActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
                         finish()
                         Toast.makeText(this, "Tambah Lapangan Berhasil", Toast.LENGTH_SHORT).show()
                     }
-                    .addOnFailureListener {
-
-                    }
             }
         }
-    }
-
-    override fun onBackPressed() {
-        val placeId = intent.getStringExtra("placeId")
-        val docRef = GetDb().collection.document(placeId)
-
-        docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-
-                    val intent = Intent(this, MainFragmentActivity::class.java)
-
-                    val name = document.data?.get("namaTempat").toString()
-                    val facility = document.data?.get("fasilitas").toString()
-                    val jamBuka = document.data?.get("jamBuka").toString()
-                    val jamTutup = document.data?.get("jamTutup").toString()
-                    val noTelp = document.data?.get("noTelp").toString()
-                    val alamat = document.data?.get("alamat").toString()
-                    val lat = document.data?.get("latitude").toString()
-                    val long = document.data?.get("longitude").toString()
-                    val jenis = document.data?.get("jenisLapangan").toString()
-                    val hargaTerendah = document.data?.get("hargaTerendah").toString()
-                    val hargaTertinggi = document.data?.get("hargaTertinggi").toString()
-
-                    intent.putExtra("placeId", placeId)
-                    intent.putExtra("namaTempat", name)
-                    intent.putExtra("fasilitas", facility)
-                    intent.putExtra("jamBuka", jamBuka)
-                    intent.putExtra("jamTutup", jamTutup)
-                    intent.putExtra("noTelp", noTelp)
-                    intent.putExtra("alamat", alamat)
-                    intent.putExtra("latitude", lat)
-                    intent.putExtra("longitude", long)
-                    intent.putExtra("jenisLapangan", jenis)
-                    intent.putExtra("hargaTerendah", hargaTerendah)
-                    intent.putExtra("hargaTertinggi", hargaTertinggi)
-                    startActivity(intent)
-                }
-            }
     }
 }

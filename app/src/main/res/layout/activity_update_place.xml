@@ -1,26 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         style="@style/allmatchparent"
-        android:layout_gravity="center_vertical"
         tools:context=".layouts.place.UpdatePlaceActivity">
 
-    <ScrollView
-            android:id="@+id/sv_update_place"
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_update_place"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="@dimen/toolbar_height"
+            android:layout_marginBottom="5dp"
+            android:background="@color/colorPrimary"
+            android:elevation="@dimen/default_padding"
+            tools:ignore="MissingConstraints">
+
+
+        <RelativeLayout style="@style/allmatchparent">
+
+            <ImageButton
+                    android:id="@+id/back_from_updt_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/padding_5"
+                    android:background="@color/transparent"
+                    android:src="@drawable/arrow_back"
+                    android:contentDescription="@string/button_back" />
+
+            <TextView
+                    style="@style/allwrapcontent"
+                    android:layout_marginStart="@dimen/margin_2"
+                    android:layout_centerVertical="true"
+                    android:text="@string/update_tempat_futsal"
+                    android:layout_toEndOf="@id/back_from_updt_place"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/huruf18"
+                    android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+            android:id="@+id/sv_create_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar_update_place"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="10dp">
 
         <LinearLayout
-                style="@style/allmatchparent"
+                style="@style/matchwrap"
                 android:orientation="vertical"
-                android:paddingLeft="@dimen/padding_5"
-                android:paddingTop="@dimen/default_padding"
-                android:paddingRight="@dimen/padding_5"
-                android:paddingBottom="@dimen/default_padding"
-                tools:ignore="MissingConstraints">
+                android:paddingStart="@dimen/padding_5"
+                android:paddingEnd="@dimen/padding_5"
+                android:paddingBottom="@dimen/default_padding">
 
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <!--Nama tempat Futsal-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
@@ -33,103 +70,117 @@
 
             </LinearLayout>
 
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <!--Jam buka-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
                         android:text="@string/tv_jamBuka" />
 
-                <FrameLayout
+                <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginBottom="@dimen/default_margin"
-                        android:background="@drawable/spinner_bg">
+                        android:layout_height="wrap_content">
 
-                    <Spinner
-                            android:id="@+id/spn_updt_jam_buka"
+                    <FrameLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/spn_height"
-                            android:entries="@array/jamBuka"
-                            android:spinnerMode="dropdown" />
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/spinner_bg">
 
-                </FrameLayout>
+                        <Spinner
+                                android:id="@+id/spn_updt_jam_buka"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/spn_height"
+                                android:entries="@array/jamBuka"
+                                android:spinnerMode="dropdown" />
 
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:textSize="30sp"
-                        android:text=":"/>
+                    </FrameLayout>
 
-                <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginBottom="@dimen/default_margin"
-                        android:background="@drawable/spinner_bg">
-
-                    <Spinner
-                            android:id="@+id/spn_updt_menit_buka"
+                    <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/spn_height"
-                            android:entries="@array/menit"
-                            android:spinnerMode="dropdown" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:gravity="center_vertical"
+                            android:textSize="30sp"
+                            android:text=":"/>
 
-                </FrameLayout>
+                    <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/spinner_bg">
+
+                        <Spinner
+                                android:id="@+id/spn_updt_menit_buka"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/spn_height"
+                                android:entries="@array/menit"
+                                android:spinnerMode="dropdown" />
+
+                    </FrameLayout>
+                </LinearLayout>
+
 
             </LinearLayout>
 
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <!--Jam tutup-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
                         android:text="@string/tv_jamTutup" />
 
-                <FrameLayout
+                <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginBottom="@dimen/default_margin"
-                        android:background="@drawable/spinner_bg">
+                        android:layout_height="wrap_content">
 
-                    <Spinner
-                            android:id="@+id/spn_updt_jam_tutup"
+                    <FrameLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/spn_height"
-                            android:entries="@array/jamTutup"
-                            android:spinnerMode="dropdown" />
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/spinner_bg">
 
-                </FrameLayout>
+                        <Spinner
+                                android:id="@+id/spn_updt_jam_tutup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/spn_height"
+                                android:entries="@array/jamTutup"
+                                android:spinnerMode="dropdown" />
 
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:textSize="30sp"
-                        android:text=":"/>
+                    </FrameLayout>
 
-                <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginBottom="@dimen/default_margin"
-                        android:background="@drawable/spinner_bg">
-
-                    <Spinner
-                            android:id="@+id/spn_updt_menit_tutup"
+                    <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/spn_height"
-                            android:entries="@array/menit"
-                            android:spinnerMode="dropdown" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="30sp"
+                            android:text=":"/>
 
-                </FrameLayout>
+                    <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/spinner_bg">
+
+                        <Spinner
+                                android:id="@+id/spn_updt_menit_tutup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/spn_height"
+                                android:entries="@array/menit"
+                                android:spinnerMode="dropdown" />
+
+                    </FrameLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <!--No telepon-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
@@ -138,11 +189,13 @@
                 <EditText
                         android:id="@+id/et_updt_noTelp"
                         style="@style/etCreatePlace"
-                        android:inputType="text" />
+                        android:inputType="phone" />
 
             </LinearLayout>
 
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <!--Alamat-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
@@ -155,7 +208,9 @@
 
             </LinearLayout>
 
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <!--Latitude-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
@@ -168,7 +223,9 @@
 
             </LinearLayout>
 
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <!--Longitude-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
@@ -181,32 +238,38 @@
 
             </LinearLayout>
 
-            <!--            jenis lapangan tersedia-->
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <!--jenis lapangan tersedia-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
-                        android:layout_marginEnd="@dimen/value30dp"
+                        android:layout_marginBottom="@dimen/padding_5"
                         android:text="@string/jenis" />
 
-                <CheckBox
-                        android:id="@+id/cb_updt_vinyl"
+                <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/vinyl" />
+                        android:layout_height="wrap_content">
 
-                <CheckBox
-                        android:id="@+id/cb_updt_sintetis"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/sintetis" />
+                    <CheckBox
+                            android:id="@+id/cb_updt_vinyl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/vinyl" />
 
+                    <CheckBox
+                            android:id="@+id/cb_updt_sintetis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/sintetis" />
+                </LinearLayout>
             </LinearLayout>
 
             <!--            harga lapangan terendah-->
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
@@ -220,7 +283,8 @@
             </LinearLayout>
 
             <!--            harga lapangan tertinggi-->
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
@@ -233,7 +297,9 @@
 
             </LinearLayout>
 
-            <LinearLayout style="@style/linlayCreatePlaceActivity">
+            <!--Fasilitas-->
+            <LinearLayout style="@style/linlayCreatePlaceActivity"
+                    android:orientation="vertical">
 
                 <TextView
                         style="@style/tvCreatePlace"
@@ -248,12 +314,13 @@
             </LinearLayout>
 
             <Button
-                    android:id="@+id/btn_save_newField"
+                    android:id="@+id/btn_save_updt_place"
                     style="@style/button"
-                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_marginBottom="2dp"
                     android:text="@string/btn_simpan_lap_baru" />
 
         </LinearLayout>
+
     </ScrollView>
 
     <ProgressBar
@@ -261,10 +328,6 @@
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:layout_constraintBottom_toBottomOf="@+id/sv_update_place"
-            app:layout_constraintEnd_toEndOf="@+id/sv_update_place"
-            app:layout_constraintStart_toStartOf="@+id/sv_update_place"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_centerInParent="true"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

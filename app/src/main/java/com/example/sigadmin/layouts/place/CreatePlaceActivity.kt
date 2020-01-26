@@ -48,7 +48,7 @@ class CreatePlaceActivity : AppCompatActivity() {
             selectImage()
         }
 
-        btn_save_new_field.setOnClickListener {
+        btn_save_new_place.setOnClickListener {
             uploadImage()
         }
     }
@@ -80,7 +80,6 @@ class CreatePlaceActivity : AppCompatActivity() {
 
                 }
             }
-
         }
     }
 
@@ -105,7 +104,6 @@ class CreatePlaceActivity : AppCompatActivity() {
                             throw it
                         }
                     }
-                    Log.d("success", task.result.toString())
                     return@Continuation images.downloadUrl
                 }).addOnSuccessListener {
 
@@ -186,134 +184,55 @@ class CreatePlaceActivity : AppCompatActivity() {
         if (name.isEmpty()) {
             Toast.makeText(this, "Nama tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_place_name.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_place_name.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
-            imageListString.clear()
-            return
-        } else if (facility.isEmpty()) {
-            Toast.makeText(this, "Fasilitas tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            et_facility.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_facility.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
             imageListString.clear()
             return
         } else if (noTelp.isEmpty()) {
             Toast.makeText(this, "Nomor Telepon tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_no_telp.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_no_telp.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
             imageListString.clear()
             return
-        } else if (lat.isEmpty()) {
-            Toast.makeText(this, "Latitude Telepon tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_latitude.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
+        } else if (alamat.isEmpty()) {
+            Toast.makeText(this, "Alamat tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            et_alamat.setBackgroundResource(R.drawable.err_outline_stroke)
             imageListString.clear()
             return
         } else if (latToDouble == null) {
             Toast.makeText(this, "Latitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_latitude.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
             imageListString.clear()
             return
         } else if (latToDouble < -90 || latToDouble > 90) {
             Toast.makeText(this, "Latitude harus diantara -90 sampai 90", Toast.LENGTH_SHORT)
                 .show()
             et_latitude.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_latitude.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
-            imageListString.clear()
-            return
-        } else if (long.isEmpty()) {
-            Toast.makeText(this, "Longitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_longitude.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
             imageListString.clear()
             return
         } else if (longToDouble == null) {
             Toast.makeText(this, "Longitude tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_longitude.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
             imageListString.clear()
             return
         } else if (longToDouble < -180 || longToDouble > 180) {
             Toast.makeText(this, "Longitude harus diantara -180 sampai 180", Toast.LENGTH_SHORT)
                 .show()
             et_longitude.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_longitude.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
             imageListString.clear()
             return
         } else if (jenisLapangan.isEmpty()) {
             Toast.makeText(this, "Wajib pilih minimal 1 jenis lapangan", Toast.LENGTH_SHORT).show()
-            pb_create_place.visibility = View.GONE
-            imageListString.clear()
-            return
-        } else if (hargaTerendah.isEmpty()) {
-            Toast.makeText(this, "Harga Terendah tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            et_harga_terendah.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_harga_terendah.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
+//            cb_vinyl.setTextColor(R.color.errColor)
+//            cb_sintetis.setTextColor(R.color.errColor)
             imageListString.clear()
             return
         } else if (lowestPrice == null) {
             Toast.makeText(this, "Harga Terendah tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_harga_terendah.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_harga_terendah.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
-            imageListString.clear()
-            return
-        } else if (hargaTertinggi.isEmpty()) {
-            Toast.makeText(this, "Harga Tertinggi tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            et_harga_tertinggi.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_harga_tertinggi.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
             imageListString.clear()
             return
         } else if (highestPrice == null) {
             Toast.makeText(this, "Harga Tertinggi tidak boleh kosong", Toast.LENGTH_SHORT).show()
             et_harga_tertinggi.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_harga_tertinggi.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
             imageListString.clear()
-            return
-        } else if (alamat.isEmpty()) {
-            Toast.makeText(this, "Alamat tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            et_alamat.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_alamat.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
             return
         } else if (lowestPrice >= highestPrice) {
             Toast.makeText(
@@ -322,10 +241,12 @@ class CreatePlaceActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
             et_harga_terendah.setBackgroundResource(R.drawable.err_outline_stroke)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                et_harga_terendah.setHintTextColor(getColor(R.color.errColor))
-            }
-            pb_create_place.visibility = View.GONE
+            et_harga_tertinggi.setBackgroundResource(R.drawable.err_outline_stroke)
+            imageListString.clear()
+            return
+        } else if (facility.isEmpty()) {
+            Toast.makeText(this, "Fasilitas tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            et_facility.setBackgroundResource(R.drawable.err_outline_stroke)
             imageListString.clear()
             return
         } else {
@@ -346,7 +267,7 @@ class CreatePlaceActivity : AppCompatActivity() {
 
             db.add(result).addOnSuccessListener {
                 val intent = Intent(this, HomeAdminActivity::class.java)
-                Toast.makeText(this, "Upload berhasil", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Berhasil menambahkan Tempat Futsal", Toast.LENGTH_SHORT).show()
                 finish()
                 startActivity(intent)
             }
