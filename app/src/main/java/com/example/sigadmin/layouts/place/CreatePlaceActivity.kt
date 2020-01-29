@@ -51,6 +51,11 @@ class CreatePlaceActivity : AppCompatActivity() {
         btn_save_new_place.setOnClickListener {
             uploadImage()
         }
+
+        back_to_home.setOnClickListener {
+            intent = Intent(this, HomeAdminActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     //    select image in gallery
@@ -94,7 +99,7 @@ class CreatePlaceActivity : AppCompatActivity() {
             for (i in 0 until imageCount step 1) {
 
                 val single = imageList[i]
-                val images = storageReference!!.child("gambar/places/*" + single.lastPathSegment)
+                val images = storageReference!!.child("gambar/*" + single.lastPathSegment)
                 val uploadTask = images.putFile(single)
 
                 uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->

@@ -12,7 +12,6 @@ class AdminInfoActivity : AppCompatActivity() {
     companion object {
         var USER_EMAIL = "user_email"
         var USER_NAME = "user_name"
-        var PHONE = "phone"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

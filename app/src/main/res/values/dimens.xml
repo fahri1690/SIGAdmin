@@ -20,7 +20,7 @@
     <dimen name="appbar_padding">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
-    <dimen name="widthsize_subfielddetail">65dp</dimen>
+    <dimen name="widthsize_subfielddetail">75dp</dimen>
     <dimen name="margintop_icuser">120dp</dimen>
     <dimen name="fontSz_loginInfo">20sp</dimen>
     <dimen name="padding_5">5dp</dimen>

@@ -109,9 +109,9 @@ class PlaceDetailActivity : Fragment(), BaseSliderView.OnSliderClickListener{
             textSliderView.bundle(Bundle())
             slide.addSlider(textSliderView)
         }
-        slide.setPresetTransformer(SliderLayout.Transformer.Fade)
+        slide.setPresetTransformer(SliderLayout.Transformer.Default)
         slide.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom)
-        slide.setDuration(2500)
+        slide.setDuration(3000)
 
         return root
     }
